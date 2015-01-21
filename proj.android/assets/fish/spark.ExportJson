@@ -1,0 +1,2069 @@
+{
+  "content_scale": 1.0,
+  "armature_data": [
+    {
+      "strVersion": "1.4.0.1",
+      "version": 1.401,
+      "name": "spark",
+      "bone_data": [
+        {
+          "name": "Layer1",
+          "parent": "",
+          "dI": 0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 25,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "plist": "sparkp0.plist",
+              "displayType": 2
+            }
+          ]
+        },
+        {
+          "name": "spark0_23",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 24,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_22",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 23,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_21",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 22,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_20",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 21,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_19",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 20,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_18",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 19,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_17",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 18,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_16",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 17,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_15",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 16,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_14",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 15,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_13",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 14,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_12",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 13,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_11",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 12,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_10",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 11,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_9",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 10,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_8",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 9,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_7",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 8,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_6",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 7,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_5",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 6,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_4",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 5,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_3",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 4,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_2",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 3,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_1",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 2,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "spark0_0",
+          "parent": "",
+          "dI": 0,
+          "x": 1.0,
+          "y": -1.0,
+          "z": 1,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "name": "spark0.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "animation_data": [
+    {
+      "name": "spark",
+      "mov_data": [
+        {
+          "name": "0",
+          "dr": 17,
+          "lp": false,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 0.5,
+          "mov_bone_data": [
+            {
+              "name": "Layer1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 0,
+                  "tweenFrame": true
+                }
+              ]
+            },
+            {
+              "name": "spark0_23",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.2617994,
+                  "kY": 0.2617994,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 11.281123161315918,
+                  "y": -48.138603210449219,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.4,
+                  "kX": -0.26179415,
+                  "kY": 0.26179415,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_22",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.5452409,
+                  "kY": 0.5452409,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 25.513334274291992,
+                  "y": -42.146091461181641,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.4,
+                  "kX": -0.545176268,
+                  "kY": 0.545176268,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_21",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.128107175,
+                  "kY": -0.12810719,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -5.9473495483398438,
+                  "y": -47.3895378112793,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.5,
+                  "kX": 0.128094226,
+                  "kY": -0.128094226,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_20",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 6,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.467224658,
+                  "kY": 0.467224658,
+                  "fi": 8,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 30.382253646850586,
+                  "y": -65.367073059082031,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.6,
+                  "kX": -0.467233926,
+                  "kY": 0.467233926,
+                  "fi": 16,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_19",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.5269149,
+                  "kY": 0.5269149,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 34.876636505126953,
+                  "y": -56.752838134765625,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.7,
+                  "kX": -0.526842952,
+                  "kY": 0.526842952,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_18",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.203854457,
+                  "kY": -0.203854442,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -11.190797805786133,
+                  "y": -42.520622253417969,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.6,
+                  "kX": 0.203805119,
+                  "kY": -0.203805119,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_17",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.4728097,
+                  "kY": 0.4728097,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 7.910336971282959,
+                  "y": -15.554326057434082,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.3,
+                  "kX": -0.472810119,
+                  "kY": 0.472810119,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_16",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.178372651,
+                  "kY": -0.178372622,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -4.4492177963256836,
+                  "y": -12.558063507080078,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.2,
+                  "kX": 0.178314373,
+                  "kY": -0.178314373,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_15",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.415388346,
+                  "kY": 0.415388346,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 19.895359039306641,
+                  "y": -49.6367301940918,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.5,
+                  "kX": -0.4154744,
+                  "kY": 0.4154744,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_14",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 6,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.0474729575,
+                  "kY": 0.0474729538,
+                  "fi": 8,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.4196966290473938,
+                  "y": -26.790283203125,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.4,
+                  "kX": -0.0474219769,
+                  "kY": 0.0474219769,
+                  "fi": 16,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_13",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.02565634,
+                  "kY": -0.0256563425,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -0.7038998007774353,
+                  "y": -45.891410827636719,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.4,
+                  "kX": 0.02569741,
+                  "kY": -0.02569741,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_12",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.0319395252,
+                  "kY": 0.0319395065,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.79422950744628906,
+                  "y": -63.119880676269531,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.8,
+                  "kX": -0.0319996439,
+                  "kY": 0.0319996439,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_11",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.32882002,
+                  "kY": 0.32882002,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 20.644420623779297,
+                  "y": -63.868946075439453,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.8,
+                  "kX": -0.328818381,
+                  "kY": 0.328818381,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_10",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 6,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.3408628,
+                  "kY": 0.3408628,
+                  "fi": 8,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 8.2848682403564453,
+                  "y": -27.164813995361328,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.3,
+                  "kX": -0.3408885,
+                  "kY": 0.3408885,
+                  "fi": 16,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_9",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.5452409,
+                  "kY": 0.5452409,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 15.775507926940918,
+                  "y": -16.677921295166016,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.2,
+                  "kX": -0.646580338,
+                  "kY": 0.646580338,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.245218769,
+                  "kY": 0.245218754,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 12.404723167419434,
+                  "y": -59.749092102050781,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.6,
+                  "kX": -0.245259732,
+                  "kY": 0.245259732,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_7",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.4017748,
+                  "kY": -0.4017748,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -10.441736221313477,
+                  "y": -24.5430908203125,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.3,
+                  "kX": 0.401788235,
+                  "kY": -0.401788235,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_6",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 6,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.266162723,
+                  "kY": -0.266162723,
+                  "fi": 8,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -16.059711456298828,
+                  "y": -59.374561309814453,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.9,
+                  "kX": 0.266145468,
+                  "kY": -0.266145468,
+                  "fi": 16,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_5",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.654324,
+                  "kY": 0.654324,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 22.517078399658203,
+                  "y": -27.164817810058594,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.4,
+                  "kX": -0.6542898,
+                  "kY": 0.6542898,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_4",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.2666863,
+                  "kY": 0.266686261,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 13.528311729431152,
+                  "y": -65.7416000366211,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.7,
+                  "kX": -0.266756326,
+                  "kY": 0.266756326,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_3",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": -0.3748967,
+                  "kY": 0.3748967,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 10.532057762145996,
+                  "y": -29.412008285522461,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.4,
+                  "kX": -0.37484,
+                  "kY": 0.37484,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_2",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.523075163,
+                  "kY": -0.523075163,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -20.179561614990234,
+                  "y": -33.531852722167969,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.5,
+                  "kX": 0.522989631,
+                  "kY": -0.522989631,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 3,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.08883726,
+                  "kY": -0.088837266,
+                  "fi": 5,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -7.4454760551452637,
+                  "y": -59.374561309814453,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.6,
+                  "kX": 0.08886689,
+                  "kY": -0.08886689,
+                  "fi": 13,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            },
+            {
+              "name": "spark0_0",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": -1000,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.1,
+                  "kX": 0.4059636,
+                  "kY": -0.4059636,
+                  "fi": 2,
+                  "twE": 2,
+                  "tweenFrame": true
+                },
+                {
+                  "dI": 0,
+                  "x": -24.299413681030273,
+                  "y": -59.000030517578125,
+                  "z": 0,
+                  "cX": 0.4,
+                  "cY": 0.7,
+                  "kX": 0.405993968,
+                  "kY": -0.405993968,
+                  "fi": 10,
+                  "twE": 2,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 181,
+                    "g": 155,
+                    "b": 113
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "texture_data": [
+    {
+      "name": "spark0",
+      "width": 10.0,
+      "height": 60.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    }
+  ],
+  "config_file_path": [
+    "sparkp0.plist",
+    "spark0.plist"
+  ],
+  "config_png_path": [
+    "sparkp0.png",
+    "spark0.png"
+  ]
+}
