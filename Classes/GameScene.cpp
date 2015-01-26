@@ -94,6 +94,37 @@ bool GameScene::init()
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/ship_1.csb");
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/hook_1.ExportJson");
+        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test10.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test11.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test12.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test13.csb");
+//        
+//        CCArmature* test1 = CCArmature::create("test10");
+//        
+//                test1->getAnimation()->playWithIndex(0);
+//                test1->setPosition(_screenSize.width*0.2, _screenSize.height*0.5);
+//        addChild(test1);
+//        
+//        CCArmature* test2 = CCArmature::create("test11");
+//        
+//        test2->getAnimation()->playWithIndex(0);
+//        test2->setPosition(_screenSize.width*0.4, _screenSize.height*0.5);
+//        addChild(test2);
+//        
+//        CCArmature* test3 = CCArmature::create("test12");
+//        
+//        test3->getAnimation()->playWithIndex(0);
+//        test3->setPosition(_screenSize.width*0.6, _screenSize.height*0.5);
+//        addChild(test3);
+//        
+//        
+//        CCArmature* test4 = CCArmature::create("test13");
+//        
+//        test4->getAnimation()->playWithIndex(0);
+//        test4->setPosition(_screenSize.width*0.8, _screenSize.height*0.5);
+//        addChild(test4);
+        
 //
 ////        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test3.csb");
 ////        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test1.csb");
@@ -257,21 +288,21 @@ void GameScene::cycle(float delta)
     if (_addSPFishTime<0
 //        && _fishLayer->getActor()->count() == 0
         ) {
-        _addSPFishTime = Tools::randomFloatInRange(60, 120);
+        _addSPFishTime = Tools::randomFloatInRange(120, 200);
        
         addDolphin();
         addLightFish();
         addTortoise();
-        
+
         addWhale();
         addEatFish();
-        
+
         addShark();
-        
+
         addSwordFish();
-        
+
         addStrong();
-        
+
         addEle();
         
         
@@ -292,15 +323,15 @@ void GameScene::addFish(int id)
 
 void GameScene::draw()
 {
-    ccDrawColor4B(0xff, 0xff, 0x00, 0);
-    glLineWidth(1.0f);
-
+//    ccDrawColor4B(0xff, 0xff, 0x00, 0);
+//    glLineWidth(1.0f);
+//
 //    CCArray* fishSet = _fishLayer->getActor();
-//    
+//
 //    for (int i = 0; i<fishSet->count(); ++i) {
 //        Fish* fish =(Fish*) fishSet->objectAtIndex(i);
 //
-//        CCRect rect1 = fish->getBodyRect(1);
+//        CCRect rect1 = fish->getBodyRect(2);
 //        
 //    
 ////        CCLOG("x : %f y : %f w : %f h : %f",rect1.origin.x,rect1.origin.y,rect1.size.width,rect1.size.height);
@@ -308,7 +339,7 @@ void GameScene::draw()
 //        
 ////        ccDrawRect(ccp(rect1.origin.x,rect1.origin.y), ccp(rect1.origin.x+rect1.size.width, rect1.origin.y+rect1.size.height));
 //        
-//        ccDrawCircle(ccp(fish->getBone("pull")->getWorldInfo()->x+fish->getPositionX(), fish->getBone("pull")->getWorldInfo()->y+fish->getPositionY()), 15, 360, 10, true);
+////        ccDrawCircle(ccp(fish->getBone("pull")->getWorldInfo()->x+fish->getPositionX(), fish->getBone("pull")->getWorldInfo()->y+fish->getPositionY()), 15, 360, 10, true);
 //        
 //    }
 //
@@ -442,7 +473,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                     
                     fish->setStartPos(ship->getX()-200, fish->getY());
                     
-                    fish->setDes(ship->getX(), ship->getY()-30, 1);
+                    fish->setDes(ship->getX(), ship->getY()-60, 1);
                     
                     fish->setState(Fish::ACT_STATE_GOTOSHIP);
                     
@@ -453,7 +484,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                     
                     fish->setStartPos(ship->getX()+200, fish->getY());
                     
-                    fish->setDes(ship->getX(), ship->getY()-30, 1);
+                    fish->setDes(ship->getX(), ship->getY()-60, 1);
                     
                     fish->setState(Fish::ACT_STATE_GOTOSHIP);
                     
@@ -649,7 +680,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
             ship->setState(Ship::ACT_PULL);
             
             fish->setState(Fish::ACT_STATE_DEN);
-            
+            fish->setAnim(Fish::ANIM_ATK);
             ship->setw_Fish(fish);
             
             ship->setCutHookPos();
@@ -752,7 +783,7 @@ bool GameScene::waterCollideShip(Fish *fish, Ship *ship)
 {
 //    CCRect waterRect = CCRectMake(fish->getPositionX()+fish->getBodyRect(1).origin.x, fish->getPositionY()+fish->getBodyRect(1).origin.y, fish->getBodyRect(1).size.width, fish->getBodyRect(1).size.height);
     
-    return fish->getBodyRect(1).intersectsRect(ship->getBodyRect());
+    return fish->getBodyRect(1).intersectsRect(ship->getBodyRect(2));
 }
 
 bool GameScene::isCollideFish(Ship *ship, Fish *fish)

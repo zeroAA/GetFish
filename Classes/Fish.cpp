@@ -273,10 +273,13 @@ void Fish::cycle(float delta)
         
         case ACT_STATE_ZHUANG_STAY:
         
-            _stayTime--;
+//            _stayTime--;
         
-            if (_stayTime<=0) {
-                
+//            if (_stayTime<=0) {
+            
+            if (getAnimation()->getIsComplete()) {
+            
+            
                 setDes(_startX,_startY,2);
                 setState(ACT_STATE_ZHUANG_END);
                 setAnim(Fish::ANIM_RIGHT);

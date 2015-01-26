@@ -36,10 +36,9 @@ void FishManage::addFish(int type, float speed , int dir,const char* name)
     
     
     Fish* fish = Fish::create(type,speed , dir,name);
-//    fish->setScale(0.9);
+
 //    addActorForChild(fish);
     
-//    fish->setPosition(ccp(100, 100));
     addActor(fish);
     
 }

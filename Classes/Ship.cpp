@@ -252,7 +252,9 @@ void Ship::cycle(float delta)
             
             //            CCDirector::sharedDirector()->getActionManager()->resumeTarget(this);
             setState(ACT_STAND);
+            changeToNohurt();
             runUpDown();
+
         }
         
     }else if(_state == ACT_EATED){
@@ -310,12 +312,12 @@ void Ship::cycle(float delta)
         
     }
     
-    if (_x >= 180 && _x < 190+_speed) {
-        if (_type == TYPE_PLAYER && _volume > 0) {
-            
-            setState(ACT_TURN_FISH);
-        }
-    }
+//    if (_x >= 180 && _x < 190+_speed) {
+//        if (_type == TYPE_PLAYER && _volume > 0) {
+//            
+//            setState(ACT_TURN_FISH);
+//        }
+//    }
     
     this->setPositionX(_x);
     
@@ -627,10 +629,10 @@ void Ship::reapFishSetHooked(){
     for (int i = 0; i < _fishSetHooked->count(); i++) {
         Fish* fish = (Fish*) _fishSetHooked->objectAtIndex(i);
        
-//        fish->setDead(true);
+        fish->setDead(true);
        
         addVolume(fish->getVolume());
-        trunFish(fish);
+//        trunFish(fish);
         
        
         _hit++;

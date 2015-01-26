@@ -276,7 +276,6 @@
 		E1DEACB11A3AA18000681EC7 /* ActorManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACAE1A3AA18000681EC7 /* ActorManage.cpp */; };
 		E1DEACB61A3B33F100681EC7 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB41A3B33F100681EC7 /* GameScene.cpp */; };
 		E1DEACBA1A3B3CF600681EC7 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB81A3B3CF600681EC7 /* Tools.cpp */; };
-		E1EFBB8B1A5447E800D66972 /* test in Resources */ = {isa = PBXBuildFile; fileRef = E1EFBB8A1A5447E800D66972 /* test */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -840,7 +839,6 @@
 		E1DEACB71A3B345100681EC7 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		E1DEACB81A3B3CF600681EC7 /* Tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tools.cpp; sourceTree = "<group>"; };
 		E1DEACB91A3B3CF600681EC7 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
-		E1EFBB8A1A5447E800D66972 /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1986,7 +1984,6 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1EFBB8A1A5447E800D66972 /* test */,
 				E1CD16831A415E6500D4FE15 /* ui */,
 				E1CD16811A415E5B00D4FE15 /* ship */,
 				E1CD167F1A415E5100D4FE15 /* bg */,
@@ -2131,7 +2128,6 @@
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				E124D64B1A3DEAAF00C83454 /* fish in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
-				E1EFBB8B1A5447E800D66972 /* test in Resources */,
 				E1CD16821A415E5B00D4FE15 /* ship in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,

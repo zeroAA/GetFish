@@ -4,16 +4,16 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>0_000.png</key>
+			<key>sk34eleton-animation6.png</key>
 			<dict>
 				<key>width</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>height</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>originalWidth</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>originalHeight</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -23,18 +23,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>0_001.png</key>
+			<key>skel123eton-animation3.png</key>
 			<dict>
 				<key>width</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>height</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>originalWidth</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>originalHeight</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>x</key>
-				<integer>92</integer>
+				<integer>67</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -42,18 +42,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>0_002.png</key>
+			<key>skelei2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>height</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>originalWidth</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>originalHeight</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>x</key>
-				<integer>184</integer>
+				<integer>134</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -61,18 +61,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>0_003.png</key>
+			<key>skelet45on-animation5.png</key>
 			<dict>
 				<key>width</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>height</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>originalWidth</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>originalHeight</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>x</key>
-				<integer>276</integer>
+				<integer>201</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -80,18 +80,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>0_004.png</key>
+			<key>skeleton1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>height</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>originalWidth</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>originalHeight</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>x</key>
-				<integer>368</integer>
+				<integer>268</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -99,18 +99,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>0_005.png</key>
+			<key>skeleton-ani45mation4.png</key>
 			<dict>
 				<key>width</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>height</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>originalWidth</key>
-				<integer>90</integer>
+				<integer>65</integer>
 				<key>originalHeight</key>
-				<integer>90</integer>
+				<integer>64</integer>
 				<key>x</key>
-				<integer>460</integer>
+				<integer>335</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -124,9 +124,9 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>test30.png</string>
+			<string>test110.png</string>
 			<key>realTextureFileName</key>
-			<string>test30.png</string>
+			<string>test110.png</string>
 			<key>size</key>
 			<string>{1024,1024}</string>
 		</dict>

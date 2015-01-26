@@ -4,16 +4,16 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>ad000.png</key>
+			<key>skeleion3.png</key>
 			<dict>
 				<key>width</key>
 				<integer>75</integer>
 				<key>height</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>originalWidth</key>
 				<integer>75</integer>
 				<key>originalHeight</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -23,16 +23,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>ad001.png</key>
+			<key>skeleion4.png</key>
 			<dict>
 				<key>width</key>
 				<integer>75</integer>
 				<key>height</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>originalWidth</key>
 				<integer>75</integer>
 				<key>originalHeight</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>x</key>
 				<integer>77</integer>
 				<key>y</key>
@@ -42,16 +42,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>ad002.png</key>
+			<key>skeleion6.png</key>
 			<dict>
 				<key>width</key>
 				<integer>75</integer>
 				<key>height</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>originalWidth</key>
 				<integer>75</integer>
 				<key>originalHeight</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>x</key>
 				<integer>154</integer>
 				<key>y</key>
@@ -61,16 +61,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>ad003.png</key>
+			<key>skelion1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>75</integer>
 				<key>height</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>originalWidth</key>
 				<integer>75</integer>
 				<key>originalHeight</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>x</key>
 				<integer>231</integer>
 				<key>y</key>
@@ -80,16 +80,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>ad004.png</key>
+			<key>skelion2.png</key>
 			<dict>
 				<key>width</key>
 				<integer>75</integer>
 				<key>height</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>originalWidth</key>
 				<integer>75</integer>
 				<key>originalHeight</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>x</key>
 				<integer>308</integer>
 				<key>y</key>
@@ -99,16 +99,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>ad005.png</key>
+			<key>skeltion5.png</key>
 			<dict>
 				<key>width</key>
 				<integer>75</integer>
 				<key>height</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>originalWidth</key>
 				<integer>75</integer>
 				<key>originalHeight</key>
-				<integer>75</integer>
+				<integer>67</integer>
 				<key>x</key>
 				<integer>385</integer>
 				<key>y</key>
@@ -124,9 +124,9 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>test10.png</string>
+			<string>test100.png</string>
 			<key>realTextureFileName</key>
-			<string>test10.png</string>
+			<string>test100.png</string>
 			<key>size</key>
 			<string>{1024,1024}</string>
 		</dict>
