@@ -11,6 +11,6 @@
 
 const int HOOK_DES = 200;
 
-const int SHIP_INIT_Y = 230;
+const int SHIP_INIT_Y = 300;
 
 #endif

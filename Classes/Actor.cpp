@@ -108,6 +108,11 @@ CCRect Actor::getBodyRect(int indext)
         return CCRectMake(0, 0, 0, 0);
     }
     
+    if (indext>=_body1.size()) {
+        CCLOG("%s indext is over!",getName().c_str());
+        return CCRectMake(0, 0, 0, 0);
+    }
+    
     float x = (int)_body1[indext].x+getPositionX();
     float y = (int)_body1[indext].y+getPositionY();
     float w = (int)_body2[indext].x-(int)_body1[indext].x;
@@ -126,16 +131,24 @@ void Actor::setBodyPonit()
         
         string str = "body"+Tools::intToString(i)+"_1";
         
+      
+        
         if (this->getBone(str.c_str())) {
+            
+            
+           
+            
             _body1.push_back(CCPointMake((int)(this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY()));
             
             string str2 = "body"+Tools::intToString(i)+"_2";
             _body2.push_back(CCPointMake((int)(this->getBone(str2.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str2.c_str())->getWorldInfo()->y*this->getScaleY()));
-        }else{
+        }
+        else{
             break;
         }
         
     }
+    
     
     //    else{
     //        CCLOG("%s no have body bone",getName().c_str());
