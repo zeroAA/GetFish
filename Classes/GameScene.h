@@ -18,6 +18,8 @@
 #include "Ship.h"
 #include "Fish.h"
 
+#include "GameUI.h"
+
 USING_NS_CC;
 
 class GameScene : public cocos2d::CCLayer
@@ -123,6 +125,10 @@ protected:
     int _addFishTime;
     
     int _addSPFishTime;
+    
+    GameUI* _ui;
+    
+    
     
 };
 

@@ -93,6 +93,8 @@ bool GameScene::init()
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/ship_1.csb");
         
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/player_3.csb");
+        
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/hook_1.ExportJson");
         
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test10.csb");
@@ -124,7 +126,6 @@ bool GameScene::init()
 //        test4->getAnimation()->playWithIndex(0);
 //        test4->setPosition(_screenSize.width*0.8, _screenSize.height*0.5);
 //        addChild(test4);
-        
 //
 ////        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test3.csb");
 ////        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test1.csb");
@@ -144,12 +145,12 @@ bool GameScene::init()
 ////        test1->setPosition(_screenSize.width*0.3, _screenSize.height*0.5);
 ////        
 ////        addChild(test1);
-//        
+      
         _shipLayer = ShipManage::create();
         
         addChild(_shipLayer,SHIP_Z);
         
-        _shipLayer->addShip(0, "ship_1");
+        _shipLayer->addShip(0, "player_3");
         
         _fishLayer = FishManage::create();
         
@@ -167,7 +168,9 @@ bool GameScene::init()
         
         schedule(schedule_selector(GameScene::cycle));
         
+        _ui = GameUI::create();
         
+        addChild(_ui,UI_Z);
         
         this->setTouchEnabled(true);
         
@@ -186,20 +189,23 @@ void GameScene::registerWithTouchDispatcher(void)
 
 void GameScene::ccTouchesBegan(CCSet * touchs,CCEvent * event)
 {
-    
-    for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
+    if (!_ui->GameUItouchesBegan(touchs, event)) {
         
-        CCTouch * mytouch=(CCTouch *)(* iter);
-        
-        CCPoint pos=mytouch->getLocation();
-        
-        Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
-        if (ship) {
-           ship->setShipTo(pos.x);
+        for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
+            
+            CCTouch * mytouch=(CCTouch *)(* iter);
+            
+            CCPoint pos=mytouch->getLocation();
+            
+            Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+            if (ship) {
+                ship->setShipTo(pos.x);
+            }
+            
+            
+            break;
         }
-        
-        
-        break;
+
     }
 }
 
@@ -207,6 +213,35 @@ void GameScene::ccTouchesBegan(CCSet * touchs,CCEvent * event)
 
 void GameScene::ccTouchesCancelled(CCSet * touchs,CCEvent * event)
 {
+    
+    if (_ui->getNowButtonID()!=-1) {
+        _ui->GameUItouchesCancelled(touchs, event);
+    }else{
+    
+        for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
+            
+            CCTouch * mytouch=(CCTouch *)(* iter);
+            
+            CCPoint pos=mytouch->getLocation();
+            
+            Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+            if (ship) {
+                ship->setShipTo(pos.x);
+            }
+            
+            
+            break;
+        }
+    
+    }
+    
+}
+
+void GameScene::ccTouchesMoved(CCSet * touchs,CCEvent * event)
+{
+    if (_ui->getNowButtonID() != -1) {
+        _ui->GameUItouchesMoved(touchs, event);
+    }else{
     for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
         
         CCTouch * mytouch=(CCTouch *)(* iter);
@@ -221,28 +256,14 @@ void GameScene::ccTouchesCancelled(CCSet * touchs,CCEvent * event)
         
         break;
     }
-}
-
-void GameScene::ccTouchesMoved(CCSet * touchs,CCEvent * event)
-{
-    for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
-        
-        CCTouch * mytouch=(CCTouch *)(* iter);
-        
-        CCPoint pos=mytouch->getLocation();
-        
-        Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
-        if (ship) {
-            ship->setShipTo(pos.x);
-        }
-        
-        
-        break;
     }
 }
 
 void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
 {
+    if (_ui->getNowButtonID() != -1) {
+        _ui->GameUItouchesEnded(touchs, event);
+    }else{
     Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
     if (ship) {
         if (ship->isState(Ship::ACT_WALK)) {
@@ -250,7 +271,7 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
         }
         
     }
-    
+    }
     
 }
 

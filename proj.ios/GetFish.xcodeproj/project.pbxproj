@@ -267,6 +267,11 @@
 		E124D63D1A3DD27800C83454 /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D63B1A3DD27800C83454 /* Ship.cpp */; };
 		E124D6411A3DDF3400C83454 /* FishManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D63F1A3DDF3400C83454 /* FishManage.cpp */; };
 		E124D64B1A3DEAAF00C83454 /* fish in Resources */ = {isa = PBXBuildFile; fileRef = E124D64A1A3DEAAF00C83454 /* fish */; };
+		E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C451A777301005B7063 /* GameUI.cpp */; };
+		E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4A1A7786F8005B7063 /* Button.cpp */; };
+		E1CC3C4F1A7786F8005B7063 /* ButtonManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4C1A7786F8005B7063 /* ButtonManage.cpp */; };
+		E1CC3C521A77880F005B7063 /* ButtonWithSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C501A77880F005B7063 /* ButtonWithSprite.cpp */; };
+		E1CC3C561A77D701005B7063 /* ButtonWithSpriteManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C541A77D701005B7063 /* ButtonWithSpriteManage.cpp */; };
 		E1CD167E1A415D9600D4FE15 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CD167C1A415D9600D4FE15 /* BackGround.cpp */; };
 		E1CD16801A415E5100D4FE15 /* bg in Resources */ = {isa = PBXBuildFile; fileRef = E1CD167F1A415E5100D4FE15 /* bg */; };
 		E1CD16821A415E5B00D4FE15 /* ship in Resources */ = {isa = PBXBuildFile; fileRef = E1CD16811A415E5B00D4FE15 /* ship */; };
@@ -823,6 +828,16 @@
 		E124D63F1A3DDF3400C83454 /* FishManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FishManage.cpp; sourceTree = "<group>"; };
 		E124D6401A3DDF3400C83454 /* FishManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishManage.h; sourceTree = "<group>"; };
 		E124D64A1A3DEAAF00C83454 /* fish */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fish; sourceTree = "<group>"; };
+		E1CC3C451A777301005B7063 /* GameUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameUI.cpp; sourceTree = "<group>"; };
+		E1CC3C461A777301005B7063 /* GameUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUI.h; sourceTree = "<group>"; };
+		E1CC3C4A1A7786F8005B7063 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		E1CC3C4B1A7786F8005B7063 /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		E1CC3C4C1A7786F8005B7063 /* ButtonManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonManage.cpp; sourceTree = "<group>"; };
+		E1CC3C4D1A7786F8005B7063 /* ButtonManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonManage.h; sourceTree = "<group>"; };
+		E1CC3C501A77880F005B7063 /* ButtonWithSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonWithSprite.cpp; sourceTree = "<group>"; };
+		E1CC3C511A77880F005B7063 /* ButtonWithSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithSprite.h; sourceTree = "<group>"; };
+		E1CC3C541A77D701005B7063 /* ButtonWithSpriteManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonWithSpriteManage.cpp; sourceTree = "<group>"; };
+		E1CC3C551A77D701005B7063 /* ButtonWithSpriteManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithSpriteManage.h; sourceTree = "<group>"; };
 		E1CD167C1A415D9600D4FE15 /* BackGround.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackGround.cpp; sourceTree = "<group>"; };
 		E1CD167D1A415D9600D4FE15 /* BackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackGround.h; sourceTree = "<group>"; };
 		E1CD167F1A415E5100D4FE15 /* bg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bg; sourceTree = "<group>"; };
@@ -1358,6 +1373,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E1CC3C441A7772EB005B7063 /* UI */,
 				E104F46B1A5AB42F004AFBCF /* Effect */,
 				E1CD167B1A415D0500D4FE15 /* BackGround */,
 				E124D6371A3DCF7500C83454 /* Fish */,
@@ -2036,6 +2052,23 @@
 			name = Fish;
 			sourceTree = "<group>";
 		};
+		E1CC3C441A7772EB005B7063 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E1CC3C4A1A7786F8005B7063 /* Button.cpp */,
+				E1CC3C4B1A7786F8005B7063 /* Button.h */,
+				E1CC3C4C1A7786F8005B7063 /* ButtonManage.cpp */,
+				E1CC3C4D1A7786F8005B7063 /* ButtonManage.h */,
+				E1CC3C451A777301005B7063 /* GameUI.cpp */,
+				E1CC3C461A777301005B7063 /* GameUI.h */,
+				E1CC3C501A77880F005B7063 /* ButtonWithSprite.cpp */,
+				E1CC3C511A77880F005B7063 /* ButtonWithSprite.h */,
+				E1CC3C541A77D701005B7063 /* ButtonWithSpriteManage.cpp */,
+				E1CC3C551A77D701005B7063 /* ButtonWithSpriteManage.h */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		E1CD167B1A415D0500D4FE15 /* BackGround */ = {
 			isa = PBXGroup;
 			children = (
@@ -2158,6 +2191,7 @@
 				15C0B56C196D412F007F909D /* CCComRender.cpp in Sources */,
 				15C0B561196D412F007F909D /* CCColliderDetector.cpp in Sources */,
 				15A3D9041682F7D5002FB0C5 /* b2Distance.cpp in Sources */,
+				E1CC3C561A77D701005B7063 /* ButtonWithSpriteManage.cpp in Sources */,
 				15C0B596196D412F007F909D /* TriggerMng.cpp in Sources */,
 				15A3D9051682F7D5002FB0C5 /* b2DynamicTree.cpp in Sources */,
 				15A3D9061682F7D5002FB0C5 /* b2TimeOfImpact.cpp in Sources */,
@@ -2171,6 +2205,7 @@
 				15C0B54B196D412F007F909D /* CCActionEaseEx.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
+				E1CC3C4F1A7786F8005B7063 /* ButtonManage.cpp in Sources */,
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,
@@ -2208,6 +2243,7 @@
 				15A3D9221682F7D5002FB0C5 /* b2GearJoint.cpp in Sources */,
 				15A3D9231682F7D5002FB0C5 /* b2Joint.cpp in Sources */,
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
+				E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */,
 				15C0B55B196D412F007F909D /* CCDatas.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
@@ -2216,6 +2252,7 @@
 				15C0B56E196D412F007F909D /* UIWidget.cpp in Sources */,
 				15A3D9291682F7D5002FB0C5 /* b2WeldJoint.cpp in Sources */,
 				15A3D92A1682F7D5002FB0C5 /* b2WheelJoint.cpp in Sources */,
+				E1CC3C521A77880F005B7063 /* ButtonWithSprite.cpp in Sources */,
 				15A3D9391682F7D5002FB0C5 /* b2Rope.cpp in Sources */,
 				15C0B56A196D412F007F909D /* CCComAudio.cpp in Sources */,
 				15C0B562196D412F007F909D /* CCArmatureDataManager.cpp in Sources */,
@@ -2230,6 +2267,7 @@
 				15C0B57C196D412F007F909D /* UILabelAtlas.cpp in Sources */,
 				15A3D99C1682F7F9002FB0C5 /* cpPinJoint.c in Sources */,
 				15C0B55F196D412F007F909D /* CCDisplayManager.cpp in Sources */,
+				E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */,
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,

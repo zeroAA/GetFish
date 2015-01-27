@@ -13,4 +13,6 @@ const int HOOK_DES = 200;
 
 const int SHIP_INIT_Y = 300;
 
+const int BUTTON_GAME_PAUSE = 1;
+
 #endif
