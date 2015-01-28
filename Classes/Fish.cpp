@@ -26,7 +26,7 @@ Fish* Fish::create(int type,float speed , int dir ,const char* name)
 
 
 
-Fish::Fish():_deadType(HOOK_DEAD),_volume(1),_aY(0),_isDead(false),_exitDead(EXIT_DEAD_NORMAL),_startX(0),_startY(0),_stayTime(0),_tortoiseC(0),_deadTime(0),_changeTime(0),_shipID(-1)
+Fish::Fish():_deadType(EXIT_MAP_DEAD),_volume(1),_aY(0),_isDead(false),_exitDead(EXIT_DEAD_NORMAL),_startX(0),_startY(0),_stayTime(0),_tortoiseC(0),_deadTime(0),_changeTime(0),_shipID(-1),_score(90)
 {
     
 }
@@ -450,7 +450,7 @@ bool Fish::isExitMapRight()
 
 bool Fish::isFishDead()
 {
-    return _isDead;
+    return _isDead||_state == STATE_DEAD;
 }
 
 bool Fish::isState(int state)
@@ -762,4 +762,9 @@ void Fish::setChangeTime(float time)
 void Fish::setStayTime(float time)
 {
     _stayTime = time;
+}
+
+int Fish::getDeadType() const
+{
+    return _deadType;
 }

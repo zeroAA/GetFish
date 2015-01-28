@@ -254,6 +254,10 @@ public:
     
     void setStayTime(float time);
     
+    CC_SYNTHESIZE(int, _score, Score);
+    
+    int getDeadType() const;
+    
 private:
     
     void initData();

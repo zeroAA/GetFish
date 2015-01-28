@@ -8,6 +8,7 @@
 
 #include "GameUI.h"
 #include "Common.h"
+#include "Tools.h"
 
 GameUI::GameUI()
 {
@@ -53,14 +54,32 @@ bool GameUI::init()
         
         jindutiao->addChild(jindudi);
         
-        CCSprite* jindu = CCSprite::createWithSpriteFrameName("ui_lvshang.png");
+//        CCSprite* jindu = CCSprite::createWithSpriteFrameName("ui_lvshang.png");
+//        
+//        jindu->setAnchorPoint(ccp(0, 1));
+//        
+//        jindu->setPosition(ccp(2, -5));
+//        
+//        jindutiao->addChild(jindu);
         
-        jindu->setAnchorPoint(ccp(0, 1));
+        CCSprite* tiao = CCSprite::createWithSpriteFrameName("ui_lvshang.png");
         
-        jindu->setPosition(ccp(2, -5));
         
-        jindutiao->addChild(jindu);
+        _score_tiao = CCProgressTimer::create(tiao);
         
+        _score_tiao->setType(kCCProgressTimerTypeBar);
+        
+        _score_tiao->setBarChangeRate(ccp(1,0));
+        
+        _score_tiao->setMidpoint(ccp(0, 0));
+        
+        _score_tiao->setPercentage(0);
+        
+        _score_tiao->setAnchorPoint(ccp(0, 1));
+
+        _score_tiao->setPosition(ccp(2, -5));
+        
+        jindutiao->addChild(_score_tiao);
         
         _buttons = ButtonWithSpriteManage::create("ui/button.png");
         
@@ -70,6 +89,14 @@ bool GameUI::init()
              _buttons->addButton(BUTTON_GAME_PAUSE, "button_zanting.png", ccp(_screenSize.width*0.95, _screenSize.height*0.92));
         
        _buttons->addButton(BUTTON_GAME_PAUSE, "button_citie.png", ccp(_screenSize.width*0.06, _screenSize.height*0.09));
+        
+        _timeLabel = CCLabelAtlas::create("99", "ui/shuzi1.png", 25, 40, 48);
+        _timeLabel->setAnchorPoint(ccp(0.5, 0.5));
+        _timeLabel->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.96));
+        
+        addChild(_timeLabel);
+        
+        
         
         return true;
     }
@@ -111,4 +138,26 @@ void GameUI::GameUItouchesEnded(CCSet * touchs,CCEvent * event)
 int GameUI::getNowButtonID() const
 {
     return _buttons->getNowID();
+}
+
+void GameUI::setTime(int time)
+{
+    _timeLabel->setString(Tools::intToString(time).c_str());
+}
+
+void GameUI::setScore(float sc)
+{
+    _score_tiao->setPercentage(sc);
+}
+
+void GameUI::addMubiaoScore( std::vector<int> mubiao)
+{
+    for (int i = 0 ; i<mubiao.size(); ++i) {
+        CCLabelAtlas* mubiaoLabel = CCLabelAtlas::create(Tools::intToString(mubiao[i]).c_str(), "ui/shuzi2.png", 18, 26, 48);
+        mubiaoLabel->setAnchorPoint(ccp(0.5, 0.5));
+        mubiaoLabel->setPosition(ccp(_screenSize.width*0.7+_screenSize.width*0.08*i, _screenSize.height*0.9));
+        
+        addChild(mubiaoLabel);
+
+    }
 }

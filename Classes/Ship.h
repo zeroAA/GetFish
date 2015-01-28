@@ -66,7 +66,7 @@ public:
     
     virtual void cycle(float delta);
     
-    int getID();
+    int getID() const;
     
     bool isCanMove();
     
@@ -153,6 +153,10 @@ public:
     void setY(float y);
     
     void setXY(float x, float y);
+    
+    CC_SYNTHESIZE(int, _score, Score);
+    
+    void addScore(int sc);
     
 private:
     
@@ -280,6 +284,8 @@ protected:
     
     
     float _cut_hook_y;
+    
+    
 };
 
 #endif /* defined(__GetFish__Ship__) */

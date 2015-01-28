@@ -33,7 +33,7 @@ Ship* Ship::create(int type ,const char* name)
 
 
 
-Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10)
+Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_id(0)
 {
     
 }
@@ -630,7 +630,8 @@ void Ship::reapFishSetHooked(){
         Fish* fish = (Fish*) _fishSetHooked->objectAtIndex(i);
        
         fish->setDead(true);
-       
+        fish->setDeadType(Fish::HOOK_DEAD);
+        fish->setShipID(this->getID());
         addVolume(fish->getVolume());
 //        trunFish(fish);
         
@@ -792,4 +793,14 @@ void Ship::setXY(float x, float y)
     _x = x;
     _y = y;
     setPosition(_x, _y);
+}
+
+void Ship::addScore(int sc)
+{
+    _score+=sc;
+}
+
+int Ship::getID() const
+{
+    return _id;
 }

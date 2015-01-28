@@ -128,7 +128,9 @@ protected:
     
     GameUI* _ui;
     
+    int _time;
     
+    std::vector<int> _mubiao_scroe;
     
 };
 

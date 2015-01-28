@@ -45,7 +45,7 @@ CCScene* GameScene::scene()
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(1800)
 {
     
 }
@@ -171,6 +171,12 @@ bool GameScene::init()
         _ui = GameUI::create();
         
         addChild(_ui,UI_Z);
+        
+        _mubiao_scroe.push_back(100);
+        _mubiao_scroe.push_back(500);
+        _mubiao_scroe.push_back(1000);
+        
+        _ui->addMubiaoScore(_mubiao_scroe);
         
         this->setTouchEnabled(true);
         
@@ -299,6 +305,11 @@ void GameScene::onExit()
 void GameScene::cycle(float delta)
 {
     
+    _time--;
+    if (_time>=0) {
+        _ui->setTime((int)(_time/30));
+    }
+    
     _addFishTime--;
     if (_addFishTime<0) {
         _addFishTime = Tools::randomIntInRange(30, 60);
@@ -390,6 +401,21 @@ void GameScene::cycleFishs()
         Fish* fish = (Fish*) fishs->objectAtIndex(i);
         
         if (fish->isFishDead()) {
+            
+            
+            if (fish->getDeadType() == Fish::HOOK_DEAD||fish->getDeadType() == Fish::POW_DEAD) {
+                if (fish->getShipID()>=0&&fish->getShipID()<_shipLayer->getActor()->count()) {
+                    
+//                    CCLOG("?!?! id : %i type : %i shipid : %i",fish->getID(),fish->getDeadType(),fish->getShipID());
+                    
+                    Ship* ship = (Ship*)_shipLayer->getActor()->objectAtIndex(fish->getShipID());
+                    ship->addScore(fish->getScore());
+                    CCLOG("sc : % i ",ship->getScore());
+                    _ui->setScore(((float)(ship->getScore()*100))/1000.0f);
+                }
+            }
+            
+            
     
             continue;
         }
@@ -616,7 +642,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                     
                     if (fish2->getType() != Fish::SHARK) {
                         
-                        if (fish2->getType() == Fish::WHALE) {
+                        if (fish2->isWhale()) {
                             
                             CCArray* ships = _shipLayer->getActor();
                             
@@ -905,35 +931,54 @@ void GameScene::useFishAtk(Fish* fish) {
             }else if (!fish2->isHook() && !fish2->isShark()) {
                 
                 
-                //                if (fish2.type == Fish.DINGFEI) {
-                //
-                //                    for (int k = 0; k < shipSet.size(); ++k) {
-                //                        Ship ship3 = shipSet.elementAt(k);
-                //
-                //                        if (ship3.dingFishId == fish2.id && (fish2.actState == Fish.ACT_STATE_ZHUANG_ATK || fish2.actState == Fish.ACT_STATE_ZHUANG_END) && ship3.shipActID == Ship.ACT_FLY) {
-                //                            ship3.shipActID = Ship.ACT_FALL;
-                //                            //										ship3.setNormal();
-                //                        }
-                //
-                //                    }
-                //
-                //                }
+                if (fish2->isWhale()) {
+                    
+                    CCArray* ships = _shipLayer->getActor();
+                    
+                    for (int k = 0; k < ships->count(); ++k) {
+                        
+                        Ship* ship3 = (Ship*) ships->objectAtIndex(k);
+                        
+                        if (ship3->getw_Fish() == fish2 &&
+                            
+                            (
+                             fish2->isState(Fish::ACT_STATE_ZHUANG_ATK) ||
+                             fish2->isState(Fish::ACT_STATE_ZHUANG_END)
+                             
+                             ) &&
+                            
+                            ship3->isState(Ship::ACT_FLY)
+                            
+                            ) {
+                            ship3->setState(Ship::ACT_FALL) ;
+                            
+                        }
+                        
+                    }
+                    
+                }
                 
-                //                if (fish2.type == Fish.ZHUAIZOU) {
-                //
-                //                    for (int k = 0; k < shipSet.size(); ++k) {
-                //                        Ship ship3 = shipSet.elementAt(k);
-                //
-                //                        if (ship3.dingFishId == fish2.id && fish2.actState == Fish.ACT_STATE_DEN) {
-                //                            ship3.setNormal();
-                //                        }
-                //
-                //                    }
-                //
-                //                }
+                if (fish2->isStrong()) {
+                    
+                    CCArray* ships = _shipLayer->getActor();
+                    
+                    for (int k = 0; k < ships->count(); ++k) {
+                        
+                        Ship* ship3 = (Ship*) ships->objectAtIndex(k);
+                        
+                        if (ship3->getw_Fish() == fish2 && fish2->isState(Fish::ACT_STATE_DEN) ) {
+                            ship3->setNormal();
+                            ship3->clearHook();
+                        }
+                        
+                    }
+                    
+                }
+
                 
                 fish2->setShipID(fish->getShipID());
                 fish2->setDead(true);
+                fish2->setDeadType(Fish::HOOK_DEAD);
                 
             }
         }

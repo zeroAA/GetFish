@@ -39,11 +39,21 @@ public:
     
     int getNowButtonID() const;
     
+    void setTime(int time);
+    
+    void setScore(float sc);
+    
+    void addMubiaoScore( std::vector<int> mubiao);
+    
 private:
     
     CCSize _screenSize;
     
     ButtonWithSpriteManage* _buttons;
+    
+    CCLabelAtlas* _timeLabel;
+    
+    CCProgressTimer* _score_tiao;
 };
 
 
