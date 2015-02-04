@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 #include "GameScene.h"
-//#include "GameScene.cpp"
+#include "MapScene.h"
 #include "Tools.h"
 
 USING_NS_CC;
@@ -78,7 +78,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 //    CCScene *pScene = HelloWorld::scene();
     
-    CCScene *pScene = GameScene::scene();
+//    CCScene *pScene = GameScene::scene();
+    
+    CCScene* pScene = MapScene::scene();
 
     // run
     pDirector->runWithScene(pScene);

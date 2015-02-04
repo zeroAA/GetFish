@@ -109,6 +109,8 @@ private:
     void useFishAtk(Fish* fish);
     
     void useFish(Fish* fish);
+    
+    void setUIScroe(int sc);
 
     
 protected:

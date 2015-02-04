@@ -267,6 +267,8 @@
 		E124D63D1A3DD27800C83454 /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D63B1A3DD27800C83454 /* Ship.cpp */; };
 		E124D6411A3DDF3400C83454 /* FishManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D63F1A3DDF3400C83454 /* FishManage.cpp */; };
 		E124D64B1A3DEAAF00C83454 /* fish in Resources */ = {isa = PBXBuildFile; fileRef = E124D64A1A3DEAAF00C83454 /* fish */; };
+		E17802291A80D45200D9D0D5 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17802271A80D45200D9D0D5 /* MapScene.cpp */; };
+		E178022D1A80D8D900D9D0D5 /* MapUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E178022B1A80D8D900D9D0D5 /* MapUI.cpp */; };
 		E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C451A777301005B7063 /* GameUI.cpp */; };
 		E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4A1A7786F8005B7063 /* Button.cpp */; };
 		E1CC3C4F1A7786F8005B7063 /* ButtonManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4C1A7786F8005B7063 /* ButtonManage.cpp */; };
@@ -281,6 +283,7 @@
 		E1DEACB11A3AA18000681EC7 /* ActorManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACAE1A3AA18000681EC7 /* ActorManage.cpp */; };
 		E1DEACB61A3B33F100681EC7 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB41A3B33F100681EC7 /* GameScene.cpp */; };
 		E1DEACBA1A3B3CF600681EC7 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB81A3B3CF600681EC7 /* Tools.cpp */; };
+		E1E6BF981A8269ED007E4D07 /* MapElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1E6BF961A8269ED007E4D07 /* MapElement.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -828,6 +831,10 @@
 		E124D63F1A3DDF3400C83454 /* FishManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FishManage.cpp; sourceTree = "<group>"; };
 		E124D6401A3DDF3400C83454 /* FishManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishManage.h; sourceTree = "<group>"; };
 		E124D64A1A3DEAAF00C83454 /* fish */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fish; sourceTree = "<group>"; };
+		E17802271A80D45200D9D0D5 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
+		E17802281A80D45200D9D0D5 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
+		E178022B1A80D8D900D9D0D5 /* MapUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapUI.cpp; sourceTree = "<group>"; };
+		E178022C1A80D8D900D9D0D5 /* MapUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUI.h; sourceTree = "<group>"; };
 		E1CC3C451A777301005B7063 /* GameUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameUI.cpp; sourceTree = "<group>"; };
 		E1CC3C461A777301005B7063 /* GameUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUI.h; sourceTree = "<group>"; };
 		E1CC3C4A1A7786F8005B7063 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
@@ -854,6 +861,8 @@
 		E1DEACB71A3B345100681EC7 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		E1DEACB81A3B3CF600681EC7 /* Tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tools.cpp; sourceTree = "<group>"; };
 		E1DEACB91A3B3CF600681EC7 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		E1E6BF961A8269ED007E4D07 /* MapElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapElement.cpp; sourceTree = "<group>"; };
+		E1E6BF971A8269ED007E4D07 /* MapElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapElement.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1389,6 +1398,8 @@
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				E1DEACB41A3B33F100681EC7 /* GameScene.cpp */,
 				E1DEACB51A3B33F100681EC7 /* GameScene.h */,
+				E17802271A80D45200D9D0D5 /* MapScene.cpp */,
+				E17802281A80D45200D9D0D5 /* MapScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2065,6 +2076,10 @@
 				E1CC3C511A77880F005B7063 /* ButtonWithSprite.h */,
 				E1CC3C541A77D701005B7063 /* ButtonWithSpriteManage.cpp */,
 				E1CC3C551A77D701005B7063 /* ButtonWithSpriteManage.h */,
+				E178022B1A80D8D900D9D0D5 /* MapUI.cpp */,
+				E178022C1A80D8D900D9D0D5 /* MapUI.h */,
+				E1E6BF961A8269ED007E4D07 /* MapElement.cpp */,
+				E1E6BF971A8269ED007E4D07 /* MapElement.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -2205,6 +2220,7 @@
 				15C0B54B196D412F007F909D /* CCActionEaseEx.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
+				E17802291A80D45200D9D0D5 /* MapScene.cpp in Sources */,
 				E1CC3C4F1A7786F8005B7063 /* ButtonManage.cpp in Sources */,
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
@@ -2405,6 +2421,7 @@
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
+				E1E6BF981A8269ED007E4D07 /* MapElement.cpp in Sources */,
 				E124D63D1A3DD27800C83454 /* Ship.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
@@ -2427,6 +2444,7 @@
 				15C0B565196D412F007F909D /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				15C0B576196D412F007F909D /* UIPageView.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
+				E178022D1A80D8D900D9D0D5 /* MapUI.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

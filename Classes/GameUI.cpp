@@ -150,7 +150,7 @@ void GameUI::setScore(float sc)
     _score_tiao->setPercentage(sc);
 }
 
-void GameUI::addMubiaoScore( std::vector<int> mubiao)
+void GameUI::addMubiaoScore(std::vector<int> mubiao)
 {
     for (int i = 0 ; i<mubiao.size(); ++i) {
         CCLabelAtlas* mubiaoLabel = CCLabelAtlas::create(Tools::intToString(mubiao[i]).c_str(), "ui/shuzi2.png", 18, 26, 48);

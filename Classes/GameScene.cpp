@@ -146,11 +146,20 @@ bool GameScene::init()
 ////        
 ////        addChild(test1);
       
+        
+//        CCSprite* st = CCSprite::create("fish/skeleton-animation2.png");
+//        
+//        st->setPosition(ccp(100, 100));
+//        
+//        addChild(st,10);
+        
         _shipLayer = ShipManage::create();
         
         addChild(_shipLayer,SHIP_Z);
         
         _shipLayer->addShip(0, "player_3");
+        
+        schedule(schedule_selector(GameScene::cycle));
         
         _fishLayer = FishManage::create();
         
@@ -166,7 +175,7 @@ bool GameScene::init()
         
         addChild(_effectLayer,EFFECT_Z);
         
-        schedule(schedule_selector(GameScene::cycle));
+        
         
         _ui = GameUI::create();
         
@@ -410,8 +419,10 @@ void GameScene::cycleFishs()
                     
                     Ship* ship = (Ship*)_shipLayer->getActor()->objectAtIndex(fish->getShipID());
                     ship->addScore(fish->getScore());
-                    CCLOG("sc : % i ",ship->getScore());
-                    _ui->setScore(((float)(ship->getScore()*100))/1000.0f);
+//                    CCLOG("sc : % i ",ship->getScore());
+                    
+                    setUIScroe(ship->getScore());
+                    
                 }
             }
             
@@ -1003,4 +1014,19 @@ void GameScene::useFish(Fish* fish) {
     }
 }
 
+void GameScene::setUIScroe(int sc)
+{
+    
+    if (sc<=_mubiao_scroe[0]) {
+        _ui->setScore(((float)(sc*100)/(float)_mubiao_scroe[0])*0.33333);
+    }else if(sc>_mubiao_scroe[0]&&sc<=_mubiao_scroe[1]){
+        _ui->setScore((((float)((sc-_mubiao_scroe[0])*100)/(float)(_mubiao_scroe[1]-_mubiao_scroe[0]))*0.33333)+33.3333);
+    }else if(sc>_mubiao_scroe[1]&&sc<=_mubiao_scroe[2]){
+        _ui->setScore((((float)((sc-_mubiao_scroe[1])*100)/(float)(_mubiao_scroe[2]-_mubiao_scroe[1]))*0.33333)+66.6666);
+    }else if(sc>_mubiao_scroe[2]){
+        _ui->setScore(100);
+    }
+    
+    
+}
 

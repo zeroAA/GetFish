@@ -24,7 +24,8 @@ bool BackGround::init()
         
         _screenSize = CCDirector::sharedDirector()->getWinSize();
         
-        _bg = CCSprite::create("bg/bg_1.jpg");
+        _bg = CCSprite::create("bg/bg_3.png");
+    
         
         _bg->setAnchorPoint(ccp(0.5f, 0.5f));
         

@@ -15,4 +15,8 @@ const int SHIP_INIT_Y = 300;
 
 const int BUTTON_GAME_PAUSE = 1;
 
+const int KEY_MAP = -10;
+
+const int KEY_MAPSC = -1;
+
 #endif
