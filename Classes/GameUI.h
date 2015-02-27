@@ -41,7 +41,9 @@ public:
     
     void setTime(int time);
     
-    void setScore(float sc);
+    void setScoreTiao(float sc);
+    
+    void setScore(int sc);
     
     void addMubiaoScore( std::vector<int> mubiao);
     
@@ -52,6 +54,8 @@ private:
     ButtonWithSpriteManage* _buttons;
     
     CCLabelAtlas* _timeLabel;
+    
+    CCLabelAtlas* _score_Label;
     
     CCProgressTimer* _score_tiao;
 };

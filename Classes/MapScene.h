@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 
 #include "MapUI.h"
+#include "LoadingScreen.h"
 
 USING_NS_CC;
 

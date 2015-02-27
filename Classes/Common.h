@@ -19,4 +19,7 @@ const int KEY_MAP = -10;
 
 const int KEY_MAPSC = -1;
 
+const int KScreenUnkown = -1;
+const int KScreenGame = 0;
+
 #endif

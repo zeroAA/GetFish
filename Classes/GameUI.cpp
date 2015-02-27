@@ -88,15 +88,19 @@ bool GameUI::init()
         
              _buttons->addButton(BUTTON_GAME_PAUSE, "button_zanting.png", ccp(_screenSize.width*0.95, _screenSize.height*0.92));
         
-       _buttons->addButton(BUTTON_GAME_PAUSE, "button_citie.png", ccp(_screenSize.width*0.06, _screenSize.height*0.09));
+//       _buttons->addButton(BUTTON_GAME_PAUSE, "button_citie.png", ccp(_screenSize.width*0.06, _screenSize.height*0.09));
         
-        _timeLabel = CCLabelAtlas::create("99", "ui/shuzi1.png", 25, 40, 48);
+        _timeLabel = CCLabelAtlas::create("0", "ui/shuzi1.png", 25, 40, 48);
         _timeLabel->setAnchorPoint(ccp(0.5, 0.5));
         _timeLabel->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.96));
         
         addChild(_timeLabel);
         
+        _score_Label = CCLabelAtlas::create("0", "ui/shuzi1.png", 25, 40, 48);
+        _score_Label->setAnchorPoint(ccp(0.5, 0.5));
+        _score_Label->setPosition(ccp(zuodi->boundingBox().size.width*0.5, zuodi->boundingBox().size.height*0.5));
         
+        zuodi->addChild(_score_Label);
         
         return true;
     }
@@ -145,9 +149,14 @@ void GameUI::setTime(int time)
     _timeLabel->setString(Tools::intToString(time).c_str());
 }
 
-void GameUI::setScore(float sc)
+void GameUI::setScoreTiao(float sc)
 {
     _score_tiao->setPercentage(sc);
+}
+
+void GameUI::setScore(int sc)
+{
+    _score_Label->setString(Tools::intToString(sc).c_str());
 }
 
 void GameUI::addMubiaoScore(std::vector<int> mubiao)

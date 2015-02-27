@@ -376,7 +376,7 @@ void Ship::setHook(int type)
     _hookDir = HOOK_DIR_UP;
     
     _bHasFishHooked = false;
-    
+    _hook_anim->setAnchorPoint(ccp(0.5, 1));
     _hook_anim->setPosition(ccp(_hookDx,_hookDy));
     
     this->addChild(_hook_anim,Z_HOOK);

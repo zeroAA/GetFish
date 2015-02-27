@@ -11,6 +11,7 @@
 #include "Fish.h"
 #include "Ship.h"
 #include "Effect.h"
+#include "Common.h"
 
 GameScene* GameScene::_instance = NULL;
 
@@ -45,7 +46,7 @@ CCScene* GameScene::scene()
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(1800)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(0)
 {
     
 }
@@ -278,6 +279,17 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
 {
     if (_ui->getNowButtonID() != -1) {
         _ui->GameUItouchesEnded(touchs, event);
+        
+        if (_ui->getNowButtonID() == BUTTON_GAME_PAUSE) {
+            #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+                    CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
+            #else
+                    CCDirector::sharedDirector()->end();
+            #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+                    exit(0);
+            #endif
+            #endif
+        }
     }else{
     Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
     if (ship) {
@@ -314,7 +326,7 @@ void GameScene::onExit()
 void GameScene::cycle(float delta)
 {
     
-    _time--;
+    _time++;
     if (_time>=0) {
         _ui->setTime((int)(_time/30));
     }
@@ -1018,15 +1030,15 @@ void GameScene::setUIScroe(int sc)
 {
     
     if (sc<=_mubiao_scroe[0]) {
-        _ui->setScore(((float)(sc*100)/(float)_mubiao_scroe[0])*0.33333);
+        _ui->setScoreTiao(((float)(sc*100)/(float)_mubiao_scroe[0])*0.33333);
     }else if(sc>_mubiao_scroe[0]&&sc<=_mubiao_scroe[1]){
-        _ui->setScore((((float)((sc-_mubiao_scroe[0])*100)/(float)(_mubiao_scroe[1]-_mubiao_scroe[0]))*0.33333)+33.3333);
+        _ui->setScoreTiao((((float)((sc-_mubiao_scroe[0])*100)/(float)(_mubiao_scroe[1]-_mubiao_scroe[0]))*0.33333)+33.3333);
     }else if(sc>_mubiao_scroe[1]&&sc<=_mubiao_scroe[2]){
-        _ui->setScore((((float)((sc-_mubiao_scroe[1])*100)/(float)(_mubiao_scroe[2]-_mubiao_scroe[1]))*0.33333)+66.6666);
+        _ui->setScoreTiao((((float)((sc-_mubiao_scroe[1])*100)/(float)(_mubiao_scroe[2]-_mubiao_scroe[1]))*0.33333)+66.6666);
     }else if(sc>_mubiao_scroe[2]){
         _ui->setScore(100);
     }
-    
+    _ui->setScore(sc);
     
 }
 

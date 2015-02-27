@@ -26,7 +26,7 @@ Fish* Fish::create(int type,float speed , int dir ,const char* name)
 
 
 
-Fish::Fish():_deadType(EXIT_MAP_DEAD),_volume(1),_aY(0),_isDead(false),_exitDead(EXIT_DEAD_NORMAL),_startX(0),_startY(0),_stayTime(0),_tortoiseC(0),_deadTime(0),_changeTime(0),_shipID(-1),_score(90)
+Fish::Fish():_deadType(EXIT_MAP_DEAD),_volume(1),_aY(0),_isDead(false),_exitDead(EXIT_DEAD_NORMAL),_startX(0),_startY(0),_stayTime(0),_tortoiseC(0),_deadTime(0),_changeTime(0),_shipID(-1),_score(1)
 {
     
 }
