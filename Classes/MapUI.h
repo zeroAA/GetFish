@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "MapElement.h"
+#include "ButtonWithSpriteManage.h"
 
 USING_NS_CC;
 
@@ -41,6 +42,8 @@ protected:
     CCArray* _mapE;
 
     CCSize _screenSize;
+    
+    ButtonWithSpriteManage* _buttons;
 };
 
 #endif /* defined(__GetFish__MapUI__) */

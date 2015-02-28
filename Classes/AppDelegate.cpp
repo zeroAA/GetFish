@@ -70,6 +70,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
     CCLOG("x = %f, y = %f, scale = %f", scaleX, scaleY, scale);
+    
+   
 //    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(lsSize.width * scale, lsSize.height * scale, kResolutionNoBorder);
     
     CCEGLView::sharedOpenGLView()->setDesignResolutionSize(lsSize.width * scale, lsSize.height * scale, kResolutionFixedHeight);
