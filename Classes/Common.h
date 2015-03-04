@@ -21,9 +21,9 @@ const int BUTTON_MAP_SET = 103;
 const int BUTTON_MAP_BACK = 104;
 const int BUTTON_MAP_VIP = 105;
 
-const int KEY_MAP = -10;
+const int KEY_MAP = -200;
 
-const int KEY_MAPSC = -1;
+const int KEY_MAPSC = -100;
 
 const int KScreenUnkown = -1;
 const int KScreenGame = 0;

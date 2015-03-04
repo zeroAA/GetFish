@@ -269,6 +269,7 @@
 		E124D64B1A3DEAAF00C83454 /* fish in Resources */ = {isa = PBXBuildFile; fileRef = E124D64A1A3DEAAF00C83454 /* fish */; };
 		E157B1D51A8BC2460017C976 /* main in Resources */ = {isa = PBXBuildFile; fileRef = E157B1D41A8BC2460017C976 /* main */; };
 		E157B1D91A8BC6B70017C976 /* LoadingScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E157B1D71A8BC6B70017C976 /* LoadingScreen.cpp */; };
+		E15942361AA73F080063ECD8 /* ScrollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E15942341AA73F080063ECD8 /* ScrollView.cpp */; };
 		E17802291A80D45200D9D0D5 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17802271A80D45200D9D0D5 /* MapScene.cpp */; };
 		E178022D1A80D8D900D9D0D5 /* MapUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E178022B1A80D8D900D9D0D5 /* MapUI.cpp */; };
 		E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C451A777301005B7063 /* GameUI.cpp */; };
@@ -836,6 +837,8 @@
 		E157B1D41A8BC2460017C976 /* main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = main; sourceTree = "<group>"; };
 		E157B1D71A8BC6B70017C976 /* LoadingScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScreen.cpp; sourceTree = "<group>"; };
 		E157B1D81A8BC6B70017C976 /* LoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScreen.h; sourceTree = "<group>"; };
+		E15942341AA73F080063ECD8 /* ScrollView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollView.cpp; sourceTree = "<group>"; };
+		E15942351AA73F080063ECD8 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		E17802271A80D45200D9D0D5 /* MapScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapScene.cpp; sourceTree = "<group>"; };
 		E17802281A80D45200D9D0D5 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
 		E178022B1A80D8D900D9D0D5 /* MapUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapUI.cpp; sourceTree = "<group>"; };
@@ -2104,6 +2107,8 @@
 		E1DEACB21A3B335B00681EC7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E15942341AA73F080063ECD8 /* ScrollView.cpp */,
+				E15942351AA73F080063ECD8 /* ScrollView.h */,
 				E1DEACB81A3B3CF600681EC7 /* Tools.cpp */,
 				E1DEACB91A3B3CF600681EC7 /* Tools.h */,
 				E1DEACB71A3B345100681EC7 /* Common.h */,
@@ -2439,6 +2444,7 @@
 				E1E6BF981A8269ED007E4D07 /* MapElement.cpp in Sources */,
 				E124D63D1A3DD27800C83454 /* Ship.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
+				E15942361AA73F080063ECD8 /* ScrollView.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
 				15C0B567196D412F007F909D /* CCTweenFunction.cpp in Sources */,
 				15C0B58B196D412F007F909D /* LabelReader.cpp in Sources */,

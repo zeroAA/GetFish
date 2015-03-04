@@ -46,7 +46,7 @@ bool MapElement::init(int star,int lev)
     
     addChild(batch);
     
-    CCSprite* di = CCSprite::createWithSpriteFrameName(("ui_mapkuang"+(Tools::intToString((lev%12)+1))+".png").c_str());
+    CCSprite* di = CCSprite::createWithSpriteFrameName(("ui_mapkuang"+(Tools::intToString((lev/12)+1))+".png").c_str());
     
     batch->addChild(di);
     

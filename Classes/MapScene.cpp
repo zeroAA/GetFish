@@ -90,15 +90,16 @@ bool MapScene::init()
 //    
 //    addChild(zi);
     
+        
     
-    this->setTouchEnabled(true);
+//    this->setTouchEnabled(true);
 
     return true;
 }
 
 void MapScene::onEnter()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, KEY_MAPSC, true);
+//    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, KEY_MAPSC, true);
     
     CCLayer::onEnter();
 }

@@ -55,21 +55,24 @@ bool MapUI::init(int lev)
     _mapE->retain();
     
    
+    _levE = CCLayer::create();
     
-    
-    for (int i = 0; i<4; ++i) {
-        for (int j = 0; j<3; ++j) {
-            MapElement* me = MapElement::create(3, 2);
-            me->setPosition(ccp(_screenSize.width*0.2+_screenSize.width*0.2*i, _screenSize.height-_screenSize.height*0.26-_screenSize.height*0.23*j));
-            addChild(me);
+    for(int k = 0 ; k<6;++k){
+        for (int i = 0; i<4; ++i) {
+            for (int j = 0; j<3; ++j) {
+                
+                MapElement* me = MapElement::create(3, j+i*3+k*12);
+                me->setPosition(ccp(_screenSize.width*k+_screenSize.width*0.2+_screenSize.width*0.2*i, _screenSize.height-_screenSize.height*0.26-_screenSize.height*0.23*j));
+                _levE->addChild(me);
+            }
         }
     }
-    
-    
+
     
     
     CCSprite* _goldback = CCSprite::createWithSpriteFrameName("ui_jinback.png");
     _goldback->setAnchorPoint(ccp(0, 0.5));
+    _goldback->setScale(1.7);
     _goldback ->setPosition(ccp(_screenSize.width*0.04, _screenSize.height*0.93));
     
     addChild(_goldback);
@@ -77,7 +80,7 @@ bool MapUI::init(int lev)
     
     CCSprite* _gold = CCSprite::createWithSpriteFrameName("ui_jinbi.png");
     _gold->setAnchorPoint(ccp(0, 0.5));
-    _gold->setPosition(ccp(_goldback->getPositionX()-20, _goldback->getPositionY()));
+    _gold->setPosition(ccp(_goldback->getPositionX(), _goldback->getPositionY()));
     
     addChild(_gold);
     
@@ -95,7 +98,7 @@ bool MapUI::init(int lev)
     
     ButtonWithSprite* _shop = ButtonWithSprite::create(BUTTON_MAP_SHOP, "button_jia.png");
     _shop->setAnchorPoint(ccp(0, 0.5));
-    _shop->setPosition(ccp(_goldback->getPositionX()+100, _goldback->getPositionY()));
+    _shop->setPosition(ccp(_goldback->getPositionX()+_goldback->boundingBox().size.width-_shop->boundingBox().size.width, _goldback->getPositionY()));
     
     _buttons->addButton(_shop);
     
@@ -123,12 +126,28 @@ bool MapUI::init(int lev)
     
     _buttons->addButton(_vip);
     
+    _levE->setContentSize(ccp(_screenSize.width, _screenSize.height));
+    _scroll = ScrollView::create(_screenSize,_levE);
+    _scroll->setDirection(kCCScrollViewDirectionHorizontal);
+    _scroll->setTouchPriority(KEY_MAP-1);
+    
+    _scroll->setPosition(ccp(0,0));
+    _scroll->setMate(_screenSize.width,6,ScrollView::MATE_NORMAL);
+    this->addChild(_scroll,1);
+
+    
     this->setTouchEnabled(true);
     
     
-    
+    schedule(schedule_selector(MapUI::cycle));
     
     return true;
+}
+
+void MapUI::cycle(float delta)
+{
+//    CCLOG("x: %f",_scroll->getContentOffset().x);
+    _levE->setPosition(ccp(_scroll->getContentOffset().x, 0));
 }
 
 void MapUI::onEnter()
