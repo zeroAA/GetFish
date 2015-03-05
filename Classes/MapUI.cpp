@@ -68,64 +68,6 @@ bool MapUI::init(int lev)
         }
     }
 
-    
-    
-    CCSprite* _goldback = CCSprite::createWithSpriteFrameName("ui_jinback.png");
-    _goldback->setAnchorPoint(ccp(0, 0.5));
-    _goldback->setScale(1.7);
-    _goldback ->setPosition(ccp(_screenSize.width*0.04, _screenSize.height*0.93));
-    
-    addChild(_goldback);
-
-    
-    CCSprite* _gold = CCSprite::createWithSpriteFrameName("ui_jinbi.png");
-    _gold->setAnchorPoint(ccp(0, 0.5));
-    _gold->setPosition(ccp(_goldback->getPositionX(), _goldback->getPositionY()));
-    
-    addChild(_gold);
-    
-    
-    _buttons = ButtonWithSpriteManage::create("ui/button.png");
-    
-    addChild(_buttons);
-    
-    
-    ButtonWithSprite* _cup = ButtonWithSprite::create(BUTTON_MAP_CUP, "button_mapbei.png");
-    
-    _cup->setPosition(ccp(_screenSize.width*0.93, _screenSize.height*0.11));
-    
-    _buttons->addButton(_cup);
-    
-    ButtonWithSprite* _shop = ButtonWithSprite::create(BUTTON_MAP_SHOP, "button_jia.png");
-    _shop->setAnchorPoint(ccp(0, 0.5));
-    _shop->setPosition(ccp(_goldback->getPositionX()+_goldback->boundingBox().size.width-_shop->boundingBox().size.width, _goldback->getPositionY()));
-    
-    _buttons->addButton(_shop);
-    
-    ButtonWithSprite* _set = ButtonWithSprite::create(BUTTON_MAP_SET, "button_shezhi.png");
-    
-    _set->setPosition(ccp(_screenSize.width*0.95, _screenSize.height*0.92));
-    
-    _buttons->addButton(_set);
-    
-    ButtonWithSprite* _back = ButtonWithSprite::create(BUTTON_MAP_BACK, "button_fanhui.png");
-
-    _back->setPosition(ccp(_screenSize.width*0.06, _screenSize.height*0.08));
-    
-    _buttons->addButton(_back);
-    
-    ButtonWithSprite* _shop2 = ButtonWithSprite::create(BUTTON_MAP_SHOP, "button_shangcheng.png");
-    
-    _shop2->setPosition(ccp(_screenSize.width*0.85, _screenSize.height*0.92));
-    
-//    _buttons->addChild(_shop2);
-    
-    ButtonWithSprite* _vip = ButtonWithSprite::create(BUTTON_MAP_VIP, "button_libao.png");
-    
-    _vip->setPosition(ccp(_screenSize.width*0.8, _screenSize.height*0.92));
-    
-    _buttons->addButton(_vip);
-    
     _levE->setContentSize(ccp(_screenSize.width, _screenSize.height));
     _scroll = ScrollView::create(_screenSize,_levE);
     _scroll->setDirection(kCCScrollViewDirectionHorizontal);
@@ -136,8 +78,18 @@ bool MapUI::init(int lev)
     this->addChild(_scroll,1);
 
     
-    this->setTouchEnabled(true);
+    _buttons = ButtonWithSpriteManage::create("ui/button.png");
     
+    addChild(_buttons);
+  
+    
+    ButtonWithSprite* _cup = ButtonWithSprite::create(BUTTON_MAP_CUP, "button_mapbei.png");
+    
+    _cup->setPosition(ccp(_screenSize.width*0.93, _screenSize.height*0.11));
+    
+    _buttons->addButton(_cup);
+    
+    this->setTouchEnabled(true);
     
     schedule(schedule_selector(MapUI::cycle));
     
@@ -168,11 +120,7 @@ bool MapUI::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
 //    CCPoint pos = pTouch->getLocation();
     
-    _buttons->toucheBegan(pTouch, pEvent);
-    
-    
-    
-    return true;
+    return _buttons->toucheBegan(pTouch, pEvent);
 }
 
 void MapUI::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)

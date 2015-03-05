@@ -108,7 +108,7 @@ public:
 	const static int LIGHTFISH = 1120;//灯笼鱼
     
 	const static int TORTOISE = 1130;//乌龟
-    
+   
 	const static int WHALE = 1140;//鲸鱼
     
 	const static int EATFISH = 1150;//食人鱼

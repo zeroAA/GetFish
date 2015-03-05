@@ -22,7 +22,7 @@ public:
     
     static ButtonWithSprite* create(int id, const char* name);
     
-    
+    virtual void draw();
     
     ButtonWithSprite();
     

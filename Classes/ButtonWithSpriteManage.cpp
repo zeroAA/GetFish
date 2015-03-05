@@ -118,8 +118,6 @@ int ButtonWithSpriteManage::getNowID()
 bool ButtonWithSpriteManage::toucheBegan(CCTouch *pTouch,CCEvent * event)
 {
     
-   
-    
     for (int i = 0; i<_buttons->count(); ++i) {
         ButtonWithSprite* button = (ButtonWithSprite*) _buttons->objectAtIndex(i);
         if(button->toucheBegan(pTouch, event)){

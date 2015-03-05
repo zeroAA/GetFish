@@ -21,7 +21,13 @@ const int BUTTON_MAP_SET = 103;
 const int BUTTON_MAP_BACK = 104;
 const int BUTTON_MAP_VIP = 105;
 
+const int BUTTON_MAP_BUY = 106;
+
+const int BUTTON_MAP_BEGAIN = 107;
+
 const int KEY_MAP = -200;
+
+const int KEY_CHOOSE = -150;
 
 const int KEY_MAPSC = -100;
 

@@ -13,6 +13,9 @@
 
 #include "MapUI.h"
 #include "LoadingScreen.h"
+#include "ChoosePlayer.h"
+
+#include "ButtonWithSpriteManage.h"
 
 USING_NS_CC;
 
@@ -42,6 +45,9 @@ public:
 protected:
     MapUI* _mapUI;
     CCSize _screenSize;
+    ChoosePlayer* _choose;
+    
+    ButtonWithSpriteManage* _buttons;
     
 };
 
