@@ -16,7 +16,7 @@ const static int MAPUI_Z = -10;
 
 const static int CHOOSE_Z = -5;
 
-MapScene::MapScene()
+MapScene::MapScene():_nowLayer(CHOOSE)
 {
     
 }
@@ -123,7 +123,7 @@ bool MapScene::init()
     
     _buttons->addButton(_vip);
 
-
+this->schedule(schedule_selector(MapScene::cycle));
     
 //    _screenSize = CCDirector::sharedDirector()->getWinSize();
 //    
@@ -184,8 +184,42 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
      _buttons->toucheEnded(pTouch, pEvent);
 
-    
+    if (_buttons->getNowID() == BUTTON_MAP_BACK) {
+        if (_nowLayer == CHOOSE) {
+            
+        }else if(_nowLayer == MAP){
+            changeToChoose();
+        }
+    }
 //    removeAllChildren();
 //    CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, 0)));
 }
 
+void MapScene::changeToChoose()
+{
+    removeChild(_mapUI);
+    
+    _choose = ChoosePlayer::create();
+    addChild(_choose,CHOOSE_Z);
+    
+    _nowLayer = CHOOSE;
+}
+
+void MapScene::changeToMap()
+{
+    removeChild(_choose);
+    
+        
+    _mapUI = MapUI::create(3);
+    
+    addChild(_mapUI,MAPUI_Z);
+    
+    _nowLayer = MAP;
+}
+
+void MapScene::cycle(float delta)
+{
+    if (_nowLayer == CHOOSE && _choose->getIsDead()) {
+        changeToMap();
+    }
+}

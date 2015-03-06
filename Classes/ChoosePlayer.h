@@ -35,9 +35,13 @@ public:
     
     virtual void onEnter();
     
+    bool getIsDead() const;
+    
 private:
     
     void setChooseIC();
+    
+    void changePlayer();
     
 protected:
     ButtonWithSpriteManage* _buttons;
@@ -45,9 +49,9 @@ protected:
     CCSize _screenSize;
     
     
-    CCSprite* _player;
+   
     
-    CCSprite* _small_player;
+    CCArray* _small_players;
     
     CCSprite* _left;
     CCSprite* _right;
@@ -59,6 +63,10 @@ protected:
     CCNode* _buy;
     
     ButtonWithSprite* _buy_button;
+    
+    CCArray* _players;
+    
+    bool _isDead;
 };
 
 #endif /* defined(__GetFish__ChoosePlayer__) */

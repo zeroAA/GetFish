@@ -267,3 +267,18 @@ void ScrollView::skipOnecMate()
 {
     _skipOnecMate = true;
 }
+
+int ScrollView::getMatH()const
+{
+    return _mateH;
+}
+
+bool ScrollView::isMoveEnd()
+{
+    return (int)getContentOffset().x%getMatH()==0;
+}
+
+int ScrollView::getNowPage()
+{
+    return abs((int)getContentOffset().x/getMatH());
+}

@@ -40,6 +40,8 @@ public:
 private:
     
     void cycle(float delta);
+    
+    void setChooseIC();
 protected:
     
     CCArray* _mapE;
@@ -55,6 +57,10 @@ protected:
     CCScrollView* _sc;
     
     CCLayer* _levE;
+    
+    CCSprite* _chooseIc;
+    
+    int _nowSelect;
 };
 
 #endif /* defined(__GetFish__MapUI__) */

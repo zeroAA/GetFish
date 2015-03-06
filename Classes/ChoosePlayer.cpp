@@ -8,14 +8,25 @@
 
 #include "ChoosePlayer.h"
 #include "Common.h"
+#include "Tools.h"
+#include "MapScene.h"
 
-ChoosePlayer::ChoosePlayer():_nowSelect(0)
+ChoosePlayer::ChoosePlayer():_nowSelect(0),_isDead(false)
 {
     
 }
 
 ChoosePlayer::~ChoosePlayer()
 {
+    if(_players){
+        _players->release();
+        _players  = NULL;
+        
+    }
+    if (_small_players) {
+        _small_players->release();
+        _small_players=NULL;
+    }
 }
 
 bool ChoosePlayer::init()
@@ -32,29 +43,60 @@ bool ChoosePlayer::init()
     guang->setPosition(ccp(_screenSize.width, _screenSize.height*0.5));
     addChild(guang);
     
-    _player = CCSprite::create("ship/bp_1.png");
-    _player->setPosition(ccp(_screenSize.width*0.2, _screenSize.height*0.53));
-    
-    CCMoveBy *move = CCMoveBy::create(1, CCPoint(0, 2));
-    CCMoveBy *move2 = CCMoveBy::create(1, CCPoint(0, -2));
-   
-    
-    
-    CCSequence* sequence = CCSequence::create(move,move2,NULL);
-    
-    CCRepeatForever* repeat = CCRepeatForever::create(sequence);
-    
-    _player->runAction(repeat);
+    _players = CCArray::create();
+    _players->retain();
+    _small_players = CCArray::create();
+    _small_players->retain();
+    for(int i = 0;i<6;++i){
+        
+        CCSprite* player = CCSprite::create(("ship/bp_"+Tools::intToString(i+1) +".png").c_str());
+        
+        if(i == 4){
+           player->setPosition(ccp(_screenSize.width*0.23, _screenSize.height*0.53));
+        }if(i == 3){
+            player->setPosition(ccp(_screenSize.width*0.25, _screenSize.height*0.53));
+        }else{
+            player->setPosition(ccp(_screenSize.width*0.21, _screenSize.height*0.53));
+        }
+        CCMoveBy *move = CCMoveBy::create(1, CCPoint(0, 2));
+        CCMoveBy *move2 = CCMoveBy::create(1, CCPoint(0, -2));
+        
+        
+        
+        CCSequence* sequence = CCSequence::create(move,move2,NULL);
+        
+        CCRepeatForever* repeat = CCRepeatForever::create(sequence);
+        
+        player->runAction(repeat);
+        
+        player->setVisible(false);
+        addChild(player);
+        
+        _players->addObject(player);
 
+        
+        CCSprite* small_player = CCSprite::create(("ship/bp_"+Tools::intToString(i+1) +".png").c_str(), CCRectMake(0, boundingBox().size.height*0.15, player->boundingBox().size.width, 247));
+        small_player->setScaleX(-1);
+        
+        if (i == 0) {
+            small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.35, guang->getPositionY()+60));
+        }if (i == 2) {
+             small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.41, guang->getPositionY()+60));
+        }else{
+        small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.38, guang->getPositionY()+60));
+        
+        }
+        addChild(small_player);
+        small_player->setVisible(false);
+        _small_players->addObject(small_player);
+        
+    }
     
-    addChild(_player);
+    ((CCSprite*)_players->objectAtIndex(_nowSelect))->setVisible(true);
     
-    _small_player = CCSprite::create("ship/bp_1.png", CCRectMake(0, boundingBox().size.height*0.15, _player->boundingBox().size.width, 247));
-    _small_player->setScaleX(-1);
-    _small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.35, guang->getPositionY()+60));
-    addChild(_small_player);
+     ((CCSprite*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
     
-    for (int i = 0; i<6; ++i) {
+    for (int i = 0; i<_players->count(); ++i) {
         CCSprite* dian = CCSprite::createWithSpriteFrameName("ui_dian1.png");
         
         dian->setPosition(ccp(_screenSize.width*0.05+i*50, _screenSize.height*0.18));
@@ -169,13 +211,33 @@ void ChoosePlayer::onExit()
 
 bool ChoosePlayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
- 
-    if (_buttons->toucheBegan(pTouch, pEvent)) {
+    if(_buttons->toucheBegan(pTouch, pEvent)){
         return true;
     }
-   
+    CCPoint pos=pTouch->getLocation();
     
-    return true;
+//    CCLOG("x : %i y : %i",(int)_left->boundingBox().origin.x,(int)_left->boundingBox().origin.y);
+    
+    if (_left->isVisible()&&_left->boundingBox().containsPoint(pos)) {
+        
+        _nowSelect--;
+        if (_nowSelect<0) {
+            _nowSelect=_players->count()-1;
+        }
+        changePlayer();
+        return true;
+    }
+    
+    if (_right->isVisible()&&_right->boundingBox().containsPoint(pos)) {
+        _nowSelect++;
+        if (_nowSelect>_players->count()-1) {
+            _nowSelect=0;
+        }
+        changePlayer();
+        return true;
+    }
+    
+    return false;
 }
 
 void ChoosePlayer::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
@@ -187,9 +249,36 @@ void ChoosePlayer::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEve
 void ChoosePlayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     _buttons->toucheEnded(pTouch, pEvent);
+    
+    if (_buttons->getNowID()==BUTTON_MAP_BEGAIN) {
+        _isDead = true;
+    }
 }
 
 void ChoosePlayer::setChooseIC()
 {
     _chooseIc->setPosition(ccp(_screenSize.width*0.05+_nowSelect*50, _screenSize.height*0.18));
+}
+
+void ChoosePlayer::changePlayer()
+{
+   
+    for(int i = 0 ; i<_players->count();++i){
+        ((CCSprite*)_players->objectAtIndex(i))->setVisible(false);
+        ((CCSprite*)_small_players->objectAtIndex(i))->setVisible(false);
+    }
+    ((CCSprite*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
+    
+   CCSprite* player = ((CCSprite*)_players->objectAtIndex(_nowSelect));
+    player->setVisible(true);
+    player->setOpacity(0);
+    CCFadeIn* in = CCFadeIn::create(0.5);
+    player->runAction(in);
+    
+    setChooseIC();
+}
+
+bool ChoosePlayer::getIsDead() const
+{
+    return _isDead;
 }

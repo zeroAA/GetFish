@@ -46,11 +46,12 @@ bool MapElement::init(int star,int lev)
     
     addChild(batch);
     
-    CCSprite* di = CCSprite::createWithSpriteFrameName(("ui_mapkuang"+(Tools::intToString((lev/12)+1))+".png").c_str());
+     _lev = lev;
+   
+    _back= CCSprite::createWithSpriteFrameName(("ui_mapkuang"+(Tools::intToString((lev/12)+1))+".png").c_str());
     
-    batch->addChild(di);
-    
-    
+    batch->addChild(_back);
+   
     
     for (int i = 0; i<star; ++i) {
         CCSprite* s = CCSprite::createWithSpriteFrameName("ui_star1.png");
@@ -67,4 +68,14 @@ bool MapElement::init(int star,int lev)
     }
     
     return true;
+}
+
+CCRect MapElement::getBody()
+{
+    return CCRectMake(this->getPositionX()+ _back->boundingBox().origin.x, this->getPositionY()+ _back->boundingBox().origin.y, _back->boundingBox().size.width, _back->boundingBox().size.height);
+}
+
+int MapElement::getLev()
+{
+    return _lev;
 }

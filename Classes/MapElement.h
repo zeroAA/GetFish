@@ -25,9 +25,14 @@ public:
     
     virtual ~MapElement();
     
+    CCRect getBody() ;
+    
+    int getLev();
 protected:
     
     int _lev;
+    
+    CCSprite* _back;
 
 };
 

@@ -35,7 +35,7 @@ public:
     static ScrollView* create(CCSize size, CCNode* container = NULL);
     
 
-    bool isMate();
+    bool isMoveEnd();
     void setMate(float mateH,int mateNum,int mateMode);
     
     void setMate(int mateMode);
@@ -48,6 +48,10 @@ public:
     void toOneMate(int num);
     
     void skipOnecMate();
+    
+    int getMatH() const;
+    
+    int getNowPage();
     
 private:
     

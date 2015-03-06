@@ -27,18 +27,14 @@ MapUI* MapUI::create(int lev)
 }
 
 
-MapUI::MapUI()
+MapUI::MapUI():_nowSelect(0)
 {
     
 }
 
 MapUI::~MapUI()
 {
-    
-    if (_mapE) {
-        _mapE->release();
-        _mapE = NULL;
-    }
+    CC_SAFE_RELEASE_NULL(_mapE);
 }
 
 bool MapUI::init(int lev)
@@ -54,16 +50,18 @@ bool MapUI::init(int lev)
     
     _mapE->retain();
     
+    
    
     _levE = CCLayer::create();
     
     for(int k = 0 ; k<6;++k){
-        for (int i = 0; i<4; ++i) {
-            for (int j = 0; j<3; ++j) {
+        for (int i = 0; i<3; ++i) {
+            for (int j = 0; j<4; ++j) {
                 
-                MapElement* me = MapElement::create(3, j+i*3+k*12);
-                me->setPosition(ccp(_screenSize.width*k+_screenSize.width*0.2+_screenSize.width*0.2*i, _screenSize.height-_screenSize.height*0.26-_screenSize.height*0.23*j));
+                MapElement* me = MapElement::create(3, j+i*4+k*12);
+                me->setPosition(ccp(_screenSize.width*k+_screenSize.width*0.2+_screenSize.width*0.2*j, _screenSize.height-_screenSize.height*0.26-_screenSize.height*0.23*i));
                 _levE->addChild(me);
+                _mapE->addObject(me);
             }
         }
     }
@@ -93,13 +91,25 @@ bool MapUI::init(int lev)
     
     schedule(schedule_selector(MapUI::cycle));
     
+    for (int i = 0; i<6; ++i) {
+        CCSprite* dian = CCSprite::createWithSpriteFrameName("ui_dian1.png");
+        
+        dian->setPosition(ccp(_screenSize.width*0.5-125+i*50, _screenSize.height*0.10));
+        
+        addChild(dian);
+        
+    }
+    _chooseIc = CCSprite::createWithSpriteFrameName("ui_dian2.png");
+    setChooseIC();
+    addChild(_chooseIc);
     return true;
 }
 
 void MapUI::cycle(float delta)
 {
-//    CCLOG("x: %f",_scroll->getContentOffset().x);
+    
     _levE->setPosition(ccp(_scroll->getContentOffset().x, 0));
+    setChooseIC();
 }
 
 void MapUI::onEnter()
@@ -118,9 +128,19 @@ void MapUI::onExit()
 
 bool MapUI::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-//    CCPoint pos = pTouch->getLocation();
+    CCPoint pos = pTouch->getLocation();
     
-    return _buttons->toucheBegan(pTouch, pEvent);
+    if (CCRectMake(_screenSize.width*0.1, _screenSize.height*0.2, _screenSize.width*0.8, _screenSize.height*0.6).containsPoint(pos)) {
+        
+        _nowSelect= 100;
+        return true;
+    }
+    
+    if (_buttons->toucheBegan(pTouch, pEvent)) {
+        return true;
+    }
+    
+    return false;
 }
 
 void MapUI::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
@@ -132,4 +152,22 @@ void MapUI::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 void MapUI::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     _buttons->toucheEnded(pTouch, pEvent);
+    if (_nowSelect == 100&&_scroll-> isMoveEnd()) {
+        for (int i = _scroll->getNowPage()*12; i<_scroll->getNowPage()*12+12; ++i) {
+            
+            MapElement* me = (MapElement*) _mapE->objectAtIndex(i);
+         
+            if (CCRectMake(me->getBody().origin.x+(int)_scroll->getContentOffset().x, me->getBody().origin.y, me->getBody().size.width, me->getBody().size.height).containsPoint(pTouch->getLocation())) {
+//                CCLOG("se : %i ",me->getLev());
+            }
+        }
+        
+    }
+    
+    _nowSelect =0;
+}
+
+void MapUI::setChooseIC()
+{
+    _chooseIc->setPosition(ccp(_screenSize.width*0.5-125+_scroll->getNowPage()*50, _screenSize.height*0.10));
 }

@@ -22,6 +22,10 @@ USING_NS_CC;
 class MapScene : public cocos2d::CCLayer
 {
 public:
+    
+    const static int CHOOSE = 0;
+    const static int MAP = 1;
+    
     virtual bool init();
     
     static cocos2d::CCScene* scene();
@@ -41,6 +45,13 @@ public:
     virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
     
     virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+private:
+    
+    void changeToMap();
+    
+    void changeToChoose();
+    
+    void cycle(float delta); 
     
 protected:
     MapUI* _mapUI;
@@ -48,7 +59,7 @@ protected:
     ChoosePlayer* _choose;
     
     ButtonWithSpriteManage* _buttons;
-    
+    int _nowLayer ;
 };
 
 #endif /* defined(__GetFish__MapScene__) */
