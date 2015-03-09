@@ -287,6 +287,7 @@
 		E1DEACB11A3AA18000681EC7 /* ActorManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACAE1A3AA18000681EC7 /* ActorManage.cpp */; };
 		E1DEACB61A3B33F100681EC7 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB41A3B33F100681EC7 /* GameScene.cpp */; };
 		E1DEACBA1A3B3CF600681EC7 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB81A3B3CF600681EC7 /* Tools.cpp */; };
+		E1E39A531AADF48E00E872B9 /* data in Resources */ = {isa = PBXBuildFile; fileRef = E1E39A521AADF48E00E872B9 /* data */; };
 		E1E6BF981A8269ED007E4D07 /* MapElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1E6BF961A8269ED007E4D07 /* MapElement.cpp */; };
 /* End PBXBuildFile section */
 
@@ -872,6 +873,7 @@
 		E1DEACB71A3B345100681EC7 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		E1DEACB81A3B3CF600681EC7 /* Tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tools.cpp; sourceTree = "<group>"; };
 		E1DEACB91A3B3CF600681EC7 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		E1E39A521AADF48E00E872B9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		E1E6BF961A8269ED007E4D07 /* MapElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapElement.cpp; sourceTree = "<group>"; };
 		E1E6BF971A8269ED007E4D07 /* MapElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapElement.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2024,6 +2026,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1E39A521AADF48E00E872B9 /* data */,
 				E157B1D41A8BC2460017C976 /* main */,
 				E1CD16831A415E6500D4FE15 /* ui */,
 				E1CD16811A415E5B00D4FE15 /* ship */,
@@ -2195,6 +2198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E39A531AADF48E00E872B9 /* data in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				E124D64B1A3DEAAF00C83454 /* fish in Resources */,

@@ -34,19 +34,19 @@ GameScene* GameScene::instance()
     return _instance;
 }
 
-CCScene* GameScene::scene()
+CCScene* GameScene::scene(int lev)
 {
     
     CCScene* scene = CCScene::create();
     
-    GameScene* layer = GameScene::create();
+    GameScene* layer = GameScene::create(lev);
     
     scene->addChild(layer);
     
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(0)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(180),_isChange(false),_nowDataInedxt(0)
 {
     
 }
@@ -55,19 +55,60 @@ GameScene::~GameScene()
 {
 }
 
-bool GameScene::init()
+GameScene* GameScene::create(int lev)
+{
+    GameScene* game = new GameScene();
+    
+    if(game && game->init(lev)) {
+        game->autorelease();
+        return game;
+    }
+    
+    CC_SAFE_DELETE(game);
+    return NULL;
+}
+
+bool GameScene::init(int lev)
 {
     
     if (CCLayer::init())
     {
+        std::vector<int> data_1;
+        data_1.push_back(10);
+        data_1.push_back(3);
+        data_1.push_back(10);
+        data_1.push_back(50);
+        data_1.push_back(1);
+        data_1.push_back(50);
+        data_1.push_back(2);
+        data_1.push_back(50);
+        
+       
+        
+        std::vector<int> data_2;
+        data_2.push_back(13);
+        data_2.push_back(1);
+        data_2.push_back(5);
+        data_2.push_back(1);
+        data_2.push_back(3);
+//        data_2.push_back(2);
+//        data_2.push_back(5);
+//        data_2.push_back(1);
+//        data_2.push_back(3);
+        
+         _data.push_back(data_2);
+        _data.push_back(data_2);
+        
         _screenSize = CCDirector::sharedDirector()->getWinSize();
         
         _instance = this;
         
+        _nowLev = lev;
         
         
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1.csb");
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_2.csb");
-        
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_3.csb");
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1110.csb");
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1120.csb");
@@ -95,8 +136,6 @@ bool GameScene::init()
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/ship_1.csb");
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/player_3.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/hook_1.ExportJson");
         
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test10.csb");
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test11.csb");
@@ -326,40 +365,49 @@ void GameScene::onExit()
 void GameScene::cycle(float delta)
 {
     
-    _time++;
+    _time--;
     if (_time>=0) {
         _ui->setTime((int)(_time/30));
     }
     
-    _addFishTime--;
-    if (_addFishTime<0) {
-        _addFishTime = Tools::randomIntInRange(30, 60);
-        
-        addFish(2);
+    if (_isChange) {
+        if (_fishLayer->getActor()->count() == 0) {
+            
+            _isChange = false;
+            _nowDataInedxt++;
+        }
+    }else{
+        addFish();
     }
-    _addSPFishTime--;
-    if (_addSPFishTime<0
-//        && _fishLayer->getActor()->count() == 0
-        ) {
-        _addSPFishTime = Tools::randomFloatInRange(120, 200);
-       
-        addDolphin();
-        addLightFish();
-        addTortoise();
-
-        addWhale();
-        addEatFish();
-
-        addShark();
-
-        addSwordFish();
-
-        addStrong();
-
-        addEle();
-        
-        
-    }
+//    _addFishTime--;
+//    if (_addFishTime<0) {
+//        _addFishTime = Tools::randomIntInRange(30, 60);
+//        
+//        addFish(2);
+//    }
+//    _addSPFishTime--;
+//    if (_addSPFishTime<0
+////        && _fishLayer->getActor()->count() == 0
+//        ) {
+//        _addSPFishTime = Tools::randomFloatInRange(120, 200);
+//       
+//        addDolphin();
+//        addLightFish();
+//        addTortoise();
+//
+//        addWhale();
+//        addEatFish();
+//
+//        addShark();
+//
+//        addSwordFish();
+//
+//        addStrong();
+//
+//        addEle();
+//        
+//        
+//    }
    
     cycleFishs();
    
@@ -1042,3 +1090,104 @@ void GameScene::setUIScroe(int sc)
     
 }
 
+void GameScene::setFishToRun()
+{
+    CCArray* fishs = _fishLayer->getActor();
+    
+    for (int i = 0 ; i<fishs->count(); ++i) {
+        Fish* fish = (Fish*) fishs->objectAtIndex(i);
+        
+        fish->setGo();
+    }
+}
+
+void GameScene::addFish()
+{
+//    CCLOG("???!!! %i",_nowDataInedxt);
+    std::vector<int> nowdata= _data[_nowDataInedxt];
+    
+    if (_nowDataInedxt == 1) {
+        CCLOG("now : %i",nowdata[0]);
+    }
+    
+    if (nowdata[0] == ADD_NORMAL) {
+        _addFishTime++;
+        if (_addFishTime >= nowdata[2]) {
+            _addFishTime =0;
+            int num =(nowdata.size()-4)/2;
+            for (int i = 0; i<nowdata[1]; ++i) {
+                int chu = Tools::randomIntInRange(0, 100);
+                int fishIndext = 0;
+                int up=0;
+                
+                for (int j = 0; j<num; ++j) {
+                    if (j==0) {
+                        if (0<=chu && chu<nowdata[i*2+5]) {
+                            fishIndext=j;
+                            break;
+                        }
+                    }else{
+                        up+=nowdata[(i-1)*2+5];
+                        
+                        if (up<=chu&&chu<=nowdata[i*2+5]+up) {
+                            fishIndext = j;
+                            break;
+                        }
+                    }
+                }
+                
+                addFish(nowdata[fishIndext*2+4]);
+                 _fishNum++;
+            }
+            
+           
+            
+            if (_fishNum >= nowdata[3]) {
+                _fishNum = 0;
+                _isChange = true;
+                setFishToRun();
+            }
+        }
+    }else if(nowdata[0] == ADD_FORMAT){
+       
+        _isChange = true;
+        if (_fishLayer->getActor()->count() == 0) {
+            for (int i = 0; i<(nowdata.size()-1)/4; ++i) {
+                if (nowdata[i*4+4]>0) {
+                    addFormatFish(nowdata[1+i*4], nowdata[2+i*4], nowdata[3+i*4]);
+                    nowdata[i*4+4]--;
+                    _isChange = false;
+                }
+                
+            }
+        }
+        
+        
+    }
+}
+
+void GameScene::addFormatFish(int id, int speed, int dir)
+{
+    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(id)+".csb").c_str());
+    
+    CCArray* all =  node->getChildren();
+    
+    
+    for (int i = 0; i<all->count(); ++i) {
+        
+        CCNode* fish =dynamic_cast<CCNode*> (all->objectAtIndex(i));
+        
+        
+        
+        CCArmature* arm = (CCArmature *)((CCComRender*) fish->getComponent("CCArmature"))->getNode();
+        string str = arm->getName().substr(0,arm->getName().find('.'));
+        int exitType = Fish::EXIT_DEAD_RIGHT;
+        
+        if (dir == 0) {
+            exitType = Fish::EXIT_DEAD_LEFT;
+        }
+        
+        _fishLayer->addFish(id, speed, dir, (str).c_str(),exitType,fish->getPosition());
+
+    }
+}

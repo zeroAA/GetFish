@@ -768,3 +768,8 @@ int Fish::getDeadType() const
 {
     return _deadType;
 }
+
+void Fish::setExitDeadType(int type)
+{
+    _exitDead = type;
+}

@@ -470,7 +470,10 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: \
  jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
  jni/../../Classes/EffectManage.h jni/../../Classes/Ship.h \
  jni/../../Classes/GameUI.h jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h jni/../../Classes/Tools.h
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/MapScene.h \
+ jni/../../Classes/MapUI.h jni/../../Classes/MapElement.h \
+ jni/../../Classes/ScrollView.h jni/../../Classes/LoadingScreen.h \
+ jni/../../Classes/ChoosePlayer.h jni/../../Classes/Tools.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -1427,5 +1430,17 @@ jni/../../Classes/GameUI.h:
 jni/../../Classes/ButtonWithSpriteManage.h:
 
 jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/MapScene.h:
+
+jni/../../Classes/MapUI.h:
+
+jni/../../Classes/MapElement.h:
+
+jni/../../Classes/ScrollView.h:
+
+jni/../../Classes/LoadingScreen.h:
+
+jni/../../Classes/ChoosePlayer.h:
 
 jni/../../Classes/Tools.h:

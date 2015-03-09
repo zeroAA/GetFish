@@ -27,7 +27,7 @@ MapUI* MapUI::create(int lev)
 }
 
 
-MapUI::MapUI():_nowSelect(0)
+MapUI::MapUI():_nowSelect(-1)
 {
     
 }
@@ -132,7 +132,7 @@ bool MapUI::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     
     if (CCRectMake(_screenSize.width*0.1, _screenSize.height*0.2, _screenSize.width*0.8, _screenSize.height*0.6).containsPoint(pos)) {
         
-        _nowSelect= 100;
+        _nowSelect= 1000;
         return true;
     }
     
@@ -152,22 +152,39 @@ void MapUI::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 void MapUI::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     _buttons->toucheEnded(pTouch, pEvent);
-    if (_nowSelect == 100&&_scroll-> isMoveEnd()) {
+    if (_nowSelect == 1000&&_scroll-> isMoveEnd()) {
         for (int i = _scroll->getNowPage()*12; i<_scroll->getNowPage()*12+12; ++i) {
             
             MapElement* me = (MapElement*) _mapE->objectAtIndex(i);
          
             if (CCRectMake(me->getBody().origin.x+(int)_scroll->getContentOffset().x, me->getBody().origin.y, me->getBody().size.width, me->getBody().size.height).containsPoint(pTouch->getLocation())) {
 //                CCLOG("se : %i ",me->getLev());
+                _nowSelect =me->getLev();
+                return;
+                
             }
         }
         
     }
-    
-    _nowSelect =0;
+    if(_nowSelect == 1000){
+        _nowSelect =-1;
+
+    }
 }
 
 void MapUI::setChooseIC()
 {
     _chooseIc->setPosition(ccp(_screenSize.width*0.5-125+_scroll->getNowPage()*50, _screenSize.height*0.10));
+}
+
+int MapUI::getNowSelect() const
+{
+    return _nowSelect;
+}
+
+bool MapUI::isToGame() const
+{
+    return 0<=_nowSelect&&_nowSelect<_mapE->count();
+    
+//    return true;
 }

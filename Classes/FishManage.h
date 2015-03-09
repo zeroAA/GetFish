@@ -29,6 +29,8 @@ public:
     
     void addFish(int type,float speed ,int dir, const char* name);
     
+    void addFish(int type,float speed ,int dir, const char* name,int exitType,CCPoint pos/*NULL*/);
+    
 protected:
     
     CCSize _screenSize;

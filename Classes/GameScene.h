@@ -25,11 +25,16 @@ USING_NS_CC;
 class GameScene : public cocos2d::CCLayer
 {
 public:
-    virtual bool init();
     
-    static cocos2d::CCScene* scene();
+    const static int ADD_NORMAL = 10;
     
-    CREATE_FUNC(GameScene);
+    const static int ADD_FORMAT = 13;
+    
+    static cocos2d::CCScene* scene(int lev);
+    
+    static GameScene* create(int lev);
+    
+    virtual bool init(int lev);
     
     static GameScene* instance();
     
@@ -74,6 +79,10 @@ public:
     
     void addEle();
     
+    void addFormatFish(int id ,int speed,int dir);
+    
+    
+    
 private:
     
     static GameScene* _instance;
@@ -111,6 +120,10 @@ private:
     void useFish(Fish* fish);
     
     void setUIScroe(int sc);
+    
+    void setFishToRun();
+    
+    void addFish();
 
     
 protected:
@@ -134,6 +147,17 @@ protected:
     
     std::vector<int> _mubiao_scroe;
     
+    int _nowLev;
+    
+   
+    
+    std::vector< std::vector<int> > _data;
+    
+    int _fishNum;
+    
+    int _nowDataInedxt;
+    
+    bool _isChange;
 };
 
 #endif /* defined(__GetFish__GameScene__) */

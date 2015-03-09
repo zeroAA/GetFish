@@ -471,7 +471,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameScene.o: \
  jni/../../Classes/Fish.h jni/../../Classes/GameUI.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
  jni/../../Classes/ButtonWithSprite.h jni/../../Classes/Tools.h \
- jni/../../Classes/Effect.h
+ jni/../../Classes/Effect.h jni/../../Classes/Common.h
 
 jni/../../Classes/GameScene.h:
 
@@ -1428,3 +1428,5 @@ jni/../../Classes/ButtonWithSprite.h:
 jni/../../Classes/Tools.h:
 
 jni/../../Classes/Effect.h:
+
+jni/../../Classes/Common.h:

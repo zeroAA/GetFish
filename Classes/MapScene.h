@@ -26,6 +26,8 @@ public:
     const static int CHOOSE = 0;
     const static int MAP = 1;
     
+    const static int GAME = 2;
+    
     virtual bool init();
     
     static cocos2d::CCScene* scene();

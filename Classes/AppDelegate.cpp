@@ -80,9 +80,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 //    CCScene *pScene = HelloWorld::scene();
     
-//    CCScene *pScene = GameScene::scene();
+    CCScene *pScene = GameScene::scene(0);
     
-    CCScene* pScene = MapScene::scene();
+//    CCScene* pScene = MapScene::scene();
 
     // run
     pDirector->runWithScene(pScene);

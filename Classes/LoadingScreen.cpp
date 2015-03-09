@@ -66,7 +66,7 @@ void LoadingScreen::loadNextScreen(cocos2d::CCTime delta)
     CCScene* scene = NULL;
     
     if(_nextScreenId == KScreenGame) {
-        scene = GameScene::scene();
+        scene = GameScene::scene(_nextScreenParam);
     }
     
     if(scene != NULL) {

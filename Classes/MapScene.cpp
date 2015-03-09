@@ -221,5 +221,11 @@ void MapScene::cycle(float delta)
 {
     if (_nowLayer == CHOOSE && _choose->getIsDead()) {
         changeToMap();
+    }else if (_nowLayer == MAP && _mapUI->isToGame())
+    {
+        _nowLayer = GAME;
+        int lev =_mapUI->getNowSelect();
+            removeAllChildren();
+            CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, lev)));
     }
 }

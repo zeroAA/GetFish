@@ -141,6 +141,14 @@ public:
     
     const static int POW_DEAD = 3;//磁铁
     
+    const static int EXIT_DEAD_NORMAL = 0;
+    
+    const static int EXIT_DEAD_LEFT = 1;
+    
+    const static int EXIT_DEAD_RIGHT = 2;
+    
+    const static int EXIT_DEAD_NO = 3;
+    
     static Fish* create(int type,float speed , int dir,const char* name);
     
     virtual bool init(int type,float speed , int dir,const char* name);
@@ -258,6 +266,8 @@ public:
     
     int getDeadType() const;
     
+    void setExitDeadType(int type);
+    
 private:
     
     void initData();
@@ -291,13 +301,7 @@ protected:
     
     int _deadType ;
     
-    const static int EXIT_DEAD_NORMAL = 0;
     
-    const static int EXIT_DEAD_LEFT = 1;
-    
-    const static int EXIT_DEAD_RIGHT = 2;
-    
-    const static int EXIT_DEAD_NO = 3;
     
     int _exitDead ;
     

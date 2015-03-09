@@ -34,11 +34,21 @@ bool FishManage::init()
 void FishManage::addFish(int type, float speed , int dir,const char* name)
 {
     
+    addFish(type,speed,dir,name,Fish::EXIT_DEAD_NORMAL,CCPointMake(-1000, 0));
+   
     
-    Fish* fish = Fish::create(type,speed , dir,name);
+}
 
-//    addActorForChild(fish);
+void FishManage::addFish(int type,float speed ,int dir, const char* name,int exitType,CCPoint pos)
+{
+    Fish* fish = Fish::create(type,speed , dir,name);
+    fish->setExitDeadType(exitType);
+    //    addActorForChild(fish);
+    
+    if (pos.x !=-1000) {
+        
+        fish->setXY(pos.x, pos.y);
+    }
     
     addActor(fish);
-    
 }

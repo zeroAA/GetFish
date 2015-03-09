@@ -37,6 +37,10 @@ public:
     virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
     
     virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    
+    int getNowSelect() const;
+    
+    bool isToGame() const;
 private:
     
     void cycle(float delta);
