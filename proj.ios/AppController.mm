@@ -3,6 +3,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "GameScene.h"
 
 @implementation AppController
 
@@ -12,10 +13,10 @@
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Override point for customization after application launch.
-
+    
     // Add the view controller's view to the window and display.
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     
@@ -27,12 +28,14 @@ static AppDelegate s_sharedApplication;
                                       sharegroup: nil
                                    multiSampling: NO
                                  numberOfSamples: 0];
-
-    // Use RootViewController manage EAGLView 
+    
+    // Use RootViewController manage EAGLView
     viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     viewController.wantsFullScreenLayout = YES;
     viewController.view = __glView;
-
+    
+    [__glView setMultipleTouchEnabled:YES];
+    
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
@@ -50,7 +53,8 @@ static AppDelegate s_sharedApplication;
     [[UIApplication sharedApplication] setStatusBarHidden:true];
     
     cocos2d::CCApplication::sharedApplication()->run();
-
+    
+    
     return YES;
 }
 
@@ -60,6 +64,11 @@ static AppDelegate s_sharedApplication;
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
+    
+    //    if (!GameScene::instance()->getPause()) {
+    //        GameScene::instance()->doPause();
+    //    }
+    
     cocos2d::CCDirector::sharedDirector()->pause();
 }
 
@@ -67,12 +76,15 @@ static AppDelegate s_sharedApplication;
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    
+    
+    
     cocos2d::CCDirector::sharedDirector()->resume();
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
     cocos2d::CCApplication::sharedApplication()->applicationDidEnterBackground();

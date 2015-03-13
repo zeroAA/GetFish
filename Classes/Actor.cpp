@@ -79,7 +79,7 @@ void Actor::onExit()
 
 void Actor::cycle(float delta)
 {
-    CCLOG("actir");
+//    CCLOG("actir");
 }
 
 void Actor::actorCycle(float delta)

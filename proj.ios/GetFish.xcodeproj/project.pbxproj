@@ -261,6 +261,7 @@
 		D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949B15BD2D8E00D803EB /* Icon-114.png */; };
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
+		E101D2401AAF0C0D00508680 /* AudioController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E101D23E1AAF0C0D00508680 /* AudioController.cpp */; };
 		E104F46E1A5AB453004AFBCF /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E104F46C1A5AB453004AFBCF /* Effect.cpp */; };
 		E104F4711A5AB468004AFBCF /* EffectManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E104F46F1A5AB468004AFBCF /* EffectManage.cpp */; };
 		E124D63A1A3DD26E00C83454 /* Fish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D6381A3DD26E00C83454 /* Fish.cpp */; };
@@ -272,6 +273,13 @@
 		E15942361AA73F080063ECD8 /* ScrollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E15942341AA73F080063ECD8 /* ScrollView.cpp */; };
 		E17802291A80D45200D9D0D5 /* MapScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17802271A80D45200D9D0D5 /* MapScene.cpp */; };
 		E178022D1A80D8D900D9D0D5 /* MapUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E178022B1A80D8D900D9D0D5 /* MapUI.cpp */; };
+		E17973991AB04822009A56FE /* Rock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973971AB04822009A56FE /* Rock.cpp */; };
+		E179739C1AB04839009A56FE /* RockManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E179739A1AB04839009A56FE /* RockManage.cpp */; };
+		E179739F1AB04852009A56FE /* Leaf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E179739D1AB04852009A56FE /* Leaf.cpp */; };
+		E17973A21AB04865009A56FE /* LeafManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A01AB04865009A56FE /* LeafManage.cpp */; };
+		E17973A51AB04879009A56FE /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A31AB04879009A56FE /* Shell.cpp */; };
+		E17973A81AB0488D009A56FE /* ShellManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A61AB0488D009A56FE /* ShellManage.cpp */; };
+		E19B39301AB2FA3D00CB6373 /* BinaryReadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */; };
 		E1BE6C2F1AA84F65000CD06B /* ChoosePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */; };
 		E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C451A777301005B7063 /* GameUI.cpp */; };
 		E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4A1A7786F8005B7063 /* Button.cpp */; };
@@ -825,6 +833,8 @@
 		D4EF949D15BD2D9600D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		E101D23E1AAF0C0D00508680 /* AudioController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioController.cpp; sourceTree = "<group>"; };
+		E101D23F1AAF0C0D00508680 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
 		E104F46C1A5AB453004AFBCF /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		E104F46D1A5AB453004AFBCF /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
 		E104F46F1A5AB468004AFBCF /* EffectManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectManage.cpp; sourceTree = "<group>"; };
@@ -845,6 +855,20 @@
 		E17802281A80D45200D9D0D5 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
 		E178022B1A80D8D900D9D0D5 /* MapUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapUI.cpp; sourceTree = "<group>"; };
 		E178022C1A80D8D900D9D0D5 /* MapUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUI.h; sourceTree = "<group>"; };
+		E17973971AB04822009A56FE /* Rock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rock.cpp; sourceTree = "<group>"; };
+		E17973981AB04822009A56FE /* Rock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rock.h; sourceTree = "<group>"; };
+		E179739A1AB04839009A56FE /* RockManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RockManage.cpp; sourceTree = "<group>"; };
+		E179739B1AB04839009A56FE /* RockManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RockManage.h; sourceTree = "<group>"; };
+		E179739D1AB04852009A56FE /* Leaf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Leaf.cpp; sourceTree = "<group>"; };
+		E179739E1AB04852009A56FE /* Leaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leaf.h; sourceTree = "<group>"; };
+		E17973A01AB04865009A56FE /* LeafManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeafManage.cpp; sourceTree = "<group>"; };
+		E17973A11AB04865009A56FE /* LeafManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafManage.h; sourceTree = "<group>"; };
+		E17973A31AB04879009A56FE /* Shell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shell.cpp; sourceTree = "<group>"; };
+		E17973A41AB04879009A56FE /* Shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shell.h; sourceTree = "<group>"; };
+		E17973A61AB0488D009A56FE /* ShellManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShellManage.cpp; sourceTree = "<group>"; };
+		E17973A71AB0488D009A56FE /* ShellManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellManage.h; sourceTree = "<group>"; };
+		E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryReadUtil.cpp; sourceTree = "<group>"; };
+		E19B392F1AB2FA3D00CB6373 /* BinaryReadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryReadUtil.h; sourceTree = "<group>"; };
 		E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePlayer.cpp; sourceTree = "<group>"; };
 		E1BE6C2E1AA84F65000CD06B /* ChoosePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlayer.h; sourceTree = "<group>"; };
 		E1CC3C451A777301005B7063 /* GameUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameUI.cpp; sourceTree = "<group>"; };
@@ -1395,6 +1419,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E17973961AB0475D009A56FE /* FishPart */,
 				E157B1D71A8BC6B70017C976 /* LoadingScreen.cpp */,
 				E157B1D81A8BC6B70017C976 /* LoadingScreen.h */,
 				E1CC3C441A7772EB005B7063 /* UI */,
@@ -2080,6 +2105,25 @@
 			name = Fish;
 			sourceTree = "<group>";
 		};
+		E17973961AB0475D009A56FE /* FishPart */ = {
+			isa = PBXGroup;
+			children = (
+				E17973971AB04822009A56FE /* Rock.cpp */,
+				E17973981AB04822009A56FE /* Rock.h */,
+				E179739A1AB04839009A56FE /* RockManage.cpp */,
+				E179739B1AB04839009A56FE /* RockManage.h */,
+				E179739D1AB04852009A56FE /* Leaf.cpp */,
+				E179739E1AB04852009A56FE /* Leaf.h */,
+				E17973A01AB04865009A56FE /* LeafManage.cpp */,
+				E17973A11AB04865009A56FE /* LeafManage.h */,
+				E17973A31AB04879009A56FE /* Shell.cpp */,
+				E17973A41AB04879009A56FE /* Shell.h */,
+				E17973A61AB0488D009A56FE /* ShellManage.cpp */,
+				E17973A71AB0488D009A56FE /* ShellManage.h */,
+			);
+			name = FishPart;
+			sourceTree = "<group>";
+		};
 		E1CC3C441A7772EB005B7063 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -2115,6 +2159,10 @@
 		E1DEACB21A3B335B00681EC7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */,
+				E19B392F1AB2FA3D00CB6373 /* BinaryReadUtil.h */,
+				E101D23E1AAF0C0D00508680 /* AudioController.cpp */,
+				E101D23F1AAF0C0D00508680 /* AudioController.h */,
 				E15942341AA73F080063ECD8 /* ScrollView.cpp */,
 				E15942351AA73F080063ECD8 /* ScrollView.h */,
 				E1DEACB81A3B3CF600681EC7 /* Tools.cpp */,
@@ -2235,6 +2283,7 @@
 				15C0B561196D412F007F909D /* CCColliderDetector.cpp in Sources */,
 				15A3D9041682F7D5002FB0C5 /* b2Distance.cpp in Sources */,
 				E1CC3C561A77D701005B7063 /* ButtonWithSpriteManage.cpp in Sources */,
+				E101D2401AAF0C0D00508680 /* AudioController.cpp in Sources */,
 				15C0B596196D412F007F909D /* TriggerMng.cpp in Sources */,
 				15A3D9051682F7D5002FB0C5 /* b2DynamicTree.cpp in Sources */,
 				15A3D9061682F7D5002FB0C5 /* b2TimeOfImpact.cpp in Sources */,
@@ -2290,6 +2339,7 @@
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */,
 				15C0B55B196D412F007F909D /* CCDatas.cpp in Sources */,
+				E19B39301AB2FA3D00CB6373 /* BinaryReadUtil.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
@@ -2316,6 +2366,7 @@
 				E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */,
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
+				E17973A51AB04879009A56FE /* Shell.cpp in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,
 				E124D6411A3DDF3400C83454 /* FishManage.cpp in Sources */,
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
@@ -2332,6 +2383,7 @@
 				15C0B573196D412F007F909D /* UIHelper.cpp in Sources */,
 				15C0B55A196D412F007F909D /* CCBone.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
+				E17973A21AB04865009A56FE /* LeafManage.cpp in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
@@ -2356,6 +2408,7 @@
 				15C0B54E196D412F007F909D /* CCActionManager.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
 				E1DEACB61A3B33F100681EC7 /* GameScene.cpp in Sources */,
+				E17973991AB04822009A56FE /* Rock.cpp in Sources */,
 				15C0B574196D412F007F909D /* UITouchGroup.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,
 				15A3DA361682F826002FB0C5 /* CCBSequenceProperty.cpp in Sources */,
@@ -2399,6 +2452,7 @@
 				15C0B592196D412F007F909D /* TextFieldReader.cpp in Sources */,
 				15C0B57F196D412F007F909D /* UIRichText.cpp in Sources */,
 				15C0B583196D412F007F909D /* DictionaryHelper.cpp in Sources */,
+				E17973A81AB0488D009A56FE /* ShellManage.cpp in Sources */,
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15C0B550196D412F007F909D /* CCActionObject.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
@@ -2447,6 +2501,7 @@
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
+				E179739C1AB04839009A56FE /* RockManage.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
@@ -2463,6 +2518,7 @@
 				1A8F3B7A175E05DA00049216 /* Json.cpp in Sources */,
 				1A8F3B7B175E05DA00049216 /* RegionAttachment.cpp in Sources */,
 				15C0B54D196D412F007F909D /* CCActionFrameEasing.cpp in Sources */,
+				E179739F1AB04852009A56FE /* Leaf.cpp in Sources */,
 				1A8F3B7C175E05DA00049216 /* Skeleton.cpp in Sources */,
 				1A8F3B7D175E05DA00049216 /* SkeletonData.cpp in Sources */,
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
@@ -2525,7 +2581,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
@@ -2573,7 +2629,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",

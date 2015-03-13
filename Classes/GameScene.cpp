@@ -12,6 +12,8 @@
 #include "Ship.h"
 #include "Effect.h"
 #include "Common.h"
+#include "AudioController.h"
+#include "BinaryReadUtil.h"
 
 GameScene* GameScene::_instance = NULL;
 
@@ -20,6 +22,10 @@ const static int BG_Z = -80;
 const static int SHIP_Z = -50;
 
 const static int FISH_Z = -30;
+
+const static int ROCK_Z = -25;
+
+const static int LEAF_Z = -24;
 
 const static int EFFECT_Z = -20;
 
@@ -46,7 +52,7 @@ CCScene* GameScene::scene(int lev)
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(180),_isChange(false),_nowDataInedxt(0)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(1800),_isChange(false),_nowDataInedxt(0)
 {
     
 }
@@ -73,31 +79,7 @@ bool GameScene::init(int lev)
     
     if (CCLayer::init())
     {
-        std::vector<int> data_1;
-        data_1.push_back(10);
-        data_1.push_back(3);
-        data_1.push_back(10);
-        data_1.push_back(50);
-        data_1.push_back(1);
-        data_1.push_back(50);
-        data_1.push_back(2);
-        data_1.push_back(50);
-        
        
-        
-        std::vector<int> data_2;
-        data_2.push_back(13);
-        data_2.push_back(1);
-        data_2.push_back(5);
-        data_2.push_back(1);
-        data_2.push_back(3);
-//        data_2.push_back(2);
-//        data_2.push_back(5);
-//        data_2.push_back(1);
-//        data_2.push_back(3);
-        
-         _data.push_back(data_2);
-        _data.push_back(data_2);
         
         _screenSize = CCDirector::sharedDirector()->getWinSize();
         
@@ -109,6 +91,8 @@ bool GameScene::init(int lev)
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1.csb");
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_2.csb");
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_3.csb");
+        
+        
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1110.csb");
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1120.csb");
@@ -136,6 +120,10 @@ bool GameScene::init(int lev)
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/ship_1.csb");
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/player_3.csb");
+      
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/rock_1.ExportJson");
+        
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/leaf_1.csb");
         
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test10.csb");
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test11.csb");
@@ -204,6 +192,15 @@ bool GameScene::init(int lev)
         _fishLayer = FishManage::create();
         
         addChild(_fishLayer,FISH_Z);
+        
+        
+        _rockLayer = RockManage::create();
+        
+        addChild(_rockLayer,ROCK_Z);
+        
+        _leafLayer = LeafManage::create();
+        
+        addChild(_leafLayer,LEAF_Z);
 
         _bgLayer = BackGround::create();
         
@@ -229,7 +226,61 @@ bool GameScene::init(int lev)
         
         this->setTouchEnabled(true);
         
+        
+        BinaryReadUtil* _IO_read = BinaryReadUtil::create("data/level_0.data");
+        
+        int len = _IO_read -> readInt();
+        
+        for (int i = 0; i<len; ++i) {
+            int len2 = _IO_read->readInt();
+            
+            
+            //                CCLOG("j : %i",_IO_read->readInt());
+            int type = _IO_read->readInt();
+            if (type == ADD_NORMAL||type == ADD_FORMAT) {
+                std::vector<int> data_1;
+                data_1.push_back(type);
+                for (int j = 0; j<len2-1; ++j) {
+                    data_1.push_back(_IO_read->readInt());
+                }
+                
+                _data.push_back(data_1);
+            }else if(type == SET_TIME){
+                _time = _IO_read->readInt();
+            }else if(type == ADD_ROCK){
+                CCPoint pos = CCPointMake(_IO_read->readInt(), _IO_read->readInt());
+                int hp =_IO_read->readInt();
+                _rockLayer->addRock("rock_1", hp, pos);
+            }else if(type == ADD_LEAF){
+//                _leafLayer->addLeaf("leaf_1", <#int dir#>, <#float speed#>, <#float y#>)
+                
+                std::vector<int> data;
+                data.push_back(type);
+                
+                for (int j = 0; j<len2-1; ++j) {
+                    data.push_back(_IO_read->readInt());
+                }
+                
+                _add_leaf.push_back(data);
+            }
+            
+            //            CCLOG("、、、、、");
+        }
+//        std::vector<int> nowdata= _data[_nowDataInedxt];
+//        for (int i =0; i<nowdata.size(); ++i) {
+//            CCLOG("%i",nowdata[i]);
+//        }
+        
 //       CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+        
+        
+        
+//        _rockLayer->addRock("rock_1", 5, CCPointMake(200, 200));
+        
+        
+//        CCArmature* rock = CCArmature::create("rock_1");
+//        rock->setPosition(CCPointMake(200, 200));
+//        addChild(rock,100);
         
         return true;
     }
@@ -379,6 +430,16 @@ void GameScene::cycle(float delta)
     }else{
         addFish();
     }
+    
+    
+    for (int i =0; i<_add_leaf.size(); ++i) {
+        std::vector<int> nowdata= _add_leaf[i];
+        nowdata[1]--;
+        if (nowdata[1] == 0) {
+            _leafLayer->addLeaf("leaf_1", nowdata[4], nowdata[2], nowdata[3]);
+        }
+    }
+    
 //    _addFishTime--;
 //    if (_addFishTime<0) {
 //        _addFishTime = Tools::randomIntInRange(30, 60);
@@ -406,12 +467,15 @@ void GameScene::cycle(float delta)
 //
 //        addEle();
 //        
+//        _leafLayer->addLeaf("leaf_1", Leaf::DIR_RIGHT, 5, 200);
 //        
 //    }
    
     cycleFishs();
    
-  
+    cycleRocks();
+    
+    cycleLeafs();
 }
 
 
@@ -1106,9 +1170,9 @@ void GameScene::addFish()
 //    CCLOG("???!!! %i",_nowDataInedxt);
     std::vector<int> nowdata= _data[_nowDataInedxt];
     
-    if (_nowDataInedxt == 1) {
-        CCLOG("now : %i",nowdata[0]);
-    }
+//    if (_nowDataInedxt == 1) {
+//        CCLOG("now : %i",nowdata[0]);
+//    }
     
     if (nowdata[0] == ADD_NORMAL) {
         _addFishTime++;
@@ -1170,24 +1234,94 @@ void GameScene::addFormatFish(int id, int speed, int dir)
 {
     CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(id)+".csb").c_str());
     
+//    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile("data/test.json");
+    
     CCArray* all =  node->getChildren();
     
+    
+    CCLOG("id : %i speed % i dir %i",id,speed,dir);
     
     for (int i = 0; i<all->count(); ++i) {
         
         CCNode* fish =dynamic_cast<CCNode*> (all->objectAtIndex(i));
         
-        
+        CCLOG("fish %i",fish->getTag());
         
         CCArmature* arm = (CCArmature *)((CCComRender*) fish->getComponent("CCArmature"))->getNode();
         string str = arm->getName().substr(0,arm->getName().find('.'));
         int exitType = Fish::EXIT_DEAD_RIGHT;
         
+        CCPoint pos = fish->getPosition();
+        
         if (dir == 0) {
             exitType = Fish::EXIT_DEAD_LEFT;
+            pos = CCPointMake(fish->getPositionX()+_screenSize.width, fish->getPositionY());
         }
         
-        _fishLayer->addFish(id, speed, dir, (str).c_str(),exitType,fish->getPosition());
+        
+        
+        _fishLayer->addFish(id, speed, dir, (str).c_str(),exitType,pos);
 
+    }
+}
+
+void GameScene::cycleRocks()
+{
+    CCArray* rocks = _rockLayer->getActor();
+    
+    CCArray* ships = _shipLayer->getActor();
+    
+    
+
+    
+    for (int i = 0; i<rocks->count(); ++i) {
+        Rock* rock = (Rock*) rocks->objectAtIndex(i);
+        
+        for (int k = 0; k < ships->count(); ++k) {
+            
+            Ship* ship = (Ship*) ships->objectAtIndex(k);
+            
+            CCRect shipRect = CCRectMake(ship->getPositionX()+ship->getHookAnim()->boundingBox().origin.x, ship->getPositionY()+ship->getHookAnim()->boundingBox().origin.y, ship->getHookAnim()->boundingBox().size.width, ship->getHookAnim()->boundingBox().size.height);
+            
+            
+            if ( shipRect.intersectsRect(rock->getBodyRect())) {
+                
+                if (ship->getHookDir() == Ship::HOOK_DIR_DOWN){
+                    rock->subHp();
+                    ship->setHookUp();
+                }else{
+//                    ship->shipOnAtk();
+                }
+            }
+        }
+    }
+}
+
+void GameScene::cycleLeafs()
+{
+    CCArray* leafs = _leafLayer->getActor();
+    
+    CCArray* ships = _shipLayer->getActor();
+    
+    for (int i = 0; i<leafs->count(); ++i) {
+        Leaf* leaf = (Leaf*) leafs->objectAtIndex(i);
+        
+        for (int k = 0; k < ships->count(); ++k) {
+            
+            Ship* ship = (Ship*) ships->objectAtIndex(k);
+            
+            CCRect shipRect = CCRectMake(ship->getPositionX()+ship->getHookAnim()->boundingBox().origin.x, ship->getPositionY()+ship->getHookAnim()->boundingBox().origin.y, ship->getHookAnim()->boundingBox().size.width, ship->getHookAnim()->boundingBox().size.height);
+            
+            
+            if ( shipRect.intersectsRect(leaf->getBodyRect())) {
+                
+                if (ship->getHookDir() == Ship::HOOK_DIR_DOWN){
+                    leaf->subHp();
+                    ship->setHookUp();
+                }else{
+                    //                    ship->shipOnAtk();
+                }
+            }
+        }
     }
 }

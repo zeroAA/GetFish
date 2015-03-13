@@ -14,6 +14,8 @@
 #include "ShipManage.h"
 #include "BackGround.h"
 #include "EffectManage.h"
+#include "RockManage.h"
+#include "LeafManage.h"
 
 #include "Ship.h"
 #include "Fish.h"
@@ -29,6 +31,12 @@ public:
     const static int ADD_NORMAL = 10;
     
     const static int ADD_FORMAT = 13;
+    
+    const static int SET_TIME = 0;
+    
+    const static int ADD_ROCK = 2;
+    
+    const static int ADD_LEAF = 300;
     
     static cocos2d::CCScene* scene(int lev);
     
@@ -101,6 +109,10 @@ private:
     
     void cycleFishs();
     
+    void cycleRocks();
+    
+    void cycleLeafs();
+    
     bool isHookFish(Ship* ship,Fish* fish);
     
     bool isCollideFish(Ship* ship,Fish* fish);
@@ -152,12 +164,18 @@ protected:
    
     
     std::vector< std::vector<int> > _data;
+    std::vector< std::vector<int> > _add_leaf;
     
     int _fishNum;
     
     int _nowDataInedxt;
     
     bool _isChange;
+    
+    RockManage* _rockLayer;
+    
+    LeafManage* _leafLayer;
+    
 };
 
 #endif /* defined(__GetFish__GameScene__) */

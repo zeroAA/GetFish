@@ -54,6 +54,10 @@ public:
     const static int TYPE_PLAYER = 0;
     
     const static int TYPE_AI = 1;
+    
+    const static int HOOK_DIR_UP = 0;
+    
+    const static int HOOK_DIR_DOWN = 1;
 
     
     static Ship* create(int type ,const char* name);
@@ -158,6 +162,8 @@ public:
     
     void addScore(int sc);
     
+    int getHookDir() const;
+    
 private:
     
     void initData();
@@ -228,9 +234,7 @@ protected:
     
     float _hookDy;
     
-    const static int HOOK_DIR_UP = 0;
     
-    const static int HOOK_DIR_DOWN = 1;
     
     int _hookDir;
     

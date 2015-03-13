@@ -804,3 +804,8 @@ int Ship::getID() const
 {
     return _id;
 }
+
+int Ship::getHookDir() const
+{
+    return _hookDir;
+}
