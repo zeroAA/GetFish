@@ -37,6 +37,8 @@ public:
     
     bool getIsDead() const;
     
+    int getNowPlayer() const;
+    
 private:
     
     void setChooseIC();
@@ -67,6 +69,8 @@ protected:
     CCArray* _players;
     
     bool _isDead;
+    CCLabelAtlas* _goldLabel;
+    
 };
 
 #endif /* defined(__GetFish__ChoosePlayer__) */

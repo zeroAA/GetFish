@@ -38,11 +38,11 @@ public:
     
     const static int ADD_LEAF = 300;
     
-    static cocos2d::CCScene* scene(int lev);
+    static cocos2d::CCScene* scene(int player ,int lev);
     
-    static GameScene* create(int lev);
+    static GameScene* create(int player ,int lev);
     
-    virtual bool init(int lev);
+    virtual bool init(int player ,int lev);
     
     static GameScene* instance();
     

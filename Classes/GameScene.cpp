@@ -14,6 +14,7 @@
 #include "Common.h"
 #include "AudioController.h"
 #include "BinaryReadUtil.h"
+#include "LoadingScreen.h"
 
 GameScene* GameScene::_instance = NULL;
 
@@ -40,19 +41,19 @@ GameScene* GameScene::instance()
     return _instance;
 }
 
-CCScene* GameScene::scene(int lev)
+CCScene* GameScene::scene(int player ,int lev)
 {
     
     CCScene* scene = CCScene::create();
     
-    GameScene* layer = GameScene::create(lev);
+    GameScene* layer = GameScene::create(player,lev);
     
     scene->addChild(layer);
     
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(1800),_isChange(false),_nowDataInedxt(0)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(180),_isChange(false),_nowDataInedxt(0),_fishNum(0)
 {
     
 }
@@ -61,11 +62,11 @@ GameScene::~GameScene()
 {
 }
 
-GameScene* GameScene::create(int lev)
+GameScene* GameScene::create(int player ,int lev)
 {
     GameScene* game = new GameScene();
     
-    if(game && game->init(lev)) {
+    if(game && game->init(player,lev)) {
         game->autorelease();
         return game;
     }
@@ -74,7 +75,7 @@ GameScene* GameScene::create(int lev)
     return NULL;
 }
 
-bool GameScene::init(int lev)
+bool GameScene::init(int player ,int lev)
 {
     
     if (CCLayer::init())
@@ -88,42 +89,44 @@ bool GameScene::init(int lev)
         _nowLev = lev;
         
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1.csb");
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_2.csb");
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_3.csb");
         
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1110.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_2.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_3.csb");
+//        
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1120.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1110.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1120.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1130.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1140.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1150.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1160.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1170.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1180.csb");
+//        
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1190.csb");
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1130.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1140.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1150.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1160.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1170.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1180.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1190.csb");
-        
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/whaleWater.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/whaleWater.csb");
         
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fishbone.csb");
         
         CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fishbone.ExportJson");
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/ship_1.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/ship_1.csb");
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/player_3.csb");
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(("ship/player_"+Tools::intToString(player+1)+".csb").c_str());
       
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/rock_1.ExportJson");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/rock_1.ExportJson");
         
-        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/leaf_1.csb");
+//        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/leaf_1.csb");
         
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test10.csb");
 //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("test/test11.csb");
@@ -185,7 +188,7 @@ bool GameScene::init(int lev)
         
         addChild(_shipLayer,SHIP_Z);
         
-        _shipLayer->addShip(0, "player_3");
+        _shipLayer->addShip(0, ("player_"+Tools::intToString(player+1)).c_str());
         
         schedule(schedule_selector(GameScene::cycle));
         
@@ -227,7 +230,7 @@ bool GameScene::init(int lev)
         this->setTouchEnabled(true);
         
         
-        BinaryReadUtil* _IO_read = BinaryReadUtil::create("data/level_0.data");
+        BinaryReadUtil* _IO_read = BinaryReadUtil::create(("data/level_"+Tools::intToString(_nowLev)+".data").c_str());
         
         int len = _IO_read -> readInt();
         
@@ -241,19 +244,31 @@ bool GameScene::init(int lev)
                 std::vector<int> data_1;
                 data_1.push_back(type);
                 for (int j = 0; j<len2-1; ++j) {
+                    
                     data_1.push_back(_IO_read->readInt());
                 }
-                
+                if(type == ADD_NORMAL){
+                    
+                    int num =(data_1.size()-4)/2;
+                    
+                    for (int k = 0; k<num; ++k) {
+                        
+                        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(("fish/fish_"+Tools::intToString(data_1[k*2+4])+".csb").c_str());
+                        
+                    }
+                    
+                }
                 _data.push_back(data_1);
             }else if(type == SET_TIME){
                 _time = _IO_read->readInt();
             }else if(type == ADD_ROCK){
+                CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/rock_1.ExportJson");
                 CCPoint pos = CCPointMake(_IO_read->readInt(), _IO_read->readInt());
                 int hp =_IO_read->readInt();
                 _rockLayer->addRock("rock_1", hp, pos);
             }else if(type == ADD_LEAF){
-//                _leafLayer->addLeaf("leaf_1", <#int dir#>, <#float speed#>, <#float y#>)
-                
+
+                CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/leaf_1.csb");
                 std::vector<int> data;
                 data.push_back(type);
                 
@@ -419,6 +434,20 @@ void GameScene::cycle(float delta)
     _time--;
     if (_time>=0) {
         _ui->setTime((int)(_time/30));
+        
+        if(_time == 0){
+            setFishToRun();
+        }
+    }else{
+        
+        if(_fishLayer&& _fishLayer->getActor()->count() == 0){
+            unschedule(schedule_selector(GameScene::cycle));
+            removeAllChildren();
+            std::vector<int> a;
+            CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenMap,  a)));
+            return;
+        }
+        
     }
     
     if (_isChange) {
@@ -426,9 +455,15 @@ void GameScene::cycle(float delta)
             
             _isChange = false;
             _nowDataInedxt++;
+            
+            if (_nowDataInedxt>=_data.size()) {
+                _nowDataInedxt=0;
+            }
         }
     }else{
-        addFish();
+        if (_time>0) {
+            addFish();
+        }
     }
     
     
@@ -1233,22 +1268,27 @@ void GameScene::addFish()
 void GameScene::addFormatFish(int id, int speed, int dir)
 {
     CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(id)+".csb").c_str());
-    
+//    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/test.csb"));
 //    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile("data/test.json");
     
     CCArray* all =  node->getChildren();
     
     
-    CCLOG("id : %i speed % i dir %i",id,speed,dir);
+    
     
     for (int i = 0; i<all->count(); ++i) {
         
         CCNode* fish =dynamic_cast<CCNode*> (all->objectAtIndex(i));
         
-        CCLOG("fish %i",fish->getTag());
+        
         
         CCArmature* arm = (CCArmature *)((CCComRender*) fish->getComponent("CCArmature"))->getNode();
         string str = arm->getName().substr(0,arm->getName().find('.'));
+        
+        string str1 = arm->getName().substr(arm->getName().find('_')+1,arm->getName().find('.'));
+        
+        
+        
         int exitType = Fish::EXIT_DEAD_RIGHT;
         
         CCPoint pos = fish->getPosition();
@@ -1260,7 +1300,7 @@ void GameScene::addFormatFish(int id, int speed, int dir)
         
         
         
-        _fishLayer->addFish(id, speed, dir, (str).c_str(),exitType,pos);
+        _fishLayer->addFish(Tools::stringToInt(str1.c_str()), speed, dir, (str).c_str(),exitType,pos);
 
     }
 }

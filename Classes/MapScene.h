@@ -62,6 +62,10 @@ protected:
     
     ButtonWithSpriteManage* _buttons;
     int _nowLayer ;
+    
+    CCLabelAtlas* _goldLabel;
+    
+    int _nowPlayer;
 };
 
 #endif /* defined(__GetFish__MapScene__) */

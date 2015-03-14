@@ -7,11 +7,11 @@ USING_NS_CC;
 class LoadingScreen : public CCScene
 {
 public:
-    static LoadingScreen* create(const int screenid, const int param);
+    static LoadingScreen* create(const int screenid, const std::vector<int> param);
     
     LoadingScreen();
     
-    bool init(const int screenId, const int param);
+    bool init(const int screenId, const std::vector<int> param);
     
     virtual ~LoadingScreen();
     
@@ -27,7 +27,7 @@ private:
 protected:
     int _nextScreenId;
     
-    int _nextScreenParam;
+    std::vector<int> _nextScreenParam;
 };
 
 #endif /* defined(__Zengine__LoadingScreen__) */

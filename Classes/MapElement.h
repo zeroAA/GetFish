@@ -33,6 +33,8 @@ protected:
     int _lev;
     
     CCSprite* _back;
+    
+    CCLabelAtlas* _levLabel;
 
 };
 

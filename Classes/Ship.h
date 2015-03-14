@@ -58,6 +58,7 @@ public:
     const static int HOOK_DIR_UP = 0;
     
     const static int HOOK_DIR_DOWN = 1;
+    
 
     
     static Ship* create(int type ,const char* name);

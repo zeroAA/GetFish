@@ -33,5 +33,6 @@ const int KEY_MAPSC = -100;
 
 const int KScreenUnkown = -1;
 const int KScreenGame = 0;
+const int KScreenMap = 1;
 
 #endif

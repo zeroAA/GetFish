@@ -171,6 +171,12 @@ bool ChoosePlayer::init()
     _buy->addChild(yang);
     
     
+    _goldLabel = CCLabelAtlas::create("5", "ui/shuzi3.png", 14, 20, 43);
+    _goldLabel->setAnchorPoint(ccp(0.5, 0.5));
+    _goldLabel->setScale(1.3);
+    _goldLabel->setPosition(ccp(-buy_back->boundingBox().size.width*0.21, 0));
+    //    _goldLabel->setPosition(CCPointMake(_screenSize.width*0.5, _screenSize.height*0.5));
+    _buy->addChild(_goldLabel);
     
     addChild(_buy);
     
@@ -190,7 +196,8 @@ bool ChoosePlayer::init()
     begain->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.58, guang->getPositionY()-250));
     //    begain->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.58, guang->getPositionY()));
     _buttons->addButton(begain);
-
+    
+    
     
     return true;
 }
@@ -281,4 +288,9 @@ void ChoosePlayer::changePlayer()
 bool ChoosePlayer::getIsDead() const
 {
     return _isDead;
+}
+
+int ChoosePlayer::getNowPlayer() const
+{
+    return _nowSelect;
 }

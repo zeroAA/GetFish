@@ -3,8 +3,9 @@
 #include "LoadingScreen.h"
 #include "Common.h"
 #include "GameScene.h"
+#include "MapScene.h"
 
-LoadingScreen* LoadingScreen::create(const int screenid, const int param)
+LoadingScreen* LoadingScreen::create(const int screenid, const std::vector<int> param)
 {
     LoadingScreen* loading = new LoadingScreen();
     
@@ -22,7 +23,7 @@ LoadingScreen::LoadingScreen():_nextScreenId(KScreenUnkown), _nextScreenParam(0)
 
 }
 
-bool LoadingScreen::init(const int screenId, const int param)
+bool LoadingScreen::init(const int screenId, const std::vector<int> param)
 {
     if(CCScene::init()) {
         
@@ -66,7 +67,11 @@ void LoadingScreen::loadNextScreen(cocos2d::CCTime delta)
     CCScene* scene = NULL;
     
     if(_nextScreenId == KScreenGame) {
-        scene = GameScene::scene(_nextScreenParam);
+        scene = GameScene::scene(_nextScreenParam[0],_nextScreenParam[1]);
+    }
+    
+    if(_nextScreenId == KScreenMap) {
+        scene = MapScene::scene();
     }
     
     if(scene != NULL) {

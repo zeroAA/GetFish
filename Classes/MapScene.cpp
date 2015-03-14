@@ -16,7 +16,7 @@ const static int MAPUI_Z = -10;
 
 const static int CHOOSE_Z = -5;
 
-MapScene::MapScene():_nowLayer(CHOOSE)
+MapScene::MapScene():_nowLayer(CHOOSE),_nowPlayer(0)
 {
     
 }
@@ -84,6 +84,14 @@ bool MapScene::init()
     _gold->setPosition(ccp(_goldback->getPositionX(), _goldback->getPositionY()));
     
     addChild(_gold);
+    
+    
+    _goldLabel = CCLabelAtlas::create("9999", "ui/shuzi3.png", 14, 20, 43);
+    _goldLabel->setAnchorPoint(ccp(0.5, 0.5));
+    _goldLabel->setScale(1.6);
+    _goldLabel->setPosition(ccp(_goldback->getPositionX()+_goldback->boundingBox().size.width*0.5, _goldback->getPositionY()));
+//    _goldLabel->setPosition(CCPointMake(_screenSize.width*0.5, _screenSize.height*0.5));
+    addChild(_goldLabel);
     
     
     _buttons = ButtonWithSpriteManage::create("ui/button.png");
@@ -207,6 +215,7 @@ void MapScene::changeToChoose()
 
 void MapScene::changeToMap()
 {
+    _nowPlayer = _choose->getNowPlayer();
     removeChild(_choose);
     
         
@@ -224,7 +233,12 @@ void MapScene::cycle(float delta)
     }else if (_nowLayer == MAP && _mapUI->isToGame())
     {
         _nowLayer = GAME;
-        int lev =_mapUI->getNowSelect();
+//        int lev =_mapUI->getNowSelect();
+        
+        std::vector<int> lev;
+        lev.push_back(_nowPlayer);
+        lev.push_back(_mapUI->getNowSelect());
+        
             removeAllChildren();
             CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, lev)));
     }
