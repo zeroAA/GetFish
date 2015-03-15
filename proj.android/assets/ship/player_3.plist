@@ -7,11 +7,11 @@
             <key>juren_ diaoyuzuoshou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{295,17},{41,43}}</string>
+                <string>{{639,183},{41,43}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,2},{41,43}}</string>
                 <key>sourceSize</key>
@@ -20,11 +20,11 @@
             <key>juren_ feichuan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{150,54}}</string>
+                <string>{{580,62},{150,54}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,2},{150,54}}</string>
                 <key>sourceSize</key>
@@ -33,7 +33,7 @@
             <key>juren_ feichuanhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{295,2},{83,13}}</string>
+                <string>{{421,236},{83,13}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -46,11 +46,11 @@
             <key>juren_ juren_ diaoyuyoushou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{417,2},{38,32}}</string>
+                <string>{{580,214},{38,32}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{3,0},{38,32}}</string>
                 <key>sourceSize</key>
@@ -59,7 +59,7 @@
             <key>juren_ renti.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{154,2},{58,91}}</string>
+                <string>{{580,2},{58,91}}</string>
                 <key>offset</key>
                 <string>{1,1}</string>
                 <key>rotated</key>
@@ -69,10 +69,49 @@
                 <key>sourceSize</key>
                 <string>{62,99}</string>
             </dict>
+            <key>juren_ shandian1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{244,198}}</string>
+                <key>offset</key>
+                <string>{-3,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{244,198}}</string>
+                <key>sourceSize</key>
+                <string>{250,198}</string>
+            </dict>
+            <key>juren_ shandian2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{394,2},{232,184}}</string>
+                <key>offset</key>
+                <string>{3,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{12,6},{232,184}}</string>
+                <key>sourceSize</key>
+                <string>{250,198}</string>
+            </dict>
+            <key>juren_ shandian3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{202,2},{244,190}}</string>
+                <key>offset</key>
+                <string>{-3,4}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{244,190}}</string>
+                <key>sourceSize</key>
+                <string>{250,198}</string>
+            </dict>
             <key>juren_ shengliyoushou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{338,17},{33,46}}</string>
+                <string>{{636,148},{33,46}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -85,7 +124,7 @@
             <key>juren_ shenglizuoshou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{247,2},{46,53}}</string>
+                <string>{{636,93},{46,53}}</string>
                 <key>offset</key>
                 <string>{2,1}</string>
                 <key>rotated</key>
@@ -98,7 +137,7 @@
             <key>juren_ youbi.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{386,51},{9,28}}</string>
+                <string>{{533,236},{9,28}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
@@ -111,11 +150,11 @@
             <key>juren_ youtui.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{457,2},{23,37}}</string>
+                <string>{{614,214},{23,37}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,3},{23,37}}</string>
                 <key>sourceSize</key>
@@ -124,7 +163,7 @@
             <key>juren_ zhayan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{458,43},{25,13}}</string>
+                <string>{{506,236},{25,13}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -137,7 +176,7 @@
             <key>juren_ zhengyan.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{458,27},{25,14}}</string>
+                <string>{{394,236},{25,14}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
@@ -150,11 +189,11 @@
             <key>juren_ zuobi.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{386,2},{29,47}}</string>
+                <string>{{636,62},{29,47}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{4,3},{29,47}}</string>
                 <key>sourceSize</key>
@@ -163,7 +202,7 @@
             <key>juren_ zuotui.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{417,36},{22,39}}</string>
+                <string>{{639,226},{22,39}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -181,9 +220,9 @@
             <key>realTextureFileName</key>
             <string>player_3.png</string>
             <key>size</key>
-            <string>{496,62}</string>
+            <string>{685,254}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:78c8df24dd6f910c34972fd3aecae01f$</string>
+            <string>$TexturePacker:SmartUpdate:55865cada53f37b0ffe6c63aa3d07ecb$</string>
             <key>textureFileName</key>
             <string>player_3.png</string>
         </dict>

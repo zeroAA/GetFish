@@ -467,7 +467,9 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Actor.o: \
  jni/../../Classes/Common.h jni/../../Classes/GameScene.h \
  jni/../../Classes/FishManage.h jni/../../Classes/ActorManage.h \
  jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
- jni/../../Classes/EffectManage.h jni/../../Classes/Ship.h \
+ jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
+ jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
+ jni/../../Classes/Leaf.h jni/../../Classes/Ship.h \
  jni/../../Classes/Fish.h jni/../../Classes/GameUI.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
  jni/../../Classes/ButtonWithSprite.h jni/../../Classes/Tools.h
@@ -1415,6 +1417,14 @@ jni/../../Classes/ShipManage.h:
 jni/../../Classes/BackGround.h:
 
 jni/../../Classes/EffectManage.h:
+
+jni/../../Classes/RockManage.h:
+
+jni/../../Classes/Rock.h:
+
+jni/../../Classes/LeafManage.h:
+
+jni/../../Classes/Leaf.h:
 
 jni/../../Classes/Ship.h:
 

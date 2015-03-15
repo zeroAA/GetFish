@@ -53,7 +53,7 @@ CCScene* GameScene::scene(int player ,int lev)
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(180),_isChange(false),_nowDataInedxt(0),_fishNum(0)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(1800),_isChange(false),_nowDataInedxt(0),_fishNum(0)
 {
     
 }
@@ -1210,6 +1210,11 @@ void GameScene::addFish()
 //    }
     
     if (nowdata[0] == ADD_NORMAL) {
+        
+        if (_fishLayer->getActor()->count()>=20) {
+            return;
+        }
+        
         _addFishTime++;
         if (_addFishTime >= nowdata[2]) {
             _addFishTime =0;

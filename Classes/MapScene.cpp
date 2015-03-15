@@ -51,8 +51,6 @@ bool MapScene::init()
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/button.plist");
     
-     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/ui_icon.plist");
-    
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/ui_map.plist");
     
     _screenSize = CCDirector::sharedDirector()->getWinSize();

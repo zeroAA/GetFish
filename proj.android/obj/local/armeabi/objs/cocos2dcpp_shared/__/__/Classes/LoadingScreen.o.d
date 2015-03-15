@@ -468,10 +468,14 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/LoadingScreen.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
- jni/../../Classes/EffectManage.h jni/../../Classes/Ship.h \
+ jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
+ jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
+ jni/../../Classes/Leaf.h jni/../../Classes/Ship.h \
  jni/../../Classes/Fish.h jni/../../Classes/GameUI.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/MapScene.h \
+ jni/../../Classes/MapUI.h jni/../../Classes/MapElement.h \
+ jni/../../Classes/ScrollView.h jni/../../Classes/ChoosePlayer.h
 
 jni/../../Classes/LoadingScreen.h:
 
@@ -1419,6 +1423,14 @@ jni/../../Classes/BackGround.h:
 
 jni/../../Classes/EffectManage.h:
 
+jni/../../Classes/RockManage.h:
+
+jni/../../Classes/Rock.h:
+
+jni/../../Classes/LeafManage.h:
+
+jni/../../Classes/Leaf.h:
+
 jni/../../Classes/Ship.h:
 
 jni/../../Classes/Fish.h:
@@ -1428,3 +1440,13 @@ jni/../../Classes/GameUI.h:
 jni/../../Classes/ButtonWithSpriteManage.h:
 
 jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/MapScene.h:
+
+jni/../../Classes/MapUI.h:
+
+jni/../../Classes/MapElement.h:
+
+jni/../../Classes/ScrollView.h:
+
+jni/../../Classes/ChoosePlayer.h:

@@ -467,11 +467,22 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameScene.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
- jni/../../Classes/EffectManage.h jni/../../Classes/Ship.h \
+ jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
+ jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
+ jni/../../Classes/Leaf.h jni/../../Classes/Ship.h \
  jni/../../Classes/Fish.h jni/../../Classes/GameUI.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
  jni/../../Classes/ButtonWithSprite.h jni/../../Classes/Tools.h \
- jni/../../Classes/Effect.h jni/../../Classes/Common.h
+ jni/../../Classes/Effect.h jni/../../Classes/Common.h \
+ jni/../../Classes/AudioController.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h \
+ jni/../../Classes/BinaryReadUtil.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/zip_support/ZipUtils.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/platform/android/CCFileUtilsAndroid.h \
+ /Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zlib.h \
+ /Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zconf.h \
+ jni/../../Classes/LoadingScreen.h
 
 jni/../../Classes/GameScene.h:
 
@@ -1415,6 +1426,14 @@ jni/../../Classes/BackGround.h:
 
 jni/../../Classes/EffectManage.h:
 
+jni/../../Classes/RockManage.h:
+
+jni/../../Classes/Rock.h:
+
+jni/../../Classes/LeafManage.h:
+
+jni/../../Classes/Leaf.h:
+
 jni/../../Classes/Ship.h:
 
 jni/../../Classes/Fish.h:
@@ -1430,3 +1449,21 @@ jni/../../Classes/Tools.h:
 jni/../../Classes/Effect.h:
 
 jni/../../Classes/Common.h:
+
+jni/../../Classes/AudioController.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h:
+
+jni/../../Classes/BinaryReadUtil.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/zip_support/ZipUtils.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/platform/android/CCFileUtilsAndroid.h:
+
+/Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zlib.h:
+
+/Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zconf.h:
+
+jni/../../Classes/LoadingScreen.h:
