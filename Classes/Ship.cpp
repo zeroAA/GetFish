@@ -9,7 +9,11 @@
 #include "Ship.h"
 #include "Fish.h"
 #include "Common.h"
-#include <math.h>
+#include "Tools.h"
+
+//#include "AudioController.h"
+
+
 
 
 
@@ -33,7 +37,7 @@ Ship* Ship::create(int type ,const char* name)
 
 
 
-Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_id(0)
+Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_id(0),_moveCD(120),_moveCD_MAX(120)
 {
     
 }
@@ -90,6 +94,10 @@ bool Ship::init(int type ,const char* name)
         
         _id = type;
         
+        if(type == TYPE_AI){
+            this->setScaleX(-1);
+        }
+        
         this->initData();
         
 //        this->schedule(schedule_selector(Ship::cycle));
@@ -107,7 +115,12 @@ void Ship::initData()
         
     setHook(0);
 
-    _x =_screenSize.width/2;
+    if (_id == TYPE_PLAYER) {
+        _x =_screenSize.width/3;
+    }else{
+        _x =_screenSize.width*2/3;
+    }
+    
     _y = _screenSize.height-SHIP_INIT_Y;
     
     this->setPosition(ccp(_x, _y));
@@ -132,6 +145,14 @@ void Ship::cycle(float delta)
 //        if (!isVisible()) {
 //            setVisible(true);
 //        }
+    }
+    
+    if (_id == TYPE_AI) {
+        _moveCD--;
+        if (_moveCD<=0) {
+            _moveCD = _moveCD_MAX;
+            setShipTo(Tools::randomIntInRange(_screenSize.width*0.2, _screenSize.width*0.8));
+        }
     }
     
     if (_state == ACT_WALK) {
@@ -366,12 +387,11 @@ void Ship::setDesX(float x)
 
 void Ship::setHook(int type)
 {
-    
-    
+
     _hook_anim =CCSprite::create("ship/hook0.png");
     
-    _hookDx = _hookInitDx = getBone("hook")->getWorldInfo()->x*this->getScaleX();
-    _hookDy = _hookInitDy = getBone("hook")->getWorldInfo()->y*this->getScaleY();
+    _hookDx = _hookInitDx = getBone("hook")->getWorldInfo()->x;
+    _hookDy = _hookInitDy = getBone("hook")->getWorldInfo()->y;
     
     _hookDir = HOOK_DIR_UP;
     
@@ -434,7 +454,7 @@ void Ship::switchHookDir()
     if (!_bHasFishHooked) {
         if (_hookDir == HOOK_DIR_UP) {
             _hookDir = HOOK_DIR_DOWN;
-           
+//            AUDIO->playSfx("music/fishingLineDown");
         } else {
             _hookDir = HOOK_DIR_UP;
         }
@@ -708,7 +728,7 @@ void Ship::runFall()
 void Ship::setShipTo(float px)
 {
     
-    if (!isCanMove() || !isPlayer()) {
+    if (!isCanMove() ) {
         return;
     }
     
@@ -768,7 +788,12 @@ CCRect Ship::getHookLine() const
 {
     
 //    CCLOG("fl : %i",abs( _hookDx-_hookInitDx));
-    return CCRectMake((_hookInitDx<_hookDx?_hookInitDx:_hookDx)+_x, _hookDy+_y, abs( _hookDx-_hookInitDx), _hookInitDy-_hookDy);
+    return CCRectMake((_hookInitDx<_hookDx?_hookInitDx:_hookDx)+_x, _hookDy+_y,Tools::int_abs( _hookDx-_hookInitDx), _hookInitDy-_hookDy);
+}
+
+CCRect Ship::getHookBody() 
+{
+    return CCRectMake(getPositionX()+(getHookAnim()->boundingBox().origin.x*getScaleX()), getPositionY()+getHookAnim()->boundingBox().origin.y, getHookAnim()->boundingBox().size.width, getHookAnim()->boundingBox().size.height);
 }
 
 void Ship::setPullPos(cocos2d::CCPoint pos)
@@ -808,4 +833,9 @@ int Ship::getID() const
 int Ship::getHookDir() const
 {
     return _hookDir;
+}
+
+void Ship::setMoveCD(int cd)
+{
+    _moveCD = _moveCD_MAX = cd;
 }

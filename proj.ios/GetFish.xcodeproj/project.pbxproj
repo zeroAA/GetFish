@@ -279,8 +279,12 @@
 		E17973A21AB04865009A56FE /* LeafManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A01AB04865009A56FE /* LeafManage.cpp */; };
 		E17973A51AB04879009A56FE /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A31AB04879009A56FE /* Shell.cpp */; };
 		E17973A81AB0488D009A56FE /* ShellManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A61AB0488D009A56FE /* ShellManage.cpp */; };
+		E17C31361B04A145004F1799 /* GameSaveData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C31341B04A145004F1799 /* GameSaveData.cpp */; };
 		E19B39301AB2FA3D00CB6373 /* BinaryReadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */; };
+		E19BA1051AFA581D0093DF20 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19BA1031AFA581D0093DF20 /* Set.cpp */; };
 		E1BE6C2F1AA84F65000CD06B /* ChoosePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */; };
+		E1C0C3901AB6D2CE003DE15A /* music in Resources */ = {isa = PBXBuildFile; fileRef = E1C0C38F1AB6D2CE003DE15A /* music */; };
+		E1C6C4BE1B54EDB7007E6569 /* FlyNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C6C4BC1B54EDB7007E6569 /* FlyNum.cpp */; };
 		E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C451A777301005B7063 /* GameUI.cpp */; };
 		E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4A1A7786F8005B7063 /* Button.cpp */; };
 		E1CC3C4F1A7786F8005B7063 /* ButtonManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4C1A7786F8005B7063 /* ButtonManage.cpp */; };
@@ -297,6 +301,7 @@
 		E1DEACBA1A3B3CF600681EC7 /* Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1DEACB81A3B3CF600681EC7 /* Tools.cpp */; };
 		E1E39A531AADF48E00E872B9 /* data in Resources */ = {isa = PBXBuildFile; fileRef = E1E39A521AADF48E00E872B9 /* data */; };
 		E1E6BF981A8269ED007E4D07 /* MapElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1E6BF961A8269ED007E4D07 /* MapElement.cpp */; };
+		E1F890281B01AFD400711A7C /* GameBegin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1F890261B01AFD400711A7C /* GameBegin.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -867,10 +872,17 @@
 		E17973A41AB04879009A56FE /* Shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shell.h; sourceTree = "<group>"; };
 		E17973A61AB0488D009A56FE /* ShellManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShellManage.cpp; sourceTree = "<group>"; };
 		E17973A71AB0488D009A56FE /* ShellManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellManage.h; sourceTree = "<group>"; };
+		E17C31341B04A145004F1799 /* GameSaveData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSaveData.cpp; sourceTree = "<group>"; };
+		E17C31351B04A145004F1799 /* GameSaveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSaveData.h; sourceTree = "<group>"; };
 		E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryReadUtil.cpp; sourceTree = "<group>"; };
 		E19B392F1AB2FA3D00CB6373 /* BinaryReadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryReadUtil.h; sourceTree = "<group>"; };
+		E19BA1031AFA581D0093DF20 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
+		E19BA1041AFA581D0093DF20 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
 		E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePlayer.cpp; sourceTree = "<group>"; };
 		E1BE6C2E1AA84F65000CD06B /* ChoosePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlayer.h; sourceTree = "<group>"; };
+		E1C0C38F1AB6D2CE003DE15A /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
+		E1C6C4BC1B54EDB7007E6569 /* FlyNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlyNum.cpp; sourceTree = "<group>"; };
+		E1C6C4BD1B54EDB7007E6569 /* FlyNum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyNum.h; sourceTree = "<group>"; };
 		E1CC3C451A777301005B7063 /* GameUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameUI.cpp; sourceTree = "<group>"; };
 		E1CC3C461A777301005B7063 /* GameUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUI.h; sourceTree = "<group>"; };
 		E1CC3C4A1A7786F8005B7063 /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
@@ -900,6 +912,8 @@
 		E1E39A521AADF48E00E872B9 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		E1E6BF961A8269ED007E4D07 /* MapElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapElement.cpp; sourceTree = "<group>"; };
 		E1E6BF971A8269ED007E4D07 /* MapElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapElement.h; sourceTree = "<group>"; };
+		E1F890261B01AFD400711A7C /* GameBegin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBegin.cpp; sourceTree = "<group>"; };
+		E1F890271B01AFD400711A7C /* GameBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBegin.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2051,6 +2065,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1C0C38F1AB6D2CE003DE15A /* music */,
 				E1E39A521AADF48E00E872B9 /* data */,
 				E157B1D41A8BC2460017C976 /* main */,
 				E1CD16831A415E6500D4FE15 /* ui */,
@@ -2079,6 +2094,8 @@
 				E104F46D1A5AB453004AFBCF /* Effect.h */,
 				E104F46F1A5AB468004AFBCF /* EffectManage.cpp */,
 				E104F4701A5AB468004AFBCF /* EffectManage.h */,
+				E1C6C4BC1B54EDB7007E6569 /* FlyNum.cpp */,
+				E1C6C4BD1B54EDB7007E6569 /* FlyNum.h */,
 			);
 			name = Effect;
 			sourceTree = "<group>";
@@ -2115,8 +2132,8 @@
 				E179739D1AB04852009A56FE /* Leaf.cpp */,
 				E179739E1AB04852009A56FE /* Leaf.h */,
 				E17973A01AB04865009A56FE /* LeafManage.cpp */,
-				E17973A11AB04865009A56FE /* LeafManage.h */,
 				E17973A31AB04879009A56FE /* Shell.cpp */,
+				E17973A11AB04865009A56FE /* LeafManage.h */,
 				E17973A41AB04879009A56FE /* Shell.h */,
 				E17973A61AB0488D009A56FE /* ShellManage.cpp */,
 				E17973A71AB0488D009A56FE /* ShellManage.h */,
@@ -2143,6 +2160,12 @@
 				E1E6BF971A8269ED007E4D07 /* MapElement.h */,
 				E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */,
 				E1BE6C2E1AA84F65000CD06B /* ChoosePlayer.h */,
+				E19BA1031AFA581D0093DF20 /* Set.cpp */,
+				E19BA1041AFA581D0093DF20 /* Set.h */,
+				E1F890261B01AFD400711A7C /* GameBegin.cpp */,
+				E1F890271B01AFD400711A7C /* GameBegin.h */,
+				E17C31341B04A145004F1799 /* GameSaveData.cpp */,
+				E17C31351B04A145004F1799 /* GameSaveData.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -2258,6 +2281,7 @@
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				E157B1D51A8BC2460017C976 /* main in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
+				E1C0C3901AB6D2CE003DE15A /* music in Resources */,
 				E1CD16841A415E6500D4FE15 /* ui in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
@@ -2309,6 +2333,7 @@
 				15C0B55C196D412F007F909D /* CCBatchNode.cpp in Sources */,
 				15A3D9141682F7D5002FB0C5 /* b2Island.cpp in Sources */,
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
+				E17C31361B04A145004F1799 /* GameSaveData.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
 				15C0B582196D412F007F909D /* CocoLoader.cpp in Sources */,
 				15A3D9171682F7D5002FB0C5 /* b2ChainAndCircleContact.cpp in Sources */,
@@ -2396,6 +2421,7 @@
 				15A3D9B11682F7F9002FB0C5 /* cpSweep1D.c in Sources */,
 				15C0B588196D412F007F909D /* ImageViewReader.cpp in Sources */,
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
+				E1F890281B01AFD400711A7C /* GameBegin.cpp in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15C0B557196D412F007F909D /* CCProcessBase.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
@@ -2420,6 +2446,7 @@
 				15A3DA3B1682F826002FB0C5 /* CCLabelBMFontLoader.cpp in Sources */,
 				15C0B556196D412F007F909D /* CCArmatureAnimation.cpp in Sources */,
 				15C0B568196D412F007F909D /* CCUtilMath.cpp in Sources */,
+				E19BA1051AFA581D0093DF20 /* Set.cpp in Sources */,
 				15A3DA3C1682F826002FB0C5 /* CCLabelTTFLoader.cpp in Sources */,
 				15C0B572196D412F007F909D /* CocosGUI.cpp in Sources */,
 				15A3DA3D1682F826002FB0C5 /* CCLayerColorLoader.cpp in Sources */,
@@ -2444,6 +2471,7 @@
 				15A3DA4A1682F826002FB0C5 /* CCControlButton.cpp in Sources */,
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
+				E1C6C4BE1B54EDB7007E6569 /* FlyNum.cpp in Sources */,
 				15C0B55E196D412F007F909D /* CCDisplayFactory.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
 				15A3DA4E1682F826002FB0C5 /* CCControlSaturationBrightnessPicker.cpp in Sources */,

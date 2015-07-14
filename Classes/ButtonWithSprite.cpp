@@ -44,7 +44,7 @@ bool ButtonWithSprite::init(int id, const char *name,float scale)
         setID(id);
         
         setButtonScale(scale);
-        
+        this->setScale(_buttonScale);
         return true;
     }
     return false;
@@ -155,7 +155,7 @@ bool ButtonWithSprite::touchesEnded(CCSet * touchs,CCEvent * event)
 
 bool ButtonWithSprite::toucheBegan(CCTouch *pTouch,CCEvent * event)
 {
-//    return toucheBeganAction(convertTouchToNodeSpace(pTouch));
+//    return toucheBeganAction(convertTouchToNodeSpaceAR(pTouch));
     return toucheBeganAction(pTouch->getLocation());
     
 }
@@ -178,8 +178,7 @@ bool ButtonWithSprite::toucheEnded(CCTouch *pTouch,CCEvent * event)
 
 bool ButtonWithSprite::toucheBeganAction(cocos2d::CCPoint pos)
 {
-    
-        
+
     if (getBodyRect().containsPoint(pos)) {
         
     
@@ -227,16 +226,24 @@ void ButtonWithSprite::end()
 
 CCRect ButtonWithSprite::getBodyRect() 
 {
+    CCPoint pos = boundingBox().origin;
     
-    return CCRectMake(boundingBox().origin.x-_add.width*0.5, boundingBox().origin.y+_add.height*0.5, boundingBox().size.width+ _add.width, boundingBox().size.height+_add.height);
+    if (getParent()) {
+        
+       pos  = getParent()->convertToWorldSpace(boundingBox().origin);
+    }
+    
+    
+    
+    return CCRectMake(pos.x-_add.width*0.5, pos.y+_add.height*0.5, boundingBox().size.width+ _add.width, boundingBox().size.height+_add.height);
 }
 
 void ButtonWithSprite::draw()
 {
     CCSprite::draw();
-    ccDrawColor4B(0xff, 0xff, 0x00, 0);
-    glLineWidth(1.0f);
-    CCRect rect1 = getBodyRect();
-    ccDrawRect(ccp(rect1.origin.x,rect1.origin.y), ccp(rect1.origin.x+rect1.size.width, rect1.origin.y+rect1.size.height));
+//    ccDrawColor4B(0xff, 0xff, 0x00, 0);
+//    glLineWidth(1.0f);
+//    CCRect rect1 = getBodyRect();
+//    ccDrawRect(ccp(rect1.origin.x,rect1.origin.y), ccp(rect1.origin.x+rect1.size.width, rect1.origin.y+rect1.size.height));
 
 }

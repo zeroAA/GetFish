@@ -63,7 +63,6 @@ int Actor::getState() const
 
 std::string Actor::getCurrentMovementID()
 {
-    
     return getAnimation()->m_strMovementID;
 }
 
@@ -134,9 +133,6 @@ void Actor::setBodyPonit()
       
         
         if (this->getBone(str.c_str())) {
-            
-            
-           
             
             _body1.push_back(CCPointMake((int)(this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY()));
             

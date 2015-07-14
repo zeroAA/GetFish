@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "MapScene.h"
 #include "Tools.h"
+#include "AudioController.h"
 
 USING_NS_CC;
 
@@ -83,7 +84,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 //    CCScene *pScene = HelloWorld::scene();
     
-//    CCScene *pScene = GameScene::scene(0,0);
+//    CCScene *pScene = GameScene::scene(0,1);
     
     CCScene* pScene = MapScene::scene();
 
@@ -93,18 +94,19 @@ bool AppDelegate::applicationDidFinishLaunching() {
     return true;
 }
 
+
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
     CCDirector::sharedDirector()->stopAnimation();
-
+    AUDIO->pauseBgMusic();
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+//     SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
     CCDirector::sharedDirector()->startAnimation();
-
+    AUDIO->resumeBgMusic();
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+//     SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }

@@ -7,6 +7,7 @@
 //
 
 #include "Rock.h"
+#include "AudioController.h"
 
 Rock* Rock::create(const char* name,int hp)
 {
@@ -53,8 +54,8 @@ bool Rock::init(const char* name,int hp)
 
 void Rock::setNowAnim()
 {
-    int indext = (_maxHp-_hp)*5/_maxHp;
-    
+    int indext = (_maxHp-_hp)*4/_maxHp;
+   
     playWithIndex(indext);
 }
 
@@ -74,8 +75,11 @@ void Rock::subHp()
 {
     if (_hp>0) {
         _hp--;
-        if (_hp<0) {
+        if (_hp<=0) {
             _hp = 0;
+           AUDIO->playSfx("music/rockbroken");
+        }else{
+            AUDIO->playSfx("music/rockrebound");
         }
         setNowAnim();
     }

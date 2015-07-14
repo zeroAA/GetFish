@@ -465,7 +465,10 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Fish.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/SkeletonJson.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
- jni/../../Classes/Common.h jni/../../Classes/Tools.h
+ jni/../../Classes/Common.h jni/../../Classes/Tools.h \
+ jni/../../Classes/AudioController.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h
 
 jni/../../Classes/Fish.h:
 
@@ -1402,3 +1405,9 @@ jni/../../Classes/Actor.h:
 jni/../../Classes/Common.h:
 
 jni/../../Classes/Tools.h:
+
+jni/../../Classes/AudioController.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h:

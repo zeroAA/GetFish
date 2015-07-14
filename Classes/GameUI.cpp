@@ -86,9 +86,9 @@ bool GameUI::init()
         addChild(_buttons);
         
         
-             _buttons->addButton(BUTTON_GAME_PAUSE, "button_zanting.png", ccp(_screenSize.width*0.95, _screenSize.height*0.92));
+    _buttons->addButton(BUTTON_GAME_PAUSE, "button_zanting.png", ccp(_screenSize.width*0.95, _screenSize.height*0.92));
         
-//       _buttons->addButton(BUTTON_GAME_PAUSE, "button_citie.png", ccp(_screenSize.width*0.06, _screenSize.height*0.09));
+       _buttons->addButton(BUTTON_GAME_ALLGET, "button_citie.png", ccp(_screenSize.width*0.06, _screenSize.height*0.09));
         
         _timeLabel = CCLabelAtlas::create("0", "ui/shuzi1.png", 25, 40, 48);
         _timeLabel->setAnchorPoint(ccp(0.5, 0.5));
@@ -98,9 +98,9 @@ bool GameUI::init()
         
         _score_Label = CCLabelAtlas::create("0", "ui/shuzi1.png", 25, 40, 48);
         _score_Label->setAnchorPoint(ccp(0.5, 0.5));
-        _score_Label->setPosition(ccp(zuodi->boundingBox().size.width*0.5, zuodi->boundingBox().size.height*0.5));
+        _score_Label->setPosition(ccp(0, _score_tiao->boundingBox().size.height*0.5));
         
-        zuodi->addChild(_score_Label);
+        _score_tiao->addChild(_score_Label);
         
         return true;
     }

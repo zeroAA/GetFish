@@ -8,7 +8,7 @@
 #include "ActorManage.h"
 #include "Actor.h"
 
-ActorManage::ActorManage()
+ActorManage::ActorManage():_isAutoDead(true)
 {
     
 }
@@ -38,6 +38,12 @@ bool ActorManage::init()
     }
     
     return false;
+}
+
+void ActorManage::setAutoDead(bool at){
+    if (!at) {
+        unschedule(schedule_selector(ActorManage::manageCycle));
+    }
 }
 
 void ActorManage::addActor(Actor* actor)
@@ -96,15 +102,20 @@ void ActorManage::manageCycle(float delta)
             
             if (actor->getState() == Actor::STATE_DEAD) {
                 
-                _actorSet->removeObject(actor);
-                _actorNode->removeChild(actor, true);
-                this->removeChild(actor, true);
+                removeActor(actor);
                 i--;
                 continue;
             }
         
         
     }
+}
+
+void ActorManage::removeActor(Actor *actor)
+{
+    _actorSet->removeObject(actor);
+    _actorNode->removeChild(actor, true);
+    this->removeChild(actor, true);
 }
 
 CCArray* ActorManage::getActor() const

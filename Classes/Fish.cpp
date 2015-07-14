@@ -9,6 +9,7 @@
 #include "Fish.h"
 #include "Common.h"
 #include "Tools.h"
+#include "AudioController.h"
 //#include "FishingPlayLayer.h"
 
 Fish* Fish::create(int type,float speed , int dir ,const char* name)
@@ -78,6 +79,12 @@ void Fish::initData()
     
    
     this->setPosition(ccp(_x, _y));
+    
+    if (getBone("data_1")) {
+        setScore(getBone("data_1")->getWorldInfo()->x) ;
+    }
+    
+    
     
     
     
@@ -159,13 +166,15 @@ void Fish::cycle(float delta)
             break;
             
         case ACT_STATE_DOLPHIN_READY:
-        
+            
             if (!getAnimation()->getIsPlaying()) {
                 setState(ACT_STATE_DOLPHIN_ATK);
             
                 setSpeedX(20);
                 
                 this->setAnim(ANIM_ATK);
+                
+                AUDIO->playSfx("music/dolphinattack");
             }
         
             break;
@@ -227,20 +236,22 @@ void Fish::cycle(float delta)
             if (_x > _screenSize.width-getBodyRect().size.width/2 && _tortoiseC > 0) {
                 
 				_tortoiseC--;
-                
+                AUDIO->playSfx("music/tortoiseattack");
 				_x = _screenSize.width-getBodyRect().size.width/2;
 				_speedx = -_speedx;
 			}
             
 			if (_x < getBodyRect().size.width/2 && _tortoiseC > 0) {
 				_tortoiseC--;
+                AUDIO->playSfx("music/tortoiseattack");
 				_x = getBodyRect().size.width/2;
 				_speedx = -_speedx;
+               
 			}
             
 			if (_y < 50) {
 				_tortoiseC--;
-                
+                AUDIO->playSfx("music/tortoiseattack");
 				_y = 50;
                 
 				_speedy = -_speedy;
@@ -249,7 +260,7 @@ void Fish::cycle(float delta)
 			if (_y > _screenSize.height-this->FISH_Y_MIN) {
                 
 				_tortoiseC--;
-                
+                AUDIO->playSfx("music/tortoiseattack");
 				_y = _screenSize.height-this->FISH_Y_MIN;
                 
 				_speedy = -_speedy;
@@ -633,6 +644,7 @@ void Fish::setTortoiseC(int c)
 
 void Fish::setTortoiseR()
 {
+    
     if (_speedx < 0) {
         
         if (getCurrentMovementID()!="Animation8") {

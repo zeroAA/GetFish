@@ -7,8 +7,9 @@
 //
 
 #include "MapScene.h"
-
+#include "AudioController.h"
 #include "Common.h"
+#include "GameSaveData.h"
 
 const static int BACK_Z = -100;
 
@@ -157,7 +158,10 @@ this->schedule(schedule_selector(MapScene::cycle));
         
     
 //    this->setTouchEnabled(true);
-
+    AUDIO->playBgMusic("music/back1", true);
+    
+    GameSaveData::loadLeveData();
+    
     return true;
 }
 
@@ -226,6 +230,8 @@ void MapScene::changeToMap()
 
 void MapScene::cycle(float delta)
 {
+    
+    
     if (_nowLayer == CHOOSE && _choose->getIsDead()) {
         changeToMap();
     }else if (_nowLayer == MAP && _mapUI->isToGame())

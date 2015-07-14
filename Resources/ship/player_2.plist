@@ -7,106 +7,106 @@
             <key>lufei_chuanhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{80,2},{130,132}}</string>
-                <key>offset</key>
-                <string>{1,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{2,0},{130,132}}</string>
-                <key>sourceSize</key>
-                <string>{132,132}</string>
-            </dict>
-            <key>lufei_chuanqian.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{2,2},{160,76}}</string>
+                <string>{{2,2},{164,171}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{160,76}}</string>
+                <string>{{19,5},{164,171}}</string>
                 <key>sourceSize</key>
-                <string>{160,78}</string>
+                <string>{202,183}</string>
+            </dict>
+            <key>lufei_chuanqian.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{175,2},{205,96}}</string>
+                <key>offset</key>
+                <string>{3,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{9,7},{205,96}}</string>
+                <key>sourceSize</key>
+                <string>{217,112}</string>
             </dict>
             <key>lufei_diaoyushouhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,164},{42,39}}</string>
+                <string>{{272,100},{51,48}}</string>
                 <key>offset</key>
-                <string>{-1,0}</string>
+                <string>{3,-2}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{42,39}}</string>
+                <string>{{10,10},{51,48}}</string>
                 <key>sourceSize</key>
-                <string>{44,39}</string>
+                <string>{65,64}</string>
             </dict>
             <key>lufei_diaoyushouqian.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{212,2},{40,51}}</string>
+                <string>{{175,100},{49,65}}</string>
                 <key>offset</key>
-                <string>{0,3}</string>
+                <string>{-1,-1}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{40,51}}</string>
+                <string>{{5,8},{49,65}}</string>
                 <key>sourceSize</key>
-                <string>{40,57}</string>
+                <string>{61,79}</string>
             </dict>
             <key>lufei_shenglishouhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{43,164},{37,41}}</string>
+                <string>{{322,100},{45,51}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{-1,-1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{37,41}}</string>
+                <string>{{4,14},{45,51}}</string>
                 <key>sourceSize</key>
-                <string>{37,41}</string>
+                <string>{55,77}</string>
             </dict>
             <key>lufei_shenglishouqian.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{212,55},{34,47}}</string>
+                <string>{{226,100},{44,61}}</string>
                 <key>offset</key>
-                <string>{0,-1}</string>
+                <string>{-2,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,2},{34,47}}</string>
+                <string>{{3,8},{44,61}}</string>
                 <key>sourceSize</key>
-                <string>{34,49}</string>
+                <string>{54,77}</string>
             </dict>
             <key>lufei_shenti.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{140,136},{55,80}}</string>
+                <string>{{382,2},{71,102}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{-3,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{55,80}}</string>
+                <string>{{9,11},{71,102}}</string>
                 <key>sourceSize</key>
-                <string>{55,80}</string>
+                <string>{95,124}</string>
             </dict>
             <key>lufei_tou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{82,136},{70,56}}</string>
+                <string>{{382,75},{88,70}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{0,-2}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,4},{70,56}}</string>
+                <string>{{8,15},{88,70}}</string>
                 <key>sourceSize</key>
-                <string>{70,64}</string>
+                <string>{104,96}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -116,9 +116,9 @@
             <key>realTextureFileName</key>
             <string>player_2.png</string>
             <key>size</key>
-            <string>{254,208}</string>
+            <string>{486,168}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f3164fe35357c2b4aa4f67a222c78f2c$</string>
+            <string>$TexturePacker:SmartUpdate:e14be96e61daadd8d62288d075d67dc8$</string>
             <key>textureFileName</key>
             <string>player_2.png</string>
         </dict>

@@ -58,16 +58,18 @@ void AudioController::playBgMusic(string clip, bool loop)
         _engine->stopBackgroundMusic();
     }*/
 //    return;
+    
     _bgMusic = clip + KExtension;
     
     _engine->setBackgroundMusicVolume(0.5);
-    _engine->playBackgroundMusic(_bgMusic.c_str(), true);
+//    _engine->playBackgroundMusic(_bgMusic.c_str(), true);
 
 }
 
 void AudioController::playSfx(string clip)
 {
 //    return;
+    CCLOG("%s",clip.c_str());
     string music = clip + KExtension;
     _engine->preloadEffect(music.c_str());
     int soundId = _engine->playEffect(music.c_str());

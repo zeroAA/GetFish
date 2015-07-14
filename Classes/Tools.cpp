@@ -176,3 +176,8 @@ int Tools::calScreenRatioProfile(const cocos2d::CCSize &sz)
     return _profile;
     
 }
+
+int Tools::int_abs(int a)
+{
+    return abs(a);
+}

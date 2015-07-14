@@ -16,11 +16,14 @@
 #include "EffectManage.h"
 #include "RockManage.h"
 #include "LeafManage.h"
+#include "ShellManage.h"
+#include "FlyNum.h"
 
 #include "Ship.h"
 #include "Fish.h"
 
 #include "GameUI.h"
+#include "GameBegin.h"
 
 USING_NS_CC;
 
@@ -34,9 +37,15 @@ public:
     
     const static int SET_TIME = 0;
     
+    const static int ADD_SHELL =1;
+    
     const static int ADD_ROCK = 2;
     
     const static int ADD_LEAF = 300;
+    
+    const static int ADD_AI = 4;
+    
+    const static int ADD_OBJ = 400;
     
     static cocos2d::CCScene* scene(int player ,int lev);
     
@@ -107,7 +116,7 @@ private:
     
     void shipAndFish(Ship* ship,Fish* fish, int indext);
     
-    void cycleFishs();
+    void cycleFishs(float delta);
     
     void cycleRocks();
     
@@ -136,7 +145,10 @@ private:
     void setFishToRun();
     
     void addFish();
-
+    
+    void addFlyNum(int type,int num,int shipID,CCPoint pos,CCPoint des);
+    
+    void allFishToDead(int shipID);
     
 protected:
     CCSize _screenSize;
@@ -159,6 +171,14 @@ protected:
     
     std::vector<int> _mubiao_scroe;
     
+    int _pass_scroe;
+    
+    int _suc_type;
+    
+    int _suc_add;
+    
+    int _suc_num;
+    
     int _nowLev;
     
    
@@ -175,6 +195,16 @@ protected:
     RockManage* _rockLayer;
     
     LeafManage* _leafLayer;
+    
+    ShellManage* _shellLayer;
+    
+    CCArray* _formatData;
+    
+    GameBegin* _begin;
+    
+    CCArray* _flyNum;
+    
+    int _addFlyTime;
     
 };
 

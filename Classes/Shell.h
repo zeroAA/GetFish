@@ -9,6 +9,40 @@
 #ifndef __GetFish__Shell__
 #define __GetFish__Shell__
 
-#include <stdio.h>
+#include "cocos2d.h"
+
+#include "Actor.h"
+
+USING_NS_CC;
+
+class Shell : public Actor
+{
+public:
+    const static int STATE_OPEN = 0;
+    const static int STATE_CLOSE = 1;
+
+    static Shell* create(const char* name,CCPoint pos,std::vector<int> item,int openTime,int closeTime);
+    
+    virtual bool init(const char* name,CCPoint pos,std::vector<int> item,int openTime,int closeTime);
+    
+    Shell();
+    
+    virtual ~Shell();
+    
+    virtual void cycle(float delta);
+    
+protected:
+    
+    int _openTime;
+    
+    int _closeTime;
+    
+    int _openTimeMax;
+    
+    int _closeTimeMax;
+    
+    int _state;
+    
+};
 
 #endif /* defined(__GetFish__Shell__) */

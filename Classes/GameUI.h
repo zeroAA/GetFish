@@ -47,6 +47,8 @@ public:
     
     void addMubiaoScore( std::vector<int> mubiao);
     
+    void addSucLab(int type , int );
+    
 private:
     
     CCSize _screenSize;

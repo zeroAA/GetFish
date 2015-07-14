@@ -55,7 +55,10 @@ void Effect::cycle(float delta)
                 setState(STATE_DEAD);
             }
             break;
-            
+            case TYPE_OVER_STATE:
+            if (this->numberOfRunningActions()==0) {
+                setState(STATE_BE_DEAD);
+            }
         default:
             break;
     }

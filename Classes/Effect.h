@@ -20,6 +20,9 @@ class Effect : public Actor
 public:
     
     static const int TYPE_OVER_DEAD = 1;//播放完就消失
+    static const int TYPE_OVER_STATE = 2;//播放完置状态
+    
+    static const int STATE_BE_DEAD = 1;//完成状态
     
     static Effect* create(int type ,const char* name);
     
@@ -34,6 +37,9 @@ public:
 protected:
     
     int _type;
+    
+    
+    
 
 };
 

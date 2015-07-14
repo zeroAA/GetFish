@@ -59,6 +59,8 @@ public:
     
     const static int HOOK_DIR_DOWN = 1;
     
+    const static int MAN = 0;
+    const static int WOMAN = 1;
 
     
     static Ship* create(int type ,const char* name);
@@ -150,6 +152,8 @@ public:
     
     CCRect getHookLine() const;
     
+    CCRect getHookBody() ;
+    
     void setPullPos(CCPoint pos);
     
     
@@ -164,7 +168,9 @@ public:
     void addScore(int sc);
     
     int getHookDir() const;
+     CC_SYNTHESIZE(int, _sex, Sex);
     
+    void setMoveCD(int cd);
 private:
     
     void initData();
@@ -289,6 +295,10 @@ protected:
     
     
     float _cut_hook_y;
+    
+    int _moveCD;
+    
+    int _moveCD_MAX;
     
     
 };

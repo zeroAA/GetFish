@@ -44,11 +44,18 @@ public:
     virtual void cycle(float delta);
     
     void manageCycle(float delta);
+    
+    void setAutoDead(bool at);
+    
+    void removeActor(Actor* actor);
+    
 private:
     
     
     
 protected:
+    
+    bool _isAutoDead;
     
     CCArray* _actorSet;
     CCBatchNode* _actorNode;

@@ -32,13 +32,14 @@ bool ShipManage::init()
 }
 
 
-void ShipManage::addShip(int type, const char *name)
+void ShipManage::addShip(int type, const char *name,int sex,int moveCD)
 {
     
     
     Ship* ship = Ship::create(type,name);
     
-    
+    ship->setSex(sex);
+    ship->setMoveCD(moveCD);
     addActorForChild(ship);
     
 }

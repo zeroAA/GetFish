@@ -25,6 +25,10 @@ const int BUTTON_MAP_BUY = 106;
 
 const int BUTTON_MAP_BEGAIN = 107;
 
+const int BUTTON_GAME_BEGIN = 108;
+
+const int BUTTON_GAME_ALLGET = 110;
+
 const int KEY_MAP = -200;
 
 const int KEY_CHOOSE = -150;

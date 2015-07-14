@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
-#include <sstream>
+//#include <sstream>
 
 #include "cocos2d.h"
 
@@ -75,6 +75,8 @@ public:
     
     /* Resolution */
     static int calScreenRatioProfile(const CCSize& sz);
+    
+    static int int_abs(int a);
     
 //private:
 //    static int _profile;
