@@ -31,6 +31,8 @@ const int BUTTON_GAME_ALLGET = 110;
 
 const int KEY_MAP = -200;
 
+const int KEY_SET = -170;
+
 const int KEY_CHOOSE = -150;
 
 const int KEY_MAPSC = -100;
@@ -38,5 +40,12 @@ const int KEY_MAPSC = -100;
 const int KScreenUnkown = -1;
 const int KScreenGame = 0;
 const int KScreenMap = 1;
+
+
+static bool IS_ON_MUISC = true;
+
+static bool IS_ON_SFX = true;
+
+static bool IS_ON_BUTTON = true;
 
 #endif

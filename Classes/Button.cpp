@@ -133,7 +133,6 @@ bool Button::touchesBegan(CCSet * touchs,CCEvent * event)
         
         CCPoint pos=mytouch->getLocation();
         
-        
         if (toucheBeganAction(pos)) {
             
             return true;

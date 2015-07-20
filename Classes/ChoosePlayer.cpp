@@ -276,7 +276,7 @@ void ChoosePlayer::changePlayer()
     }
     ((CCSprite*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
     
-   CCSprite* player = ((CCSprite*)_players->objectAtIndex(_nowSelect));
+    CCSprite* player = ((CCSprite*)_players->objectAtIndex(_nowSelect));
     player->setVisible(true);
     player->setOpacity(0);
     CCFadeIn* in = CCFadeIn::create(0.5);

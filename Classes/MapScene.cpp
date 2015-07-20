@@ -17,7 +17,20 @@ const static int MAPUI_Z = -10;
 
 const static int CHOOSE_Z = -5;
 
-MapScene::MapScene():_nowLayer(CHOOSE),_nowPlayer(0)
+const static int SET_Z = -1;
+
+MapScene* MapScene::_instance = NULL;
+
+MapScene* MapScene::instance()
+{
+    if(NULL == _instance) {
+        _instance = new MapScene();
+    }
+    
+    return _instance;
+}
+
+MapScene::MapScene():_nowLayer(CHOOSE),_nowPlayer(0),_onLayer(NULL),_backLayer(CHOOSE)
 {
     
 }
@@ -49,6 +62,9 @@ bool MapScene::init()
         return false;
     }
     
+    _instance = this;
+    
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/common.plist");
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/button.plist");
     
@@ -67,8 +83,8 @@ bool MapScene::init()
 //    
 //    addChild(_mapUI,MAPUI_Z);
     
-    _choose = ChoosePlayer::create();
-    addChild(_choose,CHOOSE_Z);
+    _onLayer = ChoosePlayer::create();
+    addChild(_onLayer,CHOOSE_Z);
     
     CCSprite* _goldback = CCSprite::createWithSpriteFrameName("ui_qianback.png");
     _goldback->setAnchorPoint(ccp(0, 0.5));
@@ -130,7 +146,7 @@ bool MapScene::init()
     
     _buttons->addButton(_vip);
 
-this->schedule(schedule_selector(MapScene::cycle));
+    this->schedule(schedule_selector(MapScene::cycle));
     
 //    _screenSize = CCDirector::sharedDirector()->getWinSize();
 //    
@@ -199,7 +215,17 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
             
         }else if(_nowLayer == MAP){
             changeToChoose();
+        }else if(_nowLayer == SET){
+            
+            if (_backLayer == MAP) {
+                changeToMap();
+            }else{
+                changeToChoose();
+            }
+            
         }
+    }else if (_buttons->getNowID() == BUTTON_MAP_SET){
+        changeToSet();
     }
 //    removeAllChildren();
 //    CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, 0)));
@@ -207,43 +233,73 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void MapScene::changeToChoose()
 {
-    removeChild(_mapUI);
     
-    _choose = ChoosePlayer::create();
-    addChild(_choose,CHOOSE_Z);
+    removeChild(_onLayer);
+    _onLayer = NULL;
+    
+    _onLayer = ChoosePlayer::create();
+    addChild(_onLayer,CHOOSE_Z);
     
     _nowLayer = CHOOSE;
+    
+    _backLayer = CHOOSE;
+}
+
+void MapScene::changeToSet()
+{
+    removeChild(_onLayer);
+    _onLayer=NULL;
+    
+    _onLayer = Set::create();
+    _onLayer->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+    addChild(_onLayer,SET_Z);
+    
+    _nowLayer = SET;
+    
 }
 
 void MapScene::changeToMap()
 {
-    _nowPlayer = _choose->getNowPlayer();
-    removeChild(_choose);
+    ChoosePlayer* choose = (ChoosePlayer*) _onLayer;
+    _nowPlayer = choose->getNowPlayer();
+    removeChild(_onLayer);
+    _onLayer = NULL;
     
-        
-    _mapUI = MapUI::create(3);
     
-    addChild(_mapUI,MAPUI_Z);
+    _onLayer = MapUI::create(3);
+    
+    addChild(_onLayer,MAPUI_Z);
     
     _nowLayer = MAP;
+    
+    _backLayer = MAP;
 }
 
 void MapScene::cycle(float delta)
 {
     
     
-    if (_nowLayer == CHOOSE && _choose->getIsDead()) {
-        changeToMap();
-    }else if (_nowLayer == MAP && _mapUI->isToGame())
+    if (_nowLayer == CHOOSE) {
+        ChoosePlayer* choose =dynamic_cast<ChoosePlayer*>(_onLayer);
+        if(choose &&choose->getIsDead()){
+            changeToMap();
+        }
+        
+    }else if (_nowLayer == MAP)
     {
-        _nowLayer = GAME;
-//        int lev =_mapUI->getNowSelect();
-        
-        std::vector<int> lev;
-        lev.push_back(_nowPlayer);
-        lev.push_back(_mapUI->getNowSelect());
-        
+        MapUI* mapUI = dynamic_cast<MapUI*>(_onLayer);
+        if (mapUI && mapUI->isToGame()) {
+            _nowLayer = GAME;
+            //        int lev =_mapUI->getNowSelect();
+            
+            std::vector<int> lev;
+            lev.push_back(_nowPlayer);
+            lev.push_back(mapUI->getNowSelect());
+            
             removeAllChildren();
             CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, lev)));
+        }
+        
     }
 }
+

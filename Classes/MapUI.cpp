@@ -184,6 +184,7 @@ int MapUI::getNowSelect() const
 
 bool MapUI::isToGame() const
 {
+    
     return 0<=_nowSelect&&_nowSelect<_mapE->count();
     
 //    return true;

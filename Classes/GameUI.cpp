@@ -24,12 +24,12 @@ bool GameUI::init()
     if(CCLayer::init()) {
         _screenSize = CCDirector::sharedDirector()->getWinSize();
         
-        CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/button.plist");
+        
         
         CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/game.plist");
         CCSprite* zuodi = CCSprite::createWithSpriteFrameName("ui_heibei.png");
         zuodi->setAnchorPoint(ccp(0, 1));
-        zuodi->setPosition(ccp(_screenSize.width*0.005, _screenSize.height*0.98));
+        zuodi->setPosition(ccp(_screenSize.width*0.035, _screenSize.height*0.97));
         
         addChild(zuodi);
         
@@ -42,9 +42,14 @@ bool GameUI::init()
         addChild(daojishi);
         
         CCNode* jindutiao = CCNode::create();
-        jindutiao->setPosition(ccp(_screenSize.width*0.62, _screenSize.height*0.98));
+        jindutiao->setPosition(ccp(_screenSize.width*0.65, _screenSize.height*0.94));
         
         addChild(jindutiao);
+        
+        CCSprite* jindudixing = CCSprite::createWithSpriteFrameName("ui_game_xing.png");
+        jindudixing->setPosition(ccp(-15, 2));
+        jindudixing->setAnchorPoint(ccp(0, 0.5));
+        jindutiao->addChild(jindudixing,10);
         
         CCSprite* jindudi = CCSprite::createWithSpriteFrameName("ui_diaoyu1.png");
         
@@ -88,7 +93,7 @@ bool GameUI::init()
         
     _buttons->addButton(BUTTON_GAME_PAUSE, "button_zanting.png", ccp(_screenSize.width*0.95, _screenSize.height*0.92));
         
-       _buttons->addButton(BUTTON_GAME_ALLGET, "button_citie.png", ccp(_screenSize.width*0.06, _screenSize.height*0.09));
+       _buttons->addButton(BUTTON_GAME_ALLGET, "button_citie.png", ccp(_screenSize.width*0.075, _screenSize.height*0.09));
         
         _timeLabel = CCLabelAtlas::create("0", "ui/shuzi1.png", 25, 40, 48);
         _timeLabel->setAnchorPoint(ccp(0.5, 0.5));
@@ -99,7 +104,7 @@ bool GameUI::init()
         _score_Label = CCLabelAtlas::create("0", "ui/shuzi1.png", 25, 40, 48);
         _score_Label->setAnchorPoint(ccp(0.5, 0.5));
         _score_Label->setPosition(ccp(0, _score_tiao->boundingBox().size.height*0.5));
-        
+        _score_Label->setVisible(false);
         _score_tiao->addChild(_score_Label);
         
         return true;
@@ -161,6 +166,9 @@ void GameUI::setScore(int sc)
 
 void GameUI::addMubiaoScore(std::vector<int> mubiao)
 {
+    if (true) {
+        return;
+    }
     for (int i = 0 ; i<mubiao.size(); ++i) {
         CCLabelAtlas* mubiaoLabel = CCLabelAtlas::create(Tools::intToString(mubiao[i]).c_str(), "ui/shuzi2.png", 18, 26, 48);
         mubiaoLabel->setAnchorPoint(ccp(0.5, 0.5));

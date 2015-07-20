@@ -14,6 +14,7 @@
 #include "MapUI.h"
 #include "LoadingScreen.h"
 #include "ChoosePlayer.h"
+#include "Set.h"
 
 #include "ButtonWithSpriteManage.h"
 
@@ -26,9 +27,13 @@ public:
     const static int CHOOSE = 0;
     const static int MAP = 1;
     
-    const static int GAME = 2;
+    const static int SET = 5;
+    
+    const static int GAME = 50;
     
     virtual bool init();
+    
+    static MapScene* instance();
     
     static cocos2d::CCScene* scene();
     
@@ -47,25 +52,38 @@ public:
     virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
     
     virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    
+    
 private:
+    
+    static MapScene* _instance;
     
     void changeToMap();
     
     void changeToChoose();
     
+    void changeToSet();
+    
     void cycle(float delta); 
     
 protected:
-    MapUI* _mapUI;
+//    MapUI* _mapUI;
     CCSize _screenSize;
-    ChoosePlayer* _choose;
+//    ChoosePlayer* _choose;
+    
+    CCLayer* _onLayer;
+//    Set* _set;
     
     ButtonWithSpriteManage* _buttons;
     int _nowLayer ;
     
+    int _backLayer;
+    
     CCLabelAtlas* _goldLabel;
     
     int _nowPlayer;
+    
+    
 };
 
 #endif /* defined(__GetFish__MapScene__) */

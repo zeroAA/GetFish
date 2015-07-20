@@ -24,6 +24,27 @@ public:
     Set();
     
     virtual ~Set();
+    
+    virtual void onExit();
+    
+    virtual void onEnter();
+    
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+    
+    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+    
+    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    
+protected:
+    
+    
+    CCSprite* yinxiaoon;
+    
+    CCSprite* yinyuon;
+    
+    CCSprite* anniuon;
+    
+    CCSprite* anniuoff;
 
 };
 
