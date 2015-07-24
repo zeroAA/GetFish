@@ -4,10 +4,62 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>lufei01.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{260,2},{248,213}}</string>
+                <key>offset</key>
+                <string>{8,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{16,0},{248,213}}</string>
+                <key>sourceSize</key>
+                <string>{264,215}</string>
+            </dict>
+            <key>lufei02.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{254,217},{250,213}}</string>
+                <key>offset</key>
+                <string>{7,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{14,0},{250,213}}</string>
+                <key>sourceSize</key>
+                <string>{264,215}</string>
+            </dict>
+            <key>lufei03.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,217},{250,213}}</string>
+                <key>offset</key>
+                <string>{7,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{14,0},{250,213}}</string>
+                <key>sourceSize</key>
+                <string>{264,215}</string>
+            </dict>
+            <key>lufei04.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{256,213}}</string>
+                <key>offset</key>
+                <string>{4,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{8,0},{256,213}}</string>
+                <key>sourceSize</key>
+                <string>{264,215}</string>
+            </dict>
             <key>lufei_chuanhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{164,171}}</string>
+                <string>{{2,432},{164,171}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
@@ -20,7 +72,7 @@
             <key>lufei_chuanqian.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{175,2},{205,96}}</string>
+                <string>{{175,432},{205,96}}</string>
                 <key>offset</key>
                 <string>{3,1}</string>
                 <key>rotated</key>
@@ -33,11 +85,11 @@
             <key>lufei_diaoyushouhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{272,100},{51,48}}</string>
+                <string>{{272,530},{51,48}}</string>
                 <key>offset</key>
                 <string>{3,-2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{10,10},{51,48}}</string>
                 <key>sourceSize</key>
@@ -46,7 +98,7 @@
             <key>lufei_diaoyushouqian.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{175,100},{49,65}}</string>
+                <string>{{175,530},{49,65}}</string>
                 <key>offset</key>
                 <string>{-1,-1}</string>
                 <key>rotated</key>
@@ -59,7 +111,7 @@
             <key>lufei_shenglishouhou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{322,100},{45,51}}</string>
+                <string>{{325,530},{45,51}}</string>
                 <key>offset</key>
                 <string>{-1,-1}</string>
                 <key>rotated</key>
@@ -72,7 +124,7 @@
             <key>lufei_shenglishouqian.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{226,100},{44,61}}</string>
+                <string>{{226,530},{44,61}}</string>
                 <key>offset</key>
                 <string>{-2,0}</string>
                 <key>rotated</key>
@@ -85,7 +137,7 @@
             <key>lufei_shenti.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{382,2},{71,102}}</string>
+                <string>{{382,432},{71,102}}</string>
                 <key>offset</key>
                 <string>{-3,0}</string>
                 <key>rotated</key>
@@ -98,11 +150,11 @@
             <key>lufei_tou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{382,75},{88,70}}</string>
+                <string>{{382,505},{88,70}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{8,15},{88,70}}</string>
                 <key>sourceSize</key>
@@ -116,9 +168,9 @@
             <key>realTextureFileName</key>
             <string>player_2.png</string>
             <key>size</key>
-            <string>{486,168}</string>
+            <string>{510,598}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e14be96e61daadd8d62288d075d67dc8$</string>
+            <string>$TexturePacker:SmartUpdate:1c8bc4b08ad46ff3282e0d45f447034d$</string>
             <key>textureFileName</key>
             <string>player_2.png</string>
         </dict>

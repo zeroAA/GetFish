@@ -71,6 +71,9 @@ protected:
     bool _isDead;
     CCLabelAtlas* _goldLabel;
     
+    CCSprite* zi1;
+    CCSprite* zi2;
+    
 };
 
 #endif /* defined(__GetFish__ChoosePlayer__) */

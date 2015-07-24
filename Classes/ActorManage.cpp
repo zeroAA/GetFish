@@ -31,7 +31,7 @@ bool ActorManage::init()
         _actorNode=CCBatchNode::create();
         addChild(_actorNode);
         
-        schedule(schedule_selector(ActorManage::manageCycle));
+//        schedule(schedule_selector(ActorManage::manageCycle));
         
         
         return true;
@@ -42,7 +42,7 @@ bool ActorManage::init()
 
 void ActorManage::setAutoDead(bool at){
     if (!at) {
-        unschedule(schedule_selector(ActorManage::manageCycle));
+//        unschedule(schedule_selector(ActorManage::manageCycle));
     }
 }
 

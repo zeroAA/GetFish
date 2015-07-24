@@ -10,7 +10,6 @@
 #define __GetFish__Set__
 
 #include "cocos2d.h"
-#include "ButtonWithSpriteManage.h"
 
 USING_NS_CC;
 

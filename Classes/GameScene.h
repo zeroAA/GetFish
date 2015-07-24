@@ -18,9 +18,13 @@
 #include "LeafManage.h"
 #include "ShellManage.h"
 #include "FlyNum.h"
+#include "BadEnd.h"
+#include "SucEnd.h"
 
 #include "Ship.h"
 #include "Fish.h"
+
+#include "Pause.h"
 
 #include "GameUI.h"
 #include "GameBegin.h"
@@ -98,7 +102,15 @@ public:
     
     void addFormatFish(int id ,int speed,int dir);
     
+    ShipManage* getShip();
     
+    int getSucType() const;
+    
+    int getSucAdd() const;
+    
+    int getSucNum() const;
+    
+    int getStar() const;
     
 private:
     
@@ -128,6 +140,8 @@ private:
     
     bool isCollideFish(Fish* fish1,Fish* fish2);
     
+    bool isCollideFishAtk(Fish* fish1,Fish* fish2);
+    
     bool waterCollideShip(Fish* fish,Ship* ship);
     
     void useDolphin(Fish* fish);
@@ -141,6 +155,8 @@ private:
     void useFish(Fish* fish);
     
     void setUIScroe(int sc);
+    
+    void setUIScroe(int indext ,int sc);
     
     void setFishToRun();
     
@@ -180,8 +196,7 @@ protected:
     int _suc_num;
     
     int _nowLev;
-    
-   
+    int _nowPlayer;
     
     std::vector< std::vector<int> > _data;
     std::vector< std::vector<int> > _add_leaf;
@@ -205,6 +220,18 @@ protected:
     CCArray* _flyNum;
     
     int _addFlyTime;
+    
+    Pause* _pause;
+    
+    CCSprite* zi1;
+    CCSprite* zi2;
+    
+    int _maxScore;
+    
+    BadEnd* _badEnd;
+    SucEnd* _sucEnd;
+    
+    int _star;
     
 };
 

@@ -19,6 +19,8 @@ public:
     
     static const int TYPE_NORMAL = 0;
     
+    static const int TYPE_NORMAL2 = 1;
+    
     static const int STATE_NORMAL = 0;
     
     static const int STATE_DEAD = 1;

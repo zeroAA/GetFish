@@ -37,7 +37,7 @@ void ShipManage::addShip(int type, const char *name,int sex,int moveCD)
     
     
     Ship* ship = Ship::create(type,name);
-    
+    ship->playWithIndex(0);
     ship->setSex(sex);
     ship->setMoveCD(moveCD);
     addActorForChild(ship);

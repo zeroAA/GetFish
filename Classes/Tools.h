@@ -30,9 +30,14 @@ enum ScreenRationProfile
     KScreenRatioProfile9v16,
 };
 
+extern bool IS_ON_BUTTON;
+
 class Tools
 {
 public:
+    
+    
+    
     static CCRect rectMix(const CCRect& src1, const CCRect& src2);
     
     static float randomFloatInRange(float minInclusive, float maxInclusive);

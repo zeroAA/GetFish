@@ -43,7 +43,11 @@ public:
     
     void setScoreTiao(float sc);
     
+     void setScoreTiao1(float sc);
+    
     void setScore(int sc);
+    
+    void setScore1(int sc);
     
     void addMubiaoScore( std::vector<int> mubiao);
     
@@ -58,8 +62,11 @@ private:
     CCLabelAtlas* _timeLabel;
     
     CCLabelAtlas* _score_Label;
+    CCLabelAtlas* _score_Label1;
     
     CCProgressTimer* _score_tiao;
+    
+    CCProgressTimer* _score_tiao1;
 };
 
 

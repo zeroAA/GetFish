@@ -139,16 +139,16 @@ bool ChoosePlayer::init()
 
     addChild(_right);
     
-    CCSprite* zi1 = CCSprite::createWithSpriteFrameName("ui_zi1.png");
+    zi1 = CCSprite::createWithSpriteFrameName("ui_player_zi1.png");
     zi1->setAnchorPoint(ccp(0, 0));
     zi1->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.55, _screenSize.height*0.79));
     
     addChild(zi1);
     
     
-    CCSprite* zi2 = CCSprite::createWithSpriteFrameName("ui_jiesao1.png");
+    zi2 = CCSprite::createWithSpriteFrameName("ui_player_jieshao1.png");
     zi2->setAnchorPoint(ccp(0, 0));
-    zi2->setPosition(ccp(zi1->getPositionX()+zi1->boundingBox().size.width+10, zi1->getPositionY()));
+    zi2->setPosition(ccp(zi1->getPositionX()+zi1->boundingBox().size.width+7, zi1->getPositionY()));
     
     addChild(zi2);
     
@@ -283,6 +283,14 @@ void ChoosePlayer::changePlayer()
     player->runAction(in);
     
     setChooseIC();
+    
+    
+    CCSpriteFrame* nzi1 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(("ui_player_zi"+Tools::intToString(_nowSelect+1)+".png").c_str());
+    
+    zi1->setDisplayFrame(nzi1);
+    
+    CCSpriteFrame* nzi2 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(("ui_player_jieshao"+Tools::intToString(_nowSelect+1)+".png").c_str());
+    zi2 ->setDisplayFrame(nzi2);;
 }
 
 bool ChoosePlayer::getIsDead() const

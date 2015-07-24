@@ -470,10 +470,11 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Actor.o: \
  jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
  jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
  jni/../../Classes/Leaf.h jni/../../Classes/ShellManage.h \
- jni/../../Classes/Ship.h jni/../../Classes/Fish.h \
- jni/../../Classes/GameUI.h jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h jni/../../Classes/GameBegin.h \
- jni/../../Classes/Tools.h
+ jni/../../Classes/FlyNum.h jni/../../Classes/Ship.h \
+ jni/../../Classes/Fish.h jni/../../Classes/Pause.h \
+ jni/../../Classes/ButtonWithSpriteManage.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/GameBegin.h jni/../../Classes/Tools.h
 
 jni/../../Classes/Actor.h:
 
@@ -1429,15 +1430,19 @@ jni/../../Classes/Leaf.h:
 
 jni/../../Classes/ShellManage.h:
 
+jni/../../Classes/FlyNum.h:
+
 jni/../../Classes/Ship.h:
 
 jni/../../Classes/Fish.h:
 
-jni/../../Classes/GameUI.h:
+jni/../../Classes/Pause.h:
 
 jni/../../Classes/ButtonWithSpriteManage.h:
 
 jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/GameUI.h:
 
 jni/../../Classes/GameBegin.h:
 

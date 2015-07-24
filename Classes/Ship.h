@@ -95,6 +95,8 @@ public:
     
     void switchHookDir();
     
+    void hook();
+    
     void clearHook();
     
     void setHookUp();
@@ -136,6 +138,8 @@ public:
     void runFall();
     
     void setShipTo(float px);
+    
+    void setShipToNoHook(float px);
     
     void setStop(float time);
     

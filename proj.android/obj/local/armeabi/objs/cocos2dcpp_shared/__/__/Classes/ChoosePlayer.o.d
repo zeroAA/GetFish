@@ -469,7 +469,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/ChoosePlayer.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  jni/../../Classes/MapScene.h jni/../../Classes/MapUI.h \
  jni/../../Classes/MapElement.h jni/../../Classes/ScrollView.h \
- jni/../../Classes/LoadingScreen.h
+ jni/../../Classes/LoadingScreen.h jni/../../Classes/Set.h
 
 jni/../../Classes/ChoosePlayer.h:
 
@@ -1418,3 +1418,5 @@ jni/../../Classes/MapElement.h:
 jni/../../Classes/ScrollView.h:
 
 jni/../../Classes/LoadingScreen.h:
+
+jni/../../Classes/Set.h:

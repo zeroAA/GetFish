@@ -39,7 +39,7 @@ ButtonWithSpriteManage* ButtonWithSpriteManage::create(const char* name)
 bool ButtonWithSpriteManage::init(const char* pngName)
 {
     if(CCNode::init()) {
-        
+        _nowIndext = -1;
         _buttons = CCArray::create();
         _buttons->retain();
         

@@ -134,10 +134,44 @@ void Actor::setBodyPonit()
         
         if (this->getBone(str.c_str())) {
             
-            _body1.push_back(CCPointMake((int)(this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY()));
-            
             string str2 = "body"+Tools::intToString(i)+"_2";
-            _body2.push_back(CCPointMake((int)(this->getBone(str2.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str2.c_str())->getWorldInfo()->y*this->getScaleY()));
+            
+            int b1x = this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX();
+            int b1y = this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY();
+            
+            int b2x = this->getBone(str2.c_str())->getWorldInfo()->x*this->getScaleX();
+            int b2y = this->getBone(str2.c_str())->getWorldInfo()->y*this->getScaleY();
+            
+            if (this->getScaleX()<0) {
+                b1x = this->getBone(str2.c_str())->getWorldInfo()->x*this->getScaleX();
+                b2x = this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX();
+            }
+            
+            if (this->getScaleY()<0) {
+                b1y = this->getBone(str2.c_str())->getWorldInfo()->y*this->getScaleY();
+                b2y = this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY();
+            }
+            
+            _body1.push_back(CCPointMake(b1x, b1y));
+            
+           
+            _body2.push_back(CCPointMake(b2x, b2y));
+            
+            
+//            if (this->getScaleX()<0) {
+//                
+//                string str2 = "body"+Tools::intToString(i)+"_2";
+//
+//                _body1.push_back(CCPointMake((int)(this->getBone(str2.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY()));
+//                
+//                                _body2.push_back(CCPointMake((int)(this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str2.c_str())->getWorldInfo()->y*this->getScaleY()));
+//                
+//            }else{
+//                _body1.push_back(CCPointMake((int)(this->getBone(str.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str.c_str())->getWorldInfo()->y*this->getScaleY()));
+//            
+//                string str2 = "body"+Tools::intToString(i)+"_2";
+//                _body2.push_back(CCPointMake((int)(this->getBone(str2.c_str())->getWorldInfo()->x*this->getScaleX()), this->getBone(str2.c_str())->getWorldInfo()->y*this->getScaleY()));
+//            }
         }
         else{
             break;

@@ -41,8 +41,12 @@ bool FlyNum::init(int type ,int num)
         
         _type = type;
         _num = num;
+        if (_type == TYPE_NORMAL2) {
+            _numLabel = CCLabelAtlas::create(Tools::intToString(num).c_str(), "ui/shuzi1.png", 21, 28, 43);
+        }else{
+            _numLabel = CCLabelAtlas::create(Tools::intToString(num).c_str(), "ui/shuzi4.png", 21, 28, 43);
+        }
         
-        _numLabel = CCLabelAtlas::create(Tools::intToString(num).c_str(), "ui/shuzi1.png", 25, 40, 48);
         _numLabel->setAnchorPoint(ccp(0.5, 0.5));
         
         addChild(_numLabel);

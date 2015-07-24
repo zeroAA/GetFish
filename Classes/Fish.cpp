@@ -185,6 +185,7 @@ void Fish::cycle(float delta)
                 setState(ACT_STATE_LIGHT);
                
                 this->setAnim(6);
+                
             }
             
             break;

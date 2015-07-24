@@ -4,10 +4,88 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>cjsaiyaren01_000.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{382,211},{189,193}}</string>
+                <key>offset</key>
+                <string>{1,-8}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{3,17},{189,193}}</string>
+                <key>sourceSize</key>
+                <string>{193,211}</string>
+            </dict>
+            <key>cjsaiyaren01_001.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{189,215},{191,199}}</string>
+                <key>offset</key>
+                <string>{0,-6}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,12},{191,199}}</string>
+                <key>sourceSize</key>
+                <string>{193,211}</string>
+            </dict>
+            <key>cjsaiyaren01_002.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{384,2},{185,207}}</string>
+                <key>offset</key>
+                <string>{3,-2}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{7,4},{185,207}}</string>
+                <key>sourceSize</key>
+                <string>{193,211}</string>
+            </dict>
+            <key>cjsaiyaren01_003.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,215},{185,211}}</string>
+                <key>offset</key>
+                <string>{3,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{7,0},{185,211}}</string>
+                <key>sourceSize</key>
+                <string>{193,211}</string>
+            </dict>
+            <key>cjsaiyaren01_004.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{195,2},{187,207}}</string>
+                <key>offset</key>
+                <string>{2,-2}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{5,4},{187,207}}</string>
+                <key>sourceSize</key>
+                <string>{193,211}</string>
+            </dict>
+            <key>cjsaiyaren01_005.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{191,211}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,0},{191,211}}</string>
+                <key>sourceSize</key>
+                <string>{193,211}</string>
+            </dict>
             <key>saiyaren_diaoyuyou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{134,222},{34,27}}</string>
+                <string>{{493,406},{34,27}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,11 +98,11 @@
             <key>saiyaren_diaoyuzuo.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{170,155},{39,47}}</string>
+                <string>{{657,310},{39,47}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{4,4},{39,47}}</string>
                 <key>sourceSize</key>
@@ -33,11 +111,11 @@
             <key>saiyaren_houtui.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{134,155},{34,65}}</string>
+                <string>{{382,406},{34,65}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{3,6},{34,65}}</string>
                 <key>sourceSize</key>
@@ -46,11 +124,11 @@
             <key>saiyaren_qiantui.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{86,157},{46,70}}</string>
+                <string>{{573,400},{46,70}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{5,6},{46,70}}</string>
                 <key>sourceSize</key>
@@ -59,7 +137,7 @@
             <key>saiyaren_shangshen.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{170,196},{39,42}}</string>
+                <string>{{657,359},{39,42}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
@@ -72,11 +150,11 @@
             <key>saiyaren_shengliyou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{219,155},{29,30}}</string>
+                <string>{{189,416},{29,30}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{3,5},{29,30}}</string>
                 <key>sourceSize</key>
@@ -85,7 +163,7 @@
             <key>saiyaren_tou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,157},{82,88}}</string>
+                <string>{{573,310},{82,88}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -98,7 +176,7 @@
             <key>saiyaren_zuojihou.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{129,2},{151,113}}</string>
+                <string>{{573,157},{151,113}}</string>
                 <key>offset</key>
                 <string>{1,4}</string>
                 <key>rotated</key>
@@ -111,7 +189,7 @@
             <key>saiyaren_zuoqiqian.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{125,153}}</string>
+                <string>{{571,2},{125,153}}</string>
                 <key>offset</key>
                 <string>{2,-1}</string>
                 <key>rotated</key>
@@ -124,11 +202,11 @@
             <key>saiyarshenglizuoen_.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{211,196},{42,38}}</string>
+                <string>{{449,406},{42,38}}</string>
                 <key>offset</key>
                 <string>{1,1}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{2,2},{42,38}}</string>
                 <key>sourceSize</key>
@@ -142,9 +220,9 @@
             <key>realTextureFileName</key>
             <string>player_7.png</string>
             <key>size</key>
-            <string>{251,251}</string>
+            <string>{698,448}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:ce63d58f772d0da71e2105d15320984f$</string>
+            <string>$TexturePacker:SmartUpdate:fe4ea7431106d38e7c2fc4ac0a01aee3$</string>
             <key>textureFileName</key>
             <string>player_7.png</string>
         </dict>

@@ -469,10 +469,12 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameScene.o: \
  jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
  jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
  jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
- jni/../../Classes/Leaf.h jni/../../Classes/Ship.h \
- jni/../../Classes/Fish.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/Leaf.h jni/../../Classes/ShellManage.h \
+ jni/../../Classes/FlyNum.h jni/../../Classes/Ship.h \
+ jni/../../Classes/Fish.h jni/../../Classes/Pause.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h jni/../../Classes/Tools.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/GameBegin.h jni/../../Classes/Tools.h \
  jni/../../Classes/Effect.h jni/../../Classes/Common.h \
  jni/../../Classes/AudioController.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
@@ -1434,15 +1436,23 @@ jni/../../Classes/LeafManage.h:
 
 jni/../../Classes/Leaf.h:
 
+jni/../../Classes/ShellManage.h:
+
+jni/../../Classes/FlyNum.h:
+
 jni/../../Classes/Ship.h:
 
 jni/../../Classes/Fish.h:
 
-jni/../../Classes/GameUI.h:
+jni/../../Classes/Pause.h:
 
 jni/../../Classes/ButtonWithSpriteManage.h:
 
 jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/GameUI.h:
+
+jni/../../Classes/GameBegin.h:
 
 jni/../../Classes/Tools.h:
 

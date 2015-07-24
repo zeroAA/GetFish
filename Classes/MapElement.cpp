@@ -67,9 +67,14 @@ bool MapElement::init(int star,int lev)
         
     }
     
-    _levLabel = CCLabelAtlas::create( (Tools::intToString((lev/12)+1)+ "-"+Tools::intToString(lev-(lev/12)*12+1)).c_str(), "ui/shuzi3.png", 14, 20, 43);
+    int bigLev =(lev/12)+1;
+    
+    
+   
+    _levLabel = CCLabelAtlas::create( (Tools::intToString(bigLev)+ "-"+Tools::intToString(lev-(lev/12)*12+1)).c_str(), "ui/shuzi4.png", 21, 28, 43);
+    
     _levLabel->setAnchorPoint(ccp(0.5, 0.5));
-    _levLabel->setScale(1.3);
+    
     _levLabel->setPosition(ccp(0, -25));
     //    _goldLabel->setPosition(CCPointMake(_screenSize.width*0.5, _screenSize.height*0.5));
     addChild(_levLabel);

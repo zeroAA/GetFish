@@ -9,6 +9,7 @@
 #include "Set.h"
 #include "Common.h"
 #include "MapScene.h"
+#include "Tools.h"
 
 Set::Set()
 {
@@ -71,8 +72,8 @@ bool Set::init()
             anniuon = CCSprite::createWithSpriteFrameName("ui_set_xianliang.png");
         }else{
             anniuon = CCSprite::createWithSpriteFrameName("ui_set_xianhui.png");
-            
         }
+        
         anniuon->setAnchorPoint(ccp(0, 1));
         anniuon->setPosition(ccp(back->boundingBox().size.width*0.09, 65));
         addChild(anniuon);

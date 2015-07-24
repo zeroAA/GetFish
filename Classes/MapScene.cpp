@@ -134,9 +134,9 @@ bool MapScene::init()
     
     _buttons->addButton(_back);
     
-    ButtonWithSprite* _shop2 = ButtonWithSprite::create(BUTTON_MAP_SHOP, "button_shangcheng.png");
-    
-    _shop2->setPosition(ccp(_screenSize.width*0.85, _screenSize.height*0.92));
+//    ButtonWithSprite* _shop2 = ButtonWithSprite::create(BUTTON_MAP_SHOP, "button_shangcheng.png");
+//    
+//    _shop2->setPosition(ccp(_screenSize.width*0.85, _screenSize.height*0.92));
     
     //    _buttons->addChild(_shop2);
     
@@ -260,8 +260,7 @@ void MapScene::changeToSet()
 
 void MapScene::changeToMap()
 {
-    ChoosePlayer* choose = (ChoosePlayer*) _onLayer;
-    _nowPlayer = choose->getNowPlayer();
+    
     removeChild(_onLayer);
     _onLayer = NULL;
     
@@ -282,7 +281,12 @@ void MapScene::cycle(float delta)
     if (_nowLayer == CHOOSE) {
         ChoosePlayer* choose =dynamic_cast<ChoosePlayer*>(_onLayer);
         if(choose &&choose->getIsDead()){
+            
+            ChoosePlayer* choose = (ChoosePlayer*) _onLayer;
+            _nowPlayer = choose->getNowPlayer();
+
             changeToMap();
+            
         }
         
     }else if (_nowLayer == MAP)

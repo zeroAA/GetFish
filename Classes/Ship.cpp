@@ -734,11 +734,29 @@ void Ship::setShipTo(float px)
     
     
         
-        if (isHookOver() && !isShipFull()) {
-            
-            switchHookDir();
-        }
+    if (isHookOver() && !isShipFull()) {
+        switchHookDir();
+    }
     
+    
+    setState(Ship::ACT_WALK);
+    
+    setDesX(px);
+}
+
+void Ship::hook()
+{
+    if (isHookOver() && !isShipFull()) {
+        switchHookDir();
+    }
+}
+
+void Ship::setShipToNoHook(float px)
+{
+    
+    if (!isCanMove() ) {
+        return;
+    }
     
     setState(Ship::ACT_WALK);
     
@@ -767,7 +785,7 @@ void Ship::shipOnAtk()
 
 CCPoint Ship::getEatPos() 
 {
-    return CCPointMake(getPositionX()+ getBone("eat")->getWorldInfo()->x,getPositionY()+ getBone("eat")->getWorldInfo()->y);
+    return CCPointMake(getPositionX()+ getBone("eat")->getWorldInfo()->x*this->getScaleX(),getPositionY()+ getBone("eat")->getWorldInfo()->y*this->getScaleY());
 }
 
 void Ship::setCutHookPos()

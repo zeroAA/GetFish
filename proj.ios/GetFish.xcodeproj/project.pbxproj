@@ -280,8 +280,11 @@
 		E17973A51AB04879009A56FE /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A31AB04879009A56FE /* Shell.cpp */; };
 		E17973A81AB0488D009A56FE /* ShellManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A61AB0488D009A56FE /* ShellManage.cpp */; };
 		E17C31361B04A145004F1799 /* GameSaveData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C31341B04A145004F1799 /* GameSaveData.cpp */; };
+		E1949CAE1B5CF41F00FC80DB /* Pause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1949CAC1B5CF41F00FC80DB /* Pause.cpp */; };
 		E19B39301AB2FA3D00CB6373 /* BinaryReadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */; };
 		E19BA1051AFA581D0093DF20 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19BA1031AFA581D0093DF20 /* Set.cpp */; };
+		E1A1FA081B61F61C0024920C /* SucEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1A1FA061B61F61C0024920C /* SucEnd.cpp */; };
+		E1A340AE1B5F99EF00712352 /* BadEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1A340AC1B5F99EF00712352 /* BadEnd.cpp */; };
 		E1BE6C2F1AA84F65000CD06B /* ChoosePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */; };
 		E1C0C3901AB6D2CE003DE15A /* music in Resources */ = {isa = PBXBuildFile; fileRef = E1C0C38F1AB6D2CE003DE15A /* music */; };
 		E1C6C4BE1B54EDB7007E6569 /* FlyNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C6C4BC1B54EDB7007E6569 /* FlyNum.cpp */; };
@@ -874,10 +877,16 @@
 		E17973A71AB0488D009A56FE /* ShellManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellManage.h; sourceTree = "<group>"; };
 		E17C31341B04A145004F1799 /* GameSaveData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSaveData.cpp; sourceTree = "<group>"; };
 		E17C31351B04A145004F1799 /* GameSaveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSaveData.h; sourceTree = "<group>"; };
+		E1949CAC1B5CF41F00FC80DB /* Pause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pause.cpp; sourceTree = "<group>"; };
+		E1949CAD1B5CF41F00FC80DB /* Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pause.h; sourceTree = "<group>"; };
 		E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryReadUtil.cpp; sourceTree = "<group>"; };
 		E19B392F1AB2FA3D00CB6373 /* BinaryReadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryReadUtil.h; sourceTree = "<group>"; };
 		E19BA1031AFA581D0093DF20 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
 		E19BA1041AFA581D0093DF20 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
+		E1A1FA061B61F61C0024920C /* SucEnd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SucEnd.cpp; sourceTree = "<group>"; };
+		E1A1FA071B61F61C0024920C /* SucEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SucEnd.h; sourceTree = "<group>"; };
+		E1A340AC1B5F99EF00712352 /* BadEnd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BadEnd.cpp; sourceTree = "<group>"; };
+		E1A340AD1B5F99EF00712352 /* BadEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadEnd.h; sourceTree = "<group>"; };
 		E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePlayer.cpp; sourceTree = "<group>"; };
 		E1BE6C2E1AA84F65000CD06B /* ChoosePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlayer.h; sourceTree = "<group>"; };
 		E1C0C38F1AB6D2CE003DE15A /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
@@ -2131,10 +2140,10 @@
 				E179739B1AB04839009A56FE /* RockManage.h */,
 				E179739D1AB04852009A56FE /* Leaf.cpp */,
 				E179739E1AB04852009A56FE /* Leaf.h */,
-				E17973A01AB04865009A56FE /* LeafManage.cpp */,
 				E17973A31AB04879009A56FE /* Shell.cpp */,
-				E17973A11AB04865009A56FE /* LeafManage.h */,
 				E17973A41AB04879009A56FE /* Shell.h */,
+				E17973A01AB04865009A56FE /* LeafManage.cpp */,
+				E17973A11AB04865009A56FE /* LeafManage.h */,
 				E17973A61AB0488D009A56FE /* ShellManage.cpp */,
 				E17973A71AB0488D009A56FE /* ShellManage.h */,
 			);
@@ -2166,6 +2175,12 @@
 				E1F890271B01AFD400711A7C /* GameBegin.h */,
 				E17C31341B04A145004F1799 /* GameSaveData.cpp */,
 				E17C31351B04A145004F1799 /* GameSaveData.h */,
+				E1949CAC1B5CF41F00FC80DB /* Pause.cpp */,
+				E1949CAD1B5CF41F00FC80DB /* Pause.h */,
+				E1A340AC1B5F99EF00712352 /* BadEnd.cpp */,
+				E1A340AD1B5F99EF00712352 /* BadEnd.h */,
+				E1A1FA061B61F61C0024920C /* SucEnd.cpp */,
+				E1A1FA071B61F61C0024920C /* SucEnd.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -2514,7 +2529,9 @@
 				15C0B551196D412F007F909D /* CCActionTimeline.cpp in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */,
+				E1949CAE1B5CF41F00FC80DB /* Pause.cpp in Sources */,
 				15C0B58D196D412F007F909D /* ListViewReader.cpp in Sources */,
+				E1A1FA081B61F61C0024920C /* SucEnd.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				15C0B57E196D412F007F909D /* UILoadingBar.cpp in Sources */,
@@ -2555,6 +2572,7 @@
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				E124D63A1A3DD26E00C83454 /* Fish.cpp in Sources */,
+				E1A340AE1B5F99EF00712352 /* BadEnd.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				15C0B565196D412F007F909D /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				15C0B576196D412F007F909D /* UIPageView.cpp in Sources */,

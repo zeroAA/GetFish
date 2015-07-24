@@ -40,11 +40,29 @@ bool GameBegin::init(int score,int type,int fishID,int num)
         
         return false;
     }
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/button.plist");
+    
+    CCLOG("type : %i",type);
     
     CCSprite* back = CCSprite::createWithSpriteFrameName("ui_tishi_back.png");
     
     addChild(back);
+    
+    CCSprite* back1 = CCSprite::createWithSpriteFrameName("ui_c_tishi.png");
+    back1->setPosition(ccp(back->boundingBox().size.width*0.5+back1->boundingBox().size.width*0.5-5, -2));
+    addChild(back1);
+    
+    int tinum = 2;
+    
+    CCSprite* tishi1 = CCSprite::create("ui/ui_ctishi_1.png");
+    tishi1->setPosition(ccp(back1->getPositionX(), back1->getPositionY()+40*(tinum-1)));
+    addChild(tishi1);
+    
+    if (tinum>1) {
+        CCSprite* tishi2 = CCSprite::create("ui/ui_ctishi_2.png");
+        tishi2->setPosition(ccp(back1->getPositionX(), back1->getPositionY()-90));
+        addChild(tishi2);
+    }
+    
     
     CCSprite* wan = CCSprite::createWithSpriteFrameName("ui_c_wanmei.png");
     
@@ -78,8 +96,14 @@ bool GameBegin::init(int score,int type,int fishID,int num)
     zi1->setPosition(ccp(-back->boundingBox().size.width*0.5+20, 60));
     
     addChild(zi1);
+    CCSprite* zi2;
     
-    CCSprite* zi2 = CCSprite::createWithSpriteFrameName("ui_tishi_zi2.png");
+    if (type == 3){
+        zi2 = CCSprite::createWithSpriteFrameName("ui_tishi_zi4_4.png");
+    }else{
+        zi2 = CCSprite::createWithSpriteFrameName("ui_tishi_zi2.png");
+    }
+    
     zi2->setAnchorPoint(ccp(0, 0));
     zi2->setPosition(ccp(-back->boundingBox().size.width*0.5+25, 25));
     
@@ -93,41 +117,59 @@ bool GameBegin::init(int score,int type,int fishID,int num)
     
     CCSprite* zi4 = CCSprite::createWithSpriteFrameName(("ui_tishi_zi4_"+Tools::intToString(type+1)+".png").c_str());
     zi4->setAnchorPoint(ccp(0, 0));
-    zi4->setPosition(ccp(-back->boundingBox().size.width*0.5+20, -60));
+    zi4->setPosition(ccp(-back->boundingBox().size.width*0.5+25, -80));
     
     addChild(zi4);
     
     if(type == 0){
         
-        zi4->setPosition(ccp(-back->boundingBox().size.width*0.5+30, -80));
-        
+        zi4->setPosition(ccp(-back->boundingBox().size.width*0.5+25, -80));
         fish = CCArmature::create(("fish_"+Tools::intToString(fishID)).c_str());
         fish->setPosition(ccp(-back->boundingBox().size.width*0.5+100, -70));
         fish->setScale(0.5);
         addChild(fish);
         
         
-        _num = CCLabelAtlas::create((","+Tools::intToString(num)).c_str(), "ui/shuzi3.png", 14, 20, 43);
+        _num = CCLabelAtlas::create((","+Tools::intToString(num)).c_str(), "ui/shuzi5.png", 12, 15, 43);
         _num->setAnchorPoint(ccp(0, 0));
         
-        _num->setPosition(ccp(-back->boundingBox().size.width*0.5+130, -80));
+        _num->setPosition(ccp(-back->boundingBox().size.width*0.5+130, -78));
         
         addChild(_num);
 
+    }else if(type == 3){
+        _num = CCLabelAtlas::create((","+Tools::intToString(num)).c_str(), "ui/shuzi5.png", 12, 15, 43);
+        _num->setAnchorPoint(ccp(0, 0));
+        
+        _num->setPosition(ccp(-back->boundingBox().size.width*0.5+zi2->boundingBox().size.width+30, -78));
+        addChild(_num);
     }
     
-    _button_begin = ButtonWithSprite::create(BUTTON_GAME_BEGIN, "button_kaishi.png",0.8);
+    _buttons = ButtonWithSpriteManage::create("ui/button.png");
     
-    _button_begin->setPosition(ccp(100, -132));
+    addChild(_buttons);
     
-    addChild(_button_begin);
+    ButtonWithSprite* button_begin = ButtonWithSprite::create(BUTTON_GAME_BEGIN, "button_kaishi.png",0.8);
     
-    _score = CCLabelAtlas::create( Tools::intToString(score).c_str(), "ui/shuzi3.png", 14, 20, 43);
-    _score->setAnchorPoint(ccp(0, 0));
-   
-    _score->setPosition(ccp(-back->boundingBox().size.width*0.5+zi2->boundingBox().size.width+30, 25));
-    //    _goldLabel->setPosition(CCPointMake(_screenSize.width*0.5, _screenSize.height*0.5));
-    addChild(_score);
+    button_begin->setPosition(ccp(120, -132));
+    
+    _buttons->addButton(button_begin);
+    
+    
+    ButtonWithSprite* button_back = ButtonWithSprite::create(BUTTON_GAME_BACK, "button_fanhui2.png",0.8);
+    
+    button_back->setPosition(ccp(-120, -132));
+    
+    _buttons->addButton(button_back);
+    if (type != 3){
+        
+        _score = CCLabelAtlas::create( Tools::intToString(score).c_str(), "ui/shuzi5.png", 12, 15, 43);
+        _score->setAnchorPoint(ccp(0, 0));
+        
+        _score->setPosition(ccp(-back->boundingBox().size.width*0.5+zi2->boundingBox().size.width+30, 28));
+        addChild(_score,100);
+        
+    }
 
     
     return true;
@@ -136,23 +178,26 @@ bool GameBegin::init(int score,int type,int fishID,int num)
 
 void GameBegin::touchesBegan(CCSet * touchs,CCEvent * event)
 {
-    _button_begin->touchesBegan(touchs, event);
+    _buttons->touchesBegan(touchs, event);
 }
 
 void GameBegin::touchesCancelled(CCSet * touchs,CCEvent * event)
 {
-    _button_begin->touchesCancelled(touchs, event);
+    _buttons->touchesCancelled(touchs, event);
 }
 
 void GameBegin::touchesMoved(CCSet * touchs,CCEvent * event)
 {
-    _button_begin->touchesMoved(touchs, event);
+    _buttons->touchesMoved(touchs, event);
 }
 
 void GameBegin::touchesEnded(CCSet * touchs,CCEvent * event)
 {
+    _buttons->touchesEnded(touchs, event);
     
-    if(_button_begin->touchesEnded(touchs, event)){
-        setDead(true);
+    if(_buttons->getNowID() == BUTTON_GAME_BEGIN){
+        setDead(DEAD_TYPE_TOGAME);
+    }else if(_buttons->getNowID() == BUTTON_GAME_BACK){
+        setDead(DEAD_TYPE_BACK);
     }
 }
