@@ -71,10 +71,18 @@ void Rock::movementCallback(CCArmature * armature, MovementEventType type, const
     }
 }
 
+void Rock::dis()
+{
+    subHp(_hp);
+}
 void Rock::subHp()
 {
+    subHp(1);
+}
+void Rock::subHp(int hp)
+{
     if (_hp>0) {
-        _hp--;
+        _hp-=hp;
         if (_hp<=0) {
             _hp = 0;
            AUDIO->playSfx("music/rockbroken");

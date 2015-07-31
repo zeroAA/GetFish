@@ -10,6 +10,8 @@
 #include "AudioController.h"
 #include "Common.h"
 #include "GameSaveData.h"
+#include "Tools.h"
+#include "Data.h"
 
 const static int BACK_Z = -100;
 
@@ -30,7 +32,7 @@ MapScene* MapScene::instance()
     return _instance;
 }
 
-MapScene::MapScene():_nowLayer(CHOOSE),_nowPlayer(0),_onLayer(NULL),_backLayer(CHOOSE)
+MapScene::MapScene():_nowLayer(CHOOSE),_onLayer(NULL),_backLayer(CHOOSE),_login(NULL)
 {
     
 }
@@ -39,13 +41,13 @@ MapScene::~MapScene()
 {
 }
 
-CCScene* MapScene::scene()
+CCScene* MapScene::scene(int type)
 {
    
     CCScene *scene = CCScene::create();
     
    
-    MapScene *layer = MapScene::create();
+    MapScene *layer = MapScene::create(type);
     
     
     scene->addChild(layer);
@@ -54,13 +56,34 @@ CCScene* MapScene::scene()
     return scene;
 }
 
+MapScene* MapScene::create(int type)
+{
+    MapScene* game = new MapScene();
+    
+    if(game && game->init(type)) {
+        game->autorelease();
+        return game;
+    }
+    
+    CC_SAFE_DELETE(game);
+    return NULL;
+}
 
-bool MapScene::init()
+bool MapScene::init(int type)
 {
     if (!CCLayer::init())
     {
         return false;
     }
+    
+    GameSaveData::loadLeveData();
+    
+    GameSaveData::loadSetData();
+    
+    GameSaveData::loadGoldData();
+    GameSaveData::loadAllData();
+    
+    
     
     _instance = this;
     
@@ -71,6 +94,41 @@ bool MapScene::init()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/ui_map.plist");
     
     _screenSize = CCDirector::sharedDirector()->getWinSize();
+    if(type == 0){
+    _login = CCLayer::create();
+    
+    CCSprite* lb = CCSprite::create("main/login.jpg");
+    lb->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+    _login->addChild(lb);
+    
+    
+    CCSprite* t = CCSprite::create("main/login_t.png");
+    t->setAnchorPoint(ccp(0.5, 0));
+    t->setPosition(ccp(_screenSize.width*0.5, _screenSize.height));
+    _login->addChild(t);
+    
+    CCMoveTo* to = CCMoveTo::create(0.3, ccp(_screenSize.width*0.5, _screenSize.height*0.6));
+    CCScaleTo* sc = CCScaleTo::create(0.2, 1, 0.5);
+    CCMoveTo* to2 = CCMoveTo::create(0.3, ccp(_screenSize.width*0.5, _screenSize.height*0.7));
+    CCScaleTo* sc2 = CCScaleTo::create(0.3, 1, 1);
+    CCSpawn* sp = CCSpawn::create(to2,sc2,NULL);
+    
+    CCSequence* sq1 = CCSequence::create(to,sc,sp,NULL);
+    t->runAction(sq1);
+    
+    CCSprite* b = CCSprite::create("main/login_b.png");
+    b->setAnchorPoint(ccp(0.5, 0));
+    b->setPosition(ccp(_screenSize.width*0.5+20, 0));
+    _login->addChild(b);
+    
+    CCFadeOut* out = CCFadeOut::create(1);
+    CCFadeIn* in = CCFadeIn::create(1);
+    CCSequence* sq = CCSequence::create(out,in,NULL);
+    CCRepeatForever* re = CCRepeatForever::create(sq);
+    b->runAction(re);
+    
+    addChild(_login,100);
+    }
     
     CCSprite* back = CCSprite::create("bg/map_back.jpg");
     
@@ -83,8 +141,7 @@ bool MapScene::init()
 //    
 //    addChild(_mapUI,MAPUI_Z);
     
-    _onLayer = ChoosePlayer::create();
-    addChild(_onLayer,CHOOSE_Z);
+    
     
     CCSprite* _goldback = CCSprite::createWithSpriteFrameName("ui_qianback.png");
     _goldback->setAnchorPoint(ccp(0, 0.5));
@@ -101,20 +158,17 @@ bool MapScene::init()
     addChild(_gold);
     
     
-    _goldLabel = CCLabelAtlas::create("9999", "ui/shuzi3.png", 14, 20, 43);
+    _goldLabel = CCLabelAtlas::create(Tools::intToString(player_gold).c_str(), "ui/shuzi4.png", 21, 28, 43);
     _goldLabel->setAnchorPoint(ccp(0.5, 0.5));
-    _goldLabel->setScale(1.6);
-    _goldLabel->setPosition(ccp(_goldback->getPositionX()+_goldback->boundingBox().size.width*0.5, _goldback->getPositionY()));
+    _goldLabel->setScale(1.2);
+    _goldLabel->setPosition(ccp(_goldback->getPositionX()+_goldback->boundingBox().size.width*0.5-5, _goldback->getPositionY()));
 //    _goldLabel->setPosition(CCPointMake(_screenSize.width*0.5, _screenSize.height*0.5));
-    addChild(_goldLabel);
+    addChild(_goldLabel,10);
     
     
     _buttons = ButtonWithSpriteManage::create("ui/button.png");
     
     addChild(_buttons);
-    
-    
-    
     
     ButtonWithSprite* _shop = ButtonWithSprite::create(BUTTON_MAP_SHOP, "button_jia.png");
     _shop->setAnchorPoint(ccp(0, 0.5));
@@ -128,7 +182,7 @@ bool MapScene::init()
     
     _buttons->addButton(_set);
     
-    ButtonWithSprite* _back = ButtonWithSprite::create(BUTTON_MAP_BACK, "button_fanhui.png");
+    _back = ButtonWithSprite::create(BUTTON_MAP_BACK, "button_fanhui.png");
     
     _back->setPosition(ccp(_screenSize.width*0.06, _screenSize.height*0.08));
     
@@ -176,9 +230,29 @@ bool MapScene::init()
 //    this->setTouchEnabled(true);
     AUDIO->playBgMusic("music/back1", true);
     
-    GameSaveData::loadLeveData();
     
+//    _nowPlayer = select_player;
+    if(type == 0){
+        changeToChoose();
+    }else{
+        changeToMap();
+    }
+//    _onLayer = ChoosePlayer::create();
+//    addChild(_onLayer,CHOOSE_Z);
+    
+    _message = MessageManage::create("ui/common.png");
+    addChild(_message,100);
     return true;
+}
+
+void MapScene::setBackButtonV(bool v)
+{
+    _back -> setVisible(v);
+}
+
+void MapScene::addMessage(int type, const char *name)
+{
+    _message->addMessage(type, name);
 }
 
 void MapScene::onEnter()
@@ -197,17 +271,28 @@ void MapScene::onExit()
 
 bool MapScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
+    if (_login) {
+        return true;
+    }
     return _buttons->toucheBegan(pTouch, pEvent);
 }
 
 void MapScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    
+    if (_login) {
+        return;
+    }
      _buttons->toucheMoved(pTouch, pEvent);
 }
 
 void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
+    
+    if (_login) {
+        this->removeChild(_login);
+        _login=NULL;
+        return;
+    }
      _buttons->toucheEnded(pTouch, pEvent);
 
     if (_buttons->getNowID() == BUTTON_MAP_BACK) {
@@ -216,7 +301,7 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
         }else if(_nowLayer == MAP){
             changeToChoose();
         }else if(_nowLayer == SET){
-            
+            GameSaveData::saveSetData();
             if (_backLayer == MAP) {
                 changeToMap();
             }else{
@@ -225,15 +310,28 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
             
         }
     }else if (_buttons->getNowID() == BUTTON_MAP_SET){
+        
         changeToSet();
+    }else if (_buttons->getNowID() == BUTTON_MAP_VIP){
+        getAll=99;
+        GameSaveData::saveAllData();
+    }else if (_buttons->getNowID() == BUTTON_MAP_SHOP){
+        player_gold+=999;
+        GameSaveData::saveGoldData();
+        setGold();
     }
 //    removeAllChildren();
 //    CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, 0)));
 }
 
+void MapScene::setGold()
+{
+    _goldLabel->setString(Tools::intToString(player_gold).c_str());
+}
+
 void MapScene::changeToChoose()
 {
-    
+    setBackButtonV(false);
     removeChild(_onLayer);
     _onLayer = NULL;
     
@@ -247,6 +345,7 @@ void MapScene::changeToChoose()
 
 void MapScene::changeToSet()
 {
+    setBackButtonV(true);
     removeChild(_onLayer);
     _onLayer=NULL;
     
@@ -260,7 +359,7 @@ void MapScene::changeToSet()
 
 void MapScene::changeToMap()
 {
-    
+    setBackButtonV(true);
     removeChild(_onLayer);
     _onLayer = NULL;
     
@@ -283,7 +382,7 @@ void MapScene::cycle(float delta)
         if(choose &&choose->getIsDead()){
             
             ChoosePlayer* choose = (ChoosePlayer*) _onLayer;
-            _nowPlayer = choose->getNowPlayer();
+            select_player = choose->getNowPlayer();
 
             changeToMap();
             
@@ -295,9 +394,9 @@ void MapScene::cycle(float delta)
         if (mapUI && mapUI->isToGame()) {
             _nowLayer = GAME;
             //        int lev =_mapUI->getNowSelect();
-            
+//             select_player= _nowPlayer;
             std::vector<int> lev;
-            lev.push_back(_nowPlayer);
+            lev.push_back(select_player);
             lev.push_back(mapUI->getNowSelect());
             
             removeAllChildren();

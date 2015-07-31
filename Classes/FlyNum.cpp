@@ -36,7 +36,6 @@ FlyNum::~FlyNum()
 bool FlyNum::init(int type ,int num)
 {
     
-    
     if(CCNode::init()) {
         
         _type = type;
@@ -46,10 +45,13 @@ bool FlyNum::init(int type ,int num)
         }else{
             _numLabel = CCLabelAtlas::create(Tools::intToString(num).c_str(), "ui/shuzi4.png", 21, 28, 43);
         }
-        
+        _numLabel->setScale(0.8);
         _numLabel->setAnchorPoint(ccp(0.5, 0.5));
         
         addChild(_numLabel);
+        
+        CCParticleSystemQuad* numP = CCParticleSystemQuad::create("ui/numstar.plist");
+        addChild(numP,-1);
         
         schedule(schedule_selector(FlyNum::cycle));
         

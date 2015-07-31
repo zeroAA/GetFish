@@ -57,16 +57,30 @@ const int KEY_SET = -170;
 
 const int KEY_CHOOSE = -150;
 
-const int KEY_MAPSC = -100;
+const int KEY_MAPSC = -300;
 
 const int KScreenUnkown = -1;
 const int KScreenGame = 0;
 const int KScreenMap = 1;
 
+const int LEV12_STAR = 35;
 
-static bool IS_ON_MUISC = true;
+const int LEV24_STAR = 68;
 
-static bool IS_ON_SFX = true;
+const int LEV36_STAR = 100;
 
+const int LEV48_STAR = 130;
+
+const int LEV60_STAR = 168;
+
+const int PLAYER2_GOLD = 9000;
+
+const int PLAYER3_GOLD = 15000;
+
+const int PLAYER4_GOLD = 25000;
+
+const int PLAYER5_GOLD = 55000;
+
+const int PLAYER6_GOLD = 99999;
 
 #endif

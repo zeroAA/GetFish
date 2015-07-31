@@ -8,6 +8,8 @@
 
 #include "Pause.h"
 #include "Common.h"
+#include "GameScene.h"
+#include "Tools.h"
 
 Pause::Pause():_dead(DEAD_TYPE_NODEAD)
 {
@@ -30,6 +32,15 @@ bool Pause::init()
         ming->setAnchorPoint(ccp(0, 1));
         ming->setPosition(ccp(-back->boundingBox().size.width*0.5+15, back->boundingBox().size.height*0.5-10));
         addChild(ming);
+        
+        int lev = GameScene::instance()->getNowLevel();
+        CCLabelAtlas *_levLabel = CCLabelAtlas::create( (Tools::intToString((lev/12)+1)+ "-"+Tools::intToString(lev-(lev/12)*12+1)).c_str(), "ui/shuzi4.png", 21, 28, 43);
+        
+        _levLabel->setAnchorPoint(ccp(0, 1));
+        
+        _levLabel->setPosition(ccp(ming->boundingBox().getMaxX()+10, ming->getPositionY()-2));
+        
+        addChild(_levLabel);
         
         _buttons = ButtonWithSpriteManage::create("ui/button.png");
         

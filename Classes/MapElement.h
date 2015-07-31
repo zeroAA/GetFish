@@ -28,9 +28,13 @@ public:
     CCRect getBody() ;
     
     int getLev();
+    
+    int getStar();
 protected:
     
     int _lev;
+    
+    int _star;
     
     CCSprite* _back;
     

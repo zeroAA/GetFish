@@ -203,7 +203,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Shell.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/data_support/uthash.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponent.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponentContainer.h \
- jni/../../Classes/Actor.h \
+ jni/../../Classes/Item.h jni/../../Classes/Actor.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/cocos-ext.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/ExtensionMacros.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/ExtensionExport.h \
@@ -464,7 +464,20 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Shell.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/Skeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/SkeletonJson.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
- /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
+ jni/../../Classes/Tools.h jni/../../Classes/GameScene.h \
+ jni/../../Classes/FishManage.h jni/../../Classes/ActorManage.h \
+ jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
+ jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
+ jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
+ jni/../../Classes/Leaf.h jni/../../Classes/ShellManage.h \
+ jni/../../Classes/ItemManage.h jni/../../Classes/FlyNum.h \
+ jni/../../Classes/BadEnd.h jni/../../Classes/ButtonWithSpriteManage.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/SucEnd.h \
+ jni/../../Classes/Ship.h jni/../../Classes/Fish.h \
+ jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h
 
 jni/../../Classes/Shell.h:
 
@@ -873,6 +886,8 @@ jni/../../Classes/Shell.h:
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponent.h:
 
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponentContainer.h:
+
+jni/../../Classes/Item.h:
 
 jni/../../Classes/Actor.h:
 
@@ -1397,3 +1412,55 @@ jni/../../Classes/Actor.h:
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h:
 
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h:
+
+jni/../../Classes/Tools.h:
+
+jni/../../Classes/GameScene.h:
+
+jni/../../Classes/FishManage.h:
+
+jni/../../Classes/ActorManage.h:
+
+jni/../../Classes/ShipManage.h:
+
+jni/../../Classes/BackGround.h:
+
+jni/../../Classes/EffectManage.h:
+
+jni/../../Classes/RockManage.h:
+
+jni/../../Classes/Rock.h:
+
+jni/../../Classes/LeafManage.h:
+
+jni/../../Classes/Leaf.h:
+
+jni/../../Classes/ShellManage.h:
+
+jni/../../Classes/ItemManage.h:
+
+jni/../../Classes/FlyNum.h:
+
+jni/../../Classes/BadEnd.h:
+
+jni/../../Classes/ButtonWithSpriteManage.h:
+
+jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/SucEnd.h:
+
+jni/../../Classes/Ship.h:
+
+jni/../../Classes/Fish.h:
+
+jni/../../Classes/Pause.h:
+
+jni/../../Classes/GameUI.h:
+
+jni/../../Classes/GameBegin.h:
+
+jni/../../Classes/MessageManage.h:
+
+jni/../../Classes/zSpriteManage.h:
+
+jni/../../Classes/zSprite.h:

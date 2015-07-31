@@ -30,8 +30,10 @@ public:
     void setNowAnim();
     
     void movementCallback(CCArmature * armature, MovementEventType type, const char * name);
-    
+    void dis();
     void subHp();
+    
+     void subHp(int hp);
     
     int getHp() const;
     

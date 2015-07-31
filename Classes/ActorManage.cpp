@@ -123,12 +123,3 @@ CCArray* ActorManage::getActor() const
     return _actorSet;
 }
 
-void ActorManage::onEnter()
-{
-    CCNode::onEnter();
-}
-
-void ActorManage::onExit()
-{
-    CCNode::onExit();
-}

@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "Fish.h"
 #include "Actor.h"
+#include "Item.h"
 #include <vector>
 
 
@@ -73,7 +74,7 @@ public:
     
     virtual void cycle(float delta);
     
-    int getID() const;
+    int getType() const;
     
     bool isCanMove();
     
@@ -154,7 +155,7 @@ public:
     void setCutHookY(float y);
     
     
-    CCRect getHookLine() const;
+    CCRect getHookLine();
     
     CCRect getHookBody() ;
     
@@ -175,6 +176,11 @@ public:
      CC_SYNTHESIZE(int, _sex, Sex);
     
     void setMoveCD(int cd);
+    
+    CC_SYNTHESIZE(int, _id, ID);
+    
+    void addItem(Item* it);
+    
 private:
     
     void initData();
@@ -187,6 +193,8 @@ protected:
     
     CCArray* _TurnFish;
     
+    CCArray* _items;
+    
     CCSize _screenSize;
     
     CCArray* _anims;
@@ -196,7 +204,7 @@ protected:
     const static int ANIM_FISHMAN_NORMAL=0;
     
    
-    int _id;
+//    int _id;
     
     float _x;
     float _y;

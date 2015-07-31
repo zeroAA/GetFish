@@ -35,9 +35,9 @@ public:
     
     int getState() const;
     
-    virtual void onEnter();
-    
-    virtual void onExit();
+//    virtual void onEnter();
+//    
+//    virtual void onExit();
     
     /**
      * Get current movementID
@@ -72,8 +72,6 @@ protected:
     bool _isAutoDead;
     
     int _state;
-    
-    CCSize _screenSize;
     
     int _proState;
     

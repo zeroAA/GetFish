@@ -7,6 +7,20 @@
 //
 
 #include "BackGround.h"
+#include "Tools.h"
+
+BackGround* BackGround::create(int type)
+{
+    BackGround* ref = new BackGround();
+    
+    if(ref && ref->init(type)) {
+        ref->autorelease();
+        return ref;
+    }
+    
+    CC_SAFE_DELETE(ref);
+    return NULL;
+}
 
 BackGround::BackGround()
 {
@@ -18,13 +32,13 @@ BackGround::~BackGround()
 
 }
 
-bool BackGround::init()
+bool BackGround::init(int type)
 {
     if(CCNode::init()) {
         
         _screenSize = CCDirector::sharedDirector()->getWinSize();
         
-        _bg = CCSprite::create("bg/bg_5.png");
+        _bg = CCSprite::create(("bg/bg_"+Tools::intToString(type)+".png").c_str());
     
         
         _bg->setAnchorPoint(ccp(0.5f, 0.5f));

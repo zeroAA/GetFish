@@ -10,7 +10,7 @@
 #define __GetFish__Shell__
 
 #include "cocos2d.h"
-
+#include "Item.h"
 #include "Actor.h"
 
 USING_NS_CC;
@@ -31,6 +31,10 @@ public:
     
     virtual void cycle(float delta);
     
+private:
+    
+    void addItem(int type,int v);
+    
 protected:
     
     int _openTime;
@@ -42,6 +46,8 @@ protected:
     int _closeTimeMax;
     
     int _state;
+    
+    std::vector<int> _itemInfo;
     
 };
 

@@ -124,7 +124,7 @@ public:
     
 	const static int FLYFISH_E = 1400;//飞起金币鱼结束
     
-    const static int FISH_Y_MIN = 370;
+    const static int FISH_Y_MIN = 310;
     
     const static int FISH_Y_MAX = 50;
     

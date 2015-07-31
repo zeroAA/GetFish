@@ -71,7 +71,7 @@ void LoadingScreen::loadNextScreen(cocos2d::CCTime delta)
     }
     
     if(_nextScreenId == KScreenMap) {
-        scene = MapScene::scene();
+        scene = MapScene::scene(1);
     }
     
     if(scene != NULL) {

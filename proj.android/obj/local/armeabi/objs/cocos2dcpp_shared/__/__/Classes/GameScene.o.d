@@ -470,11 +470,15 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameScene.o: \
  jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
  jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
  jni/../../Classes/Leaf.h jni/../../Classes/ShellManage.h \
- jni/../../Classes/FlyNum.h jni/../../Classes/Ship.h \
- jni/../../Classes/Fish.h jni/../../Classes/Pause.h \
+ jni/../../Classes/ItemManage.h jni/../../Classes/Item.h \
+ jni/../../Classes/FlyNum.h jni/../../Classes/BadEnd.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h jni/../../Classes/GameUI.h \
- jni/../../Classes/GameBegin.h jni/../../Classes/Tools.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/SucEnd.h \
+ jni/../../Classes/Ship.h jni/../../Classes/Fish.h \
+ jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
+ jni/../../Classes/Tools.h jni/../../Classes/Data.h \
  jni/../../Classes/Effect.h jni/../../Classes/Common.h \
  jni/../../Classes/AudioController.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
@@ -484,7 +488,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameScene.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/platform/android/CCFileUtilsAndroid.h \
  /Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zlib.h \
  /Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zconf.h \
- jni/../../Classes/LoadingScreen.h
+ jni/../../Classes/LoadingScreen.h jni/../../Classes/GameSaveData.h
 
 jni/../../Classes/GameScene.h:
 
@@ -1438,7 +1442,19 @@ jni/../../Classes/Leaf.h:
 
 jni/../../Classes/ShellManage.h:
 
+jni/../../Classes/ItemManage.h:
+
+jni/../../Classes/Item.h:
+
 jni/../../Classes/FlyNum.h:
+
+jni/../../Classes/BadEnd.h:
+
+jni/../../Classes/ButtonWithSpriteManage.h:
+
+jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/SucEnd.h:
 
 jni/../../Classes/Ship.h:
 
@@ -1446,15 +1462,19 @@ jni/../../Classes/Fish.h:
 
 jni/../../Classes/Pause.h:
 
-jni/../../Classes/ButtonWithSpriteManage.h:
-
-jni/../../Classes/ButtonWithSprite.h:
-
 jni/../../Classes/GameUI.h:
 
 jni/../../Classes/GameBegin.h:
 
+jni/../../Classes/MessageManage.h:
+
+jni/../../Classes/zSpriteManage.h:
+
+jni/../../Classes/zSprite.h:
+
 jni/../../Classes/Tools.h:
+
+jni/../../Classes/Data.h:
 
 jni/../../Classes/Effect.h:
 
@@ -1477,3 +1497,5 @@ jni/../../Classes/BinaryReadUtil.h:
 /Users/zhusu/Desktop/adt/ndk/platforms/android-19/arch-arm/usr/include/zconf.h:
 
 jni/../../Classes/LoadingScreen.h:
+
+jni/../../Classes/GameSaveData.h:

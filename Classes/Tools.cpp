@@ -8,7 +8,7 @@
 
 #include "Tools.h"
 
-bool IS_ON_BUTTON = true;
+
 
 CCRect Tools::rectMix(const CCRect& src1, const CCRect& src2)
 {

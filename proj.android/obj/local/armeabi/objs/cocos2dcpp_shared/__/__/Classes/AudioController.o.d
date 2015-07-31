@@ -205,7 +205,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AudioController.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponent.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponentContainer.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
- /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h \
+ jni/../../Classes/Data.h
 
 jni/../../Classes/AudioController.h:
 
@@ -618,3 +619,5 @@ jni/../../Classes/AudioController.h:
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h:
 
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h:
+
+jni/../../Classes/Data.h:

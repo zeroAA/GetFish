@@ -30,8 +30,6 @@ enum ScreenRationProfile
     KScreenRatioProfile9v16,
 };
 
-extern bool IS_ON_BUTTON;
-
 class Tools
 {
 public:

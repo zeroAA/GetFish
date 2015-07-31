@@ -465,7 +465,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/ShipManage.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/SkeletonJson.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
- jni/../../Classes/Ship.h jni/../../Classes/Fish.h
+ jni/../../Classes/Ship.h jni/../../Classes/Fish.h \
+ jni/../../Classes/Item.h
 
 jni/../../Classes/ShipManage.h:
 
@@ -1404,3 +1405,5 @@ jni/../../Classes/Actor.h:
 jni/../../Classes/Ship.h:
 
 jni/../../Classes/Fish.h:
+
+jni/../../Classes/Item.h:

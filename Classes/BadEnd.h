@@ -40,11 +40,15 @@ public:
     
     CC_SYNTHESIZE(int, _dead, Dead);
     
+    void cycle(float dt);
+    
 protected:
     
     CCLabelAtlas* _numLabel;
     
     ButtonWithSpriteManage* _buttons;
+    
+    int _time;
 };
 
 

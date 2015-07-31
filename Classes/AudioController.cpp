@@ -7,6 +7,7 @@
 //
 
 #include "AudioController.h"
+#include "Data.h"
 
 #define KExtension ".mp3"
 
@@ -58,18 +59,33 @@ void AudioController::playBgMusic(string clip, bool loop)
         _engine->stopBackgroundMusic();
     }*/
 //    return;
+    setOldBg(clip);
+    if (!IS_ON_MUISC) {
+        return;
+    }
     
     _bgMusic = clip + KExtension;
     
-    _engine->setBackgroundMusicVolume(0.5);
-//    _engine->playBackgroundMusic(_bgMusic.c_str(), true);
+    _engine->setBackgroundMusicVolume(1);
+    _engine->playBackgroundMusic(_bgMusic.c_str(), true);
 
+}
+
+void AudioController::playOldBgMusic(){
+    if (!IS_ON_MUISC) {
+        return;
+    }
+    _bgMusic = getOldBg() + KExtension;
+    _engine->setBackgroundMusicVolume(1);
+    _engine->playBackgroundMusic(_bgMusic.c_str(), true);
 }
 
 void AudioController::playSfx(string clip)
 {
-//    return;
-    CCLOG("%s",clip.c_str());
+    if (!IS_ON_SFX) {
+        return;
+    }
+    
     string music = clip + KExtension;
     _engine->preloadEffect(music.c_str());
     int soundId = _engine->playEffect(music.c_str());

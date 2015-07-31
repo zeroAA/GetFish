@@ -10,6 +10,9 @@
 #include "Common.h"
 #include "MapScene.h"
 #include "Tools.h"
+#include "Data.h"
+#include "AudioController.h"
+#include "GameSaveData.h"
 
 Set::Set()
 {
@@ -44,7 +47,7 @@ bool Set::init()
         yinyu->setPosition(ccp(-back->boundingBox().size.width*0.5+15, -50));
         addChild(yinyu);
         
-        if (IS_ON_MUISC) {
+        if (IS_ON_SFX) {
             yinxiaoon = CCSprite::createWithSpriteFrameName("ui_set_on.png");
         }else{
             yinxiaoon = CCSprite::createWithSpriteFrameName("ui_set_off.png");
@@ -54,7 +57,7 @@ bool Set::init()
         yinxiaoon->setPosition(ccp(-back->boundingBox().size.width*0.5+105, 40));
         addChild(yinxiaoon);
         
-        if (IS_ON_SFX) {
+        if (IS_ON_MUISC) {
             yinyuon = CCSprite::createWithSpriteFrameName("ui_set_on.png");
         }else{
             yinyuon = CCSprite::createWithSpriteFrameName("ui_set_off.png");
@@ -120,15 +123,17 @@ bool Set::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 //    }
     
     if(CCRectMake(yinxiaoon->boundingBox().origin.x+this->getPositionX(), yinxiaoon->boundingBox().origin.y+this->getPositionY(), yinxiaoon->boundingBox().size.width, yinxiaoon->boundingBox().size.height).containsPoint(pos)){
-        if (IS_ON_MUISC) {
+        if (IS_ON_SFX) {
             CCSpriteFrame* frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("ui_set_off.png");
             
             yinxiaoon->setDisplayFrame(frame);
-            IS_ON_MUISC = false;
+            IS_ON_SFX = false;
+            
         }else{
             CCSpriteFrame* frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("ui_set_on.png");
             yinxiaoon->setDisplayFrame(frame);
-            IS_ON_MUISC = true;
+            IS_ON_SFX = true;
+            
         }
        
         return true;
@@ -136,15 +141,22 @@ bool Set::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     
     
     if(CCRectMake(yinyuon->boundingBox().origin.x+this->getPositionX(), yinyuon->boundingBox().origin.y+this->getPositionY(), yinyuon->boundingBox().size.width, yinyuon->boundingBox().size.height).containsPoint(pos)){
-        if (IS_ON_SFX) {
+        if (IS_ON_MUISC) {
             CCSpriteFrame* frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("ui_set_off.png");
             
             yinyuon->setDisplayFrame(frame);
-            IS_ON_SFX = false;
+           
+            
+            IS_ON_MUISC = false;
+            AUDIO->pauseBgMusic();
+            
         }else{
             CCSpriteFrame* frame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName("ui_set_on.png");
             yinyuon->setDisplayFrame(frame);
-            IS_ON_SFX = true;
+          
+            IS_ON_MUISC = true;
+            AUDIO->resumeBgMusic();
+            AUDIO->playOldBgMusic();
         }
        
         return true;

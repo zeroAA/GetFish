@@ -10,6 +10,7 @@
 #include "Fish.h"
 #include "Common.h"
 #include "Tools.h"
+#include "GameScene.h"
 
 //#include "AudioController.h"
 
@@ -37,7 +38,7 @@ Ship* Ship::create(int type ,const char* name)
 
 
 
-Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_id(0),_moveCD(120),_moveCD_MAX(120)
+Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_moveCD(120),_moveCD_MAX(120),_w_Fish(NULL)
 {
     
 }
@@ -53,6 +54,8 @@ Ship::~Ship()
         _fishSetHooked->release();
         _fishSetHooked=NULL;
     }
+    
+    CC_SAFE_DELETE(_items);
     
     if (_TurnFish) {
         _TurnFish->release();
@@ -84,6 +87,10 @@ bool Ship::init(int type ,const char* name)
         
         _fishSetHooked->retain();
         
+        _items = CCArray::create();
+        
+        _items -> retain();
+        
         _TurnFish = CCArray::create();
         
         _TurnFish -> retain();
@@ -92,7 +99,7 @@ bool Ship::init(int type ,const char* name)
         
         _HOOK_MOVE_DISTANCE = _screenSize.height-HOOK_DES;
         
-        _id = type;
+        _type = type;
         
         if(type == TYPE_AI){
             this->setScaleX(-1);
@@ -115,7 +122,7 @@ void Ship::initData()
         
     setHook(0);
 
-    if (_id == TYPE_PLAYER) {
+    if (_type == TYPE_PLAYER) {
         _x =_screenSize.width/3;
     }else{
         _x =_screenSize.width*2/3;
@@ -147,7 +154,7 @@ void Ship::cycle(float delta)
 //        }
     }
     
-    if (_id == TYPE_AI) {
+    if (_type == TYPE_AI) {
         _moveCD--;
         if (_moveCD<=0) {
             _moveCD = _moveCD_MAX;
@@ -253,13 +260,14 @@ void Ship::cycle(float delta)
             }else{
 //                CCDirector::sharedDirector()->getActionManager()->resumeTarget(this);
                 
-                
+                _w_Fish = NULL;
                 runFall();
                 
                 setState(ACT_FALL);
             }
             
         }else{
+            _w_Fish = NULL;
             runFall();
             setState(ACT_FALL);
         }
@@ -304,15 +312,15 @@ void Ship::cycle(float delta)
     }else if(_state == ACT_PULL){
         if (_w_Fish!=NULL) {
             if (_w_Fish->getDir() == DIR_LEFT) {
-                _hook_anim->setRotation(-60);
-                _hook_anim->setPosition(ccpAdd(_pull_pos, ccp(30, -20)));
+                _hook_anim->setRotation(-60*this->getScaleX());
+                _hook_anim->setPosition(ccpAdd(ccp(_pull_pos.x*this->getScaleX(),_pull_pos.y), ccp(30*this->getScaleX(), -40)));
             }else{
-                _hook_anim->setRotation(60);
-                _hook_anim->setPosition(ccpAdd(_pull_pos, ccp(-30, -20)));
+                _hook_anim->setRotation(60*this->getScaleX());
+                _hook_anim->setPosition(ccpAdd(ccp(_pull_pos.x*this->getScaleX(),_pull_pos.y), ccp(-30*this->getScaleX(), -40)));
             }
         }else{
             
-            _hook_anim->setPosition(_pull_pos);
+            _hook_anim->setPosition(ccp(_pull_pos.x*this->getScaleX(),_pull_pos.y));
             
         }
         
@@ -598,12 +606,12 @@ void Ship::draw()
         ccDrawLine(_cut_Pos, _cut_hook);
     }else if (_state == ACT_PULL){
     
-        ccDrawLine(ccp(_hookInitDx, _hookInitDy), _pull_pos);
+        ccDrawLine(ccp(_hookInitDx, _hookInitDy), ccp(_pull_pos.x*this->getScaleX(),_pull_pos.y));
         
         
         
                 
-        ccDrawLine(_pull_pos,_hook_anim->getPosition());
+        ccDrawLine(ccp(_pull_pos.x*this->getScaleX(),_pull_pos.y),ccp(_hook_anim->getPositionX(),_hook_anim->getPositionY()));
                 
                 
         
@@ -622,6 +630,12 @@ void Ship::draw()
 void Ship::hookFish(Fish* fish) {
     hookFish();
     _fishSetHooked->addObject(fish);
+}
+
+void Ship::addItem(Item *it)
+{
+    hookFish();
+    _items->addObject(it);
 }
 
 int Ship::getHookDx()
@@ -651,7 +665,7 @@ void Ship::reapFishSetHooked(){
        
         fish->setDead(true);
         fish->setDeadType(Fish::HOOK_DEAD);
-        fish->setShipID(this->getID());
+        fish->setShipID(this->getType());
         addVolume(fish->getVolume());
 //        trunFish(fish);
         
@@ -659,8 +673,21 @@ void Ship::reapFishSetHooked(){
         _hit++;
     }
     
+    
+    
+    
     _fishSetHooked->removeAllObjects();
     
+    
+    for (int i = 0; i < _items->count(); ++i) {
+        Item* item = (Item*) _items->objectAtIndex(i);
+        item->setDead();
+        _hit++;
+    }
+    
+    GameScene::instance()->addHitFish(_hit);
+    
+    _items->removeAllObjects();
 }
 
 void Ship::trunFish(Fish* fish)
@@ -693,15 +720,20 @@ Fish* Ship::getw_Fish()
 
 void Ship::runUpDown()
 {
-    CCMoveTo *move = CCMoveTo::create(0.6, CCPoint(_x, _y-2));
-    CCMoveTo *move2 = CCMoveTo::create(0.3, CCPoint(_x, _y));
-    CCMoveTo *move3 = CCMoveTo::create(0.3, CCPoint(_x, _y+2));
-    CCMoveTo *move4 = CCMoveTo::create(0.3, CCPoint(_x, _y+4));
-    CCMoveTo *move5 = CCMoveTo::create(0.3, CCPoint(_x, _y+2));
-    CCMoveTo *move6 = CCMoveTo::create(0.3, CCPoint(_x, _y));
+//    CCMoveTo *move = CCMoveTo::create(0.6, CCPoint(_x, _y-2));
+//    CCMoveTo *move2 = CCMoveTo::create(0.3, CCPoint(_x, _y));
+//    CCMoveTo *move3 = CCMoveTo::create(0.3, CCPoint(_x, _y+2));
+//    CCMoveTo *move4 = CCMoveTo::create(0.3, CCPoint(_x, _y+4));
+//    CCMoveTo *move5 = CCMoveTo::create(0.3, CCPoint(_x, _y+2));
+//    CCMoveTo *move6 = CCMoveTo::create(0.3, CCPoint(_x, _y));
+    
+    CCMoveBy* move = CCMoveBy::create(0.6, ccp(0, -2));
+    CCMoveBy* move2 = CCMoveBy::create(0.9, ccp(0, 6));
+    CCMoveBy* move3 = CCMoveBy::create(0.6, ccp(0, -4));
+//    CCMoveBy* move4 = CCMoveBy::create(0.3, ccp(0, 2));
     
     
-    CCSequence* sequence = CCSequence::create(move,move2,move3,move4,move5,move6,NULL);
+    CCSequence* sequence = CCSequence::create(move,move2,move3,NULL);
     
     CCRepeatForever* repeat = CCRepeatForever::create(sequence);
     
@@ -802,11 +834,12 @@ void Ship::setCutHookY(float y)
     _cut_Pos = CCPointMake(_hookDx, _cut_hook_y);
 }
 
-CCRect Ship::getHookLine() const
+CCRect Ship::getHookLine()
 {
     
 //    CCLOG("fl : %i",abs( _hookDx-_hookInitDx));
-    return CCRectMake((_hookInitDx<_hookDx?_hookInitDx:_hookDx)+_x, _hookDy+_y,Tools::int_abs( _hookDx-_hookInitDx), _hookInitDy-_hookDy);
+    
+    return CCRectMake(((_hookInitDx<_hookDx?_hookInitDx:_hookDx)*this->getScaleX()+_x), _hookDy+_y,Tools::int_abs( _hookDx-_hookInitDx), _hookInitDy-_hookDy);
 }
 
 CCRect Ship::getHookBody() 
@@ -843,9 +876,9 @@ void Ship::addScore(int sc)
     _score+=sc;
 }
 
-int Ship::getID() const
+int Ship::getType() const
 {
-    return _id;
+    return _type;
 }
 
 int Ship::getHookDir() const

@@ -8,6 +8,7 @@
 
 #include "BadEnd.h"
 #include "Common.h"
+#include "Tools.h"
 
 BadEnd::BadEnd():_dead(-1)
 {
@@ -36,8 +37,9 @@ bool BadEnd::init()
         
         
         _numLabel = CCLabelAtlas::create("10", "ui/shuzi4.png", 21, 28, 43);
+        _numLabel->setAnchorPoint(ccp(0.5, 0.5));
         _numLabel->setScale(1.5);
-        _numLabel->setPosition(ccp(di->boundingBox().size.width*0.5-21, 30));
+        _numLabel->setPosition(ccp(di->boundingBox().size.width*0.5+10, 52));
         di->addChild(_numLabel);
         
         CCSprite* zi = CCSprite::create("ui/badendzi.png");
@@ -66,7 +68,8 @@ bool BadEnd::init()
         button_back->setPosition(ccp(_screenSize.width*0.3, _screenSize.height*0.32));
         
         _buttons->addButton(button_back);
-
+        
+        _time = 10*FPS+2;
         
         return true;
     }
@@ -95,6 +98,16 @@ void BadEnd::touchesEnded(CCSet * touchs,CCEvent * event)
     }else if(_buttons->getNowID() == BUTTON_END_PLAY){
         setDead(DEAD_TYPE_PLAY);
     }else if(_buttons->getNowID() == BUTTON_END_BACK){
+        setDead(DEAD_TYPE_BACK);
+    }
+}
+
+void BadEnd::cycle(float dt)
+{
+    _time--;
+    _numLabel->setString(Tools::intToString((int)(_time/FPS)).c_str());
+    
+    if (_time<=0) {
         setDead(DEAD_TYPE_BACK);
     }
 }

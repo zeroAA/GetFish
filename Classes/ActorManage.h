@@ -36,10 +36,6 @@ public:
     void addActorForChild(Actor* actor,int z);
     
     CCArray* getActor() const;
-    
-    virtual void onEnter();
-    
-    virtual void onExit();
 
     virtual void cycle(float delta);
     

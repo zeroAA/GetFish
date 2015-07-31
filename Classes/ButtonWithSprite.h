@@ -16,9 +16,9 @@ class ButtonWithSprite : public CCSprite
 {
 public:
     
-    static ButtonWithSprite* create(int id, const char* name,float scale);
+    static ButtonWithSprite* create(int id, const char* name,float scaleX,float scaleY);
     
-    virtual bool init(int id, const char* name,float scale);
+    virtual bool init(int id, const char* name,float scaleX,float scaleY);
     
     static ButtonWithSprite* create(int id, const char* name);
     
@@ -32,7 +32,8 @@ public:
     
     CC_SYNTHESIZE(float, _pressScale, PressScale);
     
-    CC_SYNTHESIZE(float, _buttonScale, ButtonScale);
+    CC_SYNTHESIZE(float, _buttonScaleX, ButtonScaleX);
+    CC_SYNTHESIZE(float, _buttonScaleY, ButtonScaleY);
     
     CC_SYNTHESIZE(CCSize, _add, Add);
     

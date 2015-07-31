@@ -22,6 +22,24 @@ public:
     
     static void loadLeveData();
     
+    static void saveGoldData();
+    
+    static void loadGoldData();
+    
+    static void saveAllData();
+    
+    static void loadAllData();
+    
+    static void saveSetData();
+    static void loadSetData();
+    
+    static void saveLevelData(int lev,int star);
+    static int loadLevelData(int lev);
+    
+    static void savePlayer(int indext);
+    
+    static bool loadPlayer(int indext);
+    
 private:
     
 //    static vector<int> leveData;

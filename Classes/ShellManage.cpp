@@ -31,7 +31,7 @@ bool ShellManage::init()
 
 void ShellManage::addShell(const char *name, CCPoint pos,std::vector<int> item,int openTime,int closeTime)
 {
-//    Shell* shell = Shell::create(name, pos, itemID);
+    Shell* shell = Shell::create(name, pos, item,openTime,closeTime);
     
-//    addActor(shell);
+    addActor(shell);
 }

@@ -7,3 +7,19 @@
 //
 
 #include "Data.h"
+
+
+bool IS_ON_MUISC = true;
+
+bool IS_ON_SFX = true;
+
+bool IS_ON_BUTTON = true;
+
+int select_player = 0;
+
+int player_gold = 0;
+
+int getAll = 99;
+
+int player_star=0;
+

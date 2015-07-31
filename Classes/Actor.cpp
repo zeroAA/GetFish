@@ -37,7 +37,7 @@ bool Actor::init(const char *name)
 {
     if(CCArmature::init(name)) {
         
-        _screenSize = CCDirector::sharedDirector()->getWinSize();
+        
         
         //        schedule(schedule_selector(Actor::cycle));
         
@@ -66,15 +66,15 @@ std::string Actor::getCurrentMovementID()
     return getAnimation()->m_strMovementID;
 }
 
-void Actor::onEnter()
-{
-    CCArmature::onEnter();
-}
-
-void Actor::onExit()
-{
-    CCArmature::onExit();
-}
+//void Actor::onEnter()
+//{
+//    CCArmature::onEnter();
+//}
+//
+//void Actor::onExit()
+//{
+//    CCArmature::onExit();
+//}
 
 void Actor::cycle(float delta)
 {

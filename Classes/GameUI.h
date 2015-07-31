@@ -17,6 +17,11 @@ USING_NS_CC;
 class GameUI : public CCLayer
 {
 public:
+    
+    static const int DIR_NONE = 0;
+    static const int DIR_LEFT = 1;
+    static const int DIR_RIGHT = 2;
+    
     CREATE_FUNC(GameUI);
     
     GameUI();
@@ -37,6 +42,8 @@ public:
     
     void GameUItouchesEnded(CCSet * touchs,CCEvent * event);
     
+    void GameUItouchesDir(CCSet * touchs,CCEvent * event);
+    
     int getNowButtonID() const;
     
     void setTime(int time);
@@ -53,6 +60,17 @@ public:
     
     void addSucLab(int type , int );
     
+    void setSucNum(std::string str);
+    
+    void setSuc();
+    
+    CCSprite* getLeft();
+    CCSprite* getRight();
+    
+    CC_SYNTHESIZE(int, _dir, Dir);
+    
+    void setCitieNum(int num);
+    
 private:
     
     CCSize _screenSize;
@@ -61,12 +79,24 @@ private:
     
     CCLabelAtlas* _timeLabel;
     
+    CCLabelAtlas* _citieLabel;
+    
     CCLabelAtlas* _score_Label;
     CCLabelAtlas* _score_Label1;
     
     CCProgressTimer* _score_tiao;
     
     CCProgressTimer* _score_tiao1;
+    
+    CCSprite* _left;
+    
+    CCSprite* _right;
+    
+    CCLabelAtlas* _num;
+    
+    CCNode* _node;
+    
+    CCSprite* zuodi;
 };
 
 

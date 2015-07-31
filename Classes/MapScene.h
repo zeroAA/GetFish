@@ -18,6 +18,8 @@
 
 #include "ButtonWithSpriteManage.h"
 
+#include "MessageManage.h"
+
 USING_NS_CC;
 
 class MapScene : public cocos2d::CCLayer
@@ -31,13 +33,13 @@ public:
     
     const static int GAME = 50;
     
-    virtual bool init();
+    virtual bool init(int type);
     
     static MapScene* instance();
     
-    static cocos2d::CCScene* scene();
+    static cocos2d::CCScene* scene(int type);
     
-    CREATE_FUNC(MapScene);
+    static MapScene* create(int type);
     
     MapScene();
     
@@ -53,6 +55,11 @@ public:
     
     virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
     
+    void addMessage(int type,const char* name);
+    
+    void setGold();
+    
+    void setBackButtonV(bool v);
     
 private:
     
@@ -81,9 +88,13 @@ protected:
     
     CCLabelAtlas* _goldLabel;
     
-    int _nowPlayer;
+//    int _nowPlayer;
     
+    CCLayer* _login;
     
+    MessageManage* _message;
+    
+    ButtonWithSprite* _back;
 };
 
 #endif /* defined(__GetFish__MapScene__) */

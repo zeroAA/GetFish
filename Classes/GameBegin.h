@@ -53,6 +53,7 @@ protected:
     
     CCLabelAtlas* _num;
 
+    GameBegin* _begin;
 };
 
 #endif /* defined(__GetFish__GameBegin__) */

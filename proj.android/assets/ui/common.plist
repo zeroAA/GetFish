@@ -4,10 +4,23 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>ui_c_shengli.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,937},{305,32}}</string>
+                <key>offset</key>
+                <string>{-1,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,0},{305,32}}</string>
+                <key>sourceSize</key>
+                <string>{309,32}</string>
+            </dict>
             <key>ui_c_tishi.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{337,2},{219,338}}</string>
+                <string>{{2,337},{219,338}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +33,7 @@
             <key>ui_c_wanmei.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{337,342},{94,95}}</string>
+                <string>{{378,713},{94,95}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +46,7 @@
             <key>ui_c_xing.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{372,439},{57,58}}</string>
+                <string>{{378,874},{57,58}}</string>
                 <key>offset</key>
                 <string>{1,1}</string>
                 <key>rotated</key>
@@ -46,7 +59,7 @@
             <key>ui_c_xing_di.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{431,439},{57,55}}</string>
+                <string>{{437,875},{57,55}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +72,7 @@
             <key>ui_c_zanting.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{337,439},{63,33}}</string>
+                <string>{{439,810},{63,33}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -69,6 +82,149 @@
                 <key>sourceSize</key>
                 <string>{65,33}</string>
             </dict>
+            <key>ui_jinbi.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{378,810},{59,62}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{59,62}}</string>
+                <key>sourceSize</key>
+                <string>{59,62}</string>
+            </dict>
+            <key>ui_set_xian.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,677},{5,171}}</string>
+                <key>offset</key>
+                <string>{0,2}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,0},{5,171}}</string>
+                <key>sourceSize</key>
+                <string>{11,175}</string>
+            </dict>
+            <key>ui_ti_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,881},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_100.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,825},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,769},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_21.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,713},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_22.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{447,337},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_23.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{391,337},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_24.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{335,337},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_25.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{279,337},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
+            <key>ui_ti_3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{223,337},{374,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{374,54}}</string>
+                <key>sourceSize</key>
+                <string>{374,54}</string>
+            </dict>
             <key>ui_tishi_back.png</key>
             <dict>
                 <key>frame</key>
@@ -76,7 +232,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{504,333}}</string>
                 <key>sourceSize</key>
@@ -90,9 +246,9 @@
             <key>realTextureFileName</key>
             <string>common.png</string>
             <key>size</key>
-            <string>{558,508}</string>
+            <string>{508,971}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:344188372ff7a0698ae028e89dd4608e:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:b5724d8d46592d618b2e8a4cb2f9aebe:1/1$</string>
             <key>textureFileName</key>
             <string>common.png</string>
         </dict>

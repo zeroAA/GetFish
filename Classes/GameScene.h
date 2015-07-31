@@ -17,6 +17,7 @@
 #include "RockManage.h"
 #include "LeafManage.h"
 #include "ShellManage.h"
+#include "ItemManage.h"
 #include "FlyNum.h"
 #include "BadEnd.h"
 #include "SucEnd.h"
@@ -28,6 +29,8 @@
 
 #include "GameUI.h"
 #include "GameBegin.h"
+
+#include "MessageManage.h"
 
 USING_NS_CC;
 
@@ -50,6 +53,14 @@ public:
     const static int ADD_AI = 4;
     
     const static int ADD_OBJ = 400;
+    
+    const static int PF_TYPE_FISH = 0;
+    
+    const static int PF_TYPE_SHELL = 1;
+    
+    const static int PF_TYPE_ROCK = 2;
+    
+    const static int PF_TYPE_PK = 3;
     
     static cocos2d::CCScene* scene(int player ,int lev);
     
@@ -110,7 +121,34 @@ public:
     
     int getSucNum() const;
     
+    bool isSuc();
+    
     int getStar() const;
+    
+    int getNowLevel() const;
+    
+    int getTime() const;
+    
+    void addHitFish(int hit);
+    
+    void rmWhale(Fish* fish);
+    
+    void rmStrong(Fish* fish);
+    
+    void addItem(const char* name,cocos2d::CCPoint pos,int type,int v,int time);
+    void addFlyNum(int type,int num,int shipID,CCPoint pos,CCPoint des);
+    
+    void setZhenZhu();
+    
+    void subSucNum();
+    
+    void allFishToDead(int shipID);
+    
+    bool canNextLev();
+    
+    void addMessage(int type,const char* name);
+    
+    int getMuBiao(int indext);
     
 private:
     
@@ -133,6 +171,7 @@ private:
     void cycleRocks();
     
     void cycleLeafs();
+    void cycleItems();
     
     bool isHookFish(Ship* ship,Fish* fish);
     
@@ -144,15 +183,15 @@ private:
     
     bool waterCollideShip(Fish* fish,Ship* ship);
     
-    void useDolphin(Fish* fish);
+    void useDolphin(Fish* fish,int i);
     
-    void useLightFish(Fish* fish);
+    void useLightFish(Fish* fish,int i);
     
-    void useTortoise(Fish* fish);
+    void useTortoise(Fish* fish,int i);
     
     void useFishAtk(Fish* fish);
     
-    void useFish(Fish* fish);
+    void useFish(Fish* fish,int i);
     
     void setUIScroe(int sc);
     
@@ -162,9 +201,13 @@ private:
     
     void addFish();
     
-    void addFlyNum(int type,int num,int shipID,CCPoint pos,CCPoint des);
     
-    void allFishToDead(int shipID);
+    
+    
+    
+    void setPerfect();
+    
+    
     
 protected:
     CCSize _screenSize;
@@ -195,6 +238,8 @@ protected:
     
     int _suc_num;
     
+    bool _isSuc;
+    
     int _nowLev;
     int _nowPlayer;
     
@@ -213,7 +258,11 @@ protected:
     
     ShellManage* _shellLayer;
     
-    CCArray* _formatData;
+    ItemManage* _itemLayer;
+    
+//    CCArray* _formatData;
+    
+    std::vector<int> _formatData;
     
     GameBegin* _begin;
     
@@ -233,6 +282,9 @@ protected:
     
     int _star;
     
+    CCSprite* _lianji;
+    
+    MessageManage* _message;
 };
 
 #endif /* defined(__GetFish__GameScene__) */

@@ -17,11 +17,13 @@ class BackGround :public CCNode
 {
     
 public:
-    CREATE_FUNC(BackGround);
+    
+    
+    static BackGround* create(int type);
     
     BackGround();
     
-    virtual bool init();
+    virtual bool init(int type);
     
     virtual ~BackGround();
     

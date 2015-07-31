@@ -32,7 +32,7 @@ bool ShipManage::init()
 }
 
 
-void ShipManage::addShip(int type, const char *name,int sex,int moveCD)
+void ShipManage::addShip(int type, const char *name,int ID,int sex,int moveCD)
 {
     
     
@@ -40,6 +40,7 @@ void ShipManage::addShip(int type, const char *name,int sex,int moveCD)
     ship->playWithIndex(0);
     ship->setSex(sex);
     ship->setMoveCD(moveCD);
+    ship->setID(ID);
     addActorForChild(ship);
     
 }

@@ -41,6 +41,7 @@ void FishManage::addFish(int type, float speed , int dir,const char* name)
 
 void FishManage::addFish(int type,float speed ,int dir, const char* name,int exitType,CCPoint pos)
 {
+    
     Fish* fish = Fish::create(type,speed , dir,name);
     fish->setExitDeadType(exitType);
     //    addActorForChild(fish);

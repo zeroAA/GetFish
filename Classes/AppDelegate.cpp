@@ -26,7 +26,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     pDirector->setOpenGLView(pEGLView);
 	
     // turn on display FPS
-    pDirector->setDisplayStats(true);
+    pDirector->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 30);
@@ -86,7 +86,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
 //    CCScene *pScene = GameScene::scene(0,1);
     
-    CCScene* pScene = MapScene::scene();
+    CCScene* pScene = MapScene::scene(0);
 
     // run
     pDirector->runWithScene(pScene);

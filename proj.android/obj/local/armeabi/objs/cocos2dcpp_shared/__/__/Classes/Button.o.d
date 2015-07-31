@@ -470,11 +470,14 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Button.o: \
  jni/../../Classes/BackGround.h jni/../../Classes/EffectManage.h \
  jni/../../Classes/RockManage.h jni/../../Classes/Rock.h \
  jni/../../Classes/LeafManage.h jni/../../Classes/Leaf.h \
- jni/../../Classes/ShellManage.h jni/../../Classes/FlyNum.h \
+ jni/../../Classes/ShellManage.h jni/../../Classes/ItemManage.h \
+ jni/../../Classes/Item.h jni/../../Classes/FlyNum.h \
+ jni/../../Classes/BadEnd.h jni/../../Classes/ButtonWithSpriteManage.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/SucEnd.h \
  jni/../../Classes/Ship.h jni/../../Classes/Fish.h \
- jni/../../Classes/Pause.h jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h jni/../../Classes/GameUI.h \
- jni/../../Classes/GameBegin.h
+ jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h
 
 jni/../../Classes/Button.h:
 
@@ -1430,7 +1433,19 @@ jni/../../Classes/Leaf.h:
 
 jni/../../Classes/ShellManage.h:
 
+jni/../../Classes/ItemManage.h:
+
+jni/../../Classes/Item.h:
+
 jni/../../Classes/FlyNum.h:
+
+jni/../../Classes/BadEnd.h:
+
+jni/../../Classes/ButtonWithSpriteManage.h:
+
+jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/SucEnd.h:
 
 jni/../../Classes/Ship.h:
 
@@ -1438,10 +1453,12 @@ jni/../../Classes/Fish.h:
 
 jni/../../Classes/Pause.h:
 
-jni/../../Classes/ButtonWithSpriteManage.h:
-
-jni/../../Classes/ButtonWithSprite.h:
-
 jni/../../Classes/GameUI.h:
 
 jni/../../Classes/GameBegin.h:
+
+jni/../../Classes/MessageManage.h:
+
+jni/../../Classes/zSpriteManage.h:
+
+jni/../../Classes/zSprite.h:

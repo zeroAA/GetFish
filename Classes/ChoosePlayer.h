@@ -39,6 +39,12 @@ public:
     
     int getNowPlayer() const;
     
+    void setChoose(int choose);
+    
+    void setBuyV(bool buy);
+    
+    
+    
 private:
     
     void setChooseIC();
@@ -73,6 +79,8 @@ protected:
     
     CCSprite* zi1;
     CCSprite* zi2;
+    
+    std::vector<int> _player_gold;
     
 };
 

@@ -465,7 +465,19 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Ship.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/SkeletonJson.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
- jni/../../Classes/Common.h jni/../../Classes/Tools.h
+ jni/../../Classes/Item.h jni/../../Classes/Common.h \
+ jni/../../Classes/Tools.h jni/../../Classes/GameScene.h \
+ jni/../../Classes/FishManage.h jni/../../Classes/ActorManage.h \
+ jni/../../Classes/ShipManage.h jni/../../Classes/BackGround.h \
+ jni/../../Classes/EffectManage.h jni/../../Classes/RockManage.h \
+ jni/../../Classes/Rock.h jni/../../Classes/LeafManage.h \
+ jni/../../Classes/Leaf.h jni/../../Classes/ShellManage.h \
+ jni/../../Classes/ItemManage.h jni/../../Classes/FlyNum.h \
+ jni/../../Classes/BadEnd.h jni/../../Classes/ButtonWithSpriteManage.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/SucEnd.h \
+ jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
+ jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h
 
 jni/../../Classes/Ship.h:
 
@@ -1401,6 +1413,54 @@ jni/../../Classes/Actor.h:
 
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h:
 
+jni/../../Classes/Item.h:
+
 jni/../../Classes/Common.h:
 
 jni/../../Classes/Tools.h:
+
+jni/../../Classes/GameScene.h:
+
+jni/../../Classes/FishManage.h:
+
+jni/../../Classes/ActorManage.h:
+
+jni/../../Classes/ShipManage.h:
+
+jni/../../Classes/BackGround.h:
+
+jni/../../Classes/EffectManage.h:
+
+jni/../../Classes/RockManage.h:
+
+jni/../../Classes/Rock.h:
+
+jni/../../Classes/LeafManage.h:
+
+jni/../../Classes/Leaf.h:
+
+jni/../../Classes/ShellManage.h:
+
+jni/../../Classes/ItemManage.h:
+
+jni/../../Classes/FlyNum.h:
+
+jni/../../Classes/BadEnd.h:
+
+jni/../../Classes/ButtonWithSpriteManage.h:
+
+jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/SucEnd.h:
+
+jni/../../Classes/Pause.h:
+
+jni/../../Classes/GameUI.h:
+
+jni/../../Classes/GameBegin.h:
+
+jni/../../Classes/MessageManage.h:
+
+jni/../../Classes/zSpriteManage.h:
+
+jni/../../Classes/zSprite.h:

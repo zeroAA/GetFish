@@ -8,7 +8,7 @@
 
 #include "ButtonWithSprite.h"
 
-ButtonWithSprite::ButtonWithSprite():_pressScale(0.8),_buttonScale(1),_add(CCSizeMake(0, 0))
+ButtonWithSprite::ButtonWithSprite():_pressScale(0.8),_buttonScaleY(1),_buttonScaleX(1),_add(CCSizeMake(0, 0))
 {
     
 }
@@ -20,14 +20,14 @@ ButtonWithSprite::~ButtonWithSprite()
 
 ButtonWithSprite* ButtonWithSprite::create(int id,const char* name)
 {
-    return create(id,name,1);
+    return create(id,name,1,1);
 }
 
-ButtonWithSprite* ButtonWithSprite::create(int id,const char* name,float scale)
+ButtonWithSprite* ButtonWithSprite::create(int id,const char* name,float scaleX,float scaleY)
 {
     ButtonWithSprite* pRet = new ButtonWithSprite();
     
-    if(pRet && pRet->init(id,name,scale)) {
+    if(pRet && pRet->init(id,name,scaleX,scaleY)) {
         pRet->autorelease();
         return pRet;
     }
@@ -37,14 +37,16 @@ ButtonWithSprite* ButtonWithSprite::create(int id,const char* name,float scale)
     
 }
 
-bool ButtonWithSprite::init(int id, const char *name,float scale)
+bool ButtonWithSprite::init(int id, const char *name,float scaleX, float scaleY)
 {
     if(CCSprite::initWithSpriteFrameName(name)) {
         
         setID(id);
         
-        setButtonScale(scale);
-        this->setScale(_buttonScale);
+        setButtonScaleX(scaleX);
+        setButtonScaleY(scaleY);
+        this->setScaleX(_buttonScaleX);
+        this->setScaleY(_buttonScaleY);
         return true;
     }
     return false;
@@ -58,6 +60,7 @@ bool ButtonWithSprite::touchesBegan(CCSet * touchs,CCEvent * event)
         CCTouch * mytouch=(CCTouch *)(* iter);
         
         CCPoint pos=mytouch->getLocation();
+        
         
         
         if (toucheBeganAction(pos)) {
@@ -178,15 +181,20 @@ bool ButtonWithSprite::toucheEnded(CCTouch *pTouch,CCEvent * event)
 
 bool ButtonWithSprite::toucheBeganAction(cocos2d::CCPoint pos)
 {
-
-    if (getBodyRect().containsPoint(pos)) {
+    if (isVisible()) {
         
-    
-        this->setScale(_pressScale);
         
-        return true;
+        
+        if (getBodyRect().containsPoint(pos)) {
+            
+            
+            this->setScaleX(_buttonScaleX*_pressScale);
+            
+            this->setScaleY(_buttonScaleY*_pressScale);
+            
+            return true;
+        }
     }
-    
     return false;
 }
 
@@ -221,10 +229,12 @@ bool ButtonWithSprite::toucheEndedAction(cocos2d::CCPoint pos)
 
 void ButtonWithSprite::end()
 {
-    this->setScale(_buttonScale);
+    this->setScaleX(_buttonScaleX);
+    
+    this->setScaleY(_buttonScaleY);
 }
 
-CCRect ButtonWithSprite::getBodyRect() 
+CCRect ButtonWithSprite::getBodyRect()
 {
     CCPoint pos = boundingBox().origin;
     

@@ -10,6 +10,8 @@
 #include "Common.h"
 #include "Tools.h"
 #include "MapScene.h"
+#include "Data.h"
+#include "GameSaveData.h"
 
 ChoosePlayer::ChoosePlayer():_nowSelect(0),_isDead(false)
 {
@@ -37,6 +39,14 @@ bool ChoosePlayer::init()
     }
     
     _screenSize = CCDirector::sharedDirector()->getWinSize();
+    
+    
+    _player_gold.push_back(0);
+    _player_gold.push_back(PLAYER2_GOLD);
+    _player_gold.push_back(PLAYER3_GOLD);
+    _player_gold.push_back(PLAYER4_GOLD);
+    _player_gold.push_back(PLAYER5_GOLD);
+    _player_gold.push_back(PLAYER6_GOLD);
     
     CCSprite* guang = CCSprite::createWithSpriteFrameName("ui_guang.png");
     guang->setAnchorPoint(ccp(1, 0.5));
@@ -154,6 +164,8 @@ bool ChoosePlayer::init()
     
     _buy = CCNode::create();
     
+//    _buy->setVisible(false);
+    
     _buy->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.5, guang->getPositionY()-130));
     
     CCSprite* buy_back = CCSprite::createWithSpriteFrameName("ui_jiesuo.png");
@@ -162,19 +174,25 @@ bool ChoosePlayer::init()
     
     CCSprite* buy_mo_b = CCSprite::createWithSpriteFrameName("ui_jinback.png");
     buy_mo_b->setAnchorPoint(ccp(0, 0.5));
+    buy_mo_b->setScale(1.2);
     buy_mo_b->setPosition(ccp(-buy_back->boundingBox().size.width*0.4, 0));
     _buy->addChild(buy_mo_b);
     
-    CCSprite* yang = CCSprite::createWithSpriteFrameName("ui_qian.png");
-    yang->setAnchorPoint(ccp(0, 0.5));
-    yang->setPosition(ccp(buy_mo_b->getPositionX()-18, 8));
-    _buy->addChild(yang);
+//    CCSprite* yang = CCSprite::createWithSpriteFrameName("ui_qian.png");
+//    yang->setAnchorPoint(ccp(0, 0.5));
+//    yang->setPosition(ccp(buy_mo_b->getPositionX()-18, 8));
+//    _buy->addChild(yang);
     
+    CCSprite* yang = CCSprite::createWithSpriteFrameName("ui_jinbi.png");
+    yang->setAnchorPoint(ccp(0, 0.5));
+    yang->setPosition(ccp(buy_mo_b->getPositionX()-4, 1));
+    yang->setScale(0.7);
+    _buy->addChild(yang);
     
     _goldLabel = CCLabelAtlas::create("5", "ui/shuzi3.png", 14, 20, 43);
     _goldLabel->setAnchorPoint(ccp(0.5, 0.5));
     _goldLabel->setScale(1.3);
-    _goldLabel->setPosition(ccp(-buy_back->boundingBox().size.width*0.21, 0));
+    _goldLabel->setPosition(ccp(-buy_back->boundingBox().size.width*0.17, 0));
     //    _goldLabel->setPosition(CCPointMake(_screenSize.width*0.5, _screenSize.height*0.5));
     _buy->addChild(_goldLabel);
     
@@ -197,10 +215,28 @@ bool ChoosePlayer::init()
     //    begain->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.58, guang->getPositionY()));
     _buttons->addButton(begain);
     
+    if (select_player == 0) {
+        for (int i = 0; i<5; ++i) {
+            if(GameSaveData::loadPlayer(i+1)){
+                select_player = i+1;
+            }
+        }
+    }
     
+    setChoose(select_player);
+    
+    MapScene::instance()->setBackButtonV(false);
     
     return true;
 }
+
+void ChoosePlayer::setBuyV(bool buy)
+{
+    _buy->setVisible(buy);
+    _buy_button->setVisible(buy);
+    
+}
+
 
 void ChoosePlayer::onEnter()
 {
@@ -216,8 +252,17 @@ void ChoosePlayer::onExit()
     CCLayer::onExit();
 }
 
+void ChoosePlayer::setChoose(int choose)
+{
+    _nowSelect=choose;
+    changePlayer();
+}
+
 bool ChoosePlayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
+    
+    
+    
     if(_buttons->toucheBegan(pTouch, pEvent)){
         return true;
     }
@@ -225,17 +270,21 @@ bool ChoosePlayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEve
     
 //    CCLOG("x : %i y : %i",(int)_left->boundingBox().origin.x,(int)_left->boundingBox().origin.y);
     
-    if (_left->isVisible()&&_left->boundingBox().containsPoint(pos)) {
+    if (_left->isVisible()&&
+        
+        CCRectMake(_left->boundingBox().origin.x, _left->boundingBox().origin.y-200, 130, 400).containsPoint(pos)) {
         
         _nowSelect--;
         if (_nowSelect<0) {
             _nowSelect=_players->count()-1;
+            
         }
+        
         changePlayer();
         return true;
     }
     
-    if (_right->isVisible()&&_right->boundingBox().containsPoint(pos)) {
+    if (_right->isVisible()&&CCRectMake(_right->boundingBox().getMaxX()-100, _right->boundingBox().origin.y-200, 150, 400).containsPoint(pos)) {
         _nowSelect++;
         if (_nowSelect>_players->count()-1) {
             _nowSelect=0;
@@ -258,7 +307,28 @@ void ChoosePlayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEve
     _buttons->toucheEnded(pTouch, pEvent);
     
     if (_buttons->getNowID()==BUTTON_MAP_BEGAIN) {
-        _isDead = true;
+        
+        if (_buy_button->isVisible()) {
+            MapScene::instance()->addMessage(1, "ui_ti_1.png");
+        }else{
+            _isDead = true;
+            
+        }
+        
+    }else if (_buttons->getNowID()==BUTTON_MAP_BUY) {
+        
+        
+        if (player_gold >= _player_gold[_nowSelect]) {
+            player_gold -= _player_gold[_nowSelect];
+            GameSaveData::savePlayer(_nowSelect);
+            GameSaveData::saveGoldData();
+            MapScene::instance()->setGold();
+            setBuyV(false);
+        }else{
+            MapScene::instance()->addMessage(1, "ui_ti_2.png");
+        }
+        
+        
     }
 }
 
@@ -291,6 +361,33 @@ void ChoosePlayer::changePlayer()
     
     CCSpriteFrame* nzi2 = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(("ui_player_jieshao"+Tools::intToString(_nowSelect+1)+".png").c_str());
     zi2 ->setDisplayFrame(nzi2);;
+    
+    
+    select_player = _nowSelect;
+    
+    _goldLabel->setString(Tools::intToString(_player_gold[_nowSelect]).c_str());
+    
+    
+    
+    if (_nowSelect==0) {
+        
+        setBuyV(false);
+    }else if (_nowSelect==1&&GameSaveData::loadPlayer(1)) {
+        setBuyV(false);
+    }else if(_nowSelect==2&&GameSaveData::loadPlayer(2)){
+        setBuyV(false);
+    }else if(_nowSelect==3&&GameSaveData::loadPlayer(3)){
+        setBuyV(false);
+    }else if(_nowSelect==4&&GameSaveData::loadPlayer(4)){
+        setBuyV(false);
+    }else if(_nowSelect==5&&GameSaveData::loadPlayer(5)){
+        setBuyV(false);
+    }else{
+        
+        setBuyV(true);
+        
+    }
+    
 }
 
 bool ChoosePlayer::getIsDead() const

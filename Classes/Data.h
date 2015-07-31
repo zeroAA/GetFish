@@ -11,4 +11,20 @@
 
 #include <stdio.h>
 
+
+extern bool IS_ON_MUISC;
+
+extern bool IS_ON_SFX;
+
+extern bool IS_ON_BUTTON;
+
+extern int select_player;
+
+extern int player_gold;
+
+extern int getAll;
+
+extern int player_star;
+
+
 #endif /* defined(__GetFish__Data__) */

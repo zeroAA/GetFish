@@ -40,20 +40,22 @@ bool MapElement::init(int star,int lev)
         return false;
     }
     
+    _star = star;
+    
+    _lev = lev;
+    
     CCSpriteBatchNode* batch = CCSpriteBatchNode::create("ui/ui_map.png");
     
-    
-    
     addChild(batch);
-    
-     _lev = lev;
    
     _back= CCSprite::createWithSpriteFrameName(("ui_mapkuang"+(Tools::intToString((lev/12)+1))+".png").c_str());
     
     batch->addChild(_back);
-   
-    
-    for (int i = 0; i<star; ++i) {
+    int s =star-1;
+    if (s>3) {
+        s=3;
+    }
+    for (int i = 0; i<s; ++i) {
         CCSprite* s = CCSprite::createWithSpriteFrameName("ui_star1.png");
         
             s->setPosition(ccp(i*37-37+i, 10+i*3));
@@ -63,13 +65,23 @@ bool MapElement::init(int star,int lev)
         
     }
     
-    if (star == 3) {
+    if (star == 5) {
+        CCSprite* pf = CCSprite::createWithSpriteFrameName("ui_mapp.png");
+        pf->setPosition(ccp(-26, 2));
+        batch->addChild(pf);
+    }
+    
+    if (star == 0) {
+//        CCSprite* di = CCSprite::createWithSpriteFrameName("ui_mapkuangbantou.png");
+//        di->setPosition(ccp(0, 0));
+//        batch->addChild(di);
         
+        CCSprite* suo = CCSprite::createWithSpriteFrameName("ui_mapsuo.png");
+        suo->setPosition(ccp(0, 0));
+        batch->addChild(suo);
     }
     
     int bigLev =(lev/12)+1;
-    
-    
    
     _levLabel = CCLabelAtlas::create( (Tools::intToString(bigLev)+ "-"+Tools::intToString(lev-(lev/12)*12+1)).c_str(), "ui/shuzi4.png", 21, 28, 43);
     
@@ -90,4 +102,9 @@ CCRect MapElement::getBody()
 int MapElement::getLev()
 {
     return _lev;
+}
+
+int MapElement::getStar()
+{
+    return _star;
 }

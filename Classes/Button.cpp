@@ -229,6 +229,8 @@ bool Button::touchesEnded(CCSet * touchs,CCEvent * event)
 bool Button::toucheBegan(CCTouch *pTouch,CCEvent * event)
 {
     
+    
+    
     return toucheBeganAction(pTouch->getLocation());
         
 }
@@ -251,21 +253,19 @@ bool Button::toucheEnded(CCTouch *pTouch,CCEvent * event)
 
 bool Button::toucheBeganAction(cocos2d::CCPoint pos)
 {
-    if (getBodyRect().containsPoint(pos)) {
-        
-        
-        
-        this->getAnimation()->playByIndex(1);
-        if (_font) {
-            _font->setScale(_fontScale*0.8);
+    if (this->isVisible()) {
+        if (getBodyRect().containsPoint(pos)) {
+            this->getAnimation()->playByIndex(1);
+            if (_font) {
+                _font->setScale(_fontScale*0.8);
+            }
+            if (_sprite) {
+                _sprite->setScale(_spriteScale*0.8);
+            }
+            
+            return true;
         }
-        if (_sprite) {
-            _sprite->setScale(_spriteScale*0.8);
-        }
-        
-        return true;
     }
-    
     return false;
 }
 

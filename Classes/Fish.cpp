@@ -74,7 +74,7 @@ void Fish::initData()
 
     }
     
-    this->_y = Tools::randomFloatInRange( _screenSize.height-this->FISH_Y_MIN,this->FISH_Y_MAX);
+    this->_y = Tools::randomFloatInRange( _screenSize.height-this->FISH_Y_MIN-50,this->FISH_Y_MAX);
     
     
    
@@ -483,7 +483,8 @@ void Fish::setShipID(int id)
 
 
 bool Fish::isCanHooked() {
-    return _state == ACT_STATE_NORMAL || _state == ACT_STATE_WALK || _state == ACT_STATE_GO || _state == ACT_STATE_GO_TIME || _state == ACT_STATE_GO_TIME_DOWN;
+//    return _state == ACT_STATE_NORMAL || _state == ACT_STATE_WALK || _state == ACT_STATE_GO || _state == ACT_STATE_GO_TIME || _state == ACT_STATE_GO_TIME_DOWN;
+    return _state != ACT_STATE_HOOKED&&_state != ACT_STATE_FALL&&_state != ACT_STATE_FALLRUN&&_state != ACT_STATE_DEAD&&_state !=ACT_STATE_HAN_UP&&_state !=ACT_STATE_HAN_ATK;
 }
 
 bool Fish::isHooked() {

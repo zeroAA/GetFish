@@ -64,7 +64,7 @@ void ButtonWithSpriteManage::addButton(int id , const char* name, CCPoint pos)
 void ButtonWithSpriteManage::addButton(ButtonWithSprite *button)
 {
     _buttons->addObject(button);
-    _batch->addChild(button);
+    addChild(button);
 }
 
 bool ButtonWithSpriteManage::touchesBegan(CCSet * touchs,CCEvent * event)

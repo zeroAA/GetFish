@@ -240,9 +240,6 @@
 		1ACB3244164770DE00914215 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACB3243164770DE00914215 /* libcurl.a */; };
 		1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
 		1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */; };
-		1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
-		1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
-		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCDA8116D4A25900906EA6 /* RootViewController.mm */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -268,6 +265,10 @@
 		E124D63D1A3DD27800C83454 /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D63B1A3DD27800C83454 /* Ship.cpp */; };
 		E124D6411A3DDF3400C83454 /* FishManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E124D63F1A3DDF3400C83454 /* FishManage.cpp */; };
 		E124D64B1A3DEAAF00C83454 /* fish in Resources */ = {isa = PBXBuildFile; fileRef = E124D64A1A3DEAAF00C83454 /* fish */; };
+		E155C0A71B6A2A520086B7B6 /* zSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E155C0A51B6A2A520086B7B6 /* zSprite.cpp */; };
+		E155C0AC1B6A2A7F0086B7B6 /* zSpriteManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E155C0AA1B6A2A7F0086B7B6 /* zSpriteManage.cpp */; };
+		E155C0AF1B6A31390086B7B6 /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E155C0AD1B6A31390086B7B6 /* Message.cpp */; };
+		E155C0B21B6A32960086B7B6 /* MessageManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E155C0B01B6A32960086B7B6 /* MessageManage.cpp */; };
 		E157B1D51A8BC2460017C976 /* main in Resources */ = {isa = PBXBuildFile; fileRef = E157B1D41A8BC2460017C976 /* main */; };
 		E157B1D91A8BC6B70017C976 /* LoadingScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E157B1D71A8BC6B70017C976 /* LoadingScreen.cpp */; };
 		E15942361AA73F080063ECD8 /* ScrollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E15942341AA73F080063ECD8 /* ScrollView.cpp */; };
@@ -280,6 +281,10 @@
 		E17973A51AB04879009A56FE /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A31AB04879009A56FE /* Shell.cpp */; };
 		E17973A81AB0488D009A56FE /* ShellManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17973A61AB0488D009A56FE /* ShellManage.cpp */; };
 		E17C31361B04A145004F1799 /* GameSaveData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C31341B04A145004F1799 /* GameSaveData.cpp */; };
+		E18A0CCB1B67698700C179E9 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E18A0CC91B67698700C179E9 /* Item.cpp */; };
+		E18A0CD61B67852300C179E9 /* item in Resources */ = {isa = PBXBuildFile; fileRef = E18A0CD51B67852300C179E9 /* item */; };
+		E18A0CD91B6786A500C179E9 /* ItemManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E18A0CD71B6786A500C179E9 /* ItemManage.cpp */; };
+		E18CFD7C1B68BD4700333D7D /* Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E18CFD7A1B68BD4700333D7D /* Data.cpp */; };
 		E1949CAE1B5CF41F00FC80DB /* Pause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1949CAC1B5CF41F00FC80DB /* Pause.cpp */; };
 		E19B39301AB2FA3D00CB6373 /* BinaryReadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */; };
 		E19BA1051AFA581D0093DF20 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E19BA1031AFA581D0093DF20 /* Set.cpp */; };
@@ -816,9 +821,6 @@
 		1AFAF8B416D35DE700DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
 		1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		1AFAF8B916D35E4900DB1158 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1AFCDA8016D4A25900906EA6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = SOURCE_ROOT; };
 		1AFCDA8116D4A25900906EA6 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -854,6 +856,14 @@
 		E124D63F1A3DDF3400C83454 /* FishManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FishManage.cpp; sourceTree = "<group>"; };
 		E124D6401A3DDF3400C83454 /* FishManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishManage.h; sourceTree = "<group>"; };
 		E124D64A1A3DEAAF00C83454 /* fish */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fish; sourceTree = "<group>"; };
+		E155C0A51B6A2A520086B7B6 /* zSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zSprite.cpp; sourceTree = "<group>"; };
+		E155C0A61B6A2A520086B7B6 /* zSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zSprite.h; sourceTree = "<group>"; };
+		E155C0AA1B6A2A7F0086B7B6 /* zSpriteManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zSpriteManage.cpp; sourceTree = "<group>"; };
+		E155C0AB1B6A2A7F0086B7B6 /* zSpriteManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zSpriteManage.h; sourceTree = "<group>"; };
+		E155C0AD1B6A31390086B7B6 /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
+		E155C0AE1B6A31390086B7B6 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		E155C0B01B6A32960086B7B6 /* MessageManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageManage.cpp; sourceTree = "<group>"; };
+		E155C0B11B6A32960086B7B6 /* MessageManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageManage.h; sourceTree = "<group>"; };
 		E157B1D41A8BC2460017C976 /* main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = main; sourceTree = "<group>"; };
 		E157B1D71A8BC6B70017C976 /* LoadingScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScreen.cpp; sourceTree = "<group>"; };
 		E157B1D81A8BC6B70017C976 /* LoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScreen.h; sourceTree = "<group>"; };
@@ -877,6 +887,13 @@
 		E17973A71AB0488D009A56FE /* ShellManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShellManage.h; sourceTree = "<group>"; };
 		E17C31341B04A145004F1799 /* GameSaveData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSaveData.cpp; sourceTree = "<group>"; };
 		E17C31351B04A145004F1799 /* GameSaveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSaveData.h; sourceTree = "<group>"; };
+		E18A0CC91B67698700C179E9 /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
+		E18A0CCA1B67698700C179E9 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		E18A0CD51B67852300C179E9 /* item */ = {isa = PBXFileReference; lastKnownFileType = folder; path = item; sourceTree = "<group>"; };
+		E18A0CD71B6786A500C179E9 /* ItemManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemManage.cpp; sourceTree = "<group>"; };
+		E18A0CD81B6786A500C179E9 /* ItemManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemManage.h; sourceTree = "<group>"; };
+		E18CFD7A1B68BD4700333D7D /* Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Data.cpp; sourceTree = "<group>"; };
+		E18CFD7B1B68BD4700333D7D /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		E1949CAC1B5CF41F00FC80DB /* Pause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pause.cpp; sourceTree = "<group>"; };
 		E1949CAD1B5CF41F00FC80DB /* Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pause.h; sourceTree = "<group>"; };
 		E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryReadUtil.cpp; sourceTree = "<group>"; };
@@ -1451,10 +1468,6 @@
 				E124D6371A3DCF7500C83454 /* Fish */,
 				E124D6361A3DCF4E00C83454 /* Ship */,
 				E1DEACB21A3B335B00681EC7 /* Common */,
-				E1DEACAC1A3AA18000681EC7 /* Actor.cpp */,
-				E1DEACAD1A3AA18000681EC7 /* Actor.h */,
-				E1DEACAE1A3AA18000681EC7 /* ActorManage.cpp */,
-				E1DEACAF1A3AA18000681EC7 /* ActorManage.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
@@ -1463,6 +1476,12 @@
 				E1DEACB51A3B33F100681EC7 /* GameScene.h */,
 				E17802271A80D45200D9D0D5 /* MapScene.cpp */,
 				E17802281A80D45200D9D0D5 /* MapScene.h */,
+				E18CFD7A1B68BD4700333D7D /* Data.cpp */,
+				E18CFD7B1B68BD4700333D7D /* Data.h */,
+				E155C0AD1B6A31390086B7B6 /* Message.cpp */,
+				E155C0AE1B6A31390086B7B6 /* Message.h */,
+				E155C0B01B6A32960086B7B6 /* MessageManage.cpp */,
+				E155C0B11B6A32960086B7B6 /* MessageManage.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2074,6 +2093,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E18A0CD51B67852300C179E9 /* item */,
 				E1C0C38F1AB6D2CE003DE15A /* music */,
 				E1E39A521AADF48E00E872B9 /* data */,
 				E157B1D41A8BC2460017C976 /* main */,
@@ -2081,9 +2101,6 @@
 				E1CD16811A415E5B00D4FE15 /* ship */,
 				E1CD167F1A415E5100D4FE15 /* bg */,
 				E124D64A1A3DEAAF00C83454 /* fish */,
-				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
-				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
-				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
 				D41A0AD0160F154A004552AE /* Default-568h@2x.png */,
 				7855E0DF153FEF240059DD9A /* Default.png */,
 				D446FD6D16102124000ADA7B /* Default@2x.png */,
@@ -2146,6 +2163,10 @@
 				E17973A11AB04865009A56FE /* LeafManage.h */,
 				E17973A61AB0488D009A56FE /* ShellManage.cpp */,
 				E17973A71AB0488D009A56FE /* ShellManage.h */,
+				E18A0CC91B67698700C179E9 /* Item.cpp */,
+				E18A0CCA1B67698700C179E9 /* Item.h */,
+				E18A0CD71B6786A500C179E9 /* ItemManage.cpp */,
+				E18A0CD81B6786A500C179E9 /* ItemManage.h */,
 			);
 			name = FishPart;
 			sourceTree = "<group>";
@@ -2173,8 +2194,6 @@
 				E19BA1041AFA581D0093DF20 /* Set.h */,
 				E1F890261B01AFD400711A7C /* GameBegin.cpp */,
 				E1F890271B01AFD400711A7C /* GameBegin.h */,
-				E17C31341B04A145004F1799 /* GameSaveData.cpp */,
-				E17C31351B04A145004F1799 /* GameSaveData.h */,
 				E1949CAC1B5CF41F00FC80DB /* Pause.cpp */,
 				E1949CAD1B5CF41F00FC80DB /* Pause.h */,
 				E1A340AC1B5F99EF00712352 /* BadEnd.cpp */,
@@ -2197,6 +2216,16 @@
 		E1DEACB21A3B335B00681EC7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E155C0A51B6A2A520086B7B6 /* zSprite.cpp */,
+				E155C0A61B6A2A520086B7B6 /* zSprite.h */,
+				E155C0AA1B6A2A7F0086B7B6 /* zSpriteManage.cpp */,
+				E155C0AB1B6A2A7F0086B7B6 /* zSpriteManage.h */,
+				E1DEACAC1A3AA18000681EC7 /* Actor.cpp */,
+				E1DEACAD1A3AA18000681EC7 /* Actor.h */,
+				E1DEACAE1A3AA18000681EC7 /* ActorManage.cpp */,
+				E1DEACAF1A3AA18000681EC7 /* ActorManage.h */,
+				E17C31341B04A145004F1799 /* GameSaveData.cpp */,
+				E17C31351B04A145004F1799 /* GameSaveData.h */,
 				E19B392E1AB2FA3D00CB6373 /* BinaryReadUtil.cpp */,
 				E19B392F1AB2FA3D00CB6373 /* BinaryReadUtil.h */,
 				E101D23E1AAF0C0D00508680 /* AudioController.cpp */,
@@ -2294,14 +2323,12 @@
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				E1CD16801A415E5100D4FE15 /* bg in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				E18A0CD61B67852300C179E9 /* item in Resources */,
 				E157B1D51A8BC2460017C976 /* main in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				E1C0C3901AB6D2CE003DE15A /* music in Resources */,
 				E1CD16841A415E6500D4FE15 /* ui in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
-				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
-				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
-				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2341,6 +2368,7 @@
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,
+				E155C0AF1B6A31390086B7B6 /* Message.cpp in Sources */,
 				15C0B555196D412F007F909D /* CCTimeLine.cpp in Sources */,
 				15A3D9121682F7D5002FB0C5 /* b2ContactManager.cpp in Sources */,
 				15C0B559196D412F007F909D /* CCArmature.cpp in Sources */,
@@ -2374,6 +2402,7 @@
 				15C0B58E196D412F007F909D /* LoadingBarReader.cpp in Sources */,
 				15C0B553196D412F007F909D /* CCFrame.cpp in Sources */,
 				15C0B570196D412F007F909D /* UILayoutDefine.cpp in Sources */,
+				E18A0CD91B6786A500C179E9 /* ItemManage.cpp in Sources */,
 				15A3D9221682F7D5002FB0C5 /* b2GearJoint.cpp in Sources */,
 				15A3D9231682F7D5002FB0C5 /* b2Joint.cpp in Sources */,
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
@@ -2388,6 +2417,7 @@
 				15A3D9291682F7D5002FB0C5 /* b2WeldJoint.cpp in Sources */,
 				15A3D92A1682F7D5002FB0C5 /* b2WheelJoint.cpp in Sources */,
 				E1CC3C521A77880F005B7063 /* ButtonWithSprite.cpp in Sources */,
+				E155C0A71B6A2A520086B7B6 /* zSprite.cpp in Sources */,
 				15A3D9391682F7D5002FB0C5 /* b2Rope.cpp in Sources */,
 				15C0B56A196D412F007F909D /* CCComAudio.cpp in Sources */,
 				E1BE6C2F1AA84F65000CD06B /* ChoosePlayer.cpp in Sources */,
@@ -2402,6 +2432,7 @@
 				15A3D99B1682F7F9002FB0C5 /* cpGrooveJoint.c in Sources */,
 				15C0B57C196D412F007F909D /* UILabelAtlas.cpp in Sources */,
 				15A3D99C1682F7F9002FB0C5 /* cpPinJoint.c in Sources */,
+				E155C0AC1B6A2A7F0086B7B6 /* zSpriteManage.cpp in Sources */,
 				15C0B55F196D412F007F909D /* CCDisplayManager.cpp in Sources */,
 				E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */,
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
@@ -2442,6 +2473,7 @@
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15C0B56F196D412F007F909D /* UILayout.cpp in Sources */,
+				E155C0B21B6A32960086B7B6 /* MessageManage.cpp in Sources */,
 				15C0B566196D412F007F909D /* CCTransformHelp.cpp in Sources */,
 				E1DEACB11A3AA18000681EC7 /* ActorManage.cpp in Sources */,
 				15C0B58A196D412F007F909D /* LabelBMFontReader.cpp in Sources */,
@@ -2456,6 +2488,7 @@
 				15A3DA371682F826002FB0C5 /* CCBValue.cpp in Sources */,
 				E1DEACBA1A3B3CF600681EC7 /* Tools.cpp in Sources */,
 				15A3DA381682F826002FB0C5 /* CCControlButtonLoader.cpp in Sources */,
+				E18A0CCB1B67698700C179E9 /* Item.cpp in Sources */,
 				15A3DA391682F826002FB0C5 /* CCControlLoader.cpp in Sources */,
 				15A3DA3A1682F826002FB0C5 /* CCData.cpp in Sources */,
 				15A3DA3B1682F826002FB0C5 /* CCLabelBMFontLoader.cpp in Sources */,
@@ -2499,6 +2532,7 @@
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15C0B550196D412F007F909D /* CCActionObject.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
+				E18CFD7C1B68BD4700333D7D /* Data.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
 				15A3DA531682F826002FB0C5 /* CCInvocation.cpp in Sources */,
 				15C0B54C196D412F007F909D /* CCActionFrame.cpp in Sources */,
