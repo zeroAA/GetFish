@@ -26,5 +26,11 @@ extern int getAll;
 
 extern int player_star;
 
+extern float winW;
+
+extern float winH;
+
+extern int teach;
+
 
 #endif /* defined(__GetFish__Data__) */

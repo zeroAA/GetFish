@@ -67,7 +67,7 @@ CCScene* GameScene::scene(int player ,int lev)
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(FPS*60),_isChange(false),_nowDataInedxt(0),_fishNum(0),_begin(NULL),_pass_scroe(0),_pause(NULL),_maxScore(1000),_badEnd(NULL),_star(0),_sucEnd(NULL),_isSuc(false)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(FPS*60),_isChange(false),_nowDataInedxt(0),_fishNum(0),_begin(NULL),_pass_scroe(0),_pause(NULL),_maxScore(1000),_badEnd(NULL),_star(0),_sucEnd(NULL),_isSuc(false),_teach_time(0),_useGetAll(0)
 {
     
 }
@@ -75,7 +75,7 @@ GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(FPS*60),_isChange
 GameScene::~GameScene()
 {
     CC_SAFE_DELETE(_flyNum);
-//    CC_SAFE_DELETE(_formatData);
+    //    CC_SAFE_DELETE(_formatData);
 }
 
 GameScene* GameScene::create(int player ,int lev)
@@ -97,16 +97,43 @@ bool GameScene::init(int player ,int lev)
     if (CCLayer::init())
     {
         
+        
+        
         CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/game.plist");
         _screenSize = CCDirector::sharedDirector()->getWinSize();
         
         _instance = this;
         
+        if (GameSaveData::loadTeach()) {
+            teach = TEACH_END;
+        }
+        
+        
+        if (teach != TEACH_END) {
+            
+            IS_ON_BUTTON = true;
+            
+            CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/yindao.plist");
+            
+            _up = CCLayerColor::create(ccc4(0, 0, 0, 150));
+            _up->setVisible(false);
+            addChild(_up);
+            _left = CCLayerColor::create(ccc4(0, 0, 0, 150));
+            _left->setVisible(false);
+            addChild(_left);
+            _right = CCLayerColor::create(ccc4(0, 0, 0, 150));
+            _right->setVisible(false);
+            addChild(_right);
+            _down = CCLayerColor::create(ccc4(0, 0, 0, 150));
+            _down->setVisible(false);
+            addChild(_down);
+        }
+        
         _nowPlayer = player;
         _nowLev = lev;
         
-//        _formatData = CCArray::create();
-//        _formatData->retain();
+        //        _formatData = CCArray::create();
+        //        _formatData->retain();
         
         _formatData.clear();
         
@@ -278,11 +305,28 @@ bool GameScene::init(int player ,int lev)
         //        _shellLayer->addShell("shell_1", CCPointMake(600, 100), b,60,60);
         
         
+        int tishi1 = 0;
+        int tishi2= 0;
+        
         _itemLayer = ItemManage::create();
         
         addChild(_itemLayer,ITEM_Z);
         
-        BinaryReadUtil* _IO_read = BinaryReadUtil::create(("data/level_"+Tools::intToString(_nowLev)+".data").c_str());
+        
+        BinaryReadUtil* _IO_read ;
+        
+//        if (_nowLev<24) {
+//            _IO_read = BinaryReadUtil::create(("data/level_"+Tools::intToString(_nowLev)+".data").c_str());
+//            CCSprite* demo = CCSprite::create("ui/demo.png");
+//            demo->setAnchorPoint(ccp(0, 0.5));
+//            demo->setPosition(ccp(10, _screenSize.height*0.5));
+//            CCFadeIn* in = CCFadeIn::create(1);
+//            CCFadeOut* out = CCFadeOut::create(1);
+//            demo->runAction(CCRepeatForever::create(CCSequence::create(out,in,NULL)));
+//            addChild(demo,1100);
+//        }
+        
+        _IO_read = BinaryReadUtil::create(("data/level_"+Tools::intToString(_nowLev)+".data").c_str());
         
         int len = _IO_read -> readInt();
         
@@ -332,10 +376,10 @@ bool GameScene::init(int player ,int lev)
                     if (type == ADD_FORMAT) {
                         int num =(data_1.size()-1)/4;
                         for (int k = 0; k<num; ++k) {
-//                            CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(data_1[k*4+1])+".json").c_str());
+                            //                            CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(data_1[k*4+1])+".json").c_str());
                             //                        CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(1)+".csb").c_str());
-//                            data_1[k*4+1] =_formatData->count();
-//                            _formatData->addObject(node);
+                            //                            data_1[k*4+1] =_formatData->count();
+                            //                            _formatData->addObject(node);
                             _formatData.push_back(data_1[k*4+1]);
                             data_1[k*4+1] =_formatData.size()-1;
                             
@@ -412,6 +456,12 @@ bool GameScene::init(int player ,int lev)
                     
                     _suc_num = _IO_read->readInt();
                     
+                }else if(type == ADD_TISHI){
+                    tishi1 = _IO_read->readInt();
+                    
+                    if (len2>2) {
+                        tishi2 = _IO_read->readInt();
+                    }
                 }
                 
                 //            CCLOG("、、、、、");
@@ -423,7 +473,7 @@ bool GameScene::init(int player ,int lev)
         }
         
         //        _mubiao_scroe[0]=10;
-        //                _time = 120;
+        //                        _time = 120;
         //        _mubiao_scroe.push_back(100);
         //        _mubiao_scroe.push_back(500);
         //        _mubiao_scroe.push_back(1000);
@@ -463,7 +513,7 @@ bool GameScene::init(int player ,int lev)
         
         AUDIO->playSfx("music/startRound");
         
-        _begin = GameBegin::create(_mubiao_scroe[0], _suc_type, _suc_add , _suc_num);
+        _begin = GameBegin::create(_mubiao_scroe[0], _suc_type, _suc_add , _suc_num,tishi1,tishi2);
         //        _begin->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
         
         _begin->setPosition(_screenSize.width*0.5, _screenSize.height*1.5);
@@ -485,6 +535,11 @@ bool GameScene::init(int player ,int lev)
         
         _message = MessageManage::create("ui/common.png");
         addChild(_message,900);
+        
+        
+        
+        
+        
         
         return true;
     }
@@ -509,6 +564,61 @@ void GameScene::ccTouchesBegan(CCSet * touchs,CCEvent * event)
     }else if (_pause) {
         _pause->touchesBegan(touchs, event);
     }else{
+        
+        if (isMustTeach()) {
+            
+            
+            if (teach == TEACH_RIGHT) {
+                _ui->GameUItouchesDir(touchs, event);
+                if (_ui->getDir() == GameUI::DIR_RIGHT) {
+                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+                    if (ship) {
+                        ship->setShipToNoHook(_screenSize.width);
+                        
+                    }
+                    
+                    nextTeach();
+                }
+            }else if (teach == TEACH_LEFT) {
+                
+                _ui->GameUItouchesDir(touchs, event);
+                
+                
+                if (_ui->getDir() == GameUI::DIR_LEFT) {
+                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+                    if (ship) {
+                        ship->setShipToNoHook(0);
+                    }
+                    
+                    nextTeach();
+                }
+                
+                
+                
+            }else if (teach == TEACH_HIT){
+                
+                _ui->GameUItouchesDir(touchs, event);
+                
+                if (_ui->getisHook()) {
+                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+                    if (ship) {
+                        ship->hook();
+                    }
+                    
+                    nextTeach();
+                }
+                
+                
+            }else if(teach == TEACH_GETALL){
+                if(_ui->GameUItouchesBegan(touchs, event)){
+                    
+                    
+                }
+            }
+            
+            return;
+        }
+        
         if (IS_ON_BUTTON) {
             _ui->GameUItouchesDir(touchs, event);
             
@@ -525,40 +635,49 @@ void GameScene::ccTouchesBegan(CCSet * touchs,CCEvent * event)
                     ship->setShipToNoHook(_screenSize.width);
                 }
             }
-            if (_ui->getDir() == GameUI::DIR_NONE) {
+//            if (_ui->getDir() == GameUI::DIR_NONE) {
+//                Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+//                if (ship) {
+//                    if (ship->isState(Ship::ACT_WALK)) {
+//                        CCLOG("1");
+//                        ship->setState(Ship::ACT_STAND);
+//                    }
+//                    
+//                }
+//            }
+            
+            if (_ui->getisHook()) {
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                 if (ship) {
-                    if (ship->isState(Ship::ACT_WALK)) {
-                        ship->setState(Ship::ACT_STAND);
-                    }
-                    
+                    ship->hook();
                 }
             }
+            
         }
         
         if (_ui->GameUItouchesBegan(touchs, event)) {
             
-            if (_ui->getNowButtonID()!=-1) {
-                if(_ui->getNowButtonID() == BUTTON_GAME_LEFT){
-                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
-                    if (ship) {
-                        ship->setShipToNoHook(0);
-                    }
-                    
-                }else if(_ui->getNowButtonID() == BUTTON_GAME_RIGHT){
-                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
-                    if (ship) {
-                        ship->setShipToNoHook(_screenSize.width);
-                    }
-                }else if(_ui->getNowButtonID() == BUTTON_GAME_DO){
-                    
-                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
-                    if (ship) {
-                        ship->hook();
-                    }
-                    
-                }
-            }
+            //            if (_ui->getNowButtonID()!=-1) {
+            //                if(_ui->getNowButtonID() == BUTTON_GAME_LEFT){
+            //                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+            //                    if (ship) {
+            //                        ship->setShipToNoHook(0);
+            //                    }
+            //
+            //                }else if(_ui->getNowButtonID() == BUTTON_GAME_RIGHT){
+            //                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+            //                    if (ship) {
+            //                        ship->setShipToNoHook(_screenSize.width);
+            //                    }
+            //                }else if(_ui->getNowButtonID() == BUTTON_GAME_DO){
+            //
+            //                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+            //                    if (ship) {
+            //                        ship->hook();
+            //                    }
+            //
+            //                }
+            //            }
             
         }else{
             if (!IS_ON_BUTTON) {
@@ -600,6 +719,10 @@ void GameScene::ccTouchesCancelled(CCSet * touchs,CCEvent * event)
         _pause->touchesCancelled(touchs, event);
     }else{
         
+        if (isMustTeach()) {
+            return;
+        }
+        
         if (IS_ON_BUTTON) {
             _ui->GameUItouchesDir(touchs, event);
             
@@ -616,13 +739,20 @@ void GameScene::ccTouchesCancelled(CCSet * touchs,CCEvent * event)
                     ship->setShipToNoHook(_screenSize.width);
                 }
             }
-            if (_ui->getDir() == GameUI::DIR_NONE) {
+//            if (_ui->getDir() == GameUI::DIR_NONE) {
+//                Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+//                if (ship) {
+//                    if (ship->isState(Ship::ACT_WALK)) {
+//                        CCLOG("2");
+//                        ship->setState(Ship::ACT_STAND);
+//                    }
+//                    
+//                }
+//            }
+            if (_ui->getisHook()) {
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                 if (ship) {
-                    if (ship->isState(Ship::ACT_WALK)) {
-                        ship->setState(Ship::ACT_STAND);
-                    }
-                    
+                    ship->hook();
                 }
             }
         }
@@ -664,6 +794,11 @@ void GameScene::ccTouchesMoved(CCSet * touchs,CCEvent * event)
     }else if (_pause) {
         _pause->touchesMoved(touchs, event);
     }else{
+        
+        if (isMustTeach()) {
+            return;
+        }
+        
         if (IS_ON_BUTTON) {
             _ui->GameUItouchesDir(touchs, event);
             
@@ -674,6 +809,7 @@ void GameScene::ccTouchesMoved(CCSet * touchs,CCEvent * event)
                     ship->setShipToNoHook(0);
                 }
             }
+            
             if (_ui->getDir() == GameUI::DIR_RIGHT) {
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                 if (ship) {
@@ -688,6 +824,13 @@ void GameScene::ccTouchesMoved(CCSet * touchs,CCEvent * event)
                         ship->setState(Ship::ACT_STAND);
                     }
                     
+                }
+            }
+            
+            if (_ui->getisHook()) {
+                Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+                if (ship) {
+                    ship->hook();
                 }
             }
         }
@@ -731,15 +874,71 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
         _pause->touchesEnded(touchs, event);
     }else{
         
+        if (isMustTeach()) {
+            
+            if (teach >= TEACH_D_0&&teach <= TEACH_D_3) {
+                
+                nextTeach();
+            }
+            
+            if (teach == TEACH_HITS) {
+                
+                
+                nextTeach();
+            }
+            
+            
+            
+            if (IS_ON_BUTTON) {
+                _ui->GameUItouchesDir(touchs, event);
+                
+                if (_ui->getDir() != GameUI::DIR_NONE) {
+                    
+                    Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+                    if (ship) {
+                        if (ship->isState(Ship::ACT_WALK)) {
+                            ship->setState(Ship::ACT_STAND);
+                        }
+                        
+                    }
+                    
+                    _ui->getLeft()->setScaleX(-1);
+                    _ui->getLeft()->setScaleY(1);
+                    _ui->getRight()->setScale(1);
+                }
+                
+                if (_ui->getisHook()) {
+                    _ui->getHook()->setScale(1);
+                    
+                }
+                
+            }
+            
+            
+            if(teach == TEACH_GETALL){
+                _ui->GameUItouchesEnded(touchs, event);
+                if(_ui->getNowButtonID() == BUTTON_GAME_ALLGET){
+                    
+                    
+                    allFishToDead(0);
+                    nextTeach();
+                }
+            }
+            
+            return;
+        }
+        
         
         if (IS_ON_BUTTON) {
             _ui->GameUItouchesDir(touchs, event);
+            
             
             if (_ui->getDir() != GameUI::DIR_NONE) {
                 
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                 if (ship) {
                     if (ship->isState(Ship::ACT_WALK)) {
+                        
                         ship->setState(Ship::ACT_STAND);
                     }
                     
@@ -747,18 +946,26 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
                 
                 _ui->getLeft()->setScaleX(-1);
                 _ui->getLeft()->setScaleY(1);
+                _ui->getLeft()->setTag(-1);
                 _ui->getRight()->setScale(1);
+                _ui->getRight()->setTag(-1);
             }
             
+            if (_ui->getisHook()) {
+                _ui->getHook()->setScale(1);
+                _ui->getHook()->setTag(-1);
+                
+            }
             
         }else{
-        
+            
             Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
             if (ship) {
                 if (ship->isState(Ship::ACT_WALK)) {
+                    
                     ship->setState(Ship::ACT_STAND);
                 }
-            
+                
             }
         }
         
@@ -774,14 +981,33 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
                 }
                 
             }else if(_ui->getNowButtonID() == BUTTON_GAME_ALLGET){
-                if (getAll>0) {
-                    getAll--;
-                    _ui->setCitieNum(getAll);
-                    allFishToDead(0);
-                    GameSaveData::saveAllData();
+                
+                if (_useGetAll>=5&&_nowLev>23) {
+                    addMessage(1, "ui_ti_101.png");
                 }else{
-                    addMessage(1, "ui_ti_100.png");
+                    
+                    if (teach!=TEACH_END&&_nowLev==0) {
+                        
+                        allFishToDead(0);
+                        
+                        
+                        
+                    }else{
+                        
+                        if (getAll>0) {
+                            _useGetAll++;
+                            getAll--;
+                            _ui->setCitieNum(getAll);
+                            allFishToDead(0);
+                            GameSaveData::saveAllData();
+                        }else{
+                            addMessage(1, "ui_ti_100.png");
+                        }
+                    }
+                    
                 }
+                
+                
             }
             
         }
@@ -805,8 +1031,19 @@ void GameScene::onEnterTransitionDidFinish()
 
 void GameScene::onExit()
 {
+    
+    
     CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
     
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeSpriteFramesFromFile("ui/game.plist");
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/game.png");
+    
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeSpriteFramesFromFile("ui/yindao.plist");
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/yindao.png");
+    
+    CCArmatureDataManager::sharedArmatureDataManager()->purge();
+    
+    CCTextureCache::sharedTextureCache()->removeTextureForKey(("bg/"+Tools::intToString(_nowLev/12+1) +".jpg").c_str());
     
     
     CCLayer::onExit();
@@ -826,10 +1063,21 @@ void GameScene::cycle(float delta)
             CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenMap,  a)));
             
         }else if (_badEnd->getDead()==BadEnd::DEAD_TYPE_REST) {
+            
+            if (!GameSaveData::loadRest()) {
+                GameSaveData::saveRest();
+            }
+            
             removeChild(_badEnd, true);
             _badEnd=NULL;
             
             _time=61*FPS;
+            
+            _useGetAll = 0;
+            
+            getAll++;
+            _ui->setCitieNum(getAll);
+            GameSaveData::saveAllData();
             
         }else if (_badEnd->getDead()==BadEnd::DEAD_TYPE_PLAY) {
             removeChild(_badEnd, true);
@@ -902,6 +1150,7 @@ void GameScene::cycle(float delta)
         if (_begin->getDead()!=GameBegin::DEAD_TYPE_NODEAD) {
             
             if (_begin->getDead() == GameBegin::DEAD_TYPE_TOGAME) {
+                addTeach();
                 removeChild(_begin, true);
                 _begin=NULL;
             }else if(_begin->getDead() == GameBegin::DEAD_TYPE_BACK){
@@ -918,9 +1167,22 @@ void GameScene::cycle(float delta)
         return;
     }
     
+    if (isMustTeach()) {
+        
+        if(_teach_time>0){
+            _teach_time--;
+        }
+        
+        
+        _shipLayer->manageCycle(delta);
+        
+        return;
+    }
+    
     _addFlyTime = 0;
     
     _time--;
+    
     if (_time>=0) {
         _ui->setTime((int)(_time/FPS));
         
@@ -931,6 +1193,11 @@ void GameScene::cycle(float delta)
         if(_time == 0){
             setFishToRun();
             AUDIO->playSfx("music/endRound");
+            
+            if (teach == TEACH_AGETALL) {
+                teach = TEACH_END;
+                GameSaveData::saveTeach();
+            }
         }
     }else{
         
@@ -945,7 +1212,7 @@ void GameScene::cycle(float delta)
                 
                 Ship* ship1 =(Ship*) _shipLayer->getActor()->objectAtIndex(1);
                 
-                if (ship->getScore()>=ship1->getScore()) {
+                if (ship->getScore()>=ship1->getScore()+_mubiao_scroe[0]) {
                     _star=1;
                 }
                 
@@ -1002,6 +1269,22 @@ void GameScene::cycle(float delta)
             return;
         }
         
+    }
+    
+    
+    
+    
+    if (teach ==TEACH_AHIT && _time == 1648) {
+        
+        _fishLayer->addFish(Fish::DOLPHIN, 5, Fish::DIR_RIGHT, ("fish_"+Tools::intToString(Fish::DOLPHIN)).c_str(),Fish::EXIT_DEAD_NORMAL,ccp(0, 200));
+    }
+    
+    if (teach ==TEACH_AHIT && _time == 1630) {
+        nextTeach();
+    }
+    
+    if (teach ==TEACH_AGETALL && _time <= 1500&&_fishLayer->getActor()->count()>5) {
+        nextTeach();
     }
     
     if (_isChange) {
@@ -1979,46 +2262,46 @@ void GameScene::addFormatFish(int id, int speed, int dir)
         _fishLayer->addFish(Tools::stringToInt(str1.c_str()), speed, dir, (str).c_str(),exitType,pos);
         
     }
-
     
-//    CCNode* node = (CCNode*)_formatData->objectAtIndex(id);
+    
+    //    CCNode* node = (CCNode*)_formatData->objectAtIndex(id);
     
     //    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/form_"+Tools::intToString(id)+".csb").c_str());
     //    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile(("data/test.csb"));
     //    CCNode* node = SceneReader::sharedSceneReader()->createNodeWithSceneFile("data/test.json");
     
-//    CCArray* all =  node->getChildren();
-//    
-//    
-//    
-//    
-//    for (int i = 0; i<all->count(); ++i) {
-//        
-//        CCNode* fish =dynamic_cast<CCNode*> (all->objectAtIndex(i));
-//        
-//        
-//        
-//        CCArmature* arm = (CCArmature *)((CCComRender*) fish->getComponent("CCArmature"))->getNode();
-//        string str = arm->getName().substr(0,arm->getName().find('.'));
-//        
-//        string str1 = arm->getName().substr(arm->getName().find('_')+1,arm->getName().find('.'));
-//        
-//        
-//        
-//        int exitType = Fish::EXIT_DEAD_RIGHT;
-//        
-//        CCPoint pos = fish->getPosition();
-//        
-//        if (dir == 0) {
-//            exitType = Fish::EXIT_DEAD_LEFT;
-//            pos = CCPointMake(fish->getPositionX()+_screenSize.width, fish->getPositionY());
-//        }
-//        
-//        
-//        
-//        _fishLayer->addFish(Tools::stringToInt(str1.c_str()), speed, dir, (str).c_str(),exitType,pos);
-//        
-//    }
+    //    CCArray* all =  node->getChildren();
+    //
+    //
+    //
+    //
+    //    for (int i = 0; i<all->count(); ++i) {
+    //
+    //        CCNode* fish =dynamic_cast<CCNode*> (all->objectAtIndex(i));
+    //
+    //
+    //
+    //        CCArmature* arm = (CCArmature *)((CCComRender*) fish->getComponent("CCArmature"))->getNode();
+    //        string str = arm->getName().substr(0,arm->getName().find('.'));
+    //
+    //        string str1 = arm->getName().substr(arm->getName().find('_')+1,arm->getName().find('.'));
+    //
+    //
+    //
+    //        int exitType = Fish::EXIT_DEAD_RIGHT;
+    //
+    //        CCPoint pos = fish->getPosition();
+    //
+    //        if (dir == 0) {
+    //            exitType = Fish::EXIT_DEAD_LEFT;
+    //            pos = CCPointMake(fish->getPositionX()+_screenSize.width, fish->getPositionY());
+    //        }
+    //
+    //
+    //
+    //        _fishLayer->addFish(Tools::stringToInt(str1.c_str()), speed, dir, (str).c_str(),exitType,pos);
+    //
+    //    }
 }
 
 void GameScene::cycleRocks()
@@ -2350,4 +2633,239 @@ bool GameScene::canNextLev()
 void GameScene::addMessage(int type, const char *name)
 {
     _message->addMessage(type, name);
+}
+
+void GameScene::addTeach()
+{
+    if(teach == TEACH_D_0){
+        
+        CCSprite* back = CCSprite::create("ui/yindao_back.png");
+        back->setAnchorPoint(ccp(0.5, 0));
+        back->setPosition(ccp(_screenSize.width*0.5, 0));
+        addChild(back, 800, 700);
+        
+        CCSprite* player = CCSprite::create("ship/bp_1.png");
+        player->setAnchorPoint(ccp(0, 0));
+        
+        addChild(player, 800, 800);
+        
+        CCSprite* d = CCSprite::createWithSpriteFrameName("yindao_d_0.png");
+        d->setPosition(ccp(_screenSize.width*0.5+80, 105));
+        
+        addChild(d, 800, 801);
+        
+    }else if(teach == TEACH_D_1){
+        
+        
+        CCSprite* player = CCSprite::create("ship/bp_2.png");
+        player->setAnchorPoint(ccp(1, 0));
+        player->setPosition(ccp(_screenSize.width, 0));
+        addChild(player, 800, 800);
+        
+        CCSprite* d = CCSprite::createWithSpriteFrameName("yindao_d_1.png");
+        d->setPosition(ccp(_screenSize.width*0.5-140, 105));
+        
+        addChild(d, 800, 801);
+        
+    }else if(teach == TEACH_D_2){
+        
+        
+        CCSprite* player = CCSprite::create("ship/bp_1.png");
+        player->setAnchorPoint(ccp(0, 0));
+        
+        addChild(player, 800, 800);
+        
+        CCSprite* d = CCSprite::createWithSpriteFrameName("yindao_d_2.png");
+        d->setPosition(ccp(_screenSize.width*0.5+80, 105));
+        
+        addChild(d, 800, 801);
+        
+    }else if(teach == TEACH_D_3){
+        
+        
+        CCSprite* player = CCSprite::create("ship/bp_2.png");
+        player->setAnchorPoint(ccp(1, 0));
+        player->setPosition(ccp(_screenSize.width, 0));
+        
+        
+        addChild(player, 800, 800);
+        
+        CCSprite* d = CCSprite::createWithSpriteFrameName("yindao_d_3.png");
+        d->setPosition(ccp(_screenSize.width*0.5-140, 105));
+        
+        addChild(d, 800, 801);
+        
+    }else
+        
+        if(teach == TEACH_RIGHT){
+            _up->setVisible(true);
+            _up->setContentSize(CCSizeMake(_screenSize.width, _screenSize.height-125));
+            _up->setPosition(ccp(0, 125));
+            
+            _left->setVisible(true);
+            _left->setContentSize(CCSizeMake(_ui->getRight()->getPositionX()-70, 125));
+            _left->setPosition(ccp(0, 0));
+            
+            _right->setVisible(true);
+            _right->setContentSize(CCSizeMake(_screenSize.width, 125));
+            _right->setPosition(ccp(_ui->getRight()->getPositionX()+70, 0));
+            
+            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_10.png");
+            zi->setPosition(ccp(216, 216));
+            addChild(zi,800,800);
+            
+        }else if(teach == TEACH_LEFT){
+            
+            _up ->setContentSize(CCSizeMake(_screenSize.width, _screenSize.height-125));
+            _up->setPosition(ccp(0, 125));
+            
+            _left->setVisible(false);
+            _right ->setContentSize(CCSizeMake( _screenSize.width, 125));
+            _right->setPosition(ccp(150, 0));
+            
+            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_11.png");
+            zi->setPosition(ccp(216, 216));
+            addChild(zi,800,800);
+            
+        }else if(teach == TEACH_HIT){
+            
+            _up ->setContentSize(CCSizeMake(_screenSize.width, _screenSize.height-125));
+            _up->setPosition(ccp(0, 125));
+            
+            _left->setVisible(true);
+            _left->setContentSize(CCSizeMake(_ui->getHook()->getPositionX()-70, 125));
+            _left->setPosition(ccp(0, 0));
+            
+            _right->setVisible(false);
+            
+            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_12.png");
+            zi->setPosition(ccp(_screenSize.width-216, 216));
+            addChild(zi,800,800);
+            
+            
+        }else if(teach == TEACH_HITS){
+            
+            _up->setVisible(true);
+            _up->setContentSize(CCSizeMake(_screenSize.width, _screenSize.height-230));
+            _up->setPosition(ccp(0, 230));
+            
+            _left->setVisible(true);
+            _left->setContentSize(CCSizeMake(10, _screenSize.height-(_screenSize.height-230)-170));
+            _left->setPosition(ccp(0, 170));
+            
+            _right->setVisible(true);
+            _right->setContentSize(CCSizeMake(_screenSize.width, _screenSize.height-(_screenSize.height-230)-170));
+            _right->setPosition(ccp(165, 170));
+            
+            _down->setVisible(true);
+            
+            _down->setContentSize(CCSizeMake(_screenSize.width, 170));
+            _down->setPosition(ccp(0, 0));
+            
+            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_16.png");
+            zi->setPosition(ccp(216, 320));
+            addChild(zi,800,800);
+            
+            
+        }else if(teach == TEACH_GETALL){
+            
+            _up->setVisible(true);
+            _up->setContentSize(CCSizeMake(_screenSize.width, _screenSize.height-250));
+            _up->setPosition(ccp(0, 250));
+            
+            _left->setVisible(true);
+            _left->setContentSize(CCSizeMake(_screenSize.width-150, _screenSize.height-(_screenSize.height-250)-135));
+            _left->setPosition(ccp(0, 135));
+            
+            _down->setVisible(true);
+            
+            _down->setContentSize(CCSizeMake(_screenSize.width, 135));
+            _down->setPosition(ccp(0, 0));
+            
+            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_14.png");
+            zi->setAnchorPoint(ccp(1, 0.5));
+            zi->setPosition(ccp(_screenSize.width-10, 320));
+            addChild(zi,800,800);
+        }
+    
+}
+
+void GameScene::nextTeach()
+{
+    if(teach == TEACH_D_0){
+        teach = TEACH_D_1;
+        
+        removeChildByTag(800,true);
+        removeChildByTag(801,true);
+        
+    }else if(teach == TEACH_D_1){
+        teach = TEACH_D_2;
+        
+        removeChildByTag(800,true);
+        removeChildByTag(801,true);
+        
+    }else if(teach == TEACH_D_2){
+        teach = TEACH_D_3;
+        
+        removeChildByTag(800,true);
+        removeChildByTag(801,true);
+        
+    }else if(teach == TEACH_D_3){
+        teach = TEACH_RIGHT;
+        removeChildByTag(700,true);
+        removeChildByTag(800,true);
+        removeChildByTag(801,true);
+        
+    }else
+        
+        if (teach == TEACH_RIGHT) {
+            teach = TEACH_LEFT;
+            removeChildByTag(800,true);
+        }else if (teach == TEACH_LEFT) {
+            teach = TEACH_HIT;
+            removeChildByTag(800,true);
+        }else if (teach == TEACH_HIT) {
+            _up->setVisible(false);
+            _left->setVisible(false);
+            _right->setVisible(false);
+            _down->setVisible(false);
+            removeChildByTag(800,true);
+            teach = TEACH_AHIT;
+        }else if (teach == TEACH_AHIT) {
+            _teach_time = FPS*0.5;
+            teach = TEACH_HITS;
+        }else if (teach == TEACH_HITS) {
+            
+            if (_teach_time<=1) {
+                _up->setVisible(false);
+                _left->setVisible(false);
+                _right->setVisible(false);
+                _down->setVisible(false);
+                removeChildByTag(800,true);
+                teach = TEACH_AGETALL;
+            }else{
+                return;
+            }
+            
+        }else if (teach == TEACH_AGETALL) {
+            
+            teach = TEACH_GETALL;
+        }else if (teach == TEACH_GETALL) {
+            _up->setVisible(false);
+            _left->setVisible(false);
+            _right->setVisible(false);
+            _down->setVisible(false);
+            removeChildByTag(800,true);
+            
+            teach = TEACH_END;
+            
+            GameSaveData::saveTeach();
+        }
+    
+    addTeach();
+}
+
+bool GameScene::isMustTeach()
+{
+    return teach!=TEACH_END&&teach!=TEACH_AGETALL&&teach!=TEACH_AHIT;
 }

@@ -468,9 +468,10 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Set.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/SkeletonJson.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
- jni/../../Classes/LoadingScreen.h jni/../../Classes/ChoosePlayer.h \
- jni/../../Classes/MessageManage.h jni/../../Classes/zSpriteManage.h \
- jni/../../Classes/zSprite.h jni/../../Classes/Tools.h \
+ jni/../../Classes/Reward.h jni/../../Classes/LoadingScreen.h \
+ jni/../../Classes/ChoosePlayer.h jni/../../Classes/MessageManage.h \
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
+ jni/../../Classes/Shop.h jni/../../Classes/Tools.h \
  jni/../../Classes/Data.h jni/../../Classes/AudioController.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h \
@@ -1420,6 +1421,8 @@ jni/../../Classes/ScrollView.h:
 
 /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h:
 
+jni/../../Classes/Reward.h:
+
 jni/../../Classes/LoadingScreen.h:
 
 jni/../../Classes/ChoosePlayer.h:
@@ -1429,6 +1432,8 @@ jni/../../Classes/MessageManage.h:
 jni/../../Classes/zSpriteManage.h:
 
 jni/../../Classes/zSprite.h:
+
+jni/../../Classes/Shop.h:
 
 jni/../../Classes/Tools.h:
 

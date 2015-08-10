@@ -63,8 +63,80 @@ bool ChoosePlayer::init()
         
         if(i == 4){
            player->setPosition(ccp(_screenSize.width*0.23, _screenSize.height*0.53));
+            CCParticleSystemQuad* numP = CCParticleSystemQuad::create("ui/haidaochuanzhang.plist");
+            numP->setScale(2);
+            numP->setPosition(ccp(215, 60));
+            player->addChild(numP);
+            
         }if(i == 3){
             player->setPosition(ccp(_screenSize.width*0.25, _screenSize.height*0.53));
+            
+            CCParticleSystemQuad* numP = CCParticleSystemQuad::create("ui/saber.plist");
+            numP->setScale(5);
+            numP->setPosition(ccp(50, 20));
+            player->addChild(numP);
+            
+        }else if(i == 2){
+            
+            player->setPosition(ccp(_screenSize.width*0.21, _screenSize.height*0.53));
+            
+            CCParticleSystemQuad* p1 = CCParticleSystemQuad::create("ui/lvjuren.plist");
+            p1->setPosition(ccp(320, 255));
+            player->addChild(p1);
+            
+            CCParticleSystemQuad* p2 = CCParticleSystemQuad::create("ui/lvjuren.plist");
+            p2->setPosition(ccp(385, 250));
+            player->addChild(p2);
+            
+        }else if(i == 5){
+            player->setPosition(ccp(_screenSize.width*0.21, _screenSize.height*0.53));
+            
+            CCParticleSystemQuad* p1 = CCParticleSystemQuad::create("ui/shenlongxiaoqiu.plist");
+            p1->setScale(0.5);
+            p1->setPosition(ccp(378, 200));
+            player->addChild(p1);
+            
+            
+            CCParticleSystemQuad* p2 = CCParticleSystemQuad::create("ui/shenlongxiaoqiu.plist");
+            p2->setScale(0.3);
+            p2->setPosition(ccp(360, 295));
+            player->addChild(p2);
+            
+            CCParticleSystemQuad* p3 = CCParticleSystemQuad::create("ui/shenlongxiaoqiu.plist");
+            p3->setScale(0.5);
+            p3->setPosition(ccp(188, 25));
+            player->addChild(p3);
+            
+            CCParticleSystemQuad* p4 = CCParticleSystemQuad::create("ui/shenlongxiaoqiu.plist");
+            p4->setScale(0.5);
+            p4->setPosition(ccp(30, 270));
+            player->addChild(p4);
+            
+            CCParticleSystemQuad* p5 = CCParticleSystemQuad::create("ui/shenlongxiaoqiu.plist");
+            p5->setScale(0.3);
+            p5->setPosition(ccp(35, 75));
+            player->addChild(p5);
+            
+            CCParticleSystemQuad* p6 = CCParticleSystemQuad::create("ui/shenlongxiaoqiu.plist");
+            p6->setScale(0.2);
+            p6->setPosition(ccp(375, 115));
+            player->addChild(p6);
+            
+            
+            CCParticleSystemQuad* p7 = CCParticleSystemQuad::create("ui/shenlongyanjing1.plist");
+            p7->setScale(1.5);
+            p7->setPosition(ccp(75, 180));
+            player->addChild(p7);
+            
+            
+            CCParticleSystemQuad* p8 = CCParticleSystemQuad::create("ui/shenlongyanjing1.plist");
+            p8->setScale(1.3);
+            p8->setPosition(ccp(46, 185));
+            player->addChild(p8);
+            
+            
+
+            
         }else{
             player->setPosition(ccp(_screenSize.width*0.21, _screenSize.height*0.53));
         }
@@ -83,19 +155,28 @@ bool ChoosePlayer::init()
         addChild(player);
         
         _players->addObject(player);
-
         
-        CCSprite* small_player = CCSprite::create(("ship/bp_"+Tools::intToString(i+1) +".png").c_str(), CCRectMake(0, boundingBox().size.height*0.15, player->boundingBox().size.width, 247));
-        small_player->setScaleX(-1);
-        
-        if (i == 0) {
-            small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.35, guang->getPositionY()+60));
-        }if (i == 2) {
-             small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.41, guang->getPositionY()+60));
+        if(i == 1){
+            CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(("ship/player_"+Tools::intToString(i+1)+".ExportJson").c_str());
         }else{
-        small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.38, guang->getPositionY()+60));
-        
+            CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(("ship/player_"+Tools::intToString(i+1)+".csb").c_str());
         }
+        
+        CCArmature* small_player = CCArmature::create(("player_"+Tools::intToString(i+1)).c_str());
+        small_player->getAnimation()->playWithIndex(0);
+       
+        
+
+        small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.38, guang->getPositionY()-40));
+        
+        CCMoveBy* m = CCMoveBy::create(0.6, ccp(0, -4));
+        CCMoveBy* m2 = CCMoveBy::create(0.9, ccp(0, 12));
+        CCMoveBy* m3 = CCMoveBy::create(0.6, ccp(0, -8));
+        
+        CCSequence* s = CCSequence::create(m,m2,m3,NULL);
+        
+        small_player->runAction(CCRepeatForever::create(s));
+        
         addChild(small_player);
         small_player->setVisible(false);
         _small_players->addObject(small_player);
@@ -104,7 +185,7 @@ bool ChoosePlayer::init()
     
     ((CCSprite*)_players->objectAtIndex(_nowSelect))->setVisible(true);
     
-     ((CCSprite*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
+     ((CCArmature*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
     
     for (int i = 0; i<_players->count(); ++i) {
         CCSprite* dian = CCSprite::createWithSpriteFrameName("ui_dian1.png");
@@ -319,6 +400,8 @@ void ChoosePlayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEve
         
         
         if (player_gold >= _player_gold[_nowSelect]) {
+            getAll+=3;
+            GameSaveData::saveAllData();
             player_gold -= _player_gold[_nowSelect];
             GameSaveData::savePlayer(_nowSelect);
             GameSaveData::saveGoldData();
@@ -342,9 +425,9 @@ void ChoosePlayer::changePlayer()
    
     for(int i = 0 ; i<_players->count();++i){
         ((CCSprite*)_players->objectAtIndex(i))->setVisible(false);
-        ((CCSprite*)_small_players->objectAtIndex(i))->setVisible(false);
+        ((CCArmature*)_small_players->objectAtIndex(i))->setVisible(false);
     }
-    ((CCSprite*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
+    ((CCArmature*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
     
     CCSprite* player = ((CCSprite*)_players->objectAtIndex(_nowSelect));
     player->setVisible(true);

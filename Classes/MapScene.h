@@ -20,6 +20,8 @@
 
 #include "MessageManage.h"
 
+#include "Shop.h"
+
 USING_NS_CC;
 
 class MapScene : public cocos2d::CCLayer
@@ -30,6 +32,8 @@ public:
     const static int MAP = 1;
     
     const static int SET = 5;
+    
+    const static int SHOP = 6;
     
     const static int GAME = 50;
     
@@ -71,7 +75,11 @@ private:
     
     void changeToSet();
     
-    void cycle(float delta); 
+    void changeToShop(int type);
+    
+    void cycle(float delta);
+    
+    void addLogin();
     
 protected:
 //    MapUI* _mapUI;
@@ -92,9 +100,15 @@ protected:
     
     CCLayer* _login;
     
+    CCLayer* _logo;
+    
+    int _logo_time;
+    
     MessageManage* _message;
     
     ButtonWithSprite* _back;
+    
+    
 };
 
 #endif /* defined(__GetFish__MapScene__) */

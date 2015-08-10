@@ -292,6 +292,8 @@
 		E1A340AE1B5F99EF00712352 /* BadEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1A340AC1B5F99EF00712352 /* BadEnd.cpp */; };
 		E1BE6C2F1AA84F65000CD06B /* ChoosePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */; };
 		E1C0C3901AB6D2CE003DE15A /* music in Resources */ = {isa = PBXBuildFile; fileRef = E1C0C38F1AB6D2CE003DE15A /* music */; };
+		E1C2A98E1B6F1F420030B671 /* Reward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C2A98C1B6F1F420030B671 /* Reward.cpp */; };
+		E1C2A9911B6F7E3F0030B671 /* Shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C2A98F1B6F7E3F0030B671 /* Shop.cpp */; };
 		E1C6C4BE1B54EDB7007E6569 /* FlyNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C6C4BC1B54EDB7007E6569 /* FlyNum.cpp */; };
 		E1CC3C471A777301005B7063 /* GameUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C451A777301005B7063 /* GameUI.cpp */; };
 		E1CC3C4E1A7786F8005B7063 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1CC3C4A1A7786F8005B7063 /* Button.cpp */; };
@@ -907,6 +909,10 @@
 		E1BE6C2D1AA84F65000CD06B /* ChoosePlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePlayer.cpp; sourceTree = "<group>"; };
 		E1BE6C2E1AA84F65000CD06B /* ChoosePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlayer.h; sourceTree = "<group>"; };
 		E1C0C38F1AB6D2CE003DE15A /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
+		E1C2A98C1B6F1F420030B671 /* Reward.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reward.cpp; sourceTree = "<group>"; };
+		E1C2A98D1B6F1F420030B671 /* Reward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reward.h; sourceTree = "<group>"; };
+		E1C2A98F1B6F7E3F0030B671 /* Shop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shop.cpp; sourceTree = "<group>"; };
+		E1C2A9901B6F7E3F0030B671 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		E1C6C4BC1B54EDB7007E6569 /* FlyNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlyNum.cpp; sourceTree = "<group>"; };
 		E1C6C4BD1B54EDB7007E6569 /* FlyNum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyNum.h; sourceTree = "<group>"; };
 		E1CC3C451A777301005B7063 /* GameUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameUI.cpp; sourceTree = "<group>"; };
@@ -2200,6 +2206,10 @@
 				E1A340AD1B5F99EF00712352 /* BadEnd.h */,
 				E1A1FA061B61F61C0024920C /* SucEnd.cpp */,
 				E1A1FA071B61F61C0024920C /* SucEnd.h */,
+				E1C2A98C1B6F1F420030B671 /* Reward.cpp */,
+				E1C2A98D1B6F1F420030B671 /* Reward.h */,
+				E1C2A98F1B6F7E3F0030B671 /* Shop.cpp */,
+				E1C2A9901B6F7E3F0030B671 /* Shop.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -2571,6 +2581,7 @@
 				15C0B57E196D412F007F909D /* UILoadingBar.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
+				E1C2A98E1B6F1F420030B671 /* Reward.cpp in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				15C0B564196D412F007F909D /* CCDataReaderHelper.cpp in Sources */,
 				15C0B579196D412F007F909D /* UICheckBox.cpp in Sources */,
@@ -2593,6 +2604,7 @@
 				15C0B567196D412F007F909D /* CCTweenFunction.cpp in Sources */,
 				15C0B58B196D412F007F909D /* LabelReader.cpp in Sources */,
 				1A8F3B79175E05DA00049216 /* extension.cpp in Sources */,
+				E1C2A9911B6F7E3F0030B671 /* Shop.cpp in Sources */,
 				15C0B597196D412F007F909D /* TriggerObj.cpp in Sources */,
 				1A8F3B7A175E05DA00049216 /* Json.cpp in Sources */,
 				1A8F3B7B175E05DA00049216 /* RegionAttachment.cpp in Sources */,
@@ -2631,8 +2643,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: s z (RYWQV3HRNY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: s z (RYWQV3HRNY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: s z (M96AGL3879)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: s z (M96AGL3879)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -2668,8 +2680,8 @@
 				);
 				OTHER_CFLAGS = "-O2";
 				PRODUCT_NAME = "天天钓萌鱼";
-				PROVISIONING_PROFILE = "6f932d5b-4508-4495-8c39-86076d5b17b7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6f932d5b-4508-4495-8c39-86076d5b17b7";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -2681,8 +2693,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: s z (RYWQV3HRNY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: s z (RYWQV3HRNY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: s z (M96AGL3879)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: s z (M96AGL3879)";
 				COPY_PHASE_STRIP = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2715,8 +2727,8 @@
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
 				);
 				PRODUCT_NAME = "天天钓萌鱼";
-				PROVISIONING_PROFILE = "6f932d5b-4508-4495-8c39-86076d5b17b7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6f932d5b-4508-4495-8c39-86076d5b17b7";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";

@@ -53,6 +53,8 @@ public:
     
     int getNowPage();
     
+    void setEnable(bool is);
+    
 private:
     
     void touchBegan();
@@ -83,6 +85,9 @@ protected:
     bool _isLeft;
     
     bool _skipOnecMate;
+    
+    
+    bool _isEnable;
 };
 
 #endif /* defined(__Zengine__ScrollView__) */

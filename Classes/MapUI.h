@@ -13,6 +13,7 @@
 #include "MapElement.h"
 #include "ButtonWithSpriteManage.h"
 #include "ScrollView.h"
+#include "Reward.h"
 
 USING_NS_CC;
 
@@ -68,7 +69,19 @@ protected:
     
     int _nowSelect;
     
+    Reward* _upLayer;
     
+    bool _setCup;
+    
+    bool _isCanCup;
+    
+    ButtonWithSprite* _cup;
+    
+    CCParticleSystemQuad* numP;
+    
+    std::vector<int> _gif_gold;
+    
+    std::vector<int> _gif_getAll;
 };
 
 #endif /* defined(__GetFish__MapUI__) */

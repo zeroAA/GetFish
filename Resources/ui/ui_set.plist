@@ -48,13 +48,13 @@
                 <key>frame</key>
                 <string>{{336,2},{158,54}}</string>
                 <key>offset</key>
-                <string>{-1,0}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{2,0},{158,54}}</string>
+                <string>{{0,0},{158,54}}</string>
                 <key>sourceSize</key>
-                <string>{164,54}</string>
+                <string>{158,54}</string>
             </dict>
             <key>ui_set_xianliang.png</key>
             <dict>
@@ -74,13 +74,13 @@
                 <key>frame</key>
                 <string>{{176,2},{158,54}}</string>
                 <key>offset</key>
-                <string>{-1,0}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{2,0},{158,54}}</string>
+                <string>{{0,0},{158,54}}</string>
                 <key>sourceSize</key>
-                <string>{164,54}</string>
+                <string>{158,54}</string>
             </dict>
             <key>ui_set_yinliang.png</key>
             <dict>
@@ -131,7 +131,7 @@
             <key>size</key>
             <string>{496,126}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:bae68dd49e04760bf5ec2f40fb6d70da:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:ff2d286a348b7718ac94e54670ad9025:1/1$</string>
             <key>textureFileName</key>
             <string>ui_set.png</string>
         </dict>

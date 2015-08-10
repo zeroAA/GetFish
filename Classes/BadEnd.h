@@ -42,6 +42,8 @@ public:
     
     void cycle(float dt);
     
+    virtual void onExit();
+    
 protected:
     
     CCLabelAtlas* _numLabel;

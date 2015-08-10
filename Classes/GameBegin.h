@@ -25,9 +25,9 @@ public:
     
     static const int DEAD_TYPE_TOGAME = 2;
     
-    static GameBegin* create(int score,int type,int fishID,int num);
+    static GameBegin* create(int score,int type,int fishID,int num,int tishi1,int tishi2);
     
-    virtual bool init(int score,int type,int fishID,int num);
+    virtual bool init(int score,int type,int fishID,int num,int tishi1,int tishi2);
     
     GameBegin();
     

@@ -11,7 +11,7 @@
 #include "Data.h"
 
 void GameSaveData::loadLeveData(){
-    if (CCUserDefault::sharedUserDefault()->getStringForKey("has")=="") {
+    if (!CCUserDefault::sharedUserDefault()->getBoolForKey("has")) {
         CCLOG("没存档");
         
         CCUserDefault::sharedUserDefault()->setBoolForKey("IS_ON_MUISC", IS_ON_MUISC);
@@ -24,8 +24,23 @@ void GameSaveData::loadLeveData(){
             CCUserDefault::sharedUserDefault()->setBoolForKey(("player_"+Tools::intToString(i+1)).c_str(), false);
         }
         
-        CCUserDefault::sharedUserDefault()->setStringForKey("has", "has");
+        for (int i = 0; i<6; ++i) {
+            
+            CCUserDefault::sharedUserDefault()->setBoolForKey(("reward_"+Tools::intToString(i)).c_str(), false);
+
+        }
+        
+        CCUserDefault::sharedUserDefault()->setBoolForKey("teach", false);
+        
+        CCUserDefault::sharedUserDefault()->setBoolForKey("rest", false);
+        
+        CCUserDefault::sharedUserDefault()->setBoolForKey("has", true);
+        
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("All", 3);
+        
         CCUserDefault::sharedUserDefault()->flush();
+        
+        
         
         CCLOG("建立存档完毕");
     }else{
@@ -33,7 +48,7 @@ void GameSaveData::loadLeveData(){
 //            saveLevelData(i,5);
 //        }
         
-        CCLOG("有存档 %s",CCUserDefault::sharedUserDefault()->getStringForKey("has").c_str());
+        CCLOG("有存档");
     }
     
 }
@@ -99,9 +114,43 @@ void GameSaveData::loadSetData()
 void GameSaveData::savePlayer(int indext)
 {
     CCUserDefault::sharedUserDefault()->setBoolForKey(("player_"+Tools::intToString(indext)).c_str(), true);
+    CCUserDefault::sharedUserDefault()->flush();
 }
 
 bool GameSaveData::loadPlayer(int indext)
 {
     return CCUserDefault::sharedUserDefault()->getBoolForKey(("player_"+Tools::intToString(indext)).c_str());
+}
+
+void GameSaveData::saveReward(int indext)
+{
+    CCUserDefault::sharedUserDefault()->setBoolForKey(("reward_"+Tools::intToString(indext)).c_str(), true);
+    CCUserDefault::sharedUserDefault()->flush();
+}
+
+bool GameSaveData::loadReward(int indext)
+{
+    return CCUserDefault::sharedUserDefault()->getBoolForKey(("reward_"+Tools::intToString(indext)).c_str());
+}
+
+void GameSaveData::saveTeach()
+{
+    CCUserDefault::sharedUserDefault()->setBoolForKey("teach", true);
+    CCUserDefault::sharedUserDefault()->flush();
+}
+
+bool GameSaveData::loadTeach()
+{
+    return CCUserDefault::sharedUserDefault()->getBoolForKey("teach");
+}
+
+void GameSaveData::saveRest()
+{
+    CCUserDefault::sharedUserDefault()->setBoolForKey("rest", true);
+    CCUserDefault::sharedUserDefault()->flush();
+}
+
+bool GameSaveData::loadRest()
+{
+    return CCUserDefault::sharedUserDefault()->getBoolForKey("rest");
 }

@@ -23,3 +23,9 @@ int getAll = 99;
 
 int player_star=0;
 
+ float winW = 0;
+
+ float winH = 0;
+
+int teach = 0;
+

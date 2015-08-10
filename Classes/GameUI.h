@@ -22,6 +22,8 @@ public:
     static const int DIR_LEFT = 1;
     static const int DIR_RIGHT = 2;
     
+    
+    
     CREATE_FUNC(GameUI);
     
     GameUI();
@@ -43,6 +45,8 @@ public:
     void GameUItouchesEnded(CCSet * touchs,CCEvent * event);
     
     void GameUItouchesDir(CCSet * touchs,CCEvent * event);
+    void GameUItouchesMovedDir(CCSet * touchs,CCEvent * event);
+//    void GameUItouchesEndDir(CCSet * touchs,CCEvent * event);
     
     int getNowButtonID() const;
     
@@ -66,8 +70,11 @@ public:
     
     CCSprite* getLeft();
     CCSprite* getRight();
+    CCSprite* getHook();
     
     CC_SYNTHESIZE(int, _dir, Dir);
+    
+    CC_SYNTHESIZE(bool, _ishook, isHook);
     
     void setCitieNum(int num);
     
@@ -91,6 +98,8 @@ private:
     CCSprite* _left;
     
     CCSprite* _right;
+    
+    CCSprite* _hook;
     
     CCLabelAtlas* _num;
     

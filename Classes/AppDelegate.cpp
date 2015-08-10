@@ -4,6 +4,7 @@
 #include "MapScene.h"
 #include "Tools.h"
 #include "AudioController.h"
+#include "Data.h"
 
 USING_NS_CC;
 
@@ -33,9 +34,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     CCSize frameSize = CCEGLView::sharedOpenGLView()->getFrameSize();
     CCSize winSize = pDirector->getWinSize();
+    
+    winW = winSize.width;
+    winH = winSize.height;
+    
     int profile = Tools::calScreenRatioProfile(winSize);
     
     CCSize designResolutionSize;
+    
     if(profile == KScreenRatioProfile3v4) {
         CCLog("KScreenRatioProfile3v4");
         designResolutionSize = CCSizeMake(1024, 768);
@@ -54,10 +60,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
         designResolutionSize = CCSizeMake(1136, 640);
     }
     
+//        designResolutionSize = CCSizeMake(800, 480);
+    
+    //    designResolutionSize = CCSizeMake(480, 320);
     
 //    designResolutionSize = CCSizeMake(1136, 640);
     
-    //    designResolutionSize = CCSizeMake(480, 320);
     
     CCSize lsSize = CCSizeMake(designResolutionSize.width, designResolutionSize.height);
     float scaleX = (float)frameSize.width / lsSize.width;
@@ -78,7 +86,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
    
 //    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(lsSize.width * scale, lsSize.height * scale, kResolutionNoBorder);
     
-    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(lsSize.width * scale, lsSize.height * scale, kResolutionFixedHeight);
+    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(1136, 640, kResolutionFixedHeight);
 
     // create a scene. it's an autorelease object
     

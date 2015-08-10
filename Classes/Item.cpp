@@ -51,9 +51,16 @@ bool Item::init(const char* name,int type)
 
 void Item::cycle(float delta)
 {
+    if (_state==STATE_FALL) {
+        this->setPositionY(getPositionY()-10);
+        if (getPositionY()<0) {
+            setState(STATE_DEAD);
+        }
+    }else{
     _time--;
     if (_time<=0) {
         setState(STATE_DEAD);
+    }
     }
 }
 
@@ -74,4 +81,9 @@ void Item::setDead()
     }else if(_type == TYPE_CITIE){
         GameScene::instance()->allFishToDead(0);
     }
+}
+
+void Item::setFall()
+{
+    setState(STATE_FALL);
 }

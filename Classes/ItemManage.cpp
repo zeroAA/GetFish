@@ -29,6 +29,7 @@ bool ItemManage::init()
 
 void ItemManage::addItem(const char* name,CCPoint pos,int type,int v,int time)
 {
+   
     Item* item = Item::create(name, type);
     item->setPosition(pos);
     item->setScore(v);

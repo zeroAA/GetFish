@@ -109,6 +109,10 @@ void Set::onExit()
 {
     CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
     
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeSpriteFramesFromFile("ui/ui_set.plist");
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/ui_set.png");
+    
+        
     CCLayer::onExit();
 }
 

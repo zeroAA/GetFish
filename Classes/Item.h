@@ -19,6 +19,8 @@ public:
     
     static const int STATE_HOOK = 1;
     
+    static const int STATE_FALL = 2;
+    
     static const int TYPE_JIFEN = 1;
     static const int TYPE_ZHENZHU = 2;
     static const int TYPE_CITIE = 3;
@@ -38,6 +40,8 @@ public:
     CC_SYNTHESIZE(int, _time, Time);
     
     void setDead();
+    
+    void setFall();
     
 private:
     

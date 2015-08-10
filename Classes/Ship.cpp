@@ -813,6 +813,14 @@ void Ship::shipOnAtk()
     }
     
     _fishSetHooked->removeAllObjects();
+    
+    
+    for (int i = 0; i < _items->count(); ++i) {
+        Item* item = (Item*) _items->objectAtIndex(i);
+        item->setDead();
+    }
+    
+    _items->removeAllObjects();
 }
 
 CCPoint Ship::getEatPos() 

@@ -128,7 +128,7 @@ bool GameUI::init()
             jindutiao1->addChild(_score_tiao1);
             
             
-            _score_Label1 = CCLabelAtlas::create("0", "ui/shuzi5.png", 12, 15, 43);
+            _score_Label1 = CCLabelAtlas::create("0", "ui/shuzi8.png", 14, 21, 43);
             _score_Label1->setAnchorPoint(ccp(1, 0.5));
             
             _score_Label1->setPosition(ccp(-5, -jindudi1->boundingBox().size.height*0.5));
@@ -218,13 +218,6 @@ bool GameUI::init()
         
         if (IS_ON_BUTTON) {
             
-            
-           
-            
-           
-            
-           
-            
 //            _buttons->addButton(BUTTON_GAME_RIGHT, "button_you.png", ccp(_screenSize.width*0.075+140, _screenSize.height*0.1));
 //            
 //            ButtonWithSprite* button = ButtonWithSprite::create(BUTTON_GAME_LEFT, "button_you.png",-1,1);
@@ -233,19 +226,26 @@ bool GameUI::init()
 //            
 //            _buttons->addButton(button);
             
+          
+            _hook = CCSprite::createWithSpriteFrameName("button_xiagou.png");
+            _hook->setPosition(ccp(_screenSize.width*0.925, _screenSize.height*0.1));
+            _hook->setScaleX(-1);
+            _hook->setTag(-1);
+            addChild(_hook);
+            
             _left = CCSprite::createWithSpriteFrameName("button_you.png");
             _left->setPosition(ccp(_screenSize.width*0.075, _screenSize.height*0.1));
             _left->setScaleX(-1);
-            
+            _left->setTag(-1);
             addChild(_left);
             
             _right = CCSprite::createWithSpriteFrameName("button_you.png");
             _right->setPosition(ccp(_screenSize.width*0.075+140, _screenSize.height*0.1));
-            
+            _right->setTag(-1);
             addChild(_right);
             
             
-            _buttons->addButton(BUTTON_GAME_DO, "button_xiagou.png", ccp(_screenSize.width*0.925, _screenSize.height*0.1));
+//            _buttons->addButton(BUTTON_GAME_DO, "button_xiagou.png", ccp(_screenSize.width*0.925, _screenSize.height*0.1));
             
         }
         
@@ -276,7 +276,7 @@ bool GameUI::init()
         
         addChild(_timeLabel);
         
-        _score_Label = CCLabelAtlas::create("0", "ui/shuzi5.png", 12, 15, 43);
+        _score_Label = CCLabelAtlas::create("0", "ui/shuzi8.png", 14, 21, 43);
         _score_Label->setAnchorPoint(ccp(1, 0.5));
         
         _score_Label->setPosition(ccp(-5, -jindudi->boundingBox().size.height*0.5));
@@ -331,13 +331,18 @@ void GameUI::GameUItouchesEnded(CCSet * touchs,CCEvent * event)
     
 }
 
-void GameUI::GameUItouchesDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *event)
+void GameUI::GameUItouchesMovedDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *event)
 {
-    
     
     _left->setScaleX(-1);
     _left->setScaleY(1);
     _right->setScale(1);
+    _hook->setScale(1);
+    
+    
+    setDir(DIR_NONE);
+    
+    _ishook = false;
     
     for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
         
@@ -345,24 +350,73 @@ void GameUI::GameUItouchesDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *event)
         
         CCPoint pos=mytouch->getLocation();
         
-        
-        if (_left->boundingBox().containsPoint(pos)) {
+        if (_left->getTag() == mytouch->getID()&&_left->boundingBox().containsPoint(pos)) {
             _left->setScaleX(-0.8);
             _left->setScaleY(0.8);
             setDir(DIR_LEFT);
-            return;
+        }
+        
+        if (_right->getTag() == mytouch->getID()&& _right->boundingBox().containsPoint(pos)) {
+            _right->setTag(mytouch->getID());
+            _right->setScale(0.8);
+            setDir(DIR_RIGHT);
+            
+        }
+        
+        if (_hook->getTag() == mytouch->getID()&& _hook->boundingBox().containsPoint(pos)) {
+            _hook->setTag(mytouch->getID());
+            _hook->setScale(0.8);
+            _ishook = true;
+        }
+    }
+}
+
+void GameUI::GameUItouchesDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *event)
+{
+    
+    
+    _left->setScaleX(-1);
+    _left->setScaleY(1);
+    _right->setScale(1);
+    _hook->setScale(1);
+    
+    
+    setDir(DIR_NONE);
+
+    _ishook = false;
+    
+    for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
+        
+        CCTouch * mytouch=(CCTouch *)(* iter);
+    
+        CCPoint pos=mytouch->getLocation();
+       
+        
+        if (_left->boundingBox().containsPoint(pos)) {
+            _left->setTag(mytouch->getID());
+            _left->setScaleX(-0.8);
+            _left->setScaleY(0.8);
+            setDir(DIR_LEFT);
+            
         }
         
         if (_right->boundingBox().containsPoint(pos)) {
+            _right->setTag(mytouch->getID());
             _right->setScale(0.8);
             setDir(DIR_RIGHT);
-            return;
+            
+        }
+        
+        if (_hook->boundingBox().containsPoint(pos)) {
+            _hook->setTag(mytouch->getID());
+            _hook->setScale(0.8);
+            _ishook = true;
         }
         
         
     }
     
-    setDir(DIR_NONE);
+    
 }
 
 int GameUI::getNowButtonID() const
@@ -418,6 +472,11 @@ CCSprite* GameUI::getLeft()
 CCSprite* GameUI::getRight()
 {
     return _right;
+}
+
+CCSprite* GameUI::getHook()
+{
+    return _hook;
 }
 
 void GameUI::setSucNum(std::string str)

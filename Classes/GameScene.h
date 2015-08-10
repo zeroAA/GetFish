@@ -54,6 +54,8 @@ public:
     
     const static int ADD_OBJ = 400;
     
+    const static int ADD_TISHI = 500;
+    
     const static int PF_TYPE_FISH = 0;
     
     const static int PF_TYPE_SHELL = 1;
@@ -208,6 +210,11 @@ private:
     void setPerfect();
     
     
+    void addTeach();
+    
+    void nextTeach();
+    
+    bool isMustTeach();
     
 protected:
     CCSize _screenSize;
@@ -285,6 +292,15 @@ protected:
     CCSprite* _lianji;
     
     MessageManage* _message;
+    
+    CCLayerColor* _up;
+    CCLayerColor* _left;
+    CCLayerColor* _right;
+    CCLayerColor* _down;
+    
+    int _useGetAll;
+    
+    int _teach_time;
 };
 
 #endif /* defined(__GetFish__GameScene__) */

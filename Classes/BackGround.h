@@ -27,6 +27,8 @@ public:
     
     virtual ~BackGround();
     
+    
+    
 protected:
     
     CCSize _screenSize;

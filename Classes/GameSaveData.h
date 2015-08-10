@@ -40,6 +40,17 @@ public:
     
     static bool loadPlayer(int indext);
     
+    static void saveReward(int indext);
+    static bool loadReward(int indext);
+    
+    static void saveTeach();
+    
+    static bool loadTeach();
+    
+    static void saveRest();
+    
+    static bool loadRest();
+    
 private:
     
 //    static vector<int> leveData;

@@ -65,7 +65,6 @@ void Rock::movementCallback(CCArmature * armature, MovementEventType type, const
     {
         if (strcmp(name,"Animation5") == 0)
         {
-            
             setState(STATE_DEAD);
         }
     }

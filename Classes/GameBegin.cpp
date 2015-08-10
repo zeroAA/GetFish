@@ -11,11 +11,11 @@
 #include "Tools.h"
 #include "GameScene.h"
 
-GameBegin* GameBegin::create(int score,int type,int fishID,int num)
+GameBegin* GameBegin::create(int score,int type,int fishID,int num,int tishi1,int tishi2)
 {
     GameBegin* map = new GameBegin();
     
-    if(map && map->init( score, type,fishID, num)) {
+    if(map && map->init( score, type,fishID, num,tishi1,tishi2)) {
         map->autorelease();
         return map;
     }
@@ -35,7 +35,7 @@ GameBegin::~GameBegin()
    
 }
 
-bool GameBegin::init(int score,int type,int fishID,int num)
+bool GameBegin::init(int score,int type,int fishID,int num,int tishi1,int tishi2)
 {
     if(!CCLayer::init()) {
         
@@ -46,23 +46,28 @@ bool GameBegin::init(int score,int type,int fishID,int num)
     
     addChild(back);
     
-    if(false){
+    if(tishi1!=0){
+        
         CCSprite* back1 = CCSprite::createWithSpriteFrameName("ui_c_tishi.png");
         back1->setPosition(ccp(back->boundingBox().size.width*0.5+back1->boundingBox().size.width*0.5-5, -2));
         addChild(back1);
         
         
         
-        int tinum = 2;
+        int tinum = 1;
         
-        CCSprite* tishi1 = CCSprite::create("ui/ui_ctishi_1.png");
-        tishi1->setPosition(ccp(back1->getPositionX(), back1->getPositionY()+40*(tinum-1)));
-        addChild(tishi1);
+        if (tishi2!=0) {
+            tinum=2;
+        }
+        
+        CCSprite* t1 = CCSprite::create(("ui/ui_ctishi_"+Tools::intToString(tishi1)+".png").c_str());
+        t1->setPosition(ccp(back1->getPositionX(), back1->getPositionY()+40*(tinum-1)));
+        addChild(t1);
         
         if (tinum>1) {
-            CCSprite* tishi2 = CCSprite::create("ui/ui_ctishi_2.png");
-            tishi2->setPosition(ccp(back1->getPositionX(), back1->getPositionY()-90));
-            addChild(tishi2);
+            CCSprite* t2 = CCSprite::create(("ui/ui_ctishi_"+Tools::intToString(tishi2)+".png").c_str());
+            t2->setPosition(ccp(back1->getPositionX(), back1->getPositionY()-90));
+            addChild(t2);
         }
     }
     
@@ -102,7 +107,7 @@ bool GameBegin::init(int score,int type,int fishID,int num)
     addChild(zi2);
     
     for (int i = 0; i<2; ++i) {
-        CCSprite* star10 = CCSprite::createWithSpriteFrameName("ui_star1.png");
+        CCSprite* star10 = CCSprite::createWithSpriteFrameName("ui_sr.png");
         
         
         star10->setPosition(ccp(80+i*60, 75));
@@ -131,7 +136,7 @@ bool GameBegin::init(int score,int type,int fishID,int num)
     addChild(_score20);
 
     for (int i = 0; i<3; ++i) {
-        CCSprite* star1 = CCSprite::createWithSpriteFrameName("ui_star1.png");
+        CCSprite* star1 = CCSprite::createWithSpriteFrameName("ui_sr.png");
         
         
         star1->setPosition(ccp(50+i*60,  -15));

@@ -481,7 +481,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/LoadingScreen.o: \
  jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
  jni/../../Classes/MapScene.h jni/../../Classes/MapUI.h \
  jni/../../Classes/MapElement.h jni/../../Classes/ScrollView.h \
- jni/../../Classes/ChoosePlayer.h jni/../../Classes/Set.h
+ jni/../../Classes/Reward.h jni/../../Classes/ChoosePlayer.h \
+ jni/../../Classes/Set.h jni/../../Classes/Shop.h
 
 jni/../../Classes/LoadingScreen.h:
 
@@ -1477,6 +1478,10 @@ jni/../../Classes/MapElement.h:
 
 jni/../../Classes/ScrollView.h:
 
+jni/../../Classes/Reward.h:
+
 jni/../../Classes/ChoosePlayer.h:
 
 jni/../../Classes/Set.h:
+
+jni/../../Classes/Shop.h:

@@ -9,6 +9,7 @@
 #include "BadEnd.h"
 #include "Common.h"
 #include "Tools.h"
+#include "GameSaveData.h"
 
 BadEnd::BadEnd():_dead(-1)
 {
@@ -50,16 +51,26 @@ bool BadEnd::init()
         _buttons = ButtonWithSpriteManage::create("ui/button.png");
         
         addChild(_buttons);
+        ButtonWithSprite* button_reset;
         
-        ButtonWithSprite* button_reset = ButtonWithSprite::create(BUTTON_END_RESET, "button_chongzhi.png");
+        if (GameSaveData::loadRest()) {
+            button_reset = ButtonWithSprite::create(BUTTON_END_RESET, "button_chongzhi.png");
+        }else{
+            button_reset = ButtonWithSprite::create(BUTTON_END_RESET, "button_mianchongzhi.png");
+            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_99.png");
+            zi->setPosition(ccp(50, 100));
+            button_reset->addChild(zi);
+        }
+       
         
-        button_reset->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.32));
+        
+        button_reset->setPosition(ccp(_screenSize.width*0.7, _screenSize.height*0.32));
         
         _buttons->addButton(button_reset);
         
         ButtonWithSprite* button_play = ButtonWithSprite::create(BUTTON_END_PLAY, "buttion_chongwan.png");
         
-        button_play->setPosition(ccp(_screenSize.width*0.7, _screenSize.height*0.32));
+        button_play->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.32));
         
         _buttons->addButton(button_play);
         
@@ -110,4 +121,15 @@ void BadEnd::cycle(float dt)
     if (_time<=0) {
         setDead(DEAD_TYPE_BACK);
     }
+}
+
+void BadEnd::onExit()
+{
+    
+   
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/badend.png");
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/badendzi.png");
+    
+    
+    CCLayer::onExit();
 }

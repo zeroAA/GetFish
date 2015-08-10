@@ -9,7 +9,7 @@
 
 #include <math.h>
 
-ScrollView::ScrollView():_isMate(false),_skipOnecMate(false)
+ScrollView::ScrollView():_isMate(false),_skipOnecMate(false),_isEnable(true)
 {
     
 }
@@ -88,7 +88,7 @@ bool ScrollView::ccTouchBegan(CCTouch* touch, CCEvent* event)
    
 
     
-    if (!this->isVisible())
+    if (!this->isVisible()||!_isEnable)
     {
         return false;
     }
@@ -106,7 +106,9 @@ bool ScrollView::ccTouchBegan(CCTouch* touch, CCEvent* event)
 void ScrollView::ccTouchMoved(CCTouch* touch, CCEvent* event)
 {
     
-    if (!this->isVisible())
+    
+    
+    if (!this->isVisible()||!_isEnable)
     {
         return;
     }
@@ -126,7 +128,7 @@ void ScrollView::ccTouchMoved(CCTouch* touch, CCEvent* event)
 void ScrollView::ccTouchEnded(CCTouch* touch, CCEvent* event)
 {
     
-    if (!this->isVisible())
+    if (!this->isVisible()||!_isEnable)
     {
         return;
     }
@@ -139,7 +141,7 @@ void ScrollView::ccTouchEnded(CCTouch* touch, CCEvent* event)
 
 void ScrollView::ccTouchCancelled(CCTouch* touch, CCEvent* event)
 {
-    if (!this->isVisible())
+    if (!this->isVisible()&&_isEnable)
     {
         return;
     }
@@ -281,4 +283,9 @@ bool ScrollView::isMoveEnd()
 int ScrollView::getNowPage()
 {
     return abs((int)getContentOffset().x/getMatH());
+}
+
+void ScrollView::setEnable(bool is)
+{
+    this->_isEnable = is;
 }

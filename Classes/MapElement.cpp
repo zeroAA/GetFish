@@ -44,9 +44,13 @@ bool MapElement::init(int star,int lev)
     
     _lev = lev;
     
-    CCSpriteBatchNode* batch = CCSpriteBatchNode::create("ui/ui_map.png");
+        
+    CCSpriteBatchNode* batch = CCSpriteBatchNode::
+    create("ui/ui_map.png");
     
     addChild(batch);
+    
+    
    
     _back= CCSprite::createWithSpriteFrameName(("ui_mapkuang"+(Tools::intToString((lev/12)+1))+".png").c_str());
     
@@ -58,7 +62,7 @@ bool MapElement::init(int star,int lev)
     for (int i = 0; i<s; ++i) {
         CCSprite* s = CCSprite::createWithSpriteFrameName("ui_star1.png");
         
-            s->setPosition(ccp(i*37-37+i, 10+i*3));
+        s->setPosition(ccp(i*37-37+i, 10+i*3));
         
         
         batch->addChild(s);
