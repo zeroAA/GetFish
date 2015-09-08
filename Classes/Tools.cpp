@@ -158,7 +158,7 @@ int Tools::calScreenRatioProfile(const cocos2d::CCSize &sz)
 {
     int _profile = KScreenRatioProfile2v3;
     float r = sz.height / sz.width;
-    CCLOG("r = %f", r);//0.667
+//    CCLOG("r = %f", r);//0.667
     float r1 = 768.0 / 1024.0;//0.75
     float r2 = 320.0 / 480.0;//0.667
     float r3 = 480.0 / 800.0;//0.6

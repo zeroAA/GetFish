@@ -36,7 +36,7 @@ public:
     
     void resumeSfx();
     
-    void playSfx(string clip);
+    void playSfx(const std::string& clip);
     
     void playBgMusic(string clip, bool loop);
     

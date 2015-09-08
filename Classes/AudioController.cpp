@@ -80,15 +80,16 @@ void AudioController::playOldBgMusic(){
     _engine->playBackgroundMusic(_bgMusic.c_str(), true);
 }
 
-void AudioController::playSfx(string clip)
+void AudioController::playSfx(const std::string& clip)
 {
     if (!IS_ON_SFX) {
         return;
     }
-    
+   
     string music = clip + KExtension;
     _engine->preloadEffect(music.c_str());
-    int soundId = _engine->playEffect(music.c_str());
+//    int soundId =
+    _engine->playEffect(music.c_str());
 }
 
 void AudioController::preloadSfx(string clip)

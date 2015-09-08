@@ -81,13 +81,14 @@ int Leaf::getHp() const
 
 void Leaf::cycle(float delta)
 {
-    if (DIR_LEFT == _dir) {
-        setPosition(ccp(this->getPositionX()+_speedx, this->getPositionY()));
-    }else if(_dir == DIR_RIGHT){
-        setPosition(ccp(this->getPositionX()-_speedx, this->getPositionY()));
-    }
+        if (DIR_LEFT == _dir) {
+            setPosition(ccp(this->getPositionX()+_speedx, this->getPositionY()));
+        }else if(_dir == DIR_RIGHT){
+            setPosition(ccp(this->getPositionX()-_speedx, this->getPositionY()));
+        }
+        
+//        if (getPositionX()<-getBodyRect().size.width*0.5||getPositionX()>CCDirector::sharedDirector()->getWinSize().width+getBodyRect().size.width*0.5) {
+//            setState(STATE_DEAD);
+//        }
     
-    if (getRotationX()<-getBodyRect().size.width*0.5||getRotationX()>CCDirector::sharedDirector()->getWinSize().width+getBodyRect().size.width*0.5) {
-        setState(STATE_DEAD);
-    }
 }

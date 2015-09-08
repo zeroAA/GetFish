@@ -29,6 +29,9 @@ static AppDelegate s_sharedApplication;
                                    multiSampling: NO
                                  numberOfSamples: 0];
     
+    
+    
+    
     // Use RootViewController manage EAGLView
     viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     viewController.wantsFullScreenLayout = YES;
@@ -65,11 +68,14 @@ static AppDelegate s_sharedApplication;
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
     
-    //    if (!GameScene::instance()->getPause()) {
-    //        GameScene::instance()->doPause();
-    //    }
+    if (cocos2d::CCDirector::sharedDirector()->isPaused()) {
+        _isPause = true;
+    }else{
+        _isPause = false;
+        cocos2d::CCDirector::sharedDirector()->pause();
+    }
     
-    cocos2d::CCDirector::sharedDirector()->pause();
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -78,8 +84,10 @@ static AppDelegate s_sharedApplication;
      */
     
     
+    if (!_isPause) {
+        cocos2d::CCDirector::sharedDirector()->resume();
+    }
     
-    cocos2d::CCDirector::sharedDirector()->resume();
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

@@ -36,6 +36,7 @@ bool GameUI::init()
         addChild(zuodi);
         
         _node = CCNode::create();
+        _node->setPosition(ccp(0, -2));
         zuodi->addChild(_node);
         
         CCSprite* zi4 = CCSprite::createWithSpriteFrameName(("ui_tishi_zi4_"+Tools::intToString(GameScene::instance()->getSucType()+1)+".png").c_str());
@@ -374,15 +375,9 @@ void GameUI::GameUItouchesMovedDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *eve
 void GameUI::GameUItouchesDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *event)
 {
     
+    _set = false;
     
-    _left->setScaleX(-1);
-    _left->setScaleY(1);
-    _right->setScale(1);
     _hook->setScale(1);
-    
-    
-    setDir(DIR_NONE);
-
     _ishook = false;
     
     for(CCSetIterator iter=touchs->begin();iter!=touchs->end();iter++){
@@ -390,7 +385,17 @@ void GameUI::GameUItouchesDir(cocos2d::CCSet *touchs, cocos2d::CCEvent *event)
         CCTouch * mytouch=(CCTouch *)(* iter);
     
         CCPoint pos=mytouch->getLocation();
+        
+        
        
+        if (!_set&&(_left->getTag() == mytouch->getID()||_right->getTag() == mytouch->getID())) {
+            _set = true;
+            _left->setScaleX(-1);
+            _left->setScaleY(1);
+            _right->setScale(1);
+            setDir(DIR_NONE);
+//            CCLOG("?????? lt %i rt %i id %i",_left->getTag(),_right->getTag(),mytouch->getID());
+        }
         
         if (_left->boundingBox().containsPoint(pos)) {
             _left->setTag(mytouch->getID());
@@ -488,7 +493,7 @@ void GameUI::setSuc()
 {
     zuodi->removeChild(_node, true);
     CCSprite* wancheng = CCSprite::createWithSpriteFrameName("dacheng.png");
-    wancheng->setPosition(ccp(zuodi->boundingBox().size.width*0.5+20,zuodi->boundingBox().size.height*0.5));
+    wancheng->setPosition(ccp(zuodi->boundingBox().size.width*0.5+20,zuodi->boundingBox().size.height*0.5-2));
     wancheng->setScale(3);
     
     CCScaleTo* sc = CCScaleTo::create(0.3, 1);

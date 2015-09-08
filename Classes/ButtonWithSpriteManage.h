@@ -48,7 +48,7 @@ public:
     
     int getNowID();
 
-
+    ButtonWithSprite* getButton(int indext);
 protected:
     
     CCSpriteBatchNode* _batch;

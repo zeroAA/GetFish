@@ -40,6 +40,11 @@ public:
     
     CC_SYNTHESIZE(int, _dead, Dead);
     
+    void play1();
+    void play2();
+    void play3();
+    void play4();
+    
 protected:
     
     CCLabelAtlas* _numLabel;

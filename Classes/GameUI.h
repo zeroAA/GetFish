@@ -76,6 +76,8 @@ public:
     
     CC_SYNTHESIZE(bool, _ishook, isHook);
     
+    CC_SYNTHESIZE(bool, _set, isSet);
+    
     void setCitieNum(int num);
     
 private:
@@ -106,6 +108,8 @@ private:
     CCNode* _node;
     
     CCSprite* zuodi;
+    
+   
 };
 
 

@@ -61,7 +61,7 @@
     <key>minRadiusVariance</key>
     <real>0</real>
     <key>particleLifespan</key>
-    <real>6</real>
+    <real>2.5</real>
     <key>particleLifespanVariance</key>
     <real>2</real>
     <key>radialAccelVariance</key>
@@ -111,4 +111,4 @@
     <key>textureFileName</key>
     <string>8.png</string>
   </dict>
-</plist>>
+</plist>

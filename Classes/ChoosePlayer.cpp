@@ -13,7 +13,7 @@
 #include "Data.h"
 #include "GameSaveData.h"
 
-ChoosePlayer::ChoosePlayer():_nowSelect(0),_isDead(false)
+ChoosePlayer::ChoosePlayer():_nowSelect(0),_isDead(false),_tishi(NULL)
 {
     
 }
@@ -57,6 +57,12 @@ bool ChoosePlayer::init()
     _players->retain();
     _small_players = CCArray::create();
     _small_players->retain();
+    
+    for (int i = 0 ; i<6; ++i) {
+        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(("fish/fish_"+Tools::intToString(1140+i*10)+".csb").c_str());
+        
+    }
+    
     for(int i = 0;i<6;++i){
         
         CCSprite* player = CCSprite::create(("ship/bp_"+Tools::intToString(i+1) +".png").c_str());
@@ -68,13 +74,37 @@ bool ChoosePlayer::init()
             numP->setPosition(ccp(215, 60));
             player->addChild(numP);
             
-        }if(i == 3){
+        }else if(i == 3){
             player->setPosition(ccp(_screenSize.width*0.25, _screenSize.height*0.53));
             
             CCParticleSystemQuad* numP = CCParticleSystemQuad::create("ui/saber.plist");
             numP->setScale(5);
             numP->setPosition(ccp(50, 20));
             player->addChild(numP);
+            
+        }else if(i == 1){
+            player->setPosition(ccp(_screenSize.width*0.21, _screenSize.height*0.53));
+            
+            CCParticleSystemQuad* numP = CCParticleSystemQuad::create("ui/cat.plist");
+            numP->setRotation(15);
+            numP->setScale(1.5);
+            numP->setPosition(ccp(245, 235));
+            player->addChild(numP);
+            
+            CCParticleSystemQuad* numP1 = CCParticleSystemQuad::create("ui/cat.plist");
+            numP1->setRotation(10);
+            numP1->setScale(1.5);
+            numP1->setPosition(ccp(310, 220));
+            player->addChild(numP1);
+            
+            
+            CCParticleSystemQuad* numP2 = CCParticleSystemQuad::create("ui/cat.plist");
+            numP2->setRotation(10);
+            numP2->setScale(1.5);
+            numP2->setPosition(ccp(330, 190));
+            player->addChild(numP2);
+            
+            
             
         }else if(i == 2){
             
@@ -134,17 +164,13 @@ bool ChoosePlayer::init()
             p8->setPosition(ccp(46, 185));
             player->addChild(p8);
             
-            
-
-            
         }else{
             player->setPosition(ccp(_screenSize.width*0.21, _screenSize.height*0.53));
         }
+        
         CCMoveBy *move = CCMoveBy::create(1, CCPoint(0, 2));
         CCMoveBy *move2 = CCMoveBy::create(1, CCPoint(0, -2));
-        
-        
-        
+       
         CCSequence* sequence = CCSequence::create(move,move2,NULL);
         
         CCRepeatForever* repeat = CCRepeatForever::create(sequence);
@@ -162,12 +188,13 @@ bool ChoosePlayer::init()
             CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(("ship/player_"+Tools::intToString(i+1)+".csb").c_str());
         }
         
+        CCNode* sp = CCNode::create();
+        
         CCArmature* small_player = CCArmature::create(("player_"+Tools::intToString(i+1)).c_str());
         small_player->getAnimation()->playWithIndex(0);
        
         
 
-        small_player->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.38, guang->getPositionY()-40));
         
         CCMoveBy* m = CCMoveBy::create(0.6, ccp(0, -4));
         CCMoveBy* m2 = CCMoveBy::create(0.9, ccp(0, 12));
@@ -177,15 +204,108 @@ bool ChoosePlayer::init()
         
         small_player->runAction(CCRepeatForever::create(s));
         
-        addChild(small_player);
-        small_player->setVisible(false);
-        _small_players->addObject(small_player);
+        CCSprite* hook = CCSprite::create(("ship/hook"+Tools::intToString(i)+".png").c_str());
+        hook->setPosition(ccp(small_player->getBone("hook")->getWorldInfo()->x, small_player->getBone("hook")->getWorldInfo()->y));
+        if (i == 0) {
+            hook->setAnchorPoint(ccp(0.6, 1));
+        }else{
+            hook->setAnchorPoint(ccp(0.5, 1));
+        }
+        small_player->addChild(hook);
+        small_player->setPosition(ccp(-60, 0));
+        if (i==0) {
+            small_player->setPosition(ccp(0, 0));
+        }else if (i==1) {
+            small_player->setPosition(ccp(-50, 0));
+            CCArmature* fish = CCArmature::create("fish_1190");
+            fish->getAnimation()->playWithIndex(0);
+            fish->setPosition(ccp(150, 100));
+            fish->setScale(0.9);
+            sp->addChild(fish);
+        }else if (i==2) {
+            
+            CCArmature* fish1 = CCArmature::create("fish_1140");
+            fish1->getAnimation()->playWithIndex(0);
+            fish1->setPosition(ccp(150, 50));
+            fish1->setScale(0.9);
+            sp->addChild(fish1);
+            
+            
+            CCArmature* fish = CCArmature::create("fish_1180");
+            fish->getAnimation()->playWithIndex(0);
+            fish->setPosition(ccp(150, 150));
+            sp->addChild(fish);
+        }else if (i==2) {
+            
+            CCArmature* fish1 = CCArmature::create("fish_1140");
+            fish1->getAnimation()->playWithIndex(0);
+            fish1->setPosition(ccp(150, 50));
+            sp->addChild(fish1);
+            
+            
+            CCArmature* fish = CCArmature::create("fish_1180");
+            fish->getAnimation()->playWithIndex(0);
+            fish->setPosition(ccp(150, 150));
+            sp->addChild(fish);
+        }else if (i==3) {
+            
+            CCArmature* fish1 = CCArmature::create("fish_1170");
+            fish1->getAnimation()->playWithIndex(0);
+            fish1->setPosition(ccp(150, 50));
+            fish1->setScale(0.8);
+            sp->addChild(fish1);
+            
+            
+            CCArmature* fish = CCArmature::create("fish_1150");
+            fish->getAnimation()->playWithIndex(0);
+            fish->setPosition(ccp(150, 150));
+            sp->addChild(fish);
+        }else if (i==4) {
+            
+            CCArmature* fish1 = CCArmature::create("fish_1170");
+            fish1->getAnimation()->playWithIndex(0);
+            fish1->setPosition(ccp(150, 100));
+            fish1->setScale(0.8);
+            sp->addChild(fish1);
+            
+            
+            CCArmature* fish = CCArmature::create("fish_1180");
+            fish->getAnimation()->playWithIndex(0);
+            fish->setPosition(ccp(150, 170));
+            sp->addChild(fish);
+            
+            
+            CCArmature* fish2 = CCArmature::create("fish_1190");
+            fish2->getAnimation()->playWithIndex(0);
+            fish2->setPosition(ccp(150, 30));
+            fish2->setScale(0.9);
+            sp->addChild(fish2);
+        }else if (i==5) {
+            
+            for (int i = 0; i<6; ++i) {
+                CCArmature* fish1 = CCArmature::create(("fish_"+Tools::intToString(1140+i*10)).c_str());
+                fish1->getAnimation()->playWithIndex(0);
+                fish1->setPosition(ccp(150, 0+i*40));
+                fish1->setScale(0.7);
+                sp->addChild(fish1);
+            }
+            
+        }
+
+        
+        
+        
+        sp->setVisible(false);
+        sp->addChild(small_player);
+        sp->setPosition(ccp(guang->getPositionX()-guang->boundingBox().size.width*0.38, guang->getPositionY()-40));
+        addChild(sp);
+        _small_players->addObject(sp);
         
     }
     
     ((CCSprite*)_players->objectAtIndex(_nowSelect))->setVisible(true);
     
-     ((CCArmature*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
+     ((CCNode*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
     
     for (int i = 0; i<_players->count(); ++i) {
         CCSprite* dian = CCSprite::createWithSpriteFrameName("ui_dian1.png");
@@ -211,7 +331,7 @@ bool ChoosePlayer::init()
     _left->runAction(re);
     
     _left->setPosition(ccp(_screenSize.width*0.03, _screenSize.height*0.5));
-    addChild(_left);
+    addChild(_left,100);
     
     _right = CCSprite::createWithSpriteFrameName("ui_jiantou.png");
     _right->setScaleX(-1);
@@ -228,7 +348,7 @@ bool ChoosePlayer::init()
     
     _right->setPosition(ccp(_screenSize.width*0.4, _screenSize.height*0.5));
 
-    addChild(_right);
+    addChild(_right,100);
     
     zi1 = CCSprite::createWithSpriteFrameName("ui_player_zi1.png");
     zi1->setAnchorPoint(ccp(0, 0));
@@ -255,8 +375,8 @@ bool ChoosePlayer::init()
     
     CCSprite* buy_mo_b = CCSprite::createWithSpriteFrameName("ui_jinback.png");
     buy_mo_b->setAnchorPoint(ccp(0, 0.5));
-    buy_mo_b->setScale(1.2);
-    buy_mo_b->setPosition(ccp(-buy_back->boundingBox().size.width*0.4, 0));
+    buy_mo_b->setScale(1.4);
+    buy_mo_b->setPosition(ccp(-buy_back->boundingBox().size.width*0.4-18, 0));
     _buy->addChild(buy_mo_b);
     
 //    CCSprite* yang = CCSprite::createWithSpriteFrameName("ui_qian.png");
@@ -267,7 +387,7 @@ bool ChoosePlayer::init()
     CCSprite* yang = CCSprite::createWithSpriteFrameName("ui_jinbi.png");
     yang->setAnchorPoint(ccp(0, 0.5));
     yang->setPosition(ccp(buy_mo_b->getPositionX()-4, 1));
-    yang->setScale(0.7);
+    yang->setScale(0.8);
     _buy->addChild(yang);
     
     _goldLabel = CCLabelAtlas::create("5", "ui/shuzi3.png", 14, 20, 43);
@@ -408,7 +528,11 @@ void ChoosePlayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEve
             MapScene::instance()->setGold();
             setBuyV(false);
         }else{
-            MapScene::instance()->addMessage(1, "ui_ti_2.png");
+//            MapScene::instance()->addMessage(1, "ui_ti_2.png");
+            
+            _tishi = NoGold::create(NoGold::TYPE_GOLD);
+            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+            addChild(_tishi,999);
         }
         
         
@@ -425,9 +549,9 @@ void ChoosePlayer::changePlayer()
    
     for(int i = 0 ; i<_players->count();++i){
         ((CCSprite*)_players->objectAtIndex(i))->setVisible(false);
-        ((CCArmature*)_small_players->objectAtIndex(i))->setVisible(false);
+        ((CCNode*)_small_players->objectAtIndex(i))->setVisible(false);
     }
-    ((CCArmature*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
+    ((CCNode*)_small_players->objectAtIndex(_nowSelect))->setVisible(true);
     
     CCSprite* player = ((CCSprite*)_players->objectAtIndex(_nowSelect));
     player->setVisible(true);
@@ -450,10 +574,7 @@ void ChoosePlayer::changePlayer()
     
     _goldLabel->setString(Tools::intToString(_player_gold[_nowSelect]).c_str());
     
-    
-    
     if (_nowSelect==0) {
-        
         setBuyV(false);
     }else if (_nowSelect==1&&GameSaveData::loadPlayer(1)) {
         setBuyV(false);
@@ -466,9 +587,7 @@ void ChoosePlayer::changePlayer()
     }else if(_nowSelect==5&&GameSaveData::loadPlayer(5)){
         setBuyV(false);
     }else{
-        
         setBuyV(true);
-        
     }
     
 }

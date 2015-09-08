@@ -467,15 +467,16 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/MapScene.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/SkeletonJson.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
- jni/../../Classes/Reward.h jni/../../Classes/LoadingScreen.h \
- jni/../../Classes/ChoosePlayer.h jni/../../Classes/Set.h \
- jni/../../Classes/MessageManage.h jni/../../Classes/zSpriteManage.h \
- jni/../../Classes/zSprite.h jni/../../Classes/Shop.h \
- jni/../../Classes/AudioController.h \
+ jni/../../Classes/Reward.h jni/../../Classes/NoGold.h \
+ jni/../../Classes/LoadingScreen.h jni/../../Classes/ChoosePlayer.h \
+ jni/../../Classes/Set.h jni/../../Classes/MessageManage.h \
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
+ jni/../../Classes/Shop.h jni/../../Classes/AudioController.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h \
  jni/../../Classes/Common.h jni/../../Classes/GameSaveData.h \
- jni/../../Classes/Tools.h jni/../../Classes/Data.h
+ jni/../../Classes/Tools.h jni/../../Classes/Data.h \
+ jni/../../Classes/IosShop.h jni/../../Classes/Gif7.h
 
 jni/../../Classes/MapScene.h:
 
@@ -1419,6 +1420,8 @@ jni/../../Classes/ScrollView.h:
 
 jni/../../Classes/Reward.h:
 
+jni/../../Classes/NoGold.h:
+
 jni/../../Classes/LoadingScreen.h:
 
 jni/../../Classes/ChoosePlayer.h:
@@ -1446,3 +1449,7 @@ jni/../../Classes/GameSaveData.h:
 jni/../../Classes/Tools.h:
 
 jni/../../Classes/Data.h:
+
+jni/../../Classes/IosShop.h:
+
+jni/../../Classes/Gif7.h:

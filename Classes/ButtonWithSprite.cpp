@@ -45,6 +45,7 @@ bool ButtonWithSprite::init(int id, const char *name,float scaleX, float scaleY)
         
         setButtonScaleX(scaleX);
         setButtonScaleY(scaleY);
+        
         this->setScaleX(_buttonScaleX);
         this->setScaleY(_buttonScaleY);
         return true;

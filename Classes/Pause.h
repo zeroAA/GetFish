@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "ButtonWithSpriteManage.h"
+#include "Fish.h"
 
 USING_NS_CC;
 
@@ -24,9 +25,10 @@ public:
     
     static const int DEAD_TYPE_TOGAME = 2;
     
-    CREATE_FUNC(Pause);
+   
+    static Pause* create(int score,int type,int fishID,int num);
     
-    virtual bool init();
+    virtual bool init(int score,int type,int fishID,int num);
     
     Pause();
     
@@ -45,6 +47,12 @@ public:
 protected:
     
     ButtonWithSpriteManage* _buttons;
+    
+    CCArmature* fish;
+    
+    CCLabelAtlas* _score;
+    
+    CCLabelAtlas* _num;
     
 };
 

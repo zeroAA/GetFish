@@ -478,9 +478,9 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameScene.o: \
  jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
  jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
  jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
- jni/../../Classes/Tools.h jni/../../Classes/Data.h \
- jni/../../Classes/Effect.h jni/../../Classes/Common.h \
- jni/../../Classes/AudioController.h \
+ jni/../../Classes/NoGold.h jni/../../Classes/Tools.h \
+ jni/../../Classes/Data.h jni/../../Classes/Effect.h \
+ jni/../../Classes/Common.h jni/../../Classes/AudioController.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h \
  jni/../../Classes/BinaryReadUtil.h \
@@ -1471,6 +1471,8 @@ jni/../../Classes/MessageManage.h:
 jni/../../Classes/zSpriteManage.h:
 
 jni/../../Classes/zSprite.h:
+
+jni/../../Classes/NoGold.h:
 
 jni/../../Classes/Tools.h:
 

@@ -10,6 +10,8 @@
 #include "Common.h"
 #include "Tools.h"
 #include "GameSaveData.h"
+#include "GameScene.h"
+#include "Data.h"
 
 BadEnd::BadEnd():_dead(-1)
 {
@@ -40,7 +42,7 @@ bool BadEnd::init()
         _numLabel = CCLabelAtlas::create("10", "ui/shuzi4.png", 21, 28, 43);
         _numLabel->setAnchorPoint(ccp(0.5, 0.5));
         _numLabel->setScale(1.5);
-        _numLabel->setPosition(ccp(di->boundingBox().size.width*0.5+10, 52));
+        _numLabel->setPosition(ccp(di->boundingBox().size.width*0.5, 100));
         di->addChild(_numLabel);
         
         CCSprite* zi = CCSprite::create("ui/badendzi.png");
@@ -54,17 +56,22 @@ bool BadEnd::init()
         ButtonWithSprite* button_reset;
         
         if (GameSaveData::loadRest()) {
+            #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+            button_reset = ButtonWithSprite::create(BUTTON_END_RESET, "button_chongzhi_ip.png");
+#else
             button_reset = ButtonWithSprite::create(BUTTON_END_RESET, "button_chongzhi.png");
+#endif
+            
         }else{
             button_reset = ButtonWithSprite::create(BUTTON_END_RESET, "button_mianchongzhi.png");
-            CCSprite* zi = CCSprite::createWithSpriteFrameName("yindao_d_99.png");
-            zi->setPosition(ccp(50, 100));
-            button_reset->addChild(zi);
+            CCSprite* zi = CCSprite::create("ui/yindao_d_99.png");
+            zi->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.2-40));
+            addChild(zi);
         }
        
         
         
-        button_reset->setPosition(ccp(_screenSize.width*0.7, _screenSize.height*0.32));
+        button_reset->setPosition(ccp(_screenSize.width*0.8, _screenSize.height*0.32));
         
         _buttons->addButton(button_reset);
         
@@ -74,9 +81,9 @@ bool BadEnd::init()
         
         _buttons->addButton(button_play);
         
-        ButtonWithSprite* button_back = ButtonWithSprite::create(BUTTON_END_BACK, "buttion_fanhuiguanka.png");
+        ButtonWithSprite* button_back = ButtonWithSprite::create(BUTTON_END_BACK, "button_fanhui2.png");
         
-        button_back->setPosition(ccp(_screenSize.width*0.3, _screenSize.height*0.32));
+        button_back->setPosition(ccp(_screenSize.width*0.2, _screenSize.height*0.32));
         
         _buttons->addButton(button_back);
         
@@ -104,7 +111,20 @@ void BadEnd::touchesEnded(CCSet * touchs,CCEvent * event)
     _buttons->touchesEnded(touchs, event);
    
     if(_buttons->getNowID() == BUTTON_END_RESET){
-        setDead(DEAD_TYPE_REST);
+        
+        if (GameSaveData::loadRest()) {
+            if (player_gold>=REST_GOLD) {
+                setDead(DEAD_TYPE_REST);
+            }else{
+                GameScene::instance()->addMessage(1, "ui_ti_2.png");
+            }
+        }else{
+            
+            setDead(DEAD_TYPE_REST);
+        }
+
+        
+        
     
     }else if(_buttons->getNowID() == BUTTON_END_PLAY){
         setDead(DEAD_TYPE_PLAY);
@@ -129,7 +149,7 @@ void BadEnd::onExit()
    
     CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/badend.png");
     CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/badendzi.png");
-    
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("ui/yindao_d_99.png");
     
     CCLayer::onExit();
 }

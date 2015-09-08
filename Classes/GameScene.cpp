@@ -26,15 +26,15 @@ const static int BG_Z = -80;
 
 const static int SHELL_Z = -55;
 
-const static int ITEM_Z = -54;
+const static int WATER_B_Z = -52;
 
 const static int SHIP_Z = -50;
 
-
+const static int ITEM_Z = -40;
 
 const static int FISH_Z = -30;
 
-
+const static int WATER_F_Z = -28;
 
 const static int ROCK_Z = -25;
 
@@ -67,7 +67,7 @@ CCScene* GameScene::scene(int player ,int lev)
     return scene;
 }
 
-GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(FPS*60),_isChange(false),_nowDataInedxt(0),_fishNum(0),_begin(NULL),_pass_scroe(0),_pause(NULL),_maxScore(1000),_badEnd(NULL),_star(0),_sucEnd(NULL),_isSuc(false),_teach_time(0),_useGetAll(0)
+GameScene::GameScene():_addFishTime(0),_addSPFishTime(0),_time(FPS*60),_isChange(false),_nowDataInedxt(0),_fishNum(0),_begin(NULL),_pass_scroe(0),_pause(NULL),_maxScore(1000),_badEnd(NULL),_star(0),_sucEnd(NULL),_isSuc(false),_teach_time(0),_useGetAll(0),_tishi(NULL),_isAddFormat(false)
 {
     
 }
@@ -98,6 +98,10 @@ bool GameScene::init(int player ,int lev)
     {
         
         
+        struct cc_timeval now;
+        CCTime::gettimeofdayCocos2d(&now, NULL);
+        
+        data_nowLev = lev;
         
         CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/game.plist");
         _screenSize = CCDirector::sharedDirector()->getWinSize();
@@ -139,6 +143,7 @@ bool GameScene::init(int player ,int lev)
         
         _flyNum = CCArray::create();
         _flyNum->retain();
+        
         
         
         //        CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/fish_1.csb");
@@ -256,7 +261,7 @@ bool GameScene::init(int player ,int lev)
         }
         
         
-        _shipLayer->addShip(Ship::TYPE_PLAYER, ("player_"+Tools::intToString(player+1)).c_str(),(player+1),sex,0);
+        _shipLayer->addShip(Ship::TYPE_PLAYER, ("player_"+Tools::intToString(player+1)).c_str(),(player+1),sex);
         
         
         
@@ -395,7 +400,7 @@ bool GameScene::init(int player ,int lev)
                 }else if(type == ADD_ROCK){
                     int id =_IO_read->readInt();
                     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("fish/rock_1.ExportJson");
-                    CCPoint pos = CCPointMake(_IO_read->readInt(), _IO_read->readInt());
+                    CCPoint pos = CCPointMake(_IO_read->readInt()*_screenSize.width/1136, _IO_read->readInt());
                     int hp =_IO_read->readInt();
                     _rockLayer->addRock("rock_1", hp, pos);
                 }else if(type == ADD_LEAF){
@@ -411,7 +416,7 @@ bool GameScene::init(int player ,int lev)
                     _add_leaf.push_back(data);
                 }else if(type == ADD_SHELL){
                     
-                    CCPoint pos =CCPointMake(_IO_read->readInt(), _IO_read->readInt()) ;
+                    CCPoint pos =CCPointMake(_IO_read->readInt()*_screenSize.width/1136, _IO_read->readInt()) ;
                     int open_time = _IO_read->readInt();
                     int close_time = _IO_read->readInt();
                     
@@ -434,10 +439,7 @@ bool GameScene::init(int player ,int lev)
                     _IO_read->readInt();
                     
                     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("ship/npc_1.csb");
-                    _shipLayer->addShip(Ship::TYPE_AI, "npc_1",1, Ship::WOMAN,_IO_read->readInt());
-                    
-                    _IO_read->readInt();
-                    _IO_read->readInt();
+                    _shipLayer->addShip(Ship::TYPE_AI, "npc_1",1, Ship::WOMAN,_IO_read->readInt(),_IO_read->readInt(),_IO_read->readInt());
                     
                     for (int j = 0; j< len2-6; ++j) {
                         _IO_read->readInt();
@@ -473,7 +475,7 @@ bool GameScene::init(int player ,int lev)
         }
         
         //        _mubiao_scroe[0]=10;
-        //                        _time = 120;
+//                                _time = 120;
         //        _mubiao_scroe.push_back(100);
         //        _mubiao_scroe.push_back(500);
         //        _mubiao_scroe.push_back(1000);
@@ -511,22 +513,25 @@ bool GameScene::init(int player ,int lev)
         //        rock->setPosition(CCPointMake(200, 200));
         //        addChild(rock,100);
         
-        AUDIO->playSfx("music/startRound");
         
+        AUDIO->playSfx("music/startRound");
+       
         _begin = GameBegin::create(_mubiao_scroe[0], _suc_type, _suc_add , _suc_num,tishi1,tishi2);
         //        _begin->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
-        
+        if (tishi1!=0) {
+            _begin->setPosition(_screenSize.width*0.5-110, _screenSize.height*1.5);
+        }else{
         _begin->setPosition(_screenSize.width*0.5, _screenSize.height*1.5);
+        }
+        CCMoveTo* mov1 = CCMoveTo::create(0.7, ccp(_begin->getPositionX(), _screenSize.height*0.4));
         
-        CCMoveTo* mov1 = CCMoveTo::create(0.7, ccp(_screenSize.width*0.5, _screenSize.height*0.4));
-        
-        CCMoveTo* mov2 = CCMoveTo::create(0.1, ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+        CCMoveTo* mov2 = CCMoveTo::create(0.1, ccp(_begin->getPositionX(), _screenSize.height*0.5));
         
         CCSequence* sq = CCSequence::create(mov1,mov2,NULL);
         
         _begin->runAction(sq);
         
-        addChild(_begin);
+        addChild(_begin,900);
         
         _lianji = CCSprite::createWithSpriteFrameName("lianji_2.png");
         _lianji->setOpacity(0);
@@ -536,9 +541,43 @@ bool GameScene::init(int player ,int lev)
         _message = MessageManage::create("ui/common.png");
         addChild(_message,900);
         
+        AUDIO->playBgMusic("music/back"+Tools::intToString(_nowLev/12), true);
         
         
         
+        CCSprite* waterBack = CCSprite::create("ui/secneb.png");
+        waterBack->setAnchorPoint(ccp(0, 0.5));
+        waterBack->setOpacity(150);
+        waterBack->setPosition(ccp(0, _screenSize.height-SHIP_INIT_Y+30));
+            
+        CCMoveBy* by = CCMoveBy::create(8, ccp(-80, 0));
+        CCPlace* pl = CCPlace::create(ccp(0, _screenSize.height-SHIP_INIT_Y+30));
+        waterBack->runAction(CCRepeatForever::create(CCSequence::create(by,pl,NULL)));
+            
+        addChild(waterBack,WATER_B_Z);
+        
+        
+        CCSpriteBatchNode* batch1 = CCSpriteBatchNode::create("ui/game.png");
+        addChild(batch1,WATER_F_Z);
+        
+        CCSprite* waterBack1 = CCSprite::create("ui/secneb.png");
+        waterBack1->setAnchorPoint(ccp(0, 0.5));
+        waterBack1->setPosition(ccp(0, _screenSize.height-SHIP_INIT_Y+10));
+        
+        CCMoveBy* by1 = CCMoveBy::create(8, ccp(-80*2, 0));
+        CCPlace* pl1 = CCPlace::create(ccp(0, _screenSize.height-SHIP_INIT_Y+10));
+        waterBack1->runAction(CCRepeatForever::create(CCSequence::create(by1,pl1,NULL)));
+        
+        CCMoveBy* move = CCMoveBy::create(0.6, ccp(0, -1));
+        CCMoveBy* move2 = CCMoveBy::create(0.8, ccp(0, 3));
+        CCMoveBy* move3 = CCMoveBy::create(0.6, ccp(0, -2));
+        
+        CCSequence* sequence = CCSequence::create(move,move2,move3,NULL);
+        
+        CCRepeatForever* repeat = CCRepeatForever::create(sequence);
+        waterBack1->runAction(repeat);
+
+        addChild(waterBack1);
         
         
         return true;
@@ -622,14 +661,16 @@ void GameScene::ccTouchesBegan(CCSet * touchs,CCEvent * event)
         if (IS_ON_BUTTON) {
             _ui->GameUItouchesDir(touchs, event);
             
-            
+           
             if (_ui->getDir() == GameUI::DIR_LEFT) {
+                
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                 if (ship) {
                     ship->setShipToNoHook(0);
                 }
             }
             if (_ui->getDir() == GameUI::DIR_RIGHT) {
+                
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                 if (ship) {
                     ship->setShipToNoHook(_screenSize.width);
@@ -864,6 +905,7 @@ void GameScene::ccTouchesMoved(CCSet * touchs,CCEvent * event)
 void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
 {
     
+    
     if (_begin) {
         _begin->touchesEnded(touchs, event);
     }else if(_badEnd){
@@ -890,9 +932,12 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
             
             
             if (IS_ON_BUTTON) {
+                
                 _ui->GameUItouchesDir(touchs, event);
                 
-                if (_ui->getDir() != GameUI::DIR_NONE) {
+                if (_ui->getisSet()&&_ui->getDir() != GameUI::DIR_NONE) {
+                    
+                   
                     
                     Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
                     if (ship) {
@@ -903,8 +948,12 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
                     }
                     
                     _ui->getLeft()->setScaleX(-1);
+                    _ui->getLeft()->setTag(-1);
                     _ui->getLeft()->setScaleY(1);
                     _ui->getRight()->setScale(1);
+                    _ui->getRight()->setTag(-1);
+                    _ui->setDir(GameUI::DIR_NONE);
+                    
                 }
                 
                 if (_ui->getisHook()) {
@@ -933,22 +982,23 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
             _ui->GameUItouchesDir(touchs, event);
             
             
-            if (_ui->getDir() != GameUI::DIR_NONE) {
+            if (_ui->getisSet()&&_ui->getDir() != GameUI::DIR_NONE) {
                 
                 Ship* ship = dynamic_cast<Ship*>(_shipLayer->getActor()->objectAtIndex(0));
+                
                 if (ship) {
                     if (ship->isState(Ship::ACT_WALK)) {
-                        
                         ship->setState(Ship::ACT_STAND);
                     }
                     
                 }
                 
                 _ui->getLeft()->setScaleX(-1);
-                _ui->getLeft()->setScaleY(1);
                 _ui->getLeft()->setTag(-1);
+                _ui->getLeft()->setScaleY(1);
                 _ui->getRight()->setScale(1);
                 _ui->getRight()->setTag(-1);
+                _ui->setDir(GameUI::DIR_NONE);
             }
             
             if (_ui->getisHook()) {
@@ -975,7 +1025,7 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
             if (_ui->getNowButtonID() == BUTTON_GAME_PAUSE) {
                 if (!_pause) {
                     CCDirector::sharedDirector()->pause();
-                    _pause = Pause::create();
+                    _pause = Pause::create(_mubiao_scroe[0], _suc_type, _suc_add , _suc_num);
                     _pause->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
                     addChild(_pause,100);
                 }
@@ -1001,7 +1051,21 @@ void GameScene::ccTouchesEnded(CCSet * touchs,CCEvent * event)
                             allFishToDead(0);
                             GameSaveData::saveAllData();
                         }else{
-                            addMessage(1, "ui_ti_100.png");
+                            
+                            
+//                            addMessage(1, "ui_ti_100.png");
+                            CCDirector::sharedDirector()->pause();
+                            
+                            if (player_gold>=3000) {
+                                _tishi = NoGold::create(NoGold::TYPE_GET);
+                                
+                            }else{
+                                _tishi = NoGold::create(NoGold::TYPE_GOLD_GET);
+                            }
+                        
+                            _tishi->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+                            addChild(_tishi, 1999);
+                            
                         }
                     }
                     
@@ -1032,7 +1096,6 @@ void GameScene::onEnterTransitionDidFinish()
 void GameScene::onExit()
 {
     
-    
     CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->removeSpriteFramesFromFile("ui/game.plist");
@@ -1052,6 +1115,8 @@ void GameScene::onExit()
 void GameScene::cycle(float delta)
 {
     
+    
+    
     if (_badEnd) {
         _badEnd->cycle(delta);
         if (_badEnd->getDead()==BadEnd::DEAD_TYPE_BACK) {
@@ -1064,12 +1129,71 @@ void GameScene::cycle(float delta)
             
         }else if (_badEnd->getDead()==BadEnd::DEAD_TYPE_REST) {
             
-            if (!GameSaveData::loadRest()) {
-                GameSaveData::saveRest();
-            }
+
             
             removeChild(_badEnd, true);
             _badEnd=NULL;
+            
+#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+            
+            if (GameSaveData::loadRest()) {
+                if (player_gold>=REST_GOLD) {
+                    
+                    player_gold-=REST_GOLD;
+                    GameSaveData::saveGoldData();
+                    
+                    _time=61*FPS;
+                    
+                    _useGetAll = 0;
+                    
+                    getAll++;
+                    _ui->setCitieNum(getAll);
+                    GameSaveData::saveAllData();
+                    
+                    
+                    if (_shipLayer->getActor()->count()>1) {
+                        Ship* ship1 =(Ship*) _shipLayer->getActor()->objectAtIndex(1);
+                        
+                        ship1->setScore(0);
+                        
+                        setUIScroe(1,ship1->getScore());
+                    }
+                    
+                    
+                    
+                }else{
+                    addMessage(1, "ui_ti_2.png");
+                }
+            }else{
+                
+                
+                _time=61*FPS;
+                
+                _useGetAll = 0;
+                
+                getAll++;
+                _ui->setCitieNum(getAll);
+                GameSaveData::saveAllData();
+                
+                GameSaveData::saveRest();
+                
+                if (_shipLayer->getActor()->count()>1) {
+                    Ship* ship1 =(Ship*) _shipLayer->getActor()->objectAtIndex(1);
+                    
+                    ship1->setScore(0);
+                    
+                    setUIScroe(1,ship1->getScore());
+                }
+                
+                
+                
+            }
+           
+#else
+            
+                        if (!GameSaveData::loadRest()) {
+                            GameSaveData::saveRest();
+                        }
             
             _time=61*FPS;
             
@@ -1078,6 +1202,16 @@ void GameScene::cycle(float delta)
             getAll++;
             _ui->setCitieNum(getAll);
             GameSaveData::saveAllData();
+            
+            if (_shipLayer->getActor()->count()>1) {
+                Ship* ship1 =(Ship*) _shipLayer->getActor()->objectAtIndex(1);
+                
+                ship1->setScore(0);
+                
+                setUIScroe(1,ship1->getScore());
+            }
+            
+            #endif
             
         }else if (_badEnd->getDead()==BadEnd::DEAD_TYPE_PLAY) {
             removeChild(_badEnd, true);
@@ -1199,9 +1333,10 @@ void GameScene::cycle(float delta)
                 GameSaveData::saveTeach();
             }
         }
+    
     }else{
         
-        if(_fishLayer&& _fishLayer->getActor()->count() == 0){
+        if(_fishLayer && _fishLayer->getActor()->count() == 0&&_flyNum->count()==0){
             //            unschedule(schedule_selector(GameScene::cycle));
             //            removeAllChildren();
             //            std::vector<int> a;
@@ -1288,11 +1423,11 @@ void GameScene::cycle(float delta)
     }
     
     if (_isChange) {
-        if (_fishLayer->getActor()->count() == 0) {
+        if (_fishLayer->getActor()->count() <5) {
             
             _isChange = false;
             _nowDataInedxt++;
-            
+            _isAddFormat = false;
             if (_nowDataInedxt>=_data.size()) {
                 _nowDataInedxt=0;
             }
@@ -1369,6 +1504,8 @@ void GameScene::cycle(float delta)
         }
     }
     
+    
+    
     _shipLayer->manageCycle(delta);
     _effectLayer->manageCycle(delta);
     _rockLayer->manageCycle(delta);
@@ -1378,8 +1515,8 @@ void GameScene::cycle(float delta)
     
     
     
-    
     cycleFishs(delta);
+    
     
     cycleRocks();
     
@@ -1510,7 +1647,7 @@ void GameScene::cycleFishs(float delta)
             
             if (ship) {
                 
-                fish->setXY(ship->getPositionX()+ ((ship->getHookDx()-6)*ship->getScaleX()),ship->getPositionY()+ship->getHookDy()+10);
+                fish->setXY(ship->getPositionX()+ ((ship->getHookDx())*ship->getScaleX()),ship->getPositionY()+ship->getHookDy()+10);
                 
             }
         }
@@ -1617,7 +1754,6 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                         
                         fish->setState(Fish::ACT_STATE_GOTOSHIP);
                         
-                        
                     }
                 }
                 
@@ -1667,7 +1803,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                 
                 if (fish->getDir()==Fish::DIR_LEFT) {
                     if ((fish->getX() - ship->getX() < 200 && fish->getX() - ship->getX() > 100) && fish->getX() - ship->getX() > 0) {
-                        
+                        AUDIO->playSfx("music/pj");
                         fish->setAY(2.7f);
                         
                         fish->setSpeedY(43 + 10 * (fish->getY() - (Fish::FISH_Y_MIN + 10)) / (Fish::FISH_Y_MAX - (Fish::FISH_Y_MIN + 10)));
@@ -1682,7 +1818,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                     }
                 } else {
                     if ((ship->getX() - fish->getX() < 200 && ship->getX() - fish->getX() > 100) && ship->getX() - fish->getX() > 0) {
-                        
+                        AUDIO->playSfx("music/pj");
                         fish->setAY(2.7f);
                         
                         fish->setSpeedY(43 + 10 * (fish->getY() - (Fish::FISH_Y_MIN + 10)) / (Fish::FISH_Y_MAX - (Fish::FISH_Y_MIN + 10)));
@@ -1717,8 +1853,11 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                     ship->setStop(40);
                     
                     ship->shipOnAtk();
-                    
-                    AUDIO->playSfx("music/beiyao");
+                    if (ship->getSex()==Ship::MAN) {
+                        AUDIO->playSfx("music/bym");
+                    }else{
+                        AUDIO->playSfx("music/byn");
+                    }
                 }
                 
             }
@@ -1840,7 +1979,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
         }else{
             
             if (ship->isShipNormal() && fish->isState(Fish::ACT_STATE_WALK) && ship-> getHookLine().intersectsRect(fish->getBodyRect(1))) {
-                
+                AUDIO->playSfx("music/ls");
                 ship->setState(Ship::ACT_PULL);
                 
                 fish->setState(Fish::ACT_STATE_DEN);
@@ -1931,7 +2070,7 @@ void GameScene::shipAndFish(Ship *ship, Fish *fish, int i)
                 ship->shipOnAtk();
                 
                 ship->playWithIndex(1);
-                AUDIO->playSfx("music/anguilla");
+                AUDIO->playSfx("music/an");
             }
         
         
@@ -1982,7 +2121,7 @@ void GameScene::addDolphin(){
 void GameScene::useDolphin(Fish* fish,int i)
 {
     
-    AUDIO->playSfx("music/dolphinhit");
+    AUDIO->playSfx("music/dh");
     
     fish->setAnim(Fish::ANIM_ATK_READY);
     
@@ -2127,6 +2266,12 @@ void GameScene::setUIScroe(int sc)
     
 }
 
+int GameScene::getScroe(int indext)
+{
+    Ship* ship =(Ship*) _shipLayer->getActor()->objectAtIndex(indext);
+    return ship->getScore();
+}
+
 void GameScene::setUIScroe(int indext , int sc)
 {
     float jindu =(float)sc*100/(float)_maxScore;
@@ -2148,6 +2293,11 @@ void GameScene::setFishToRun()
     for (int i = 0 ; i<fishs->count(); ++i) {
         Fish* fish = (Fish*) fishs->objectAtIndex(i);
         if (!fish->isState(Fish::ACT_STATE_HOOKED)) {
+            if (fish->isStrong()) {
+                rmStrong(fish);
+            }else if (fish->isWhale()) {
+                rmWhale(fish);
+            }
             fish->setGo();
         }
         
@@ -2212,16 +2362,18 @@ void GameScene::addFish()
     }else if(nowdata[0] == ADD_FORMAT){
         
         _isChange = true;
-        if (_fishLayer->getActor()->count() == 0) {
+//        if (_fishLayer->getActor()->count() == 0) {
             for (int i = 0; i<(nowdata.size()-1)/4; ++i) {
                 if (_data[_nowDataInedxt][i*4+4]>0) {
                     addFormatFish(nowdata[1+i*4], nowdata[2+i*4], nowdata[3+i*4]);
                     _data[_nowDataInedxt][i*4+4]--;
-                    _isChange = false;
+//                    _isChange = false;
+                    
                 }
                 
             }
-        }
+        _isAddFormat = true;
+//        }
         
         
     }
@@ -2248,7 +2400,17 @@ void GameScene::addFormatFish(int id, int speed, int dir)
         
         string str1 = name.substr(name.find('_')+1,name.find('.')-name.find('_')-1);
         
-        
+        if (str == "leaf_1") {
+            
+            CCPoint pos = ccp(_IO_read->readInt(), _IO_read->readInt());
+            
+            if (dir == 0) {
+
+                pos = ccpAdd(pos, ccp(_screenSize.width, 0));
+            }
+           
+            _leafLayer->addLeaf("leaf_1", dir==0?1:0, speed, pos.x, pos.y);
+        }else{
         
         int exitType = Fish::EXIT_DEAD_RIGHT;
         
@@ -2260,7 +2422,7 @@ void GameScene::addFormatFish(int id, int speed, int dir)
         }
         
         _fishLayer->addFish(Tools::stringToInt(str1.c_str()), speed, dir, (str).c_str(),exitType,pos);
-        
+        }
     }
     
     
@@ -2356,11 +2518,11 @@ void GameScene::cycleItems()
         Item* item = (Item*) items->objectAtIndex(i);
         
         if (item->getState()==Item::STATE_HOOK) {
-            item->setPosition(ship->getPositionX()+ ((ship->getHookDx())*ship->getScaleX()),ship->getPositionY()+ship->getHookDy());
+            item->setPosition(ship->getPositionX()+ ((ship->getHookDx())*ship->getScaleX()),ship->getPositionY()+ship->getHookAnim()->boundingBox().getMidY());
         }else {
             //            CCRect shipRect = CCRectMake(ship->getPositionX()+ship->getHookAnim()->boundingBox().origin.x, ship->getPositionY()+ship->getHookAnim()->boundingBox().origin.y, ship->getHookAnim()->boundingBox().size.width, ship->getHookAnim()->boundingBox().size.height);
             CCRect shipRect = ship->getHookBody();
-            if (shipRect.intersectsRect(item->getBodyRect())) {
+            if (ship->isCanMove()&&item->getState()==Item::STATE_NORMAL&&shipRect.intersectsRect(item->getBodyRect())) {
                 item->setTime(99999);
                 item->setState(Item::STATE_HOOK);
                 ship->addItem(item);
@@ -2420,6 +2582,11 @@ void GameScene::addFlyNum(int type, int num, int shipID,CCPoint pos,CCPoint des)
 
 void GameScene::allFishToDead(int shipID)
 {
+    
+    Ship* ship =(Ship*) _shipLayer->getActor()->objectAtIndex(shipID);
+    
+    ship->addCTEffe();
+    
     CCArray* fishs = _fishLayer->getActor();
     
     for (int i = 0 ; i<fishs->count(); ++i) {
@@ -2445,13 +2612,13 @@ void GameScene::allFishToDead(int shipID)
         
         
     }
-    if (shipID==0) {
+    
         CCArray* rocks = _rockLayer->getActor();
         for (int i = 0; i<rocks->count(); ++i) {
             Rock* rock = (Rock*) rocks->objectAtIndex(i);
             rock->subHp();
         }
-    }
+   
     
     
 }
@@ -2511,6 +2678,10 @@ void GameScene::addHitFish(int hit)
         
         _lianji->runAction(CCSpawn::create(mb,fout,NULL));
         
+        if (hit>2) {
+            AUDIO->playSfx("music/hit");
+        }
+        
         if (hit == 2) {
             addLightFish();
         }else if (hit == 3) {
@@ -2538,17 +2709,19 @@ void GameScene::rmWhale(Fish *fish2)
         
         Ship* ship3 = (Ship*) ships->objectAtIndex(k);
         
-        if (ship3->getw_Fish() == fish2 &&
-            
-            (
-             fish2->isState(Fish::ACT_STATE_ZHUANG_ATK) ||
-             fish2->isState(Fish::ACT_STATE_ZHUANG_END)
-             
-             ) &&
-            
-            ship3->isState(Ship::ACT_FLY)
-            
-            ) {
+        if (ship3->getw_Fish() == fish2
+//            &&
+//            
+//            (
+//             fish2->isState(Fish::ACT_STATE_ZHUANG_ATK) ||
+//             fish2->isState(Fish::ACT_STATE_ZHUANG_END)
+//             
+//             ) &&
+//            
+//            ship3->isState(Ship::ACT_FLY)
+//            
+            )
+        {
             ship3->setw_Fish(NULL);
             ship3->setState(Ship::ACT_FALL) ;
             //										ship3.setNormal();
@@ -2565,7 +2738,7 @@ void GameScene::rmStrong(Fish *fish2)
         
         Ship* ship3 = (Ship*) ships->objectAtIndex(k);
         
-        if (ship3->getw_Fish() == fish2 && fish2->isState(Fish::ACT_STATE_DEN) ) {
+        if (ship3->getw_Fish() == fish2) {
             ship3->setw_Fish(NULL);
             ship3->setNormal();
             ship3->clearHook();
@@ -2615,15 +2788,42 @@ void GameScene::subSucNum()
 
 bool GameScene::canNextLev()
 {
-    if (_nowLev+1 >= 12&&_nowLev+1 <= 23&&player_star+_star<LEV12_STAR) {
+    
+    if (GameSaveData::loadLevelData(_nowLev+1)>0) {
+        return true;
+    }
+    
+    player_star= 0;
+    
+    for(int k = 0 ; k<6;++k){
+        for (int i = 0; i<3; ++i) {
+            for (int j = 0; j<4; ++j) {
+                int star = GameSaveData::loadLevelData(j+i*4+k*12);
+                if (star >0) {
+                    if (star==2) {
+                        player_star+=1;
+                    }else if (star==3) {
+                        player_star+=2;
+                    }else if (star>=4) {
+                        player_star+=3;
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+    
+    
+    if (_nowLev+1 >= 12&&_nowLev+1 <= 23&&player_star<LEV12_STAR) {
         return false;
-    }else if(_nowLev+1 >= 24&&_nowLev+1 <= 35&&player_star+_star<LEV24_STAR){
+    }else if(_nowLev+1 >= 24&&_nowLev+1 <= 35&&player_star<LEV24_STAR){
         return false;
-    }else if(_nowLev+1 >= 36&&_nowLev+1 <= 47&&player_star+_star<LEV36_STAR){
+    }else if(_nowLev+1 >= 36&&_nowLev+1 <= 47&&player_star<LEV36_STAR){
         return false;
-    }else if(_nowLev+1 >= 48&&_nowLev+1 <= 59&&player_star+_star<LEV48_STAR){
+    }else if(_nowLev+1 >= 48&&_nowLev+1 <= 59&&player_star<LEV48_STAR){
         return false;
-    }else if(_nowLev+1 >= 60&&player_star+_star<LEV60_STAR){
+    }else if(_nowLev+1 >= 60&&player_star<LEV60_STAR){
         return false;
     }
     
@@ -2868,4 +3068,34 @@ void GameScene::nextTeach()
 bool GameScene::isMustTeach()
 {
     return teach!=TEACH_END&&teach!=TEACH_AGETALL&&teach!=TEACH_AHIT;
+}
+
+void GameScene::setCiTie(int num)
+{
+    _ui->setCitieNum(num);
+}
+
+void GameScene::addBuy()
+{
+    
+    CCDirector::sharedDirector()->pause();
+    CCDirector::sharedDirector()->getTouchDispatcher()->setDispatchEvents(false);
+    CCLayerColor* back  = CCLayerColor::create(ccc4(0, 0, 0, 180), _screenSize.width, _screenSize.height);
+    CCSprite* zi =  CCSprite::create("ui/ui_zhifu.png");
+    zi->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+    back->addChild(zi);
+    
+    addChild(back,1999,1999);
+    
+}
+
+void GameScene::removeBuy(bool addFail){
+   
+    CCDirector::sharedDirector()->resume();
+    CCDirector::sharedDirector()->getTouchDispatcher()->setDispatchEvents(true);
+    removeChildByTag(1999, true);
+    
+    if (addFail) {
+        addMessage(1, "ui_ti_99.png");
+    }
 }

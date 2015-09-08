@@ -14,6 +14,7 @@
 #include "ButtonWithSpriteManage.h"
 #include "ScrollView.h"
 #include "Reward.h"
+#include "NoGold.h"
 
 USING_NS_CC;
 
@@ -82,6 +83,10 @@ protected:
     std::vector<int> _gif_gold;
     
     std::vector<int> _gif_getAll;
+    
+    NoGold* _tishi;
+    
+    int nowLev;
 };
 
 #endif /* defined(__GetFish__MapUI__) */

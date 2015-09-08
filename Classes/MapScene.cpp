@@ -13,6 +13,8 @@
 #include "Tools.h"
 #include "Data.h"
 #include "Shop.h"
+#include "IosShop.h"
+#include "Gif7.h"
 
 const static int BACK_Z = -100;
 
@@ -78,6 +80,13 @@ bool MapScene::init(int type)
         return false;
     }
     
+//    for (int i = 0; i<12; ++i) {
+//        if (GameSaveData::loadLevelData(i)<=0) {
+//            GameSaveData::saveLevelData(i, 1);
+//        }
+//    }
+    
+  
     GameSaveData::loadLeveData();
     
     GameSaveData::loadSetData();
@@ -86,9 +95,6 @@ bool MapScene::init(int type)
     GameSaveData::loadAllData();
     
     _instance = this;
-    
-    
-    
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("ui/common.plist");
     
@@ -195,7 +201,20 @@ bool MapScene::init(int type)
     _vip->setPosition(ccp(_screenSize.width*0.8, _screenSize.height*0.92));
     
     _buttons->addButton(_vip);
+    
+    for (int i =0; i<7; ++i) {
+        if (!GameSaveData::loadGif7(i)) {
+            ButtonWithSprite* _gif7 = ButtonWithSprite::create(BUTTON_MAP_GIF7, "button_gif7.png");
+            
+            _gif7->setPosition(ccp(_screenSize.width*0.8-140, _screenSize.height*0.92+5));
+            
+            _buttons->addButton(_gif7);
+            
+            break;
 
+        }
+    }
+    
     this->schedule(schedule_selector(MapScene::cycle));
     
 //    _screenSize = CCDirector::sharedDirector()->getWinSize();
@@ -220,11 +239,9 @@ bool MapScene::init(int type)
 //    zi->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.2));
 //    
 //    addChild(zi);
-    
-        
-    
 //    this->setTouchEnabled(true);
-    AUDIO->playBgMusic("music/back1", true);
+    
+    AUDIO->playBgMusic("music/menu", true);
     
     
 //    _nowPlayer = select_player;
@@ -237,12 +254,18 @@ bool MapScene::init(int type)
 //    addChild(_onLayer,CHOOSE_Z);
     
     _message = MessageManage::create("ui/common.png");
-    addChild(_message,100);
+    addChild(_message,1100);
     
     
 //    Shop* shop = Shop::create(0);
 //    shop->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
 //    addChild(shop);
+    
+//    GetTime();
+    
+    
+    
+    
     
     
     return true;
@@ -321,6 +344,25 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
         CCTextureCache::sharedTextureCache()->removeTextureForKey("main/login_b.png");
         
         
+        struct cc_timeval tv;
+        CCTime::gettimeofdayCocos2d(&tv, NULL);
+        //    CCLOG("lost %ld",((tv.tv_sec-GameSaveData::loadTime())/86400));
+        int indext = -1;
+        
+        for (int i = 0; i<7; ++i) {
+            if (indext==-1&&!GameSaveData::loadGif7(i)) {
+                indext=i;
+            }
+        }
+        
+        day = ((tv.tv_sec-GameSaveData::loadTime())/86400);
+        
+        if (indext<=day&&indext>=0) {
+            Gif7* gif = Gif7::create(Gif7::TYPE_AUTO_DEAD);
+            gif->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+            addChild(gif,999);
+        }
+        
         return;
     }
      _buttons->toucheEnded(pTouch, pEvent);
@@ -352,6 +394,11 @@ void MapScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
         changeToShop(Shop::SHOP_TYPE_VIP);
     }else if (_buttons->getNowID() == BUTTON_MAP_SHOP){
         changeToShop(Shop::SHOP_TYPE_GOLD);
+    }else if(_buttons->getNowID() == BUTTON_MAP_GIF7){
+        Gif7* gif = Gif7::create(Gif7::TYPE_NORMAL);
+        gif->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+        addChild(gif,999);
+
     }
 //    removeAllChildren();
 //    CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(0.5f, LoadingScreen::create(KScreenGame, 0)));
@@ -367,8 +414,12 @@ void MapScene::changeToShop(int type)
     setBackButtonV(true);
     removeChild(_onLayer);
     _onLayer=NULL;
-    
-    _onLayer = Shop::create(type);
+////#if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+    _onLayer = IosShop::create(type);
+////#else
+////    _onLayer = Shop::create(type);
+////#endif
+////
     _onLayer->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
     addChild(_onLayer,SHOP_Z);
     
@@ -421,7 +472,7 @@ void MapScene::changeToMap()
 
 void MapScene::cycle(float delta)
 {
-   
+    
     if (_logo) {
         _logo_time--;
         
@@ -573,6 +624,26 @@ void MapScene::addLogin()
     mid->setScaleY(0.4);
     mid->setScaleX(-0.4);
     
+    
+//    CCParticleSystemQuad* numP10 = CCParticleSystemQuad::create("ui/cat.plist");
+//    numP10->setRotation(15);
+//    numP10->setScale(1.5);
+//    numP10->setPosition(ccp(245, 235));
+//    mid->addChild(numP10);
+//    
+//    CCParticleSystemQuad* numP101 = CCParticleSystemQuad::create("ui/cat.plist");
+//    numP101->setRotation(10);
+//    numP101->setScale(1.5);
+//    numP101->setPosition(ccp(310, 220));
+//    mid->addChild(numP101);
+//    
+//    
+//    CCParticleSystemQuad* numP102 = CCParticleSystemQuad::create("ui/cat.plist");
+//    numP102->setRotation(10);
+//    numP102->setScale(1.5);
+//    numP102->setPosition(ccp(330, 190));
+//    mid->addChild(numP102);
+    
     CCScaleTo* stm = CCScaleTo::create(0.6, -1.1, 1.1);
     
     CCMoveTo* mtm = CCMoveTo::create(0.6, ccp(_screenSize.width*0.5+30, _screenSize.height*0.55));
@@ -595,3 +666,36 @@ void MapScene::addLogin()
     
     addChild(_login,100);
 }
+
+void MapScene::addBuy()
+{
+    CCDirector::sharedDirector()->pause();
+    CCDirector::sharedDirector()->getTouchDispatcher()->setDispatchEvents(false);
+    CCLayerColor* back  = CCLayerColor::create(ccc4(0, 0, 0, 180), _screenSize.width, _screenSize.height);
+    CCSprite* zi =  CCSprite::create("ui/ui_zhifu.png");
+    zi->setPosition(ccp(_screenSize.width*0.5, _screenSize.height*0.5));
+    back->addChild(zi);
+    
+    addChild(back,1999,1999);
+    
+}
+
+void MapScene::removeBuy(bool addFail){
+    CCDirector::sharedDirector()->resume();
+    CCDirector::sharedDirector()->getTouchDispatcher()->setDispatchEvents(true);
+    removeChildByTag(1999, true);
+    
+    if (addFail) {
+        addMessage(1, "ui_ti_99.png");
+    }
+}
+
+void MapScene::setShopButton(int indext)
+{
+    IosShop* layer = (IosShop*)_onLayer;
+    
+    if (layer) {
+        layer->setButton(indext);
+    }
+}
+

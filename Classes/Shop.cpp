@@ -14,6 +14,7 @@
 #include "MapScene.h"
 #include "GameSaveData.h"
 
+
 Shop* Shop::create(int type)
 {
     Shop* map = new Shop();
@@ -107,6 +108,7 @@ void Shop::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
             MapScene::instance()->addMessage(1, "ui_ti_2.png");
         }
     }else if (_buttons->getNowID() == BUTTON_SHOP_BUY2){
+        
         getAll+=_num[1];
         GameSaveData::saveAllData();
     }else if (_buttons->getNowID() == BUTTON_SHOP_BUY3){

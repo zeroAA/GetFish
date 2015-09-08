@@ -155,3 +155,8 @@ void ButtonWithSpriteManage::toucheEnded(CCTouch *pTouch,CCEvent * event)
         }
     }
 }
+
+ButtonWithSprite* ButtonWithSpriteManage::getButton(int indext)
+{
+    return (ButtonWithSprite*)_buttons->objectAtIndex(indext);
+}

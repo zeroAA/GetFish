@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "ButtonWithSpriteManage.h"
+#include "NoGold.h"
 
 USING_NS_CC;
 
@@ -81,6 +82,8 @@ protected:
     CCSprite* zi2;
     
     std::vector<int> _player_gold;
+    
+    NoGold* _tishi;
     
 };
 

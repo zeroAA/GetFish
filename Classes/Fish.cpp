@@ -174,7 +174,7 @@ void Fish::cycle(float delta)
                 
                 this->setAnim(ANIM_ATK);
                 
-                AUDIO->playSfx("music/dolphinattack");
+                AUDIO->playSfx("music/da");
             }
         
             break;
@@ -334,10 +334,12 @@ void Fish::cycle(float delta)
             if (getDir() == DIR_LEFT) {
                 if (getRotation() == 90 && _speedy<0) {
                     setRotation(-90);
+                    AUDIO->playSfx("music/pb");
                 }
             }else{
                 if (getRotation() == -90 && _speedy<0) {
                     setRotation(90);
+                     AUDIO->playSfx("music/pb");
                 }
             }
             
@@ -582,7 +584,6 @@ void Fish::setAnim(int anim)
         
         
     }
-    
      
     playWithIndex(anim);
 }

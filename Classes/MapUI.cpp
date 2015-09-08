@@ -75,7 +75,7 @@ bool MapUI::init(int lev)
     _levE = CCLayer::create();
     player_star = 0;
     int nowPage = 0;
-    int nowLev = 0;
+    nowLev = 0;
     
     
     
@@ -106,8 +106,6 @@ bool MapUI::init(int lev)
         }
     }
     
-    
-   
         if (nowLev==11&&player_star>=LEV12_STAR) {
              GameSaveData::saveLevelData(nowLev+1, 1);
         }else if(nowLev==23&&player_star>=LEV24_STAR){
@@ -177,6 +175,11 @@ bool MapUI::init(int lev)
     _chooseIc = CCSprite::createWithSpriteFrameName("ui_dian2.png");
     setChooseIC();
     addChild(_chooseIc);
+    
+    
+    if (data_nowLev>0) {
+        nowPage= data_nowLev/12;
+    }
     
     if (nowPage!=0) {
         _scroll->toOneMate(nowPage);
@@ -342,17 +345,61 @@ void MapUI::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
                         //                    CCLOG("no open");
                         
                         if (player_star<LEV12_STAR&&me->getLev() >= 12&&me->getLev() <= 23) {
-                            MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_21.png");
+                            
+                            if (nowLev<11) {
+                                MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_21.png");
+                            }else{
+                            
+                            
+                            _tishi = NoGold::create(NoGold::TYPE_KAI_2);
+                            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+                            addChild(_tishi,999);
+                            }
+                            
                         }else if (player_star<LEV24_STAR&& me->getLev() >= 24&& me->getLev() <= 35){
+                            if (nowLev<11) {
                             MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_22.png");
+                            }else{
+                            _tishi = NoGold::create(NoGold::TYPE_KAI_3);
+                            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+                            addChild(_tishi,999);
+                            }
                         }else if (player_star<LEV36_STAR&& me->getLev() >= 36&&me->getLev() <= 47){
+                            if (nowLev<11) {
                             MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_23.png");
+                            }else{
+                            _tishi = NoGold::create(NoGold::TYPE_KAI_4);
+                            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+                            addChild(_tishi,999);
+                            }
                         }else if (player_star<LEV48_STAR&&me->getLev() >= 48&&me->getLev() <= 59){
+                            if (nowLev<11) {
                             MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_24.png");
+                            }else{
+                            _tishi = NoGold::create(NoGold::TYPE_KAI_5);
+                            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+                            addChild(_tishi,999);
+                            }
                         }else if (player_star<LEV60_STAR&&me->getLev() >= 60&&me->getLev() <= 71){
+                            if (nowLev<11) {
                             MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_25.png");
+                            }else{
+                            _tishi = NoGold::create(NoGold::TYPE_KAI_6);
+                            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+                            addChild(_tishi,999);
+                            }
                         }else{
-                            MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_3.png");
+                            
+                            if (nowLev<11) {
+                                                            MapScene::instance()->addMessage(Message::TYPE_OVER_DEAD, "ui_ti_3.png");
+                                
+                            }else{
+                         
+                            _tishi = NoGold::create(NoGold::TYPE_KAI_NO);
+                            _tishi->setPosition(_screenSize.width*0.5, _screenSize.height*0.5);
+                            addChild(_tishi,999);
+                            }
+                            
                         }
                     }else{
                         _nowSelect =me->getLev();

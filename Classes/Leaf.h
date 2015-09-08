@@ -21,6 +21,7 @@ public:
     
     const static int DIR_LEFT = 0;
     const static int DIR_RIGHT =1 ;
+
     
     static Leaf* create(const char* name,int hp,int dir,float speedx,float speedy);
     

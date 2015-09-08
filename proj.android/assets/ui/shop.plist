@@ -4,10 +4,36 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>libao1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,268},{247,208}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{247,208}}</string>
+                <key>sourceSize</key>
+                <string>{247,208}</string>
+            </dict>
+            <key>libao2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,746},{233,139}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{233,139}}</string>
+                <key>sourceSize</key>
+                <string>{233,139}</string>
+            </dict>
             <key>shop_ctzi.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{387,436},{100,29}}</string>
+                <string>{{186,634},{100,29}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +46,7 @@
             <key>ui_shop_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{418,436},{83,60}}</string>
+                <string>{{186,478},{83,60}}</string>
                 <key>offset</key>
                 <string>{-1,-1}</string>
                 <key>rotated</key>
@@ -33,7 +59,7 @@
             <key>ui_shop_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{308,268},{108,65}}</string>
+                <string>{{170,887},{108,65}}</string>
                 <key>offset</key>
                 <string>{0,-3}</string>
                 <key>rotated</key>
@@ -46,7 +72,7 @@
             <key>ui_shop_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{308,436},{108,77}}</string>
+                <string>{{91,887},{108,77}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +85,7 @@
             <key>ui_shop_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{375,285},{149,120}}</string>
+                <string>{{237,833},{149,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -69,10 +95,23 @@
                 <key>sourceSize</key>
                 <string>{149,120}</string>
             </dict>
+            <key>ui_shop_5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,887},{108,87}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{108,87}}</string>
+                <key>sourceSize</key>
+                <string>{108,87}</string>
+            </dict>
             <key>ui_shop_back.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{124,268},{182,266}}</string>
+                <string>{{2,478},{182,266}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +137,7 @@
             <key>ui_shop_libao_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{380,2},{120,281}}</string>
+                <string>{{251,268},{120,281}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +150,7 @@
             <key>ui_shop_libao_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,268},{120,280}}</string>
+                <string>{{248,551},{120,280}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -121,6 +160,19 @@
                 <key>sourceSize</key>
                 <string>{120,280}</string>
             </dict>
+            <key>ui_shp_bao.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{186,563},{60,69}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{60,69}}</string>
+                <key>sourceSize</key>
+                <string>{60,69}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -129,9 +181,9 @@
             <key>realTextureFileName</key>
             <string>shop.png</string>
             <key>size</key>
-            <string>{502,550}</string>
+            <string>{380,997}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:dd974649ed3784edf18f247b7f65ae36:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:6c15158a38c7cfaae0ba4a062a6934d7:1/1$</string>
             <key>textureFileName</key>
             <string>shop.png</string>
         </dict>

@@ -204,8 +204,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/ChoosePlayer.o: \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponent.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../cocos2dx/support/component/CCComponentContainer.h \
  jni/../../Classes/ButtonWithSpriteManage.h \
- jni/../../Classes/ButtonWithSprite.h jni/../../Classes/Common.h \
- jni/../../Classes/Tools.h \
+ jni/../../Classes/ButtonWithSprite.h jni/../../Classes/NoGold.h \
+ jni/../../Classes/Common.h jni/../../Classes/Tools.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/cocos-ext.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/ExtensionMacros.h \
  /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../extensions/ExtensionExport.h \
@@ -886,6 +886,8 @@ jni/../../Classes/ChoosePlayer.h:
 jni/../../Classes/ButtonWithSpriteManage.h:
 
 jni/../../Classes/ButtonWithSprite.h:
+
+jni/../../Classes/NoGold.h:
 
 jni/../../Classes/Common.h:
 

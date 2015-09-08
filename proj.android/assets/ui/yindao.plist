@@ -7,7 +7,7 @@
             <key>yindao_d_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,65},{491,24}}</string>
+                <string>{{2,2},{491,24}}</string>
                 <key>offset</key>
                 <string>{-3,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>yindao_d_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,39},{497,24}}</string>
+                <string>{{2,28},{497,24}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>yindao_d_10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,117},{324,34}}</string>
+                <string>{{2,54},{324,34}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>yindao_d_11.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{564,2},{325,35}}</string>
+                <string>{{328,54},{325,35}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>yindao_d_12.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{734,113},{228,35}}</string>
+                <string>{{655,54},{228,35}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -69,23 +69,10 @@
                 <key>sourceSize</key>
                 <string>{232,35}</string>
             </dict>
-            <key>yindao_d_13.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{2,2},{560,35}}</string>
-                <key>offset</key>
-                <string>{-1,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{1,2},{560,35}}</string>
-                <key>sourceSize</key>
-                <string>{564,39}</string>
-            </dict>
             <key>yindao_d_14.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{501,39},{463,35}}</string>
+                <string>{{2,91},{463,35}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +85,7 @@
             <key>yindao_d_16.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{495,76},{422,35}}</string>
+                <string>{{467,91},{422,35}}</string>
                 <key>offset</key>
                 <string>{-4,0}</string>
                 <key>rotated</key>
@@ -111,7 +98,7 @@
             <key>yindao_d_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{403,113},{329,24}}</string>
+                <string>{{495,2},{329,24}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
@@ -124,7 +111,7 @@
             <key>yindao_d_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,91},{399,24}}</string>
+                <string>{{501,28},{399,24}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -142,9 +129,9 @@
             <key>realTextureFileName</key>
             <string>yindao.png</string>
             <key>size</key>
-            <string>{966,153}</string>
+            <string>{902,129}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:1aa2b2638b075499b33f395697e6adfb:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:31a0cc7af5424f54fd824c66dc0fae46:1/1$</string>
             <key>textureFileName</key>
             <string>yindao.png</string>
         </dict>

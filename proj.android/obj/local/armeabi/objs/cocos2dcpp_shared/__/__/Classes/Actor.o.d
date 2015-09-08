@@ -478,7 +478,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Actor.o: \
  jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
  jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
  jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
- jni/../../Classes/Tools.h
+ jni/../../Classes/NoGold.h jni/../../Classes/Tools.h
 
 jni/../../Classes/Actor.h:
 
@@ -1463,5 +1463,7 @@ jni/../../Classes/MessageManage.h:
 jni/../../Classes/zSpriteManage.h:
 
 jni/../../Classes/zSprite.h:
+
+jni/../../Classes/NoGold.h:
 
 jni/../../Classes/Tools.h:

@@ -27,7 +27,9 @@ public:
     
     virtual ~ShipManage();
     
-    void addShip(int type,const char* name,int ID,int sex,int moveCD);
+    void addShip(int type,const char* name,int ID,int sex);
+    
+    void addShip(int type,const char* name,int ID,int sex,int moveCD,int getTime,int getC);
     
 protected:
     

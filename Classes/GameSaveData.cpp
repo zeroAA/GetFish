@@ -38,11 +38,29 @@ void GameSaveData::loadLeveData(){
         
         CCUserDefault::sharedUserDefault()->setIntegerForKey("All", 3);
         
+        CCUserDefault::sharedUserDefault()->setBoolForKey("VIP", false);
+        
+        CCUserDefault::sharedUserDefault()->setBoolForKey("NewGif", false);
+        
+        struct cc_timeval tv;
+        CCTime::gettimeofdayCocos2d(&tv, NULL);
+        long time =(long)tv.tv_sec;
+        
+        struct tm *tm;
+        time_t timep = tv.tv_sec;
+        tm = localtime(&timep);
+        
+        time = time-tm->tm_hour*3600-tm->tm_min*60-tm->tm_sec;
+        
+        CCUserDefault::sharedUserDefault()->setDoubleForKey("time", time);
+        
+        
+        for (int i = 0; i<7; ++i) {
+            CCUserDefault::sharedUserDefault()->setBoolForKey(("gif7_"+Tools::intToString(i)).c_str(), false);
+        }
+        
         CCUserDefault::sharedUserDefault()->flush();
-        
-        
-        
-        CCLOG("建立存档完毕");
+        CCLOG("建立存档完毕 %ld",time);
     }else{
 //        for (int i = 0; i<35; ++i) {
 //            saveLevelData(i,5);
@@ -75,8 +93,6 @@ void GameSaveData::loadAllData()
 
 int GameSaveData::loadLevelData(int lev)
 {
-//    vector<int> data;
-//    data.push_back();
     
     return CCUserDefault::sharedUserDefault()->getIntegerForKey(("Lev_"+Tools::intToString(lev)+"_star").c_str());
     
@@ -153,4 +169,42 @@ void GameSaveData::saveRest()
 bool GameSaveData::loadRest()
 {
     return CCUserDefault::sharedUserDefault()->getBoolForKey("rest");
+}
+
+void GameSaveData::saveVipGif()
+{
+    CCUserDefault::sharedUserDefault()->setBoolForKey("VIP", true);
+    CCUserDefault::sharedUserDefault()->flush();
+}
+
+bool GameSaveData::loadVipGif()
+{
+    return CCUserDefault::sharedUserDefault()->getBoolForKey("VIP");
+}
+
+void GameSaveData::saveNewGif()
+{
+    CCUserDefault::sharedUserDefault()->setBoolForKey("NewGif", true);
+    CCUserDefault::sharedUserDefault()->flush();
+}
+
+bool GameSaveData::loadNewGif()
+{
+    return CCUserDefault::sharedUserDefault()->getBoolForKey("NewGif");
+}
+
+void GameSaveData::saveGif7(int indext)
+{
+    CCUserDefault::sharedUserDefault()->setBoolForKey(("gif7_"+Tools::intToString(indext)).c_str(), true);
+    CCUserDefault::sharedUserDefault()->flush();
+}
+
+bool GameSaveData::loadGif7(int indext)
+{
+    return CCUserDefault::sharedUserDefault()->getBoolForKey(("gif7_"+Tools::intToString(indext)).c_str());
+}
+
+long GameSaveData::loadTime()
+{
+    return CCUserDefault::sharedUserDefault()->getDoubleForKey("time");
 }

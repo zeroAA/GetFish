@@ -30,6 +30,8 @@ public:
     
     void addLeaf(const char* name,int dir,float speed,float y);
     
+    
+    void addLeaf(const char* name,int dir,float speed,float x,float y);
 };
 
 #endif /* defined(__GetFish__LeafManage__) */

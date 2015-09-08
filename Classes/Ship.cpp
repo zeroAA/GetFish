@@ -19,15 +19,15 @@
 
 
 
-#define Z_HOOK     6
-#define Z_TURN     10
+#define Z_HOOK     999
+#define Z_TURN     1000
 
 
-Ship* Ship::create(int type ,const char* name)
+Ship* Ship::create(int type,int ID ,const char* name)
 {
     Ship* ship = new Ship();
     
-    if(ship && ship->init(type,name)) {
+    if(ship && ship->init(type,ID,name)) {
         ship->autorelease();
         return ship;
     }
@@ -38,7 +38,7 @@ Ship* Ship::create(int type ,const char* name)
 
 
 
-Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_moveCD(120),_moveCD_MAX(120),_w_Fish(NULL)
+Ship::Ship():_type(TYPE_PLAYER),_timeC(0),_hit(0),_HOOK_MOVE_DISTANCE(0),_testTime(0),_noHurtTime(0),_hookCurAngle(0),_stopTime(0),_speed(10),_volume(0),_volumeMax(1000),_hoolSpeed(12),_hookSpeed(10),_score(0),_moveCD(120),_moveCD_MAX(120),_w_Fish(NULL),_getC(0),_getTime(0),_getTimeMax(0)
 {
     
 }
@@ -63,7 +63,7 @@ Ship::~Ship()
     }
 }
 
-bool Ship::init(int type ,const char* name)
+bool Ship::init(int type,int ID ,const char* name)
 {
     
    
@@ -101,11 +101,18 @@ bool Ship::init(int type ,const char* name)
         
         _type = type;
         
+        setID(ID);
+        
         if(type == TYPE_AI){
             this->setScaleX(-1);
         }
         
         this->initData();
+        
+        _ct = CCSprite::createWithSpriteFrameName("citieshi_23.png");
+        _ct->setPosition(ccp(0, getBodyRect().size.height*0.5));
+        _ct->setOpacity(0);
+        addChild(_ct,999);
         
 //        this->schedule(schedule_selector(Ship::cycle));
         
@@ -117,10 +124,20 @@ bool Ship::init(int type ,const char* name)
     return false;
 }
 
+void Ship::addCTEffe()
+{
+    _ct->setOpacity(255);
+    _ct->setScale(0.2);
+    CCFadeOut* out = CCFadeOut::create(0.5);
+    CCScaleTo* st = CCScaleTo::create(0.5, 2);
+    
+    _ct->runAction(CCSequence::create(st,out,NULL));
+}
+
 void Ship::initData()
 {
         
-    setHook(0);
+    setHook(_id);
 
     if (_type == TYPE_PLAYER) {
         _x =_screenSize.width/3;
@@ -136,7 +153,10 @@ void Ship::initData()
     
 }
 
-
+void Ship::setGetTime(int time,int c){
+    _getC = c;
+    _getTime = _getTimeMax = time;
+}
 
 void Ship::cycle(float delta)
 {
@@ -159,6 +179,15 @@ void Ship::cycle(float delta)
         if (_moveCD<=0) {
             _moveCD = _moveCD_MAX;
             setShipTo(Tools::randomIntInRange(_screenSize.width*0.2, _screenSize.width*0.8));
+        }
+       
+        if (_getC>0) {
+            _getTime--;
+            if (_getTime<=0) {
+                _getC--;
+                _getTime = _getTimeMax;
+                GameScene::instance()->allFishToDead(1);
+            }
         }
     }
     
@@ -395,8 +424,11 @@ void Ship::setDesX(float x)
 
 void Ship::setHook(int type)
 {
-
-    _hook_anim =CCSprite::create("ship/hook0.png");
+    if (_type == TYPE_AI) {
+        _hook_anim =CCSprite::create(("ship/hook100.png"));
+    }else{
+        _hook_anim =CCSprite::create(("ship/hook"+Tools::intToString(type-1)+".png").c_str());
+    }
     
     _hookDx = _hookInitDx = getBone("hook")->getWorldInfo()->x;
     _hookDy = _hookInitDy = getBone("hook")->getWorldInfo()->y;
@@ -404,7 +436,11 @@ void Ship::setHook(int type)
     _hookDir = HOOK_DIR_UP;
     
     _bHasFishHooked = false;
-    _hook_anim->setAnchorPoint(ccp(0.5, 1));
+    if (type == 1) {
+        _hook_anim->setAnchorPoint(ccp(0.6, 1));
+    }else{
+        _hook_anim->setAnchorPoint(ccp(0.5, 1));
+    }
     _hook_anim->setPosition(ccp(_hookDx,_hookDy));
     
     this->addChild(_hook_anim,Z_HOOK);
@@ -595,8 +631,12 @@ void Ship::cycleHook()  {
 void Ship::draw()
 {
     Actor::draw();
-    ccDrawColor4B(0xff, 0xff, 0xff, 0);
-    glLineWidth(1.5f);
+    if(_type == TYPE_AI){
+        ccDrawColor4B(0xff, 0xff, 0, 0xff);
+    }else{
+        ccDrawColor4B(0xff, 0xff, 0xff, 0xff);
+    }
+        glLineWidth(2.0f);
     
     if(_state == ACT_CUT_LINE){
         

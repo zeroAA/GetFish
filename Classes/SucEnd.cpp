@@ -12,6 +12,9 @@
 #include "Tools.h"
 #include "Data.h"
 #include "GameSaveData.h"
+#include "AudioController.h"
+
+#include <math.h>
 
 SucEnd::SucEnd():_dead(-1)
 {
@@ -25,6 +28,8 @@ SucEnd::~SucEnd()
 bool SucEnd::init()
 {
     if(CCLayer::init()) {
+        
+        data_nowLev = -1;
         
         CCSize win = CCDirector::sharedDirector()->getWinSize();
         CCNode* node = CCNode::create();
@@ -46,12 +51,15 @@ bool SucEnd::init()
         node->addChild(jinbi);
         
         int g = 0;
+        
+        float lev =GameScene::instance()->getNowLevel()+1;
+        
+        g = ceil(lev/2)*10+ceil(lev/2)*50;
+        
         if (GameScene::instance()->getStar() == 1) {
-            g = (GameScene::instance()->getNowLevel()+1)*50;
+            g = g*0.6;
         }else if (GameScene::instance()->getStar() == 2) {
-            g = (GameScene::instance()->getNowLevel()+1)*60;
-        }else{
-            g = (GameScene::instance()->getNowLevel()+1)*80;
+            g = g*0.8;
         }
         
         player_gold += g;
@@ -71,7 +79,7 @@ bool SucEnd::init()
         CCRotateBy* rb = CCRotateBy::create(0.5, 360);
         CCScaleTo* sc = CCScaleTo::create(0.5, 1);
         
-        xing->runAction(CCSpawn::create(rb,sc,NULL));
+        xing->runAction(CCSequence::create(CCSpawn::create(rb,sc,NULL),CCCallFunc::create(this,callfunc_selector(SucEnd::play1)),NULL));
         
         node->addChild(xing);
         
@@ -80,12 +88,12 @@ bool SucEnd::init()
             xing1->setScale(5);
             xing1->setOpacity(0);
             xing1->setPosition(ccp(0, 0));
-            CCDelayTime* dt = CCDelayTime::create(0.5);
+            CCDelayTime* dt = CCDelayTime::create(0.7);
             CCFadeIn* in = CCFadeIn::create(0);
             CCRotateBy* rb = CCRotateBy::create(0.5, 360);
             CCScaleTo* sc = CCScaleTo::create(0.5, 1);
             
-            xing1->runAction(CCSequence::create(dt,CCSpawn::create(in,rb,sc,NULL),NULL));
+            xing1->runAction(CCSequence::create(dt,CCSpawn::create(in,rb,sc,NULL),CCCallFunc::create(this,callfunc_selector(SucEnd::play2)),NULL));
             
             node->addChild(xing1);
         }else{
@@ -102,12 +110,12 @@ bool SucEnd::init()
             xing2->setOpacity(0);
             xing2->setRotation(30);
             xing2->setPosition(ccp(100, -20));
-            CCDelayTime* dt = CCDelayTime::create(1);
+            CCDelayTime* dt = CCDelayTime::create(1.4);
             CCFadeIn* in = CCFadeIn::create(0);
             CCRotateBy* rb = CCRotateBy::create(0.5, 360);
             CCScaleTo* sc = CCScaleTo::create(0.5, 1);
             
-            xing2->runAction(CCSequence::create(dt,CCSpawn::create(in,rb,sc,NULL),NULL));
+            xing2->runAction(CCSequence::create(dt,CCSpawn::create(in,rb,sc,NULL),CCCallFunc::create(this,callfunc_selector(SucEnd::play3)),NULL));
             
             node->addChild(xing2);
         }else{
@@ -123,7 +131,7 @@ bool SucEnd::init()
             wan->setOpacity(0);
             wan->setScale(3);
             CCDelayTime* dt = CCDelayTime::create((GameScene::instance()->getStar())*0.5);
-            wan->runAction(CCSequence::create(dt,CCSpawn::create(CCFadeIn::create(0),CCScaleTo::create(0.3, 1),NULL),NULL));
+            wan->runAction(CCSequence::create(dt,CCSpawn::create(CCFadeIn::create(0),CCScaleTo::create(0.3, 1),CCCallFunc::create(this,callfunc_selector(SucEnd::play4)),NULL),NULL));
             node->addChild(wan);
         }
         
@@ -132,18 +140,30 @@ bool SucEnd::init()
         
         addChild(_buttons);
         
-        ButtonWithSprite* button_play = ButtonWithSprite::create(BUTTON_END_NEXT, "button_xiayiguan.png");
-        
-        button_play->setPosition(ccp(win.width*0.5+144, win.height*0.5-128));
-        
-        _buttons->addButton(button_play);
-        
-        ButtonWithSprite* button_back = ButtonWithSprite::create(BUTTON_END_BACK, "buttion_fanhuiguanka.png");
-        
-        button_back->setPosition(ccp(win.width*0.5-144, win.height*0.5-128));
-        
-        _buttons->addButton(button_back);
+        if (lev<72) {
+            ButtonWithSprite* button_play = ButtonWithSprite::create(BUTTON_END_NEXT, "button_xiayiguan.png");
+            
+            button_play->setPosition(ccp(win.width*0.5+144, win.height*0.5-128));
+            
+            _buttons->addButton(button_play);
+            
+            ButtonWithSprite* button_back = ButtonWithSprite::create(BUTTON_END_BACK, "button_fanhui2.png");
+            
+            button_back->setPosition(ccp(win.width*0.5-144, win.height*0.5-128));
+            
+            _buttons->addButton(button_back);
 
+        }else{
+            ButtonWithSprite* button_back = ButtonWithSprite::create(BUTTON_END_BACK, "button_fanhui2.png");
+            
+            button_back->setPosition(ccp(win.width*0.5, win.height*0.5-128));
+            
+            _buttons->addButton(button_back);
+        }
+        
+        
+        
+        
         
         
         
@@ -194,4 +214,30 @@ void SucEnd::touchesEnded(CCSet * touchs,CCEvent * event)
         }
         
     }
+    
+    
+}
+
+void SucEnd::play1()
+{
+    AUDIO->playSfx("music/so");
+   
+}
+
+void SucEnd::play2()
+{
+    AUDIO->playSfx("music/ss");
+    
+}
+
+void SucEnd::play3()
+{
+    AUDIO->playSfx("music/st");
+    
+}
+
+void SucEnd::play4()
+{
+    AUDIO->playSfx("music/sw");
+    
 }

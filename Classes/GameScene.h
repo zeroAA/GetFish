@@ -32,6 +32,8 @@
 
 #include "MessageManage.h"
 
+#include "NoGold.h"
+
 USING_NS_CC;
 
 class GameScene : public cocos2d::CCLayer
@@ -152,6 +154,14 @@ public:
     
     int getMuBiao(int indext);
     
+    void setCiTie(int num);
+    
+    void addBuy();
+    
+    void removeBuy(bool addFail);
+    
+    int getScroe(int indext);
+    
 private:
     
     static GameScene* _instance;
@@ -204,7 +214,7 @@ private:
     void addFish();
     
     
-    
+ 
     
     
     void setPerfect();
@@ -259,6 +269,8 @@ protected:
     
     bool _isChange;
     
+    bool _isAddFormat;
+    
     RockManage* _rockLayer;
     
     LeafManage* _leafLayer;
@@ -301,6 +313,8 @@ protected:
     int _useGetAll;
     
     int _teach_time;
+    
+    NoGold* _tishi;
 };
 
 #endif /* defined(__GetFish__GameScene__) */

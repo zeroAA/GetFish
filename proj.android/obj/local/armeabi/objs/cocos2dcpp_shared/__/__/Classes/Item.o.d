@@ -477,7 +477,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/Item.o: \
  jni/../../Classes/Ship.h jni/../../Classes/Fish.h \
  jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
  jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
- jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h
+ jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
+ jni/../../Classes/NoGold.h
 
 jni/../../Classes/Item.h:
 
@@ -1462,3 +1463,5 @@ jni/../../Classes/MessageManage.h:
 jni/../../Classes/zSpriteManage.h:
 
 jni/../../Classes/zSprite.h:
+
+jni/../../Classes/NoGold.h:

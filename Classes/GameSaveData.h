@@ -51,6 +51,20 @@ public:
     
     static bool loadRest();
     
+    static void saveNewGif();
+    
+    static bool loadNewGif();
+    
+    static void saveVipGif();
+    
+    static bool loadVipGif();
+    
+    static void saveGif7(int indext);
+    
+    static bool loadGif7(int indext);
+    
+    static long loadTime();
+    
 private:
     
 //    static vector<int> leveData;

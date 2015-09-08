@@ -478,8 +478,11 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/SucEnd.o: \
  jni/../../Classes/Pause.h jni/../../Classes/GameUI.h \
  jni/../../Classes/GameBegin.h jni/../../Classes/MessageManage.h \
  jni/../../Classes/zSpriteManage.h jni/../../Classes/zSprite.h \
- jni/../../Classes/Tools.h jni/../../Classes/Data.h \
- jni/../../Classes/GameSaveData.h
+ jni/../../Classes/NoGold.h jni/../../Classes/Tools.h \
+ jni/../../Classes/Data.h jni/../../Classes/GameSaveData.h \
+ jni/../../Classes/AudioController.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
+ /Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h
 
 jni/../../Classes/SucEnd.h:
 
@@ -1465,8 +1468,16 @@ jni/../../Classes/zSpriteManage.h:
 
 jni/../../Classes/zSprite.h:
 
+jni/../../Classes/NoGold.h:
+
 jni/../../Classes/Tools.h:
 
 jni/../../Classes/Data.h:
 
 jni/../../Classes/GameSaveData.h:
+
+jni/../../Classes/AudioController.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h:
+
+/Users/zhusu/Desktop/cocos2d/cocos2d-x-2.2.5/projects/GetFish/proj.android/../../../CocosDenshion/android/../include/Export.h:

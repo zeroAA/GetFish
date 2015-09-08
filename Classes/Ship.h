@@ -64,9 +64,9 @@ public:
     const static int WOMAN = 1;
 
     
-    static Ship* create(int type ,const char* name);
+    static Ship* create(int type,int ID ,const char* name);
     
-    virtual bool init(int type ,const char* name);
+    virtual bool init(int type,int ID ,const char* name);
     
     Ship();
     
@@ -180,6 +180,10 @@ public:
     CC_SYNTHESIZE(int, _id, ID);
     
     void addItem(Item* it);
+    
+    void addCTEffe();
+    
+    void setGetTime(int time,int c);
     
 private:
     
@@ -312,6 +316,10 @@ protected:
     
     int _moveCD_MAX;
     
+    CCSprite* _ct;
+    int _getTimeMax;
+    int _getTime;
+    int _getC;
     
 };
 

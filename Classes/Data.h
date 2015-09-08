@@ -32,5 +32,14 @@ extern float winH;
 
 extern int teach;
 
+extern bool isGetNewGif;
+
+extern bool isGetVipGif;
+
+extern int data_nowLev;
+
+extern int month;
+
+extern int day;
 
 #endif /* defined(__GetFish__Data__) */

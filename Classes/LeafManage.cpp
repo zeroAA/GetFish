@@ -40,3 +40,14 @@ void LeafManage::addLeaf(const char *name, int dir , float speed,float y)
     
     addActor(leaf);
 }
+
+
+void LeafManage::addLeaf(const char *name, int dir , float speed,float x,float y)
+{
+    Leaf* leaf = Leaf::create(name, 1000, dir, speed, 0);
+    
+    
+    leaf->setPosition(ccp(x, y));
+    
+    addActor(leaf);
+}

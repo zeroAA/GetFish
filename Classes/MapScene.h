@@ -65,11 +65,19 @@ public:
     
     void setBackButtonV(bool v);
     
+    void addBuy();
+    
+    void removeBuy(bool addFail);
+    
+    void setShopButton(int indext);
+    
+    void changeToMap();
+
 private:
     
     static MapScene* _instance;
     
-    void changeToMap();
+    
     
     void changeToChoose();
     
@@ -80,6 +88,8 @@ private:
     void cycle(float delta);
     
     void addLogin();
+    
+    
     
 protected:
 //    MapUI* _mapUI;
@@ -110,5 +120,7 @@ protected:
     
     
 };
+
+
 
 #endif /* defined(__GetFish__MapScene__) */

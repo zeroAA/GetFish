@@ -22,7 +22,7 @@ const int BUTTON_MAP_SHOP = 102;
 const int BUTTON_MAP_SET = 103;
 const int BUTTON_MAP_BACK = 104;
 const int BUTTON_MAP_VIP = 105;
-
+const int BUTTON_MAP_GIF7 = 117;
 const int BUTTON_MAP_BUY = 106;
 
 const int BUTTON_MAP_BEGAIN = 107;
@@ -61,6 +61,19 @@ const int BUTTON_SHOP_BUY4 = 158;
 const int BUTTON_SHOP_BUY5 = 159;
 const int BUTTON_SHOP_BUY6 = 160;
 
+const int BUTTON_NOGOLD_BACK = 170;
+const int BUTTON_NOGOLD_GET = 171;
+const int BUTTON_NOGOLD_OPEN = 172;
+
+const int BUTTON_GIF_1= 201;
+const int BUTTON_GIF_2= 202;
+const int BUTTON_GIF_3= 203;
+const int BUTTON_GIF_4= 204;
+const int BUTTON_GIF_5= 205;
+const int BUTTON_GIF_6= 206;
+const int BUTTON_GIF_7= 207;
+const int BUTTON_GIF_BACK= 210;
+
 const int KEY_MAP = -200;
 
 const int KEY_SUCEND = -190;
@@ -73,34 +86,38 @@ const int KEY_CHOOSE = -150;
 
 const int KEY_MAPSC = -300;
 
-
+const int KEY_NOGOLD = -900;
 
 const int KScreenUnkown = -1;
 const int KScreenGame = 0;
 const int KScreenMap = 1;
 
-const int LEV12_STAR = 35;
+const int LEV12_STAR = 32;
 
-const int LEV24_STAR = 68;
+const int LEV24_STAR = 66;
 
 const int LEV36_STAR = 100;
 
 const int LEV48_STAR = 130;
 
-const int LEV60_STAR = 168;
+const int LEV60_STAR = 164;
 
-const int PLAYER2_GOLD = 9000;
+const int PLAYER2_GOLD = 8000;
 
 const int PLAYER3_GOLD = 15000;
 
-const int PLAYER4_GOLD = 25000;
+const int PLAYER4_GOLD = 30000;
 
-const int PLAYER5_GOLD = 55000;
+const int PLAYER5_GOLD = 70000;
 
-const int PLAYER6_GOLD = 99999;
+const int PLAYER6_GOLD = 150000;
 
+const int REST_GOLD = 3000;
+const int GETALL_GOLD = 15000;
 
-const int GETALL_GOLD = 8888;
+const int BUY2 = 10;
+const int BUY3 = 5;
+const int BUY4 = 10;
 
 const int TEACH_D_0 = 0;
 const int TEACH_D_1 = 1;
